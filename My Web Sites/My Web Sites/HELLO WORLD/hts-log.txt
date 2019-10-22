@@ -1,0 +1,22 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 18 Oct 2019 15:24:32 at https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/blog.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/blog.html -O1 "C:\My Web Sites\mission web" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:24:37	Warning: 	File not parsed, looks like binary: https://p.w3layouts.com/robots.txt
+15:26:00	Error: 	"Not Found" (404) at link https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/images/plus.png (from https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/css/style.css)
+15:26:00	Error: 	"Not Found" (404) at link https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/images/minus.png (from https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/css/style.css)
+15:26:00	Error: 	"Not Found" (404) at link https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/images/arrows.png (from https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/css/style.css)
+15:26:00	Error: 	"Not Found" (404) at link https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/images/fb.png (from https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/css/style.css)
+15:26:00	Error: 	"Not Found" (404) at link https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/images/tw.png (from https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/css/style.css)
+15:26:00	Error: 	"Not Found" (404) at link https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/images/pin.png (from https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/css/style.css)
+15:26:00	Error: 	"Not Found" (404) at link https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/images/icons.png (from https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/css/style.css)
+15:26:01	Error: 	"Not Found" (404) at link https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/images/dot1.png (from https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/css/audio.css)
+15:26:01	Error: 	"Not Found" (404) at link https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/images/time-box.png (from https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/css/audio.css)
+15:26:01	Error: 	"Not Found" (404) at link https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/images/jplayer.blue.monday.seeking.gif (from https://p.w3layouts.com/demos/june-2016/01-06-2016/mosaic/web/css/jplayer.blue.monday.min.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 29 seconds : 123 links scanned, 112 files written (8624366 bytes overall) [7529357 bytes received at 84599 bytes/sec], 1671518 bytes transferred using HTTP compression in 49 files, ratio 30%, 13.6 requests per connection
+(10 errors, 1 warnings, 0 messages)
