@@ -1,0 +1,12 @@
+zkemkeeper.CZKEM macobj = new zkemkeeper.CZKEM();
+string ipaddress = "192.168.1.101";
+            int port = 4370;
+            status = macobj.Connect_Net(ipaddress, port);
+            if (status == true)
+            {
+                MessageBox.Show("Connected");
+            }
+            else
+            {
+                MessageBox.Show("Not Connected");
+            }
