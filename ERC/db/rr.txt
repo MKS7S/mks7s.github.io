@@ -1,0 +1,18 @@
+<?php
+    $host = "122.165.218.14";
+    $port = 4321;
+    set_time_limit(0);
+    echo "Start to Create() socket....";
+    $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP) or die("create():".socket_strerror(socket_last_error($socket)));
+    echo "Start to Bind() Socket....";
+    $result = socket_bind($socket, $host, $port) or die("Bind():".socket_strerror(socket_last_error($socket)));
+    while (TRUE)
+    {
+        $input = socket_read($socket,1024);
+        $input = trim($input);
+        echo $input;
+        ob_flush(); // use both ob_flush and flush to ensure
+        flush(); // output is written to the browser window
+    }
+    socket_close($socket);
+?>
