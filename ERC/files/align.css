@@ -1,0 +1,74 @@
+#info-bar {
+  background: #fff;
+}
+
+#container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 76%;
+}
+
+.info {
+  float: left;
+  width: 38.5%;
+  margin: 0;
+  padding: 9px 0;
+  font-size: 0.4em;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+#quickquotes.info {
+  width: 30.5%;
+}
+
+#quickshop.info {
+  width: 31%;
+}
+
+#container i {
+  font-size: 34px;
+  color: #a6d120;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#container i:before {
+  position: relative;
+  top: 4px;
+}
+
+.icon-quote:before {
+  content: url("http://www.arvig.com/wp-content/uploads/icon/1438049586.png");
+}
+
+.icon-delivery:before {
+  content: url("http://www.arvig.com/wp-content/uploads/icon/1438049586.png");
+}
+
+.icon-quickshop:before {
+  content: url("http://www.arvig.com/wp-content/uploads/icon/1438049586.png");
+}
+
+#container .text-area {
+  display: inline-block;
+  //vertical-align: middle;
+  text-align: left;
+  margin-left: 0px;
+  color: #1e3e57;
+  letter-spacing: 0.07em;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 1.1em;
+}
+
+@media only screen and (max-width: 40em) {
+  .info,
+  #quickquotes.info,
+  #quickshop.info {
+    float: none;
+    width: 100%;
+    margin-bottom: 5px
+  }
+}
