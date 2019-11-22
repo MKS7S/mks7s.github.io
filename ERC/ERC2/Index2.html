@@ -4,60 +4,47 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
-<!-- scroll to click -->
-<style>
-html {
-  scroll-behavior: smooth;
-}
-
-#Contact_div1
-#guidence_div1
-}
-</style>
 </head>
-<body id="top"><p>
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<!-- ################################################################################################ -->
-<div class="wrapper row1" style="padding: 0px 0px 0px 0px;">
-<header id="header" class="hoc clear"> 
-    <!-- ################################################################################################ -->
-    <div id="logo" class="fl_left">
-      <h1><a href="index.html"><img style="float: left; padding: 0px 0px 25px 0px;" src="minlogo.png"></a></h1>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+  <nav class="navbar navbar-inverse navbar-static-top example6">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar6">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand text-hide" href="http:erc.com">Brand Text
+        </a>
+      </div>
+      <div id="navbar6" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
     </div>
-    <nav id="mainav" class="fl_right">
-      <ul class="clear" style="float: left; padding: 30px 0px 0px 43px;">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a class="drop" href="#">Monitoring</a>
-          <ul>
-            <li><a href="pages/galleryx.html">Gallery</a></li>
-            <li><a href="pages/full-widthx.html">Full Width</a></li>
-            <li><a href="pages/sidebar-leftx.html">Sidebar Left</a></li>
-            <li><a href="pages/sidebar-rightx.html">Sidebar Right</a></li>
-            <li><a href="pages/basic-gridx.html">Basic Grid</a></li>
-          </ul>
-        </li>
-        <li><a class="drop" href="#">Membership</a>
-          <ul>
-            <li><a href="#">Level 2</a></li>
-            <li><a class="drop" href="#">Level 2 + Drop</a>
-              <ul>
-                <li><a href="#">Level 3</a></li>
-                <li><a href="#">Level 3</a></li>
-                <li><a href="#">Level 3</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Level 2</a></li>
-          </ul>
-        </li>
-        <li><a href="#guidence_div1">Guidence</a></li>
-        <li><a href="#">Other</a></li>
-		<li><a href="#Contact_div1">Contact us</a></li>
-      </ul>
-    </nav>
-    <!-- ################################################################################################ -->
-  </header>
-</div>
+    <!--/.container-fluid -->
+  </nav>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -131,7 +118,7 @@ html {
   <section class="hoc container clear"> 
     <!-- ################################################################################################ -->
     <div class="sectiontitle">
-      <h6 class="heading">34test test test</h6>
+      <h6 class="heading">test test test</h6>
       <p>test test test test tes t tset test tset test</p>
     </div>
     <ul class="nospace group services">
@@ -172,9 +159,6 @@ html {
         </article>
       </li>
     </ul>
-		<!-- Scroll click -->
-	<div class="main" id="guidence_div1">
-	<a href="Contact_div1"></a></div>
     <!-- ################################################################################################ -->
     <div class="clear"></div>
   </section>
@@ -253,9 +237,6 @@ html {
 <div class="wrapper row4">
   <footer id="footer" class="hoc clear"> 
     <!-- ################################################################################################ -->
-		<!-- Scroll click -->
-	<div class="main" id="Contact_div1">
-	<a href="Contact_div1"></a></div>
     <div class="one_third first">
       <h6 class="heading">Contact us at</h6>
       <ul class="nospace btmspace-30 linklist contact">
@@ -303,7 +284,7 @@ html {
         <fieldset>
           <legend>Newsletter:</legend>
           <input class="btmspace-15" type="text" value="" placeholder="Name">
-          <input class="btmspace-15" type="text" value="" placeholder="Phone or email">
+          <input class="btmspace-15" type="text" value="" placeholder="Email">
           <button type="submit" value="submit">Submit</button>
         </fieldset>
       </form>
@@ -318,7 +299,7 @@ html {
   <div id="copyright" class="hoc clear"> 
     <!-- ################################################################################################ -->
     <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="#">ERC</a></p>
-    <p class="fl_right">Designed by <a target="_blank" href="https://www.os.com/">Abhishek Bhasker</a></p>
+    <p class="fl_right">Template by <a target="_blank" href="https://www.os.com/">Abhishek Bhasker</a></p>
     <!-- ################################################################################################ -->
   </div>
 </div>

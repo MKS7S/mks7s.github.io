@@ -1,0 +1,23 @@
+
+
+
+<!-- scroll to click -->
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+#Contact_div1
+#guidence_div1
+}
+</style>
+
+
+
+
+
+
+
+<!-- Scroll click -->
+<div class="main" id="Contact_div1">
+<a href="Contact_div1"></a></div>
