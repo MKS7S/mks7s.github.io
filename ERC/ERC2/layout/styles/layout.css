@@ -27,7 +27,7 @@ File: Framework CSS
 
 /* Page Intro
 --------------------------------------------------------------------------------------------------------------- */
-#pageintro{padding:150px 0;}
+#pageintro{padding:55px 0;}
 
 #pageintro article{display:block; max-width:60%;}
 #pageintro article *{margin:0; line-height:normal;}
