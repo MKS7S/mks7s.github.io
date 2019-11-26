@@ -256,9 +256,9 @@ hr, .borderedbox{border-color:#D7D7D7;}
 label span{color:#FF0000; background-color:inherit;}
 input:focus, textarea:focus, *:required:focus{border-color:#59A209;}
 .overlay{color:#FFFFFF; background-color:inherit;}
-.overlay::after{color:inherit; background-color:rgba(0,0,0,.55);}
+.overlay::after{color:inherit; background-color:rgba(0,0,0,0.3);}
 
-.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#59A209; border-color:#59A209;}
+.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#59A209; border-color:#59A209;box-shadow: 0 0 2px 0px black;}
 .btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
 
 
