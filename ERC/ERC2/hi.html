@@ -1,0 +1,348 @@
+<html>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #1f6f32ed;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 180px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: #1f6f32;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+</style>
+<!-- scroll down in html -->
+<style>
+div.ex4scroll {
+  background-color: lightblue;
+  width: auto;
+  height: 200px;
+  overflow: auto;
+}
+</style>
+<!-- Notification window -->
+<button class="open-button" onclick="openForm()">Notifications(1)</button>
+<div class="chat-popup" id="myForm">
+<style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+<div class="ex4scroll">
+<button class="accordion">■ Section 1 ▽</button>
+<div class="panel">
+  <p>Section111111111111111111</p>
+</div>
+<button class="accordion">■ Section 2 ▽</button>
+<div class="panel">
+  <p>section222222222222222222</p>
+</div>
+
+<button class="accordion">■ Section 3 ▽</button>
+<div class="panel">
+  <p>section333333333333333333</p>
+</div>
+
+<button class="accordion">■ Section 4 ▽</button>
+<div class="panel">
+  <p>Section111111111111111111</p>
+</div>
+
+<button class="accordion">■ Section 5 ▽</button>
+<div class="panel">
+  <p>Section111111111111111111</p>
+</div>
+
+<button class="accordion">■ Section 6 ▽</button>
+<div class="panel">
+  <p>Section111111111111111111</p>
+</div>
+
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+  <form action="ss" class="form-container">
+    <label for="msg"><b>Click on message for show more.</b></label>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+<!-- chat pop up -->
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #056563ed;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  left: 28px;
+  width: 100px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: #056563ed;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+</style>
+<!-- scroll down in html -->
+<style>
+div.ex4scroll {
+  background-color: lightblue;
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+}
+</style>
+<button class="open-button" onclick="openForm()">FAQ Chat</button>
+
+<div class="chat-popup" id="myForm">
+<style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+<div class="ex4scroll">
+<button class="accordion">Q.1 What is Online Emission and Effluent Monitoring? ▽</button>
+<div class="panel">
+  <p style="color:black;">Ans. It is continuous monitoring of emissions and effluents from the discharge points of industrial units. The analysers are installed on stacks/ chimneys and at the outlets of Effluent Treatment Plants/ Sewage Treatment Plants. The analysers continuously generate data at intervals of one second to few minutes.</p>
+</div>
+<button class="accordion">Q.2 Why should I install Online monitoring instrument? ▽</button>
+<div class="panel">
+  <p style="color:black;">Ans. The M.P. Pollution Control Board has issued directions U/S 31’A’ of Air (Prevention & Control of Pollution) Act 1981 and U/S 33’A’ of Water (Prevention & Control of Pollution) Act 1974 in August 2014 to all the target industries for the installation of online monitoring systems for strengthening monitoring and self regulation. The CPCB has also issued directions u/s 5 of the E(P) Act to the units for the same purpose. Failure to comply with the directions may lead to closure of the industry.</p>
+</div>
+
+<button class="accordion">Q.3 Is there any time limit for installation of online monitoring instruments? ▽</button>
+<div class="panel">
+  <p style="color:black;">Ans. Yes. The time limit awarded to the industries was 15.06.2015 which has already expired now.</p>
+</div>
+
+<button class="accordion">Q.4 What if the industry does not install online monitoring instrument? ▽</button>
+<div class="panel">
+  <p style="color:black;">Ans. Every industry is expected to respond positively in the interest of environment and honour the Environmental Laws. Failing which, action for closure may follow.</p>
+</div>
+
+<button class="accordion">Q.5 Which industries are required to install Online Monitoring instruments? ▽</button>
+<div class="panel">
+  <p style="color:black;">Ans. Highly polluting industrial sectors, known as 17-categories of industries, Common treatment/ facility units have been directed to install online monitoring devices.</p>
+</div>
+
+<button class="accordion">Q.6 What are the parameters I should monitor? ▽</button>
+<div class="panel">
+  <p style="color:black;">Ans. Click Here for Answer.</p>
+</div>
+
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+  <form action="ss" class="form-container">
+    <label for="msg"><b><p style="color:black;">Click on question to know answer.</p></b></label>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+</html>
