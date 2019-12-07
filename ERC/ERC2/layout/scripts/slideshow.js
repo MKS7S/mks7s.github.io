@@ -2,7 +2,7 @@ $("#slideshow > div:gt(0)").hide();
 
 setInterval(function() {
   $('#slideshow > div:first')
-    .fadeOut(200)
+    .fadeOut(2000)
     .next()
     .fadeIn(2000)
     .end()
