@@ -57,7 +57,7 @@ File: Framework CSS
 
 .elements li:nth-child(-n+2){margin-bottom:50px;}/* Adds bottom margin to the first two elements only */
 .elements > li:last-child{margin-bottom:0;}/* Used when elements stack in small viewports */
-.elements article{display:block; position:relative; min-height:80px; padding:0 0 0 70px;}
+.elements article{display:block; position:relative; min-height:80px; padding:0 0 0 70px;background-color:#f5f5f5;}       
 .elements article::before, .elements article::after{display:table; content:"";}
 .elements article::after{clear:both;}
 .elements article *{margin:0 0 15px 0;}
