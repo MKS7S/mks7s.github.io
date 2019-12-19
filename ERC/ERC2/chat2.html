@@ -348,3 +348,216 @@ function closeForm2() {
   document.getElementById("myForm2").style.display = "none";
 }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Letters -->
+<!-- Letters -->
+<!-- Letters --><!-- Letters-->
+<!-- Letters -->
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open3-button {
+  background-color: #093d5c;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 80px;
+  left: 28px;
+  width: 100px;
+  box-shadow: 0 0 3px 0px black;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: #056563ed;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open3-button:hover {
+  opacity: 1;
+}
+</style>
+<!-- scroll down in html -->
+<style>
+div.ex44scroll {
+  background-color: lightblue;
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+}
+</style>
+<button class="open3-button" onclick="open3Form()">Letters</button>
+
+<div class="chat-popup" id="myForm3">
+<style>
+.accordion1 {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+.panel1 {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+<div class="ex44scroll">
+<button class="accordion1">To Industries ▽</button>
+<div class="panel">
+  <p style="color:black;">Click here to go</p>
+</div>
+<button class="accordion1">To Regional Officers ▽</button>
+<div class="panel">
+  <p style="color:black;">Click here to go</p>
+</div>
+
+<button class="accordion1">Others ▽</button>
+<div class="panel">
+  <p style="color:black;">Click here to go</p>
+</div>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion1");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+  <form action="ss" class="form-container">
+    <label for="msg"><b><p style="color:black;">Click on Link to check letters</p></b></label>
+    <button type="button" class="btn cancel" onclick="closeForm3()">Close</button>
+  </form>
+</div>
+
+<script>
+function open3Form() {
+  document.getElementById("myForm3").style.display = "block";
+}
+
+function closeForm3() {
+  document.getElementById("myForm3").style.display = "none";
+}
+</script>
+<!-- Letters end-->
+<!-- Letters -->
+<!-- Letters end--><!-- Letters-->
+<!-- Letters end-->
