@@ -2,38 +2,59 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - #100DaysCSS - 006 - Profile</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
+  <title>CodePen - Image Slider - responsive, modular, autoplay</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:200,300,400,700">
+
+<meta name="viewport" content="width=device-width"><link rel="stylesheet" href="./style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
+<!-- Slider 1 -->
 
-  <div class="center">
-    <div class="card">
-      <div class="left">
-        <div class="avatar">
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <img src="https://github.com/MKS7S/mks7s.github.io/raw/master/login3.jpg" />
+    <!-- Slider 1 -->
+    <div class="slider" id="slider3">
+        <div style="background-image:url(assets/images/bg-2.jpg)">
+            <span>
+                <h2>I'm a title for Slide #1</h2>
+            </span>
         </div>
-        <div class="info">
-          <span class="big">EnvAlert</span>
+        <div style="background-image:url(assets/images/bg-2.jpg)">
+            <span>
+                <h2>I'm a title for Slide #2</h2>
+            </span>
         </div>
-      </div>
-      <div class="right">
-        <div class="stats posts">
-          <span class="big">For Android</span><span class="small">On Play Store</span>
+        <div style="background-image:url(assets/images/bg-2.jpg)">
+            <span>
+                <h2>I'm a title for Slide #3</h2>
+            </span>
         </div>
-        <div class="stats likes">
-          <span class="big">For IOS</span><span class="small">On Apple Store</span>
+		<div style="background-image:url(assets/images/bg-2.jpg)">
+            <span>
+                <h2>I'm a title for Slide #4</h2>
+            </span>
         </div>
-      </div>
+        <!-- The Arrows -->
+        <i class="left" class="arrows" style="z-index:2; position:absolute;"><svg viewBox="0 0 100 100">
+                <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z"></path>
+            </svg></i>
+        <i class="right" class="arrows" style="z-index:2; position:absolute;">
+            <svg viewBox="0 0 100 100">
+                <path d="M 10,50 L 60,100 L 70,90 L 30,50  L 70,10 L 60,0 Z" transform="translate(100, 100) rotate(180) "></path>
+            </svg></i>
+        <!-- Title Bar -->
+        <!--     <span class="titleBar">
+        <h1>I am like a leaf in the wind.</h1> 
+        <p>Watch me soar!</p>
+    </span> -->
     </div>
-  </div>
+
+</div>
+
 
 <!-- partial -->
-  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="./script.js"></script>
+
 </body>
 </html>
