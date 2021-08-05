@@ -1,0 +1,78 @@
+
+
+/** --------------------------------
+ -- Charts
+-------------------------------- */
+.charts .chart-container {
+	background-color: var(--dk-dark-bg);
+}
+
+.charts .chart-container h3 {
+	color: var(--dk-gray-400)
+}
+
+
+
+
+/** --------------------------------
+ -- users
+-------------------------------- */
+.admins .box .admin {
+	background-color: var(--dk-dark-bg);
+}
+
+.admins .box h3 {
+	color: var(--dk-gray-300);
+}
+
+.admins .box p {
+	color: var(--dk-gray-400)
+}
+
+
+
+
+/** --------------------------------
+ -- statis
+-------------------------------- */
+.statis {
+	color: var(--dk-gray-100);
+}
+
+.statis .box {
+	position: relative;
+	overflow: hidden;
+	border-radius: 3px;
+}
+
+.statis .box h3:after {
+	content: "";
+	height: 2px;
+	width: 70%;
+	margin: auto;
+	background-color: rgba(255, 255, 255, 0.12);
+	display: block;
+	margin-top: 10px;
+}
+
+.statis .box i {
+	position: absolute;
+	height: 70px;
+	width: 70px;
+	font-size: 22px;
+	padding: 15px;
+	top: -25px;
+	left: -25px;
+	background-color: rgba(255, 255, 255, 0.15);
+	line-height: 60px;
+	text-align: right;
+	border-radius: 50%;
+}
+
+
+
+
+
+.main-color {
+	color: #ffc107
+}
