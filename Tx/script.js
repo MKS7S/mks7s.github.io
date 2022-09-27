@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	//Only needed for the filename of export files.
 	//Normally set in the title tag of your page.
-	document.title='Report';
+	document.title='Report2';
 	// DataTable initialisation
 	$('#example').DataTable(
 		{
