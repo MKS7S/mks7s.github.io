@@ -54,10 +54,12 @@
 </head>
 <body>
 
-<div id="table-container"></div>
+
 <div id="avgworldindex"></div>
 <div id="avgwrldweeklychng"></div>
-<div id="giftyniftychng"></div>
+<div id="giftyniftypercnt"></div>
+
+<div id="table-container"></div>
 
 <script>
     function formatDate(timestamp) {
@@ -69,25 +71,26 @@
         fetch("https://priceapi.moneycontrol.com/technicalCompanyData/globalMarket/getGlobalIndicesListingData?view=overview&deviceType=W")
             .then(response => response.json())
             .then(data => {
-                // Extracting percent_change values from the data
+
                 const percentChanges = data.dataList.flatMap(market => market.data.map(rowData => parseFloat(rowData[data.header.findIndex(header => header.name === 'percent_change')])));
 
-                // Calculating the average percent_change
                 const averagePercentChange = percentChanges.reduce((total, value) => total + value, 0) / percentChanges.length;
 
-                // Displaying the average in the div
-                document.getElementById('avgworldindex').textContent = `Average Percent Change: ${averagePercentChange.toFixed(2)}%`;
+                document.getElementById('avgworldindex').textContent = `Average of all index Change: ${averagePercentChange.toFixed(2)}%`;
 
-                // Extracting weekly_per_change values from the data
                 const weeklyChanges = data.dataList.flatMap(market => market.data.map(rowData => parseFloat(rowData[data.header.findIndex(header => header.name === 'weekly_per_change')])));
 
-                // Calculating the average weekly_per_change
                 const averageWeeklyChange = weeklyChanges.reduce((total, value) => total + value, 0) / weeklyChanges.length;
 
-                // Displaying the average weekly_per_change in the div
-                document.getElementById('avgwrldweeklychng').textContent = `Average Weekly Change: ${averageWeeklyChange.toFixed(2)}%`;
+                document.getElementById('avgwrldweeklychng').textContent = `Average of all weekly index Change: ${averageWeeklyChange.toFixed(2)}%`;
+				
+				
+				const giftNiftyData = data.dataList.find(market => market.heading === "Asian_Market")
+                                                 .data.find(rowData => rowData[1] === "GIFT NIFTY");
+                const percentChange = giftNiftyData[4];
 
-                // Dynamically generating the table
+                document.getElementById('giftyniftypercnt').textContent = `GIFTY NIFTY Percent Change: ${percentChange}%`;
+
                 const headersToShow = [
                     "name", "price", "net_change", "percent_change", 
                     "weekly_per_change", "technical_rating", "last_updated", 
@@ -139,6 +142,7 @@
             .catch(error => console.error('Error fetching data:', error));
     });
 </script>
+
 
 </body>
 </html>
