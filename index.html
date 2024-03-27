@@ -1,6 +1,313 @@
+<html style="width: 100%;">
 <head>
-  <meta http-equiv='refresh' content='0; URL=https://google.com/'>
+<meta charset="UTF-8">
+<title>Global Market Data</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #383838;
+		color: white;
+    }
+    .positive {
+        background-color: green;
+        color: white;
+    }
+    .negative {
+        background-color: red;
+        color: white;
+    }
+    .flag-img {
+        max-width: 50px;
+        max-height: 30px;
+    }
+    .state-closed {
+        background-color: red;
+        color: white;
+    }
+    .state-open {
+        background-color: green;
+        color: white;
+    }
+	.state-pre {
+        background-color: #e7e700;
+        color: white;
+    }
+</style>
 </head>
+<body style="background: black;color: white;">
+
+
+
+  
+  
+  
+<p style="color: #6c6c6c;">© 2024 Development Rights MKS <a href="#" class="active" style="float: right;color: #6c6c6c;">✪ Picks As Per Data</a></p>
+<h2>Concluded Data:</h2>
+<div id="avgworldindex"></div>
+<div id="avgwrldweeklychng"></div>
+<div id="giftyniftypercnt"></div>
+<h2>Global Indices:</h2>
+<div id="table-container" style="width: 100%;"></div>
+<h2>Commodities:</h2>
+<div id="table-container2" style="width: 100%;"></div>
+<h2>Bonds:</h2>
+<div id="table-container3" style="width: 100%;"></div>
+<h2>Currencies:</h2>
+<div id="table-container4" style="width: 100%;"></div>
+
+<!-- Global Index Data table-container -->
 <script>
-window.location.href = 'https://google.com/';
+document.addEventListener("DOMContentLoaded", function() {
+    function formatDate(timestamp) {
+        const date = new Date(timestamp);
+        const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+        const formattedTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
+        return `${formattedDate} ${formattedTime}`;
+    }
+    function fetchDataAndPopulateTable() {
+        fetch("https://priceapi.moneycontrol.com/technicalCompanyData/globalMarket/getGlobalIndicesListingData?view=overview&deviceType=W")
+            .then(response => response.json())
+            .then(data => {
+                const percentChanges = data.dataList.flatMap(market => market.data.map(rowData => parseFloat(rowData[data.header.findIndex(header => header.name === 'percent_change')])));
+                const averagePercentChange = percentChanges.reduce((total, value) => total + value, 0) / percentChanges.length;
+                document.getElementById('avgworldindex').textContent = `Average of all index Change: ${averagePercentChange.toFixed(2)}%`;
+                const weeklyChanges = data.dataList.flatMap(market => market.data.map(rowData => parseFloat(rowData[data.header.findIndex(header => header.name === 'weekly_per_change')])));
+                const averageWeeklyChange = weeklyChanges.reduce((total, value) => total + value, 0) / weeklyChanges.length;
+                document.getElementById('avgwrldweeklychng').textContent = `Average of all weekly index Change: ${averageWeeklyChange.toFixed(2)}%`;
+                const giftNiftyData = data.dataList.find(market => market.heading === "Asian_Market")
+                                                 .data.find(rowData => rowData[1] === "GIFT NIFTY");
+                const percentChange = giftNiftyData[4];
+                document.getElementById('giftyniftypercnt').textContent = `GIFTY NIFTY Percent Change: ${percentChange}%`;
+                const headersToShow = [
+                    "name", "price", "net_change", "percent_change", 
+                    "weekly_per_change", "technical_rating", "last_updated", 
+                    "flag_url", "state"
+                ];
+                let tableHtml = '<table>';
+                tableHtml += '<thead><tr>';
+                headersToShow.forEach(headerName => {
+                    tableHtml += `<th>${headerName}</th>`;
+                });
+                tableHtml += '</tr></thead>';
+                tableHtml += '<tbody>';
+                data.dataList.forEach(market => {
+                    market.data.forEach(rowData => {
+                        tableHtml += '<tr>';
+                        rowData.forEach((cellData, j) => {
+                            if (headersToShow.includes(data.header[j].name)) {
+                                switch (data.header[j].name) {
+                                    case 'last_updated':
+                                        tableHtml += `<td>${formatDate(parseInt(cellData))}</td>`;
+                                        break;
+                                    case 'flag_url':
+                                        tableHtml += `<td><img class="flag-img" src="${cellData}"></td>`;
+                                        break;
+                                    case 'percent_change':
+                                    case 'weekly_per_change':
+                                    case 'net_change':
+                                        const value = parseFloat(cellData);
+                                        const cellClass = value >= 0 ? 'positive' : 'negative';
+                                        tableHtml += `<td class="${cellClass}">${cellData}</td>`;
+                                        break;
+                                    case 'state':
+                                        const stateClass = cellData === 'CLOSED' ? 'state-closed' : cellData === 'OPEN' ? 'state-open' : cellData === 'PRE' ? 'state-pre' : '';
+                                        tableHtml += `<td class="${stateClass}">${cellData}</td>`;
+                                        break;
+                                    default:
+                                        tableHtml += `<td>${cellData}</td>`;
+                                        break;
+                                }
+                            }
+                        });
+                        tableHtml += '</tr>';
+                    });
+                });
+                tableHtml += '</tbody>';
+                tableHtml += '</table>';
+                document.getElementById('table-container').innerHTML = tableHtml;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+    // Fetch data initially and then set up interval to fetch and update data every 5 seconds
+    fetchDataAndPopulateTable();
+    setInterval(fetchDataAndPopulateTable, 5000); // 5000 milliseconds = 5 seconds
+});
 </script>
+
+<!-- Commodites Index Data table-container2 -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    function formatDate(timestamp) {
+        const date = new Date(timestamp);
+        const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+        const formattedTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
+        return `${formattedDate} ${formattedTime}`;
+    }
+    function fetchDataAndPopulateTable() {
+        fetch("https://priceapi.moneycontrol.com/technicalCompanyData/globalMarket/getCommodityListingData?view=overview&deviceType=W")
+            .then(response => response.json())
+            .then(data => {
+                const headersToShow = [
+                    "name", "price", "net_change", "percent_change", 
+                    "weekly_per_change", "technical_rating"
+                ];
+                let tableHtml = '<table>';
+                tableHtml += '<thead><tr>';
+                headersToShow.forEach(headerName => {
+                    tableHtml += `<th>${headerName}</th>`;
+                });
+                tableHtml += '</tr></thead>';
+                tableHtml += '<tbody>';
+                data.dataList.forEach(rowData => {
+                    tableHtml += '<tr>';
+                    rowData.forEach((cellData, index) => {
+                        if (headersToShow.includes(data.header[index].name)) {
+                            switch (data.header[index].name) {
+                                case 'percent_change':
+                                case 'weekly_per_change':
+                                case 'net_change':
+                                    const value = parseFloat(cellData);
+                                    const cellClass = value >= 0 ? 'positive' : 'negative';
+                                    tableHtml += `<td class="${cellClass}">${cellData}</td>`;
+                                    break;
+                                default:
+                                    tableHtml += `<td>${cellData}</td>`;
+                                    break;
+                            }
+                        }
+                    });
+                    tableHtml += '</tr>';
+                });
+                tableHtml += '</tbody>';
+                tableHtml += '</table>';
+                document.getElementById('table-container2').innerHTML = tableHtml;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+    fetchDataAndPopulateTable();
+    setInterval(fetchDataAndPopulateTable, 5000); // 5000 milliseconds = 5 seconds
+});
+</script>
+
+
+<!-- Bonds Index Data table-container3 -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    function fetchDataAndPopulateTable() {
+    fetch("https://priceapi.moneycontrol.com/pricefeed/usMarket/bond/GIND5Y:IND")
+        .then(response => response.json())
+        .then(data => {
+            const headersToShow = [
+                "name", "current_price", "net_change", "percent_change", 
+                "weekly_per_change", "technical_rating"
+            ];
+            let tableHtml = '<table>';
+            tableHtml += '<thead><tr>';
+            headersToShow.forEach(headerName => {
+                tableHtml += `<th>${headerName}</th>`;
+            });
+            tableHtml += '</tr></thead>';
+            tableHtml += '<tbody><tr>';
+            headersToShow.forEach(headerName => {
+                switch (headerName) {
+                    case 'percent_change':
+                    case 'weekly_per_change':
+                    case 'net_change':
+                        const value = parseFloat(data.data[headerName]);
+                        const cellClass = value >= 0 ? 'positive' : 'negative';
+                        tableHtml += `<td class="${cellClass}">${data.data[headerName]}</td>`;
+                        break;
+                    default:
+                        tableHtml += `<td>${data.data[headerName]}</td>`;
+                        break;
+                }
+            });
+            tableHtml += '</tr></tbody>';
+            tableHtml += '</table>';
+            document.getElementById('table-container3').innerHTML = tableHtml;
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+
+fetchDataAndPopulateTable();
+});
+</script>
+
+
+
+<!-- Currencies Index Data table-container4 -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    function fetchDataAndPopulateTable() {
+        fetch("https://api.moneycontrol.com/mcapi/v1/us-markets/getCurrencies")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(responseData => {
+                if (!responseData || !Array.isArray(responseData.data)) {
+                    throw new Error('Invalid data format received');
+                }
+                const currencies = responseData.data;
+                const headersToShow = [
+                    "name", "ltp", "chg", "chgper", "market_state"
+                ];
+                let tableHtml = '<table>';
+                tableHtml += '<thead><tr>';
+                headersToShow.forEach(headerName => {
+                    tableHtml += `<th>${headerName}</th>`;
+                });
+                tableHtml += '</tr></thead>';
+                tableHtml += '<tbody>';
+                currencies.forEach(currency => {
+                    tableHtml += '<tr>';
+                    headersToShow.forEach(headerName => {
+                        if (currency.hasOwnProperty(headerName)) {
+                            let cellData = currency[headerName];
+                            switch (headerName) {
+                                case 'chg':
+                                case 'chgper':
+                                    const value = parseFloat(cellData);
+                                    const cellClass = value >= 0 ? 'positive' : 'negative';
+                                    tableHtml += `<td class="${cellClass}">${cellData}</td>`;
+                                    break;
+                                case 'ltp':
+                                    tableHtml += `<td>${cellData}</td>`;
+                                    break;
+                                case 'market_state':
+                                    const stateClass = cellData === 'closed' ? 'state-closed' : cellData === 'open' ? 'state-open' : cellData === 'pre' ? 'state-pre' : '';
+                                    tableHtml += `<td class="${stateClass}">${cellData}</td>`;
+                                    break;
+                                default:
+                                    tableHtml += `<td>${cellData}</td>`;
+                                    break;
+                            }
+                        } else {
+                            tableHtml += '<td></td>'; 
+                        }
+                    });
+                    tableHtml += '</tr>';
+                });
+                tableHtml += '</tbody>';
+                tableHtml += '</table>';
+                document.getElementById('table-container4').innerHTML = tableHtml;
+            })
+            .catch(error => console.error('Error fetching or processing data:', error));
+    }
+    fetchDataAndPopulateTable();
+    setInterval(fetchDataAndPopulateTable, 5000);
+});
+</script>
+
+</body>
+</html>
