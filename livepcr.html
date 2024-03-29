@@ -2,6 +2,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Live PCR Data</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <style>
     table {
         border-collapse: collapse;
@@ -51,8 +55,15 @@
   
 <p style="color: #6c6c6c;">© 2024 Development Rights MKS</p>
 <h2>Concluded Data:</h2>
- 
+
 <h2>PCR Live {NIFTY}:</h2>
+
+<select id="expiry-select"></select>
+<div id="chart-container" style="height: 300px;">
+    <canvas id="myChart"></canvas>
+</div>
+
+
 <div id="table-container2" style="width: 100%;"></div>
 
 
@@ -61,59 +72,163 @@
 <!-- Commodites Index Data table-container2 -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
+    let myChart;
+    let selectedExpiry;
+
     function formatDate(dateString) {
         const date = new Date(dateString);
-        const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
-        return formattedDate;
+        return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
     }
 
     function formatTime(timeString) {
         const time = new Date(`2000-01-01T${timeString}`);
-        const formattedTime = `${time.getHours().toString().padStart(2, '0')}:${time.getMinutes().toString().padStart(2, '0')}:${time.getSeconds().toString().padStart(2, '0')}`;
-        return formattedTime;
+        return `${time.getHours().toString().padStart(2, '0')}:${time.getMinutes().toString().padStart(2, '0')}:${time.getSeconds().toString().padStart(2, '0')}`;
     }
 
-    function fetchDataAndPopulateTable() {
-        fetch("https://services.niftytrader.in/webapi/option/oi-pcr-data?type=niftypcr&expiry=", {
+    function fetchDataAndPopulateTableAndChart() {
+        fetch(`https://services.niftytrader.in/webapi/option/oi-pcr-data?type=niftypcr&expiry=${selectedExpiry}`, {
             headers: {
                 "Authorization": "Basic bmlmdHlhcGl1c2VyOm5pZnR5YXBpdXNlckAyMTEwIw=="
             }
         })
-            .then(response => response.json())
-            .then(data => {
-                const oiDatas = data.result.oiDatas;
-                const headersToShow = ["Time", "Created At", "Expiry Date", "PCR", "Index Close"];
-                let tableHtml = '<table>';
-                tableHtml += '<thead><tr>';
-                headersToShow.forEach(headerName => {
-                    tableHtml += `<th>${headerName}</th>`;
-                });
-                tableHtml += '</tr></thead>';
-                tableHtml += '<tbody>';
-                oiDatas.forEach(rowData => {
-                    tableHtml += '<tr>';
-                    Object.entries(rowData).forEach(([key, value]) => {
-                        let cellClass = '';
-                        if (key === 'time') {
-                            value = formatTime(value);
-                        } else if (key === 'created_at' || key === 'expiry_date') {
-                            value = formatDate(value);
-                        } else if (key === 'pcr') {
-                            cellClass = value < 1.0 ? 'positive' : 'negative';
-                        }
-                        tableHtml += `<td class="${cellClass}">${value}</td>`;
-                    });
-                    tableHtml += '</tr>';
-                });
-                tableHtml += '</tbody>';
-                tableHtml += '</table>';
-                document.getElementById('table-container2').innerHTML = tableHtml;
-            })
-            .catch(error => console.error('Error fetching data:', error));
+        .then(response => response.json())
+        .then(data => {
+            const oiDatas = data.result.oiDatas;
+            const pcrValues = [];
+            const indexCloseValues = [];
+            const labels = [];
+            oiDatas.forEach(rowData => {
+                labels.push(formatTime(rowData.time));
+                pcrValues.push(rowData.pcr);
+                indexCloseValues.push(rowData.index_close);
+            });
+
+            updateTable(oiDatas);
+            updateChart(labels, pcrValues, indexCloseValues);
+        })
+        .catch(error => console.error('Error fetching data:', error));
     }
 
-    fetchDataAndPopulateTable();
-    setInterval(fetchDataAndPopulateTable, 5000); // 5000 milliseconds = 5 seconds
+    function updateTable(oiDatas) {
+        const headersToShow = ["Time", "Created At", "Expiry Date", "PCR", "Index Close"];
+        let tableHtml = '<table>';
+        tableHtml += '<thead><tr>';
+        headersToShow.forEach(headerName => {
+            tableHtml += `<th>${headerName}</th>`;
+        });
+        tableHtml += '</tr></thead>';
+        tableHtml += '<tbody>';
+        oiDatas.forEach(rowData => {
+            tableHtml += '<tr>';
+            Object.entries(rowData).forEach(([key, value]) => {
+                let cellClass = '';
+                if (key === 'time') {
+                    value = formatTime(value);
+                } else if (key === 'created_at' || key === 'expiry_date') {
+                    value = formatDate(value);
+                } else if (key === 'pcr') {
+                    cellClass = value < 1.0 ? 'positive' : 'negative';
+                }
+                tableHtml += `<td class="${cellClass}">${value}</td>`;
+            });
+            tableHtml += '</tr>';
+        });
+        tableHtml += '</tbody>';
+        tableHtml += '</table>';
+        document.getElementById('table-container2').innerHTML = tableHtml;
+    }
+
+    function updateChart(labels, pcrValues, indexCloseValues) {
+    if (!myChart) {
+        const ctx = document.getElementById('myChart').getContext('2d');
+        myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'PCR',
+                    data: pcrValues,
+                    borderColor: 'rgb(255, 99, 132)',
+                    borderWidth: 1,
+                    fill: false,
+                    yAxisID: 'pcr-y-axis' // Assigning custom y-axis for PCR data
+                }, {
+                    label: 'Index Close',
+                    data: indexCloseValues,
+                    borderColor: 'rgb(54, 162, 235)',
+                    borderWidth: 1,
+                    fill: false,
+                    yAxisID: 'index-close-y-axis' // Assigning custom y-axis for Index Close data
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Time'
+                        }
+                    },
+                    pcr: {
+                        type: 'linear',
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'PCR'
+                        }
+                    },
+                    indexClose: {
+                        type: 'linear',
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'Index Close'
+                        }
+                    }
+                }
+            }
+        });
+    } else {
+        myChart.data.labels = labels;
+        myChart.data.datasets[0].data = pcrValues;
+        myChart.data.datasets[1].data = indexCloseValues;
+        myChart.update();
+    }
+}
+
+    function populateExpiryDatesSelect(expiryDates) {
+        const selectElement = document.getElementById('expiry-select');
+        selectElement.innerHTML = "";
+        expiryDates.forEach(date => {
+            const option = document.createElement('option');
+            option.value = date;
+            option.textContent = formatDate(date);
+            selectElement.appendChild(option);
+        });
+    }
+
+    function handleExpiryDateChange() {
+        selectedExpiry = document.getElementById('expiry-select').value;
+        fetchDataAndPopulateTableAndChart();
+    }
+
+    fetch("https://services.niftytrader.in/webapi/option/oi-pcr-data?type=niftypcr&expiry=", {
+        headers: {
+            "Authorization": "Basic bmlmdHlhcGl1c2VyOm5pZnR5YXBpdXNlckAyMTEwIw=="
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const expiryDates = data.result.oiExpiryDates;
+        populateExpiryDatesSelect(expiryDates);
+        selectedExpiry = expiryDates[0]; // Set initial selected expiry
+        document.getElementById('expiry-select').addEventListener('change', handleExpiryDateChange);
+        fetchDataAndPopulateTableAndChart();
+    })
+    .catch(error => console.error('Error fetching expiry dates:', error));
 });
 </script>
 
