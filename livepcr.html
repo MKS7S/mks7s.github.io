@@ -1,0 +1,123 @@
+<html style="width: 100%;">
+<head>
+<meta charset="UTF-8">
+<title>Global Market Data</title>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #383838;
+		color: white;
+    }
+    .positive {
+        background-color: green;
+        color: white;
+    }
+    .negative {
+        background-color: red;
+        color: white;
+    }
+    .flag-img {
+        max-width: 50px;
+        max-height: 30px;
+    }
+    .state-closed {
+        background-color: red;
+        color: white;
+    }
+    .state-open {
+        background-color: green;
+        color: white;
+    }
+	.state-pre {
+        background-color: #e7e700;
+        color: white;
+    }
+</style>
+</head>
+<body style="background: black;color: white;">
+
+
+
+  
+  
+  
+<p style="color: #6c6c6c;">© 2024 Development Rights MKS <a href="#" class="active" style="float: right;color: #6c6c6c;">✪ Picks As Per Data</a></p>
+<h2>Concluded Data:</h2>
+
+<h2>PCR Live:</h2>
+<div id="table-container2" style="width: 100%;"></div>
+
+
+
+
+<!-- Commodites Index Data table-container2 -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+        return formattedDate;
+    }
+
+    function formatTime(timeString) {
+        const time = new Date(`2000-01-01T${timeString}`);
+        const formattedTime = `${time.getHours().toString().padStart(2, '0')}:${time.getMinutes().toString().padStart(2, '0')}:${time.getSeconds().toString().padStart(2, '0')}`;
+        return formattedTime;
+    }
+
+    function fetchDataAndPopulateTable() {
+        fetch("https://services.niftytrader.in/webapi/option/oi-pcr-data?type=niftypcr&expiry=", {
+            headers: {
+                "Authorization": "Basic bmlmdHlhcGl1c2VyOm5pZnR5YXBpdXNlckAyMTEwIw=="
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                const oiDatas = data.result.oiDatas;
+                const headersToShow = ["Time", "Created At", "Expiry Date", "PCR", "Index Close"];
+                let tableHtml = '<table>';
+                tableHtml += '<thead><tr>';
+                headersToShow.forEach(headerName => {
+                    tableHtml += `<th>${headerName}</th>`;
+                });
+                tableHtml += '</tr></thead>';
+                tableHtml += '<tbody>';
+                oiDatas.forEach(rowData => {
+                    tableHtml += '<tr>';
+                    Object.entries(rowData).forEach(([key, value]) => {
+                        let cellClass = '';
+                        if (key === 'time') {
+                            value = formatTime(value);
+                        } else if (key === 'created_at' || key === 'expiry_date') {
+                            value = formatDate(value);
+                        } else if (key === 'pcr') {
+                            cellClass = value < 1.0 ? 'positive' : 'negative';
+                        }
+                        tableHtml += `<td class="${cellClass}">${value}</td>`;
+                    });
+                    tableHtml += '</tr>';
+                });
+                tableHtml += '</tbody>';
+                tableHtml += '</table>';
+                document.getElementById('table-container2').innerHTML = tableHtml;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    fetchDataAndPopulateTable();
+    setInterval(fetchDataAndPopulateTable, 5000); // 5000 milliseconds = 5 seconds
+});
+</script>
+
+
+
+</body>
+</html>
