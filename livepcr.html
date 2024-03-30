@@ -56,22 +56,29 @@
   
   
   
-<p style="color: #6c6c6c;">© 2024 Development Rights MKS</p>
+<p style="color: #6c6c6c;">© 2024 Development Rights MKS <a href="#bankniftynav" class="active" style="float: right;color: #6c6c6c;">✪ BANKNIFTY PCR</a></p>
 <h2>Concluded Data:</h2>
 <div id="NiftyPCRavg"></div>
+<div id="BANKNiftyPCRavg"></div>
 
 <h2>PCR Live {NIFTY}:</h2>
-
 <select id="expiry-select"></select>
-<br>
-</br>
-
-<div id="myChart" style="width: 100%; height: 400px;"></div>
-
+<br></br>
+<div id="myChart" style="width: 100%; height: 400px;box-shadow: 0.5px 0.5px 4px 0px black;"></div>
 <div id="niftyjsondata" style="display:none;"></div>
 <br></br>
-<div id="table-container2" style="width: 100%;"></div>
+<div id="table-container2" style="width: 100%;max-height: 900px;overflow-x: hidden;overflow-y: auto;"></div>
 
+
+
+
+<h2 id="bankniftynav">PCR Live {BANKNIFTY}:</h2>
+<select id="expiry-select2"></select>
+<br></br>
+<div id="myChart2" style="width: 100%; height: 400px;box-shadow: 0.5px 0.5px 4px 0px black;"></div>
+<div id="bankniftyjsondata" style="display:none;"></div>
+<br></br>
+<div id="table-container3" style="width: 100%;max-height: 900px;overflow-x: hidden;overflow-y: auto;"></div>
 
 
 
@@ -254,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+<!-- Nifty PCR Graph -->
 <script>
 $(document).ready(function(){
     function updateChart() {
@@ -321,10 +328,266 @@ $(document).ready(function(){
         }
     }
     
-    // Initial chart update
+
     updateChart();
     
-    // Periodically update chart
+
+    setInterval(updateChart, 1000); // Update every 5 seconds (adjust as needed)
+});
+</script>
+
+
+
+
+
+
+<!-- Bank Nifty PCR DATA Data table-container3 -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    let selectedExpiry;
+    const baseURL = "https://services.niftytrader.in/webapi/option/oi-pcr-data?type=bankniftypcr&expiry=";
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+    }
+    function formatTime(timeString) {
+        const time = new Date(`2000-01-01T${timeString}`);
+        return `${time.getHours().toString().padStart(2, '0')}:${time.getMinutes().toString().padStart(2, '0')}:${time.getSeconds().toString().padStart(2, '0')}`;
+    }
+    function fetchDataAndPopulateTable() {
+        fetch(`${baseURL}${selectedExpiry}`, {
+            headers: {
+                "Authorization": "Basic bmlmdHlhcGl1c2VyOm5pZnR5YXBpdXNlckAyMTEwIw=="
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            const oiDatas = data.result.oiDatas;
+            updateTable(oiDatas);
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    }
+    function updateTable(oiDatas) {
+        const headersToShow = ["Time", "Created At", "Expiry Date", "PCR", "Index Close"];
+        let tableHtml = '<table>';
+        tableHtml += '<thead><tr>';
+        headersToShow.forEach(headerName => {
+            tableHtml += `<th>${headerName}</th>`;
+        });
+        tableHtml += '</tr></thead>';
+        tableHtml += '<tbody>';
+        oiDatas.forEach(rowData => {
+            tableHtml += '<tr>';
+            Object.entries(rowData).forEach(([key, value]) => {
+                let cellClass = '';
+                if (key === 'time') {
+                    value = formatTime(value);
+                } else if (key === 'created_at' || key === 'expiry_date') {
+                    value = formatDate(value);
+                }
+                tableHtml += `<td class="${cellClass}">${value}</td>`;
+            });
+            tableHtml += '</tr>';
+        });
+        tableHtml += '</tbody>';
+        tableHtml += '</table>';
+        document.getElementById('table-container3').innerHTML = tableHtml;
+    // Update JSON representation
+    const jsonData = JSON.stringify(oiDatas, null, 2);
+    document.getElementById('bankniftyjsondata').innerText = jsonData;
+}
+	
+  function populateExpiryDatesSelect(expiryDates) {
+    const selectElement = document.getElementById('expiry-select2');
+    selectElement.innerHTML = "";
+    expiryDates.forEach(date => {
+        const option = document.createElement('option');
+        option.value = date;
+        option.textContent = formatDate(date);
+        selectElement.appendChild(option);
+        fetchAndProcessData(date);
+    });
+    // Set "Merged Data" option as selected by default
+    const mergedOption = document.createElement('option');
+    mergedOption.value = 'merged';
+    mergedOption.textContent = 'Merged Data';
+    mergedOption.selected = true;
+    selectElement.appendChild(mergedOption);
+    // Fetch and display merged data by default
+    fetchAndMergeDataForAllExpiries();
+}
+    function handleExpiryDateChange() {
+        const selectedOption = document.getElementById('expiry-select2').value;
+        if (selectedOption === 'merged') {
+            fetchAndMergeDataForAllExpiries();
+        } else {
+            selectedExpiry = selectedOption;
+            fetchDataAndPopulateTable();
+        }
+    }
+    function fetchAndMergeDataForAllExpiries() {
+        const selectedExpiryOptions = Array.from(document.querySelectorAll('#expiry-select2 option'));
+        selectedExpiryOptions.pop(); // Remove the last option which is "Merged Data"
+        const promises = selectedExpiryOptions.map(option => {
+            return fetchAndProcessData(option.value);
+        });
+        Promise.all(promises)
+            .then(mergedData => {
+                const averageMergedData = calculateAveragePCR(mergedData);
+                updateTable(averageMergedData);
+                const averagePCR = calculateAveragePCRValue(averageMergedData);
+                document.getElementById('BANKNiftyPCRavg').innerText = `Average BANKNIFTY PCR: ${averagePCR.toFixed(2)}`;
+            })
+            .catch(error => console.error('Error fetching and merging data:', error));
+    }
+    function calculateAveragePCRValue(averageMergedData) {
+        const totalPCR = averageMergedData.reduce((acc, data) => acc + data.pcr, 0);
+        const averagePCR = totalPCR / averageMergedData.length;
+        return averagePCR;
+    }
+    function fetchAndProcessData(expiryDate) {
+        return fetch(`${baseURL}${expiryDate}`, {
+                headers: {
+                    "Authorization": "Basic bmlmdHlhcGl1c2VyOm5pZnR5YXBpdXNlckAyMTEwIw=="
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const oiDatas = data.result.oiDatas.map(entry => ({
+                    time: entry.time,
+                    createdAt: entry.created_at,
+                    expiryDate: entry.expiry_date,
+                    pcr: parseFloat(entry.pcr),
+                    indexClose: parseFloat(entry.index_close)
+                }));
+                return { oiDatas };
+            })
+            .catch(error => {
+                console.error(`Error fetching data for ${expiryDate}:`, error);
+                return { oiDatas: [] };
+            });
+    }
+    function calculateAveragePCR(dataArray) {
+        const mergedData = {};
+        dataArray.forEach(({ oiDatas }) => {
+            oiDatas.forEach(({ time, createdAt, expiryDate, pcr, indexClose }) => {
+                if (!mergedData[time]) {
+                    mergedData[time] = { pcrCount: 0, pcrSum: 0, indexCloseCount: 0, indexCloseSum: 0, expiryDates: new Set(), createdAts: [] };
+                }
+                mergedData[time].pcrCount++;
+                mergedData[time].pcrSum += pcr;
+                mergedData[time].indexCloseCount++;
+                mergedData[time].indexCloseSum += indexClose;
+                mergedData[time].expiryDates.add(expiryDate);
+                mergedData[time].createdAts.push(createdAt);
+            });
+        });
+        const averageData = [];
+        for (const [time, { pcrCount, pcrSum, indexCloseCount, indexCloseSum, expiryDates, createdAts }] of Object.entries(mergedData)) {
+            const averagePCR = pcrSum / pcrCount;
+            const averageIndexClose = indexCloseSum / indexCloseCount;
+            const avgExpiryDates = Array.from(expiryDates).join(', ');
+            const avgCreatedAt = calculateAverageDate(createdAts);
+            averageData.push({ time, createdAt: avgCreatedAt, expiryDate: avgExpiryDates, pcr: averagePCR, indexClose: averageIndexClose });
+        }
+        return averageData;
+    }
+    function calculateAverageDate(dates) {
+        const dateObjects = dates.map(date => new Date(date));
+        const avgTimestamp = dateObjects.reduce((acc, curr) => acc + curr.getTime(), 0) / dateObjects.length;
+        return new Date(avgTimestamp).toISOString().split('T')[0];
+    }
+    fetch(`${baseURL}`, {
+        headers: {
+            "Authorization": "Basic bmlmdHlhcGl1c2VyOm5pZnR5YXBpdXNlckAyMTEwIw=="
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        const expiryDates = data.result.oiExpiryDates;
+        populateExpiryDatesSelect(expiryDates);
+        selectedExpiry = expiryDates[9]; // Set initial selected expiry
+        document.getElementById('expiry-select2').addEventListener('change', handleExpiryDateChange);
+        fetchDataAndPopulateTable();
+    })
+    .catch(error => console.error('Error fetching expiry dates:', error));
+});
+</script>
+
+
+
+
+<!-- Nifty PCR Graph -->
+<script>
+$(document).ready(function(){
+    function updateChart() {
+        var jsonData = $("#bankniftyjsondata").text().trim();
+        try {
+            var data = JSON.parse(jsonData);
+            var time, pcr, indexClose;
+
+            // Check if the JSON data has 'index_close' key, if not use 'indexClose'
+            if (Array.isArray(data) && data.length > 0 && data[0].hasOwnProperty('index_close')) {
+                time = data.map(entry => entry.time);
+                pcr = data.map(entry => entry.pcr);
+                indexClose = data.map(entry => entry.index_close);
+            } else {
+                time = data.map(entry => entry.time);
+                pcr = data.map(entry => entry.pcr);
+                indexClose = data.map(entry => entry.indexClose);
+            }
+
+            var trace1 = {
+                x: time,
+                y: pcr,
+                mode: 'lines',
+                name: 'PCR',
+                yaxis: 'y',
+                line: {
+                    color: 'rgb(255, 99, 132)',
+                    width: 2
+                }
+            };
+
+            var trace2 = {
+                x: time,
+                y: indexClose,
+                mode: 'lines',
+                name: 'Index Close',
+                yaxis: 'y2',
+                line: {
+                    color: 'rgb(54, 162, 235)',
+                    width: 2
+                }
+            };
+
+            var layout = {
+                title: 'PCR and Index Close',
+                xaxis: {
+                    title: 'Time'
+                },
+                yaxis: {
+                    title: 'PCR',
+                    color: 'rgb(255, 99, 132)'
+                },
+                yaxis2: {
+                    title: 'Index Close',
+                    overlaying: 'y',
+                    side: 'right',
+                    color: 'rgb(54, 162, 235)'
+                }
+            };
+
+            Plotly.newPlot('myChart2', [trace1, trace2], layout);
+        } catch (error) {
+            console.error('Error parsing JSON data:', error);
+        }
+    }
+    
+
+    updateChart();
+    
+
     setInterval(updateChart, 1000); // Update every 5 seconds (adjust as needed)
 });
 </script>
