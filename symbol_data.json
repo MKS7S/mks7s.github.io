@@ -11106,5 +11106,917 @@
     {
         "Symbol": "ZICOM",
         "S_NAME": "Zicom Electronic Security Systems"
+    },
+	    {
+        "Symbol": "5PAISA.NS",
+        "S_NAME": "5paisa Capita"
+    },
+    {
+        "Symbol": "AARTIDRUGS.NS",
+        "S_NAME": "Aarti Drugs"
+    },
+    {
+        "Symbol": "AARTIIND.NS",
+        "S_NAME": "Aarti Ind"
+    },
+    {
+        "Symbol": "AARTIPHARM.NS",
+        "S_NAME": "AARTIPHARM"
+    },
+    {
+        "Symbol": "AAVAS.NS",
+        "S_NAME": "AAVAS Financier"
+    },
+    {
+        "Symbol": "ACCELYA.NS",
+        "S_NAME": "Accelya"
+    },
+    {
+        "Symbol": "ACLGATI.NS",
+        "S_NAME": "Allcargo Gati"
+    },
+    {
+        "Symbol": "ADANIGREEN.NS",
+        "S_NAME": "Adani Green Ene"
+    },
+    {
+        "Symbol": "ADANIPOWER.NS",
+        "S_NAME": "Adani Power"
+    },
+    {
+        "Symbol": "ADVENZYMES.NS",
+        "S_NAME": "Advanced Enzyme"
+    },
+    {
+        "Symbol": "AETHER.NS",
+        "S_NAME": "Aether Ind"
+    },
+    {
+        "Symbol": "AGARIND.NS",
+        "S_NAME": "Agarwal Ind"
+    },
+    {
+        "Symbol": "AJMERA.NS",
+        "S_NAME": "Ajmera Realty"
+    },
+    {
+        "Symbol": "ALKYLAMINE.NS",
+        "S_NAME": "Alkyl Amines"
+    },
+    {
+        "Symbol": "ALLSEC.NS",
+        "S_NAME": "ALLSEC Tech"
+    },
+    {
+        "Symbol": "ALOKTEXT.BO",
+        "S_NAME": "Alok Industries"
+    },
+    {
+        "Symbol": "ANANTRAJ.NS",
+        "S_NAME": "Anant Raj"
+    },
+    {
+        "Symbol": "APARINDS.NS",
+        "S_NAME": "Apar Ind"
+    },
+    {
+        "Symbol": "APCL.NS",
+        "S_NAME": "Anjani Portland"
+    },
+    {
+        "Symbol": "APOLSINHOT.NS",
+        "S_NAME": "Apollo Sindoori"
+    },
+    {
+        "Symbol": "ARVIND.NS",
+        "S_NAME": "Arvind"
+    },
+    {
+        "Symbol": "AUTOIND.NS",
+        "S_NAME": "Autoline Ind"
+    },
+    {
+        "Symbol": "AWL.NS",
+        "S_NAME": "Adani Wilmar"
+    },
+    {
+        "Symbol": "AXISCADES.NS",
+        "S_NAME": "Axiscades Tech"
+    },
+    {
+        "Symbol": "BALAMINES.NS",
+        "S_NAME": "Balaji Amines"
+    },
+    {
+        "Symbol": "BANCOINDIA.NS",
+        "S_NAME": "Banco Products"
+    },
+    {
+        "Symbol": "BANKBARODA.NS",
+        "S_NAME": "Bank of Baroda"
+    },
+    {
+        "Symbol": "BANKINDIA.NS",
+        "S_NAME": "Bank of India"
+    },
+    {
+        "Symbol": "BASFY",
+        "S_NAME": "BASF"
+    },
+    {
+        "Symbol": "BAYERCROP.NS",
+        "S_NAME": "Bayer CropScien"
+    },
+    {
+        "Symbol": "BBL.NS",
+        "S_NAME": "Bharat Bijlee"
+    },
+    {
+        "Symbol": "BBTC.NS",
+        "S_NAME": "Bombay Burmah"
+    },
+    {
+        "Symbol": "BCG.NS",
+        "S_NAME": "Brightcom Group"
+    },
+    {
+        "Symbol": "BIGBLOC.NS",
+        "S_NAME": "Bigbloc Constru"
+    },
+    {
+        "Symbol": "BLS.NS",
+        "S_NAME": "BLS Internation"
+    },
+    {
+        "Symbol": "BOMDYEING.NS",
+        "S_NAME": "BOMDYEING"
+    },
+    {
+        "Symbol": "BOROLTD.NS",
+        "S_NAME": "Borosil"
+    },
+    {
+        "Symbol": "BSE.NS",
+        "S_NAME": "BSE Limited"
+    },
+    {
+        "Symbol": "CAMLINFINE.NS",
+        "S_NAME": "Camlin Fine"
+    },
+    {
+        "Symbol": "CARERATING.NS",
+        "S_NAME": "CARE Ratings"
+    },
+    {
+        "Symbol": "CARYSIL.NS",
+        "S_NAME": "Carysil"
+    },
+    {
+        "Symbol": "CCL.NS",
+        "S_NAME": "CCL Products"
+    },
+    {
+        "Symbol": "CEATLTD.NS",
+        "S_NAME": "Ceat"
+    },
+    {
+        "Symbol": "CENTRALBK.NS",
+        "S_NAME": "Central Bank"
+    },
+    {
+        "Symbol": "CGCL.NS",
+        "S_NAME": "Capri Global"
+    },
+    {
+        "Symbol": "CHALET.NS",
+        "S_NAME": "Chalet Hotels"
+    },
+    {
+        "Symbol": "CIGNITITEC.NS",
+        "S_NAME": "Cigniti Tech"
+    },
+    {
+        "Symbol": "CIPLA.NS",
+        "S_NAME": "Cipla"
+    },
+    {
+        "Symbol": "CMSINFO.NS",
+        "S_NAME": "CMS Info System"
+    },
+    {
+        "Symbol": "COCHINSHIP.NS",
+        "S_NAME": "Cochin Shipyard"
+    },
+    {
+        "Symbol": "CREATIVE.NS",
+        "S_NAME": "Creative New"
+    },
+    {
+        "Symbol": "CYIENTDLM.BO",
+        "S_NAME": "Cyient DLM"
+    },
+    {
+        "Symbol": "DATAPATTNS.NS",
+        "S_NAME": "Data Patterns"
+    },
+    {
+        "Symbol": "DCMSRIND.NS",
+        "S_NAME": "DCM Shriram Ind"
+    },
+    {
+        "Symbol": "DCXINDIA.NS",
+        "S_NAME": "DCX Systems"
+    },
+    {
+        "Symbol": "DECCANCE.NS",
+        "S_NAME": "Deccan Cements"
+    },
+    {
+        "Symbol": "DEEPAKNTR.NS",
+        "S_NAME": "Deepak Nitrite"
+    },
+    {
+        "Symbol": "DELHIVERY.NS",
+        "S_NAME": "Delhivery"
+    },
+    {
+        "Symbol": "DEN.NS",
+        "S_NAME": "Den Networks"
+    },
+    {
+        "Symbol": "DHANI.NS",
+        "S_NAME": "Dhani Services"
+    },
+    {
+        "Symbol": "DHANUKA.NS",
+        "S_NAME": "Dhanuka Agritec"
+    },
+    {
+        "Symbol": "DHARMAJ.NS",
+        "S_NAME": "Dharmaj Crop"
+    },
+    {
+        "Symbol": "DIXON.NS",
+        "S_NAME": "Dixon Technolog"
+    },
+    {
+        "Symbol": "DMART.NS",
+        "S_NAME": "Avenue Supermar"
+    },
+    {
+        "Symbol": "DODLA.NS",
+        "S_NAME": "Dodla Dairy"
+    },
+    {
+        "Symbol": "DSSL.NS",
+        "S_NAME": "Dynacons Sys"
+    },
+    {
+        "Symbol": "EASEMYTRIP.NS",
+        "S_NAME": "Easy Trip"
+    },
+    {
+        "Symbol": "ELDEHSG.NS",
+        "S_NAME": "Eldeco Housing"
+    },
+    {
+        "Symbol": "ELGIEQUIP.NS",
+        "S_NAME": "Elgi Equipments"
+    },
+    {
+        "Symbol": "EMIL.NS",
+        "S_NAME": "Electronics Mar"
+    },
+    {
+        "Symbol": "EMKAY.NS",
+        "S_NAME": "Emkay Global"
+    },
+    {
+        "Symbol": "EMUDHRA.NS",
+        "S_NAME": "eMudhra"
+    },
+    {
+        "Symbol": "ERIS.NS",
+        "S_NAME": "Eris Life"
+    },
+    {
+        "Symbol": "ESABINDIA.NS",
+        "S_NAME": "Esab India"
+    },
+    {
+        "Symbol": "EVEREADY.NS",
+        "S_NAME": "Eveready Ind"
+    },
+    {
+        "Symbol": "FCL.NS",
+        "S_NAME": "Fineotex Chem"
+    },
+    {
+        "Symbol": "FILATEX.NS",
+        "S_NAME": "Filatex India"
+    },
+    {
+        "Symbol": "FINOPB.NS",
+        "S_NAME": "Fino Payments"
+    },
+    {
+        "Symbol": "GALAXYSURF.NS",
+        "S_NAME": "Galaxy Surfacta"
+    },
+    {
+        "Symbol": "GANECOS.NS",
+        "S_NAME": "Ganesha Ecosph"
+    },
+    {
+        "Symbol": "GANESHBE.NS",
+        "S_NAME": "Ganesh Benzo"
+    },
+    {
+        "Symbol": "GENESYS.NS",
+        "S_NAME": "Genesys Int"
+    },
+    {
+        "Symbol": "GILLETTE.NS",
+        "S_NAME": "Gillette India"
+    },
+    {
+        "Symbol": "GLS.NS",
+        "S_NAME": "Glenmark Life"
+    },
+    {
+        "Symbol": "GOCLCORP.NS",
+        "S_NAME": "GOCL Corp"
+    },
+    {
+        "Symbol": "GOCOLORS.NS",
+        "S_NAME": "Go Fashion"
+    },
+    {
+        "Symbol": "GRANULES.NS",
+        "S_NAME": "Granules India"
+    },
+    {
+        "Symbol": "GRAPHITE.NS",
+        "S_NAME": "Graphite India"
+    },
+    {
+        "Symbol": "GRASIM.NS",
+        "S_NAME": "Grasim"
+    },
+    {
+        "Symbol": "GREENPLY.NS",
+        "S_NAME": "Greenply Ind"
+    },
+    {
+        "Symbol": "GRINFRA.NS",
+        "S_NAME": "G R Infra"
+    },
+    {
+        "Symbol": "GRNLAMIND.BO",
+        "S_NAME": "Greenlam Ind"
+    },
+    {
+        "Symbol": "GRSE.NS",
+        "S_NAME": "Garden Reach Sh"
+    },
+    {
+        "Symbol": "GRWRHITECH.NS",
+        "S_NAME": "GRWRHITECH"
+    },
+    {
+        "Symbol": "GUJGASLTD.NS",
+        "S_NAME": "Gujarat Gas"
+    },
+    {
+        "Symbol": "GULFOILLUB.NS",
+        "S_NAME": "Gulf Oil Lubric"
+    },
+    {
+        "Symbol": "HBLPOWER.NS",
+        "S_NAME": "HBL Power"
+    },
+    {
+        "Symbol": "HCG.NS",
+        "S_NAME": "Healthcare Glob"
+    },
+    {
+        "Symbol": "HEGD",
+        "S_NAME": "HEG"
+    },
+    {
+        "Symbol": "HEUBACHIND.BO",
+        "S_NAME": "HEUBACHIND"
+    },
+    {
+        "Symbol": "HIKAL.NS",
+        "S_NAME": "Hikal"
+    },
+    {
+        "Symbol": "HITECH.NS",
+        "S_NAME": "Hi-Tech Pipes"
+    },
+    {
+        "Symbol": "HOMEFIRST.NS",
+        "S_NAME": "Home First"
+    },
+    {
+        "Symbol": "HPL.NS",
+        "S_NAME": "HPL Electric &"
+    },
+    {
+        "Symbol": "ICIL.NS",
+        "S_NAME": "Indo Count"
+    },
+    {
+        "Symbol": "IFBIND.NS",
+        "S_NAME": "IFB Industries"
+    },
+    {
+        "Symbol": "IFCI.NS",
+        "S_NAME": "IFCI"
+    },
+    {
+        "Symbol": "INDIGO.NS",
+        "S_NAME": "Interglobe Avi"
+    },
+    {
+        "Symbol": "INFY.NS",
+        "S_NAME": "Infosys"
+    },
+    {
+        "Symbol": "IONEXCHANG.NS",
+        "S_NAME": "Ion Exchange"
+    },
+    {
+        "Symbol": "IR",
+        "S_NAME": "Ingersoll Rand"
+    },
+    {
+        "Symbol": "IRCON.NS",
+        "S_NAME": "Ircon Internati"
+    },
+    {
+        "Symbol": "IRCTC.NS",
+        "S_NAME": "IRCTC"
+    },
+    {
+        "Symbol": "IRMENERGY.NS",
+        "S_NAME": "IRM Energy"
+    },
+    {
+        "Symbol": "ISEC.NS",
+        "S_NAME": "ICICI Securitie"
+    },
+    {
+        "Symbol": "JAIBALAJI.NS",
+        "S_NAME": "Jai Balaji Ind"
+    },
+    {
+        "Symbol": "JBMA.NS",
+        "S_NAME": "JBM Auto"
+    },
+    {
+        "Symbol": "JITFINFRA.NS",
+        "S_NAME": "JITF Infralogis"
+    },
+    {
+        "Symbol": "KEI.NS",
+        "S_NAME": "KEI Industries"
+    },
+    {
+        "Symbol": "KHADIM.NS",
+        "S_NAME": "Khadim India"
+    },
+    {
+        "Symbol": "KIRLFER.NS",
+        "S_NAME": "Kirloskar Ferro"
+    },
+    {
+        "Symbol": "KIRLOSENG.NS",
+        "S_NAME": "Kirloskar Oil"
+    },
+    {
+        "Symbol": "KOPRAN.NS",
+        "S_NAME": "Kopran"
+    },
+    {
+        "Symbol": "KRBL.NS",
+        "S_NAME": "KRBL"
+    },
+    {
+        "Symbol": "KSOLVES.NS",
+        "S_NAME": "KSolves"
+    },
+    {
+        "Symbol": "LANDMARK.NS",
+        "S_NAME": "Landmark Cars"
+    },
+    {
+        "Symbol": "LAOPALA.NS",
+        "S_NAME": "La Opala RG"
+    },
+    {
+        "Symbol": "LAURUSLABS.NS",
+        "S_NAME": "Laurus Labs"
+    },
+    {
+        "Symbol": "LEMONTREE.NS",
+        "S_NAME": "Lemon Tree"
+    },
+    {
+        "Symbol": "LICHSGFIN.NS",
+        "S_NAME": "LIC Housing Fin"
+    },
+    {
+        "Symbol": "LINDEINDIA.NS",
+        "S_NAME": "Linde India"
+    },
+    {
+        "Symbol": "LLOYDSENGG.NS",
+        "S_NAME": "Lloyds Engineer"
+    },
+    {
+        "Symbol": "LLOYDSME.NS",
+        "S_NAME": "Lloyds Metals"
+    },
+    {
+        "Symbol": "LODHA.NS",
+        "S_NAME": "Macrotech Dev"
+    },
+    {
+        "Symbol": "MANINFRA.NS",
+        "S_NAME": "Man Infra"
+    },
+    {
+        "Symbol": "MANKIND.NS",
+        "S_NAME": "Mankind Pharma"
+    },
+    {
+        "Symbol": "MAPMYINDIA.BO",
+        "S_NAME": "C. E. Info Syst"
+    },
+    {
+        "Symbol": "MARKSANS.NS",
+        "S_NAME": "Marksans Pharma"
+    },
+    {
+        "Symbol": "MASFIN.NS",
+        "S_NAME": "MAS Financial S"
+    },
+    {
+        "Symbol": "MASTEK.NS",
+        "S_NAME": "Mastek"
+    },
+    {
+        "Symbol": "MHRIL.NS",
+        "S_NAME": "Mahindra Holida"
+    },
+    {
+        "Symbol": "MINDACORP.NS",
+        "S_NAME": "Minda Corp"
+    },
+    {
+        "Symbol": "MOTHERSON.NS",
+        "S_NAME": "MOTHERSON"
+    },
+    {
+        "Symbol": "NAVNETEDUL.NS",
+        "S_NAME": "Navneet"
+    },
+    {
+        "Symbol": "NCC.L",
+        "S_NAME": "NCC"
+    },
+    {
+        "Symbol": "NEULANDLAB.NS",
+        "S_NAME": "Neuland Lab"
+    },
+    {
+        "Symbol": "NIACL.NS",
+        "S_NAME": "New India Assur"
+    },
+    {
+        "Symbol": "NIITMTS.NS",
+        "S_NAME": "NIITMTS"
+    },
+    {
+        "Symbol": "NLCINDIA.NS",
+        "S_NAME": "NLC India"
+    },
+    {
+        "Symbol": "NOCIL.NS",
+        "S_NAME": "NOCIL"
+    },
+    {
+        "Symbol": "NOVAAGRI.NS",
+        "S_NAME": "Nova Agritech"
+    },
+    {
+        "Symbol": "NUCLEUS.NS",
+        "S_NAME": "Nucleus Softwar"
+    },
+    {
+        "Symbol": "OLECTRA.NS",
+        "S_NAME": "Olectra Greente"
+    },
+    {
+        "Symbol": "ONWARDTEC.NS",
+        "S_NAME": "Onward Tech"
+    },
+    {
+        "Symbol": "OPTIEMUS.NS",
+        "S_NAME": "Optiemus Infra"
+    },
+    {
+        "Symbol": "ORIENTCEM.NS",
+        "S_NAME": "Orient Cement"
+    },
+    {
+        "Symbol": "ORISSAMINE.NS",
+        "S_NAME": "Orissa Minerals"
+    },
+    {
+        "Symbol": "PANACEABIO.NS",
+        "S_NAME": "Panacea Biotec"
+    },
+    {
+        "Symbol": "PARAGMILK.NS",
+        "S_NAME": "Parag Milk Food"
+    },
+    {
+        "Symbol": "PDS",
+        "S_NAME": "PDS"
+    },
+    {
+        "Symbol": "PFIZER.NS",
+        "S_NAME": "Pfizer"
+    },
+    {
+        "Symbol": "PGIL.NS",
+        "S_NAME": "Pearl Global In"
+    },
+    {
+        "Symbol": "POKARNA.NS",
+        "S_NAME": "Pokarna"
+    },
+    {
+        "Symbol": "POWERMECH.NS",
+        "S_NAME": "Power Mech"
+    },
+    {
+        "Symbol": "PRAJIND.NS",
+        "S_NAME": "Praj Industries"
+    },
+    {
+        "Symbol": "PRICOLLTD.NS",
+        "S_NAME": "Pricol"
+    },
+    {
+        "Symbol": "PUNJABCHEM.NS",
+        "S_NAME": "Punjab Chemical"
+    },
+    {
+        "Symbol": "PURVA.NS",
+        "S_NAME": "Puravankara"
+    },
+    {
+        "Symbol": "PVSL.NS",
+        "S_NAME": "Popular Vehicle"
+    },
+    {
+        "Symbol": "RAMANEWS.NS",
+        "S_NAME": "Shree Rama News"
+    },
+    {
+        "Symbol": "RAMKY.NS",
+        "S_NAME": "Ramky Infra"
+    },
+    {
+        "Symbol": "RAYMOND.NS",
+        "S_NAME": "Raymond"
+    },
+    {
+        "Symbol": "REDINGTON.NS",
+        "S_NAME": "Redington"
+    },
+    {
+        "Symbol": "REDTAPE.NS",
+        "S_NAME": "Redtape"
+    },
+    {
+        "Symbol": "REMSONSIND.NS",
+        "S_NAME": "Remsons Ind"
+    },
+    {
+        "Symbol": "REPCOHOME.NS",
+        "S_NAME": "Repco Home"
+    },
+    {
+        "Symbol": "ROHLTD.NS",
+        "S_NAME": "Royal Orchid"
+    },
+    {
+        "Symbol": "RPGLIFE.NS",
+        "S_NAME": "RPG Life"
+    },
+    {
+        "Symbol": "SANDUMA.NS",
+        "S_NAME": "Sandur Manganes"
+    },
+    {
+        "Symbol": "SANGHVIMOV.NS",
+        "S_NAME": "Sanghvi Movers"
+    },
+    {
+        "Symbol": "SBFC.NS",
+        "S_NAME": "SBFC Finance"
+    },
+    {
+        "Symbol": "SCHAEFFLER.NS",
+        "S_NAME": "Schaeffler Ind"
+    },
+    {
+        "Symbol": "SEAMECLTD.NS",
+        "S_NAME": "Seamec"
+    },
+    {
+        "Symbol": "SEQUENT.NS",
+        "S_NAME": "Sequent Scienti"
+    },
+    {
+        "Symbol": "SHAKTIPUMP.NS",
+        "S_NAME": "Shakti Pumps"
+    },
+    {
+        "Symbol": "SHIVALIK.NS",
+        "S_NAME": "Shivalik Rasa"
+    },
+    {
+        "Symbol": "SHOPERSTOP.NS",
+        "S_NAME": "Shoppers Stop"
+    },
+    {
+        "Symbol": "SHYAMMETL.NS",
+        "S_NAME": "Shyam Metalics"
+    },
+    {
+        "Symbol": "SISL.BO",
+        "S_NAME": "Share India"
+    },
+    {
+        "Symbol": "SKFINDIA.NS",
+        "S_NAME": "SKF India"
+    },
+    {
+        "Symbol": "SOBHA.NS",
+        "S_NAME": "Sobha"
+    },
+    {
+        "Symbol": "SONACOMS.NS",
+        "S_NAME": "Sona BLW"
+    },
+    {
+        "Symbol": "SPICEJET.NS",
+        "S_NAME": "SpiceJet"
+    },
+    {
+        "Symbol": "SSUMY",
+        "S_NAME": "SUMITOMO"
+    },
+    {
+        "Symbol": "STARCEMENT.NS",
+        "S_NAME": "Star Cement"
+    },
+    {
+        "Symbol": "STLTECH.NS",
+        "S_NAME": "Sterlite Techno"
+    },
+    {
+        "Symbol": "STOVEKRAFT.NS",
+        "S_NAME": "Stove Kraft"
+    },
+    {
+        "Symbol": "SUDARSCHEM.NS",
+        "S_NAME": "Sudarshan Chem"
+    },
+    {
+        "Symbol": "SUNDRMFAST.NS",
+        "S_NAME": "Sundram"
+    },
+    {
+        "Symbol": "SUPRAJIT.NS",
+        "S_NAME": "Suprajit Eng"
+    },
+    {
+        "Symbol": "SUZLON.NS",
+        "S_NAME": "Suzlon Energy"
+    },
+    {
+        "Symbol": "SWELECTES.NS",
+        "S_NAME": "Swelect Energy"
+    },
+    {
+        "Symbol": "TARC.NS",
+        "S_NAME": "TARC"
+    },
+    {
+        "Symbol": "TCPLPACK.NS",
+        "S_NAME": "TCPL Packaging"
+    },
+    {
+        "Symbol": "TCS",
+        "S_NAME": "TCS"
+    },
+    {
+        "Symbol": "TEJASNET.NS",
+        "S_NAME": "Tejas Networks"
+    },
+    {
+        "Symbol": "THANGAMAYL.NS",
+        "S_NAME": "Thangamayil"
+    },
+    {
+        "Symbol": "TIMETECHNO.NS",
+        "S_NAME": "Time Techno"
+    },
+    {
+        "Symbol": "TIMKEN.NS",
+        "S_NAME": "Timken"
+    },
+    {
+        "Symbol": "TIPSINDLTD.NS",
+        "S_NAME": "Tips Industries"
+    },
+    {
+        "Symbol": "TIRUMALCHM.NS",
+        "S_NAME": "Thirumalai Chem"
+    },
+    {
+        "Symbol": "TITAN.NS",
+        "S_NAME": "Titan Company"
+    },
+    {
+        "Symbol": "TTKPRESTIG.NS",
+        "S_NAME": "TTK Prestige"
+    },
+    {
+        "Symbol": "UFLEX.NS",
+        "S_NAME": "Uflex"
+    },
+    {
+        "Symbol": "USHAMART.NS",
+        "S_NAME": "Usha Martin"
+    },
+    {
+        "Symbol": "VEDANTASSET.BO",
+        "S_NAME": "Vedanta"
+    },
+    {
+        "Symbol": "VENKYS.BO",
+        "S_NAME": "Venkys"
+    },
+    {
+        "Symbol": "VERANDA.NS",
+        "S_NAME": "Veranda Learn"
+    },
+    {
+        "Symbol": "VIJAYA.NS",
+        "S_NAME": "Vijaya Diagnost"
+    },
+    {
+        "Symbol": "VIMTALABS.NS",
+        "S_NAME": "Vimta Labs"
+    },
+    {
+        "Symbol": "VISAKAIND.NS",
+        "S_NAME": "Visaka Ind"
+    },
+    {
+        "Symbol": "WELCORP.NS",
+        "S_NAME": "Welspun Corp"
+    },
+    {
+        "Symbol": "WHIRLPOOL.NS",
+        "S_NAME": "Whirlpool"
+    },
+    {
+        "Symbol": "WIPRO.NS",
+        "S_NAME": "Wipro"
+    },
+    {
+        "Symbol": "WOCKPHARMA.NS",
+        "S_NAME": "Wockhardt"
+    },
+    {
+        "Symbol": "WSTCSTPAPR.NS",
+        "S_NAME": "West Coast Pap"
+    },
+    {
+        "Symbol": "XPROINDIA.NS",
+        "S_NAME": "Xpro India"
+    },
+    {
+        "Symbol": "YATHARTH.NS",
+        "S_NAME": "Yatharth HOSP"
     }
 ]
