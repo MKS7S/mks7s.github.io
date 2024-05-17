@@ -46,6 +46,12 @@
         background-color: #e7e700;
         color: white;
     }
+	.red-bg {
+            background-color: red;
+        }
+        .green-bg {
+            background-color: green;
+        }
 </style>
 </head>
 <body style="background: black;color: white;">
@@ -310,6 +316,51 @@ $(document).ready(function() {
     fetchDataAndMatch();
 });
 </script>
+
+
+<script>
+    $(document).ready(function () {
+        function updateBackgroundColor() {
+            $('#dataTable tbody tr').each(function () {
+                var contractValue = $(this).find('td:eq(2)').text().trim();
+                if (contractValue === 'CE') {
+                    $(this).find('td:eq(2)').addClass('green-bg');
+                } else if (contractValue === 'PE') {
+                    $(this).find('td:eq(2)').addClass('red-bg');
+                }
+
+                var equitesValue = $(this).find('td:eq(3)').text().trim();
+                if (equitesValue === 'Bought') {
+                    $(this).find('td:eq(3)').addClass('green-bg');
+                } else if (equitesValue === 'Sold') {
+                    $(this).find('td:eq(3)').addClass('red-bg');
+                }
+
+                var optionsValue = $(this).find('td:eq(4)').text().trim();
+                if (optionsValue === 'Bought') {
+                    $(this).find('td:eq(4)').addClass('green-bg');
+                } else if (optionsValue === 'Sold') {
+                    $(this).find('td:eq(4)').addClass('red-bg');
+                }
+
+                var priceChangeValue = $(this).find('td:eq(5)').text().trim();
+                if (priceChangeValue !== '-') {
+                    if (parseFloat(priceChangeValue) < 0) {
+                        $(this).find('td:eq(5)').addClass('red-bg');
+                    } else {
+                        $(this).find('td:eq(5)').addClass('green-bg');
+                    }
+                }
+            });
+        }
+
+        updateBackgroundColor();
+
+        setInterval(updateBackgroundColor, 1000);
+    });
+</script>
+
+
 
 </body>
 </html>
