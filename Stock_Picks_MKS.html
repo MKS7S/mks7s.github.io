@@ -52,7 +52,7 @@
 
 <p style="color: #6c6c6c;">© 2024 Development Rights MKS </p>
 
-<div id="avgworldindex">This program incorporate a feature that merges data from the National Stock Exchange (NSE) and the Bombay Stock Exchange (BSE). This amalgamation will be followed by a thorough comparison with the 1-week and 52-week low stock data. Subsequently, the program will filter stocks based on criteria including high open interest, high price, and high volume. This meticulous filtering process aims to provide users with actionable insights into potential investment opportunities, thereby minimizing the need for extensive manual effort in stock selection</div>
+<div id="avgworldindex">This program incorporates a feature that merges data from the National Stock Exchange (NSE) and the Bombay Stock Exchange (BSE). This amalgamation is followed by a thorough comparison with the 1-week and 52-week low stock data. Subsequently, the program filters stocks based on criteria including high open interest, high price, and high volume. This meticulous filtering process aims to provide users with actionable insights into potential investment opportunities. Following this, the program matches the filtered stocks with Foreign Institutional Investors (FII) and Domestic Institutional Investors (DII) data. Analyzing the behavior of institutional investors can further validate and enhance the identified investment opportunities</div>
 </br>
 
 <div style="color: red;">Note: On Mobile Please use <a href="https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=en&gl=US" style="color: yellow;">Kiwi Browser (Link)</a> with extension <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino" style="color: yellow;">CORS Unblock (Link)</a>. Output result takes around more than 5 minutes due to complex & heavy process, Chart request is limited to 25 per day if chart is not visible please use VPN to reset the exceeded request !</div>
@@ -65,6 +65,9 @@
 			     <th>Industry</th>
                 <th>Symbol</th>
 				<th>Contract</th>
+				<th>FII DII In Equites</th>
+				<th>FII DII In Options</th>
+				<th>Price Change %</th>
             </tr>
         </thead>
         <tbody>
@@ -78,90 +81,63 @@
 
 
 <script>
-    $(document).ready(function(){
+  $(document).ready(function(){
 
-        // Load jsonData from GitHub URL
-        $.getJSON('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json', function(jsonData) {
+    $.getJSON('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json', function(jsonData) {
 
-            function getSymbolNameFromAPI(sName, callback) {
-                $.ajax({
-                    url: 'https://financialmodelingprep.com/api/v3/search',
-                    method: 'GET',
-                    crossDomain: true,
-                    data: {
-                        query: encodeURIComponent(sName),
-                        limit: 1,
-                        apikey: 'YOUR_API_KEY'
-                    },
-                    success: function(response){
-                        if (response && response.length > 0) {
-                            callback(response[0].symbol);
-                        } else {
-                            callback('');
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Failed to fetch symbol name:', error);
-                    }
-                });
+        function getSymbolName(sName, callback) {
+            var matchedSymbol = jsonData.find(function(item) {
+                return item.S_NAME === sName;
+            });
+
+            if (matchedSymbol && matchedSymbol.Symbol) {
+                var symbol = matchedSymbol.Symbol.replace(/\.NS$|\.BO$/, '');
+                var industry = matchedSymbol.Industry;
+                callback(symbol, industry, sName);
+            } else {
+                callback('');
             }
+        }
 
-            function getSymbolName(sName, callback) {
-                var matchedSymbol = jsonData.find(function(item) {
-                    return item.S_NAME === sName;
-                });
+        $.getJSON('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=NSE&Type=Low&Period=1WEEK&Group=&Indices=&pageNo=1&PageSize=10000', function(dataNSE){
+            $.getJSON('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=BSE&Type=Low&Period=1WEEK&Group=&Indices=&pageNo=1&PageSize=10000', function(dataBSE){
+                var mergedData = [];
+                $.merge(mergedData, dataNSE);
+                $.merge(mergedData, dataBSE);
 
-                if (matchedSymbol && matchedSymbol.Symbol) {
-                    var symbol = matchedSymbol.Symbol.replace(/\.NS$|\.BO$/, '');
-                    var industry = matchedSymbol.Industry;
-                    callback(symbol, industry, sName);
-                } else {
-                    getSymbolNameFromAPI(sName, function(symbol) {
-                        symbol = symbol.replace(/\.NS$|\.BO$/, '');
-                        callback(symbol);
-                    });
-                }
-            }
+                var uniqueSymbols = {};
+                var tableBody = $('#dataTable tbody');
+                mergedData.forEach(function(item) {
+                    var nseItem = dataNSE.find(x => x.S_NAME === item.S_NAME);
+                    var bseItem = dataBSE.find(x => x.S_NAME === item.S_NAME);
 
-            $.getJSON('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=NSE&Type=Low&Period=1WEEK&Group=&Indices=&pageNo=1&PageSize=10000', function(dataNSE){
-                $.getJSON('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=BSE&Type=Low&Period=1WEEK&Group=&Indices=&pageNo=1&PageSize=10000', function(dataBSE){
-                    var mergedData = [];
-                    $.merge(mergedData, dataNSE);
-                    $.merge(mergedData, dataBSE);
+                    if (nseItem && bseItem) {
+                        getSymbolName(item.S_NAME, function(symbol, industry, sName){
+                            if (!uniqueSymbols[sName]) { 
+                                uniqueSymbols[sName] = true;
 
-                    var uniqueSymbols = {};
-                    var tableBody = $('#dataTable tbody');
-                    mergedData.forEach(function(item) {
-                        var nseItem = dataNSE.find(x => x.S_NAME === item.S_NAME);
-                        var bseItem = dataBSE.find(x => x.S_NAME === item.S_NAME);
-
-                        if (nseItem && bseItem) {
-                            getSymbolName(item.S_NAME, function(symbol, industry, sName){
-                                if (!uniqueSymbols[sName]) { 
-                                    uniqueSymbols[sName] = true;
-
-                                    $.getJSON('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&opt2=&date=&pageNo=1&PageSize=10000', function(openInterestData){
-                                        var filteredData = openInterestData.filter(function(oiItem) {
-                                            return oiItem.OI_Symbol === symbol;
-                                        });
-
-                                        if (filteredData.length > 0) {
-                                            var oiItem = filteredData[0];
-                                            tableBody.append('<tr>' +
-                                                '<td>' + sName + '</td>' + 
-                                                '<td>' + symbol + '</td>' +
-                                                '<td>' + oiItem.OI_OptType + '</td>' + // Display OI_OptType
-                                                '</tr>');
-                                        }
+                                $.getJSON('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&opt2=&date=&pageNo=1&PageSize=10000', function(openInterestData){
+                                    var filteredData = openInterestData.filter(function(oiItem) {
+                                        return oiItem.OI_Symbol === symbol;
                                     });
-                                }
-                            });
-                        }
-                    });
+
+                                    if (filteredData.length > 0) {
+                                        var oiItem = filteredData[0];
+                                        tableBody.append('<tr>' +
+                                            '<td>' + sName + '</td>' + 
+                                            '<td>' + symbol + '</td>' +
+                                            '<td>' + oiItem.OI_OptType + '</td>' +
+                                            '</tr>');
+                                    }
+                                });
+                            }
+                        });
+                    }
                 });
             });
         });
     });
+});
 </script>
 
 
@@ -170,22 +146,31 @@
 $(document).ready(function() {
     var symbolsProcessed = {};
 
-    function fetchAndRenderChart(symbol, industry) {
+    function fetchAndRenderChart(symbol, industry, apiKey) {
         if (symbolsProcessed[symbol]) return;
 
         symbolsProcessed[symbol] = true;
 
+        var startDate = '2015-01-01';
+
         $.ajax({
-            url: `https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${symbol}.BSE&apikey=YOUR_API_KEY`,
+            url: `https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${symbol}.BSE&apikey=${apiKey}&start_date=${startDate}`,
             dataType: 'json',
             success: function(response) {
+                if (!response || !response['Meta Data']) {
+                    console.log('Response does not contain Meta Data, switching to second API key...');
+                    fetchAndRenderChart(symbol, industry, '15F0X65XKNRAH11Y');
+                    return;
+                }
+
                 var weeklyData = response['Weekly Time Series'];
+                var dates = Object.keys(weeklyData).filter(date => date >= startDate);
                 var trace = {
-                    x: Object.keys(weeklyData),
-                    close: Object.values(weeklyData).map(x => parseFloat(x['4. close'])),
-                    high: Object.values(weeklyData).map(x => parseFloat(x['2. high'])),
-                    low: Object.values(weeklyData).map(x => parseFloat(x['3. low'])),
-                    open: Object.values(weeklyData).map(x => parseFloat(x['1. open'])),
+                    x: dates,
+                    close: dates.map(date => parseFloat(weeklyData[date]['4. close'])),
+                    high: dates.map(date => parseFloat(weeklyData[date]['2. high'])),
+                    low: dates.map(date => parseFloat(weeklyData[date]['3. low'])),
+                    open: dates.map(date => parseFloat(weeklyData[date]['1. open'])),
                     type: 'candlestick',
                     name: symbol
                 };
@@ -199,6 +184,12 @@ $(document).ready(function() {
             },
             error: function(xhr, status, error) {
                 console.error('Error fetching data:', error);
+                if (apiKey === '6EMIJ5B2WIKKX892') {
+                    console.log('Error with first API key, switching to second API key...');
+                    fetchAndRenderChart(symbol, industry, '15F0X65XKNRAH11Y');
+                } else {
+                    console.error('Error fetching data with second API key:', error);
+                }
             }
         });
     }
@@ -208,7 +199,7 @@ $(document).ready(function() {
             var symbol = $(this).find('td:eq(1)').text();
             var industry = $(this).find('td:eq(0)').text();
             if (symbol) {
-                fetchAndRenderChart(symbol, industry);
+                fetchAndRenderChart(symbol, industry, '6EMIJ5B2WIKKX892');
             }
         });
     }
@@ -217,7 +208,108 @@ $(document).ready(function() {
 });
 </script>
 
+<script>
+$(document).ready(function() {
+    var matchedSymbols = {};
+    var lastTableRowCount = 0;
+    var unmatchedSymbols = {};
 
+    function fetchDataAndMatch() {
+        $.post('https://munafasutra.com/nse/FIIDII/', {})
+            .done(function(data) {
+                var tempDiv = $('<div>').html(data);
+                var table = tempDiv.find('#allFIIDII table');
+
+                var jsonData = [];
+
+                table.find('tr').first().find('td').each(function(index) {
+                    var headerText = $(this).text().trim();
+                    switch(headerText) {
+                        case 'Company':
+                            $(this).attr('id', 'symbol');
+                            break;
+                        case 'FII/DII cash':
+                            $(this).attr('id', 'FIIDII_EQ');
+                            break;
+                        case 'FII/DII FNO':
+                            $(this).attr('id', 'FIIDII_FNO');
+                            break;
+                        case 'Price change':
+                            $(this).attr('id', 'Price_Chng');
+                            break;
+                    }
+                });
+
+                table.find('tr').slice(1).each(function() {
+                    var rowData = {};
+                    $(this).find('td').each(function(index, cell) {
+                        var headerText = table.find('tr').first().find('td').eq(index).text().trim();
+                        var cellText = $(cell).text().trim();
+                        
+                        if (headerText === 'Company') {
+                            var matches = cellText.match(/\(([^)]+)\)/g);
+                            if (matches) {
+                                for (var i = 0; i < matches.length; i++) {
+                                    var match = matches[i].replace(/[()]/g, '');
+                                    if (!match.match(/\bIndia\b/i)) {
+                                        cellText = match;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        rowData[headerText] = cellText;
+                    });
+                    jsonData.push(rowData);
+                });
+
+                var currentTableRowCount = $("#dataTable tbody tr").length;
+
+                if (currentTableRowCount === lastTableRowCount) {
+                    return;
+                }
+
+                $("#dataTable tbody tr").each(function() {
+                    var symbol = $(this).find("td:nth-child(2)").text().trim();
+
+                    if (!matchedSymbols[symbol] && !unmatchedSymbols[symbol]) {
+                        var matched = jsonData.find(function(item) {
+                            return item["Company"].toUpperCase() === symbol.toUpperCase();
+                        });
+
+                        if (matched) {
+                            var tr = $(this);
+                            var fiidiiEq = matched["FII/DII cash"] || "-";
+                            var fiidiiFno = matched["FII/DII FNO"] || "-";
+                            var priceChange = matched["Price change"] || "-";
+
+                            tr.append("<td>" + fiidiiEq + "</td>");
+                            tr.append("<td>" + fiidiiFno + "</td>");
+                            tr.append("<td>" + priceChange + "</td>");
+
+                            matchedSymbols[symbol] = true;
+                        } else {
+                            unmatchedSymbols[symbol] = true;
+                            $(this).append("<td>-</td>");
+                            $(this).append("<td>-</td>");
+                            $(this).append("<td>-</td>");
+                        }
+                    }
+                });
+
+                lastTableRowCount = currentTableRowCount;
+            })
+            .fail(function() {
+                console.error("Failed to retrieve data.");
+            });
+    }
+
+    setInterval(fetchDataAndMatch, 2000);
+
+    fetchDataAndMatch();
+});
+</script>
 
 </body>
 </html>
