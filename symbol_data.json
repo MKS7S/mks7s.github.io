@@ -12650,5 +12650,9 @@
     {
         "Symbol": "YAARI.NS",
         "S_NAME": "Yaari Digital Integ"
+    },
+    { 
+      "Symbol": "TRABI.BO", 
+      "S_NAME": "Transgene Biotek"
     }
 ]
