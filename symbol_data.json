@@ -12018,5 +12018,637 @@
     {
         "Symbol": "YATHARTH.NS",
         "S_NAME": "Yatharth HOSP"
+    },
+    {
+        "Symbol": "AARNAV.BO",
+        "S_NAME": "Aarnav Fashions"
+    },
+    {
+        "Symbol": "ACCELUSD",
+        "S_NAME": "Accel"
+    },
+    {
+        "Symbol": "ACCELYA.NS",
+        "S_NAME": "Accelya Solutions"
+    },
+    {
+        "Symbol": "AEPL.BO",
+        "S_NAME": "Artemis Electricals"
+    },
+    {
+        "Symbol": "AJCON.BO",
+        "S_NAME": "Ajcon Global Service"
+    },
+    {
+        "Symbol": "ALPA.NS",
+        "S_NAME": "Alpa Lab"
+    },
+    {
+        "Symbol": "ANSINDUS.BO",
+        "S_NAME": "ANS Industries"
+    },
+    {
+        "Symbol": "ANUROOP.BO",
+        "S_NAME": "Anuroop Packaging"
+    },
+    {
+        "Symbol": "ARUNAHTEL.BO",
+        "S_NAME": "Aruna Hotel"
+    },
+    {
+        "Symbol": "ASRL.BO",
+        "S_NAME": "Add-Shop E-Retail"
+    },
+    {
+        "Symbol": "AVI.BO",
+        "S_NAME": "AVI Polymers"
+    },
+    {
+        "Symbol": "BALGOPAL.BO",
+        "S_NAME": "Balgopal Commercial"
+    },
+    {
+        "Symbol": "BANASFN.BO",
+        "S_NAME": "Banas Finance"
+    },
+    {
+        "Symbol": "BAZELINTER.BO",
+        "S_NAME": "Bazel International"
+    },
+    {
+        "Symbol": "BHILSPIN.BO",
+        "S_NAME": "Bhilwara Spinners"
+    },
+    {
+        "Symbol": "BISIL.BO",
+        "S_NAME": "Bisil Plast"
+    },
+    {
+        "Symbol": "BKMINDST.NS",
+        "S_NAME": "BKM Industries"
+    },
+    {
+        "Symbol": "BLUECLOUDS.BO",
+        "S_NAME": "Blue Cloud Softech"
+    },
+    {
+        "Symbol": "BNRUDY.BO",
+        "S_NAME": "BNR Udyog"
+    },
+    {
+        "Symbol": "CHEMCRUX.BO",
+        "S_NAME": "Chemcrux Enterprises"
+    },
+    {
+        "Symbol": "CHENFERRO.BO",
+        "S_NAME": "Chennai Ferrous"
+    },
+    {
+        "Symbol": "CHMBBRW.BO",
+        "S_NAME": "Chambal Breweries"
+    },
+    {
+        "Symbol": "CONFIPET.NS",
+        "S_NAME": "Confidence Petroleum"
+    },
+    {
+        "Symbol": "COSPOWER.BO",
+        "S_NAME": "Cospower Engineering"
+    },
+    {
+        "Symbol": "CROISSANCE.BO",
+        "S_NAME": "Croissance"
+    },
+    {
+        "Symbol": "CRSTCHM.BO",
+        "S_NAME": "Crestchem"
+    },
+    {
+        "Symbol": "CSURGSU.BO",
+        "S_NAME": "Centenial Surgical"
+    },
+    {
+        "Symbol": "DEVLAB.BO",
+        "S_NAME": "Dev Labtech Venture"
+    },
+    {
+        "Symbol": "DHANCOT.BO",
+        "S_NAME": "Dhanlaxmi Cotex"
+    },
+    {
+        "Symbol": "DHATRE.BO",
+        "S_NAME": "Dhatre Udyog"
+    },
+    {
+        "Symbol": "DUROPACK.BO",
+        "S_NAME": "Duropack"
+    },
+    {
+        "Symbol": "ELIL.BO",
+        "S_NAME": "Eastern Logica Info"
+    },
+    {
+        "Symbol": "ELPROINTL.BO",
+        "S_NAME": "Elpro International"
+    },
+    {
+        "Symbol": "EMPOWER.BO",
+        "S_NAME": "Empower India"
+    },
+    {
+        "Symbol": "ENCODE.BO",
+        "S_NAME": "Encode Packaging"
+    },
+    {
+        "Symbol": "ENERGYDEV.NS",
+        "S_NAME": "Energy Development"
+    },
+    {
+        "Symbol": "EVEXIA.BO",
+        "S_NAME": "Evexia Lifecare"
+    },
+    {
+        "Symbol": "EXCEL.NS",
+        "S_NAME": "Excel Realty"
+    },
+    {
+        "Symbol": "EY.BO",
+        "S_NAME": "Eyantra ventures"
+    },
+    {
+        "Symbol": "FACORALL.BO",
+        "S_NAME": "Facor Alloys"
+    },
+    {
+        "Symbol": "FEDFINA.NS",
+        "S_NAME": "Fedbank Financial"
+    },
+    {
+        "Symbol": "FILATFASH.BO",
+        "S_NAME": "Filatex Fashions"
+    },
+    {
+        "Symbol": "FLFL.NS",
+        "S_NAME": "Future Lifestyle"
+    },
+    {
+        "Symbol": "FLOMIC.BO",
+        "S_NAME": "Flomic Global Logist"
+    },
+    {
+        "Symbol": "FORCEMOT.NS",
+        "S_NAME": "Force Motors"
+    },
+    {
+        "Symbol": "GARGFUR.BO",
+        "S_NAME": "Garg Furnace"
+    },
+    {
+        "Symbol": "GCMCOMM.BO",
+        "S_NAME": "GCM Commodity"
+    },
+    {
+        "Symbol": "GEMSI.BO",
+        "S_NAME": "Gemstone Investment"
+    },
+    {
+        "Symbol": "GGPL.BO",
+        "S_NAME": "Gala Global Products"
+    },
+    {
+        "Symbol": "GITARENEW.BO",
+        "S_NAME": "Gita Renewable"
+    },
+    {
+        "Symbol": "GLANCE.BO",
+        "S_NAME": "Glance Finance"
+    },
+    {
+        "Symbol": "GORANIN.BO",
+        "S_NAME": "Gorani Industries"
+    },
+    {
+        "Symbol": "GPIL.NS",
+        "S_NAME": "Godawari Power & Isp"
+    },
+    {
+        "Symbol": "HUIL.BO",
+        "S_NAME": "Hindusthan Urban"
+    },
+    {
+        "Symbol": "IITLPROJ.BO",
+        "S_NAME": "IITL Projects"
+    },
+    {
+        "Symbol": "INCAP.BO",
+        "S_NAME": "Incap"
+    },
+    {
+        "Symbol": "INDOCITY.BO",
+        "S_NAME": "Indo-City Infotech"
+    },
+    {
+        "Symbol": "INDRAIND.BO",
+        "S_NAME": "Indra Industries"
+    },
+    {
+        "Symbol": "INDUSFINL.BO",
+        "S_NAME": "Indus Finance"
+    },
+    {
+        "Symbol": "ISHANCH.BO",
+        "S_NAME": "Ishan Dyes & Chem"
+    },
+    {
+        "Symbol": "JAUSPOL.BO",
+        "S_NAME": "Jauss Polymers"
+    },
+    {
+        "Symbol": "JCTR",
+        "S_NAME": "JCT"
+    },
+    {
+        "Symbol": "JENBURPH.BO",
+        "S_NAME": "Jenburkt Pharma"
+    },
+    {
+        "Symbol": "JETMALL.BO",
+        "S_NAME": "Jetmall Spices and M"
+    },
+    {
+        "Symbol": "JINDHOT.BO",
+        "S_NAME": "Jindal Hotel"
+    },
+    {
+        "Symbol": "JSTL.BO",
+        "S_NAME": "Jeevan Scientific"
+    },
+    {
+        "Symbol": "JUPITERIN.BO",
+        "S_NAME": "Jupiter Infomedia"
+    },
+    {
+        "Symbol": "KAKTEX.BO",
+        "S_NAME": "Kakatiya Textiles"
+    },
+    {
+        "Symbol": "KALYANI.NS",
+        "S_NAME": "Kalyani Commercial"
+    },
+    {
+        "Symbol": "KAPILCO.BO",
+        "S_NAME": "Kapil Cotex"
+    },
+    {
+        "Symbol": "KARNAVATI.BO",
+        "S_NAME": "Karnavati Finance"
+    },
+    {
+        "Symbol": "KCLINFRA.BO",
+        "S_NAME": "KCL Infra Projects"
+    },
+    {
+        "Symbol": "KEMISTAR.BO",
+        "S_NAME": "Kemistar Corporation"
+    },
+    {
+        "Symbol": "LAHL.BO",
+        "S_NAME": "Ladam Affordable"
+    },
+    {
+        "Symbol": "LEADFIN.BO",
+        "S_NAME": "Lead Financial Serv"
+    },
+    {
+        "Symbol": "LIPPISYS.BO",
+        "S_NAME": "Lippi Systems"
+    },
+    {
+        "Symbol": "LKPFIN.BO",
+        "S_NAME": "LKP Finance"
+    },
+    {
+        "Symbol": "MACIND.BO",
+        "S_NAME": "Machhar Industries"
+    },
+    {
+        "Symbol": "MADHAVIPL.BO",
+        "S_NAME": "Madhav Infra Project"
+    },
+    {
+        "Symbol": "MAHANIN.BO",
+        "S_NAME": "Mahan Industries"
+    },
+    {
+        "Symbol": "MAINFRA.BO",
+        "S_NAME": "Maruti Infra"
+    },
+    {
+        "Symbol": "MARBLE.BO",
+        "S_NAME": "Marble City India"
+    },
+    {
+        "Symbol": "MFSINTRCRP.BO",
+        "S_NAME": "MFS Intercorp"
+    },
+    {
+        "Symbol": "MODWOOL.BO",
+        "S_NAME": "Modella Woollens"
+    },
+    {
+        "Symbol": "NARPROP.BO",
+        "S_NAME": "Narendra Properties"
+    },
+    {
+        "Symbol": "NDGL.NS",
+        "S_NAME": "Naga Dhunseri"
+    },
+    {
+        "Symbol": "NIDHGRN.BO",
+        "S_NAME": "Nidhi Granites"
+    },
+    {
+        "Symbol": "NIRLON.BO",
+        "S_NAME": "Nirlon"
+    },
+    {
+        "Symbol": "NLFL.BO",
+        "S_NAME": "Nalin Lease Finance"
+    },
+    {
+        "Symbol": "NOVIS.BO",
+        "S_NAME": "Nova Iron & Steel"
+    },
+    {
+        "Symbol": "OMEGAIN.BO",
+        "S_NAME": "Omega Interactive"
+    },
+    {
+        "Symbol": "ONELIFECAP.NS",
+        "S_NAME": "Onelife Capital"
+    },
+    {
+        "Symbol": "OSIAHYPER.NS",
+        "S_NAME": "OSIA Hyper Retail"
+    },
+    {
+        "Symbol": "PADAMCO.BO",
+        "S_NAME": "Padam Cotton Yarns"
+    },
+    {
+        "Symbol": "PANCHSHEEL.BO",
+        "S_NAME": "Panchsheel Organics"
+    },
+    {
+        "Symbol": "PANJON.BO",
+        "S_NAME": "Panjon"
+    },
+    {
+        "Symbol": "PARLEIND.BO",
+        "S_NAME": "Parle Industries"
+    },
+    {
+        "Symbol": "PARNAXLAB.BO",
+        "S_NAME": "Parnax Lab"
+    },
+    {
+        "Symbol": "PBMPOLY.BO",
+        "S_NAME": "PBM Polytex"
+    },
+    {
+        "Symbol": "PGCRL.BO",
+        "S_NAME": "Pearl Green Clubs"
+    },
+    {
+        "Symbol": "PHOTON.BO",
+        "S_NAME": "Photon Capital Advis"
+    },
+    {
+        "Symbol": "PKTEA.NS",
+        "S_NAME": "Peria Karamalai Tea"
+    },
+    {
+        "Symbol": "PNC.NS",
+        "S_NAME": "Pritish Nandy Comm"
+    },
+    {
+        "Symbol": "POLOHOT.BO",
+        "S_NAME": "Polo Hotels"
+    },
+    {
+        "Symbol": "POLYCHMP.BO",
+        "S_NAME": "Polymechplast Mach"
+    },
+    {
+        "Symbol": "PREMCAP.BO",
+        "S_NAME": "Premier Capital Serv"
+    },
+    {
+        "Symbol": "PRIMAGR.BO",
+        "S_NAME": "Prima Agro"
+    },
+    {
+        "Symbol": "PRISMX.BO",
+        "S_NAME": "Prismx Global Ventur"
+    },
+    {
+        "Symbol": "RACLGEAR.BO",
+        "S_NAME": "RACL Geartech"
+    },
+    {
+        "Symbol": "RAJKOTINV.BO",
+        "S_NAME": "Rajkot Investment"
+    },
+    {
+        "Symbol": "RALEGRA.BO",
+        "S_NAME": "Ravileela Granites"
+    },
+    {
+        "Symbol": "RATHIBAR.BO",
+        "S_NAME": "Rathi Bars"
+    },
+    {
+        "Symbol": "RDBRIL.BO",
+        "S_NAME": "RDB Realty & Infra"
+    },
+    {
+        "Symbol": "RESONANCE.BO",
+        "S_NAME": "Resonance Specialtie"
+    },
+    {
+        "Symbol": "RGF.BO",
+        "S_NAME": "RGF Capital Markets"
+    },
+    {
+        "Symbol": "RODIUM.BO",
+        "S_NAME": "Rodium Realty"
+    },
+    {
+        "Symbol": "ROOPAIND.BO",
+        "S_NAME": "Roopa Industries"
+    },
+    {
+        "Symbol": "SABEVENTS.NS",
+        "S_NAME": "SAB Events & Governa"
+    },
+    {
+        "Symbol": "SANBLUE.BO",
+        "S_NAME": "Sanblue Corporation"
+    },
+    {
+        "Symbol": "SANPA.BO",
+        "S_NAME": "Sangal Papers"
+    },
+    {
+        "Symbol": "SAPPL.BO",
+        "S_NAME": "Shree Ajit Pulp"
+    },
+    {
+        "Symbol": "SCANPGEOM.BO",
+        "S_NAME": "Scanpoint Geomatics"
+    },
+    {
+        "Symbol": "SCANPRO.BO",
+        "S_NAME": "Scan Projects"
+    },
+    {
+        "Symbol": "SFPIL.BO",
+        "S_NAME": "Square Four Projects"
+    },
+    {
+        "Symbol": "SHARIKA.BO",
+        "S_NAME": "Sharika Enterprises"
+    },
+    {
+        "Symbol": "SHARPLINE.BO",
+        "S_NAME": "Sharpline Broadcast"
+    },
+    {
+        "Symbol": "SHAWGELTIN.BO",
+        "S_NAME": "Narmada Gelatines"
+    },
+    {
+        "Symbol": "SHBAJRG.BO",
+        "S_NAME": "Shri Bajrang Allianc"
+    },
+    {
+        "Symbol": "SHETR.BO",
+        "S_NAME": "Shetron"
+    },
+    {
+        "Symbol": "SIEL.BO",
+        "S_NAME": "Superior Industrial"
+    },
+    {
+        "Symbol": "SIPTL.BO",
+        "S_NAME": "Sharanam Infra"
+    },
+    {
+        "Symbol": "SOFCOM.BO",
+        "S_NAME": "Sofcom Systems"
+    },
+    {
+        "Symbol": "SOFTRAKV.BO",
+        "S_NAME": "Softrak Venture Inv"
+    },
+    {
+        "Symbol": "SSPDL.BO",
+        "S_NAME": "SSPDL"
+    },
+    {
+        "Symbol": "STDBAT.BO",
+        "S_NAME": "Standard Batteries"
+    },
+    {
+        "Symbol": "SUDAI.BO",
+        "S_NAME": "Sudal Industries"
+    },
+    {
+        "Symbol": "SUUMAYA.BO",
+        "S_NAME": "Suumaya Corporation"
+    },
+    {
+        "Symbol": "SVRL.BO",
+        "S_NAME": "Shri Venkatesh Refin"
+    },
+    {
+        "Symbol": "SYSCHEM.BO",
+        "S_NAME": "Syschem (India)"
+    },
+    {
+        "Symbol": "TARAI.BO",
+        "S_NAME": "Tarai Foods"
+    },
+    {
+        "Symbol": "TEJASSVI.BO",
+        "S_NAME": "Tejassvi Aaharam"
+    },
+    {
+        "Symbol": "TELECANOR.BO",
+        "S_NAME": "TeleCanor Globa"
+    },
+    {
+        "Symbol": "TIERRA.BO",
+        "S_NAME": "Tierra Agrotech"
+    },
+    {
+        "Symbol": "TIRTPLS.BO",
+        "S_NAME": "Tirth Plastic"
+    },
+    {
+        "Symbol": "TITAANIUM.BO",
+        "S_NAME": "Titaanium Ten Ente"
+    },
+    {
+        "Symbol": "UNISTRMU.BO",
+        "S_NAME": "Unistar Multimedia"
+    },
+    {
+        "Symbol": "USGTECH.BO",
+        "S_NAME": "USG Tech Solutions"
+    },
+    {
+        "Symbol": "UTIQUE.BO",
+        "S_NAME": "Utique Enterprises"
+    },
+    {
+        "Symbol": "VALLABHSQ.BO",
+        "S_NAME": "Vallabh Steels"
+    },
+    {
+        "Symbol": "VASUPRADA.BO",
+        "S_NAME": "Shri Vasuprada Plant"
+    },
+    {
+        "Symbol": "VCU.V",
+        "S_NAME": "VCU"
+    },
+    {
+        "Symbol": "VERTEX.BO",
+        "S_NAME": "Vertex Securities"
+    },
+    {
+        "Symbol": "VIJSOLX.BO",
+        "S_NAME": "Vijay Solvex"
+    },
+    {
+        "Symbol": "VINTRON.BO",
+        "S_NAME": "Vintron Informatics"
+    },
+    {
+        "Symbol": "VIRGOGLOB.BO",
+        "S_NAME": "Virgo Global"
+    },
+    {
+        "Symbol": "VIVANTA.BO",
+        "S_NAME": "Vivanta Industries"
+    },
+    {
+        "Symbol": "XELPMOC.NS",
+        "S_NAME": "Xelpmoc Design"
+    },
+    {
+        "Symbol": "YAARI.NS",
+        "S_NAME": "Yaari Digital Integ"
     }
 ]
