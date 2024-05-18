@@ -16098,6 +16098,66 @@
         {
         "Symbol": "AMINTAN",
         "S_NAME": "Amin Tannery"
+        },
+
+        {
+        "Symbol": "RAGHUTOB",
+        "S_NAME": "RTCL"
+        },
+
+        {
+        "Symbol": "ONEGLOBAL",
+        "S_NAME": "One Global Service P"
+        },
+
+        {
+        "Symbol": "ANJANIFOODS",
+        "S_NAME": "Anjani Foods"
+        },
+
+        {
+        "Symbol": "RELIABVEN",
+        "S_NAME": "Reliable Ventures"
+        },
+
+        {
+        "Symbol": "MENAMANI",
+        "S_NAME": "Mena Mani Industries"
+        },
+
+        {
+        "Symbol": "PRATIKSH",
+        "S_NAME": "Pratiksha Chemicals"
+        },
+
+        {
+        "Symbol": "GARBIFIN",
+        "S_NAME": "Garbi Finvest"
+        },
+
+        {
+        "Symbol": "LORDSHOTL",
+        "S_NAME": "Lords Ishwar Hotels"
+        },
+
+        {
+        "Symbol": "PNTKYOR",
+        "S_NAME": "Pentokey Organy"
+        },
+
+        {
+        "Symbol": "IRBINVIT",
+        "S_NAME": "IRBINVIT"
+        },
+
+        {
+        "Symbol": "KACHCHH",
+        "S_NAME": "Kachchh Minerals"
+        },
+
+        {
+        "Symbol": "INDRENEW",
+        "S_NAME": "Ind Renewable Energy"
         }
 
 ]
