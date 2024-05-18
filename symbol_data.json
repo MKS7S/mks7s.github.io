@@ -12654,5 +12654,33 @@
     { 
       "Symbol": "TRABI.BO", 
       "S_NAME": "Transgene Biotek"
-    }
+    },
+    {
+    "Symbol": "FLEXFO.BO",
+    "S_NAME": "Flex Foods"
+  },
+  {
+    "Symbol": "CIFL.BO",
+    "S_NAME": "Capital India"
+  },
+  {
+    "Symbol": "HRMNYCP.BO",
+    "S_NAME": "Harmony Capital"
+  },
+  {
+    "Symbol": "FLEXITUFF.NS",
+    "S_NAME": "Flexituff Ventures"
+  },
+  {
+    "Symbol": "ANKIN.BO",
+    "S_NAME": "Anka India"
+  },
+  {
+    "Symbol": "GSBFIN.BO",
+    "S_NAME": "GSB Finance"
+  },
+  {
+    "Symbol": "SHARDUL.BO",
+    "S_NAME": "Shardul Securities"
+  }
 ]
