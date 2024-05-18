@@ -88,81 +88,94 @@
 
 
 <script>
-  $(document).ready(function() {
+$(document).ready(function() {
+    const fetchJsonData = (url) => {
+        return $.getJSON(url);
+    };
 
-    $.getJSON('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json')
-        .done(function(jsonData) {
-            function getSymbolName(sName, callback) {
-                var matchedSymbol = jsonData.find(function(item) {
-                    return item.S_NAME === sName;
-                });
+    const getAllPagedData = async (baseUrl) => {
+        let allData = [];
+        let pageNo = 1;
+        let moreData = true;
 
-                if (matchedSymbol && matchedSymbol.Symbol) {
-                    var symbol = matchedSymbol.Symbol.replace(/\.NS$|\.BO$/, '');
-                    var industry = matchedSymbol.Industry;
-                    callback(symbol, industry, sName);
+        while (moreData) {
+            try {
+                const data = await fetchJsonData(`${baseUrl}&pageNo=${pageNo}`);
+                if (data.length > 0) {
+                    allData = allData.concat(data);
+                    pageNo++;
                 } else {
-                    console.error('Symbol not found for:', sName);
-                    callback('');
+                    moreData = false;
+                }
+            } catch (error) {
+                console.error(`Failed to fetch data from page ${pageNo}:`, error);
+                moreData = false;
+            }
+        }
+
+        return allData;
+    };
+
+    const getSymbolName = (sName, jsonData) => {
+        return new Promise((resolve, reject) => {
+            const matchedSymbol = jsonData.find(item => item.S_NAME === sName);
+            if (matchedSymbol && matchedSymbol.Symbol) {
+                const symbol = matchedSymbol.Symbol.replace(/\.NS$|\.BO$/, '');
+                const industry = matchedSymbol.Industry;
+                resolve({ symbol, industry, sName });
+            } else {
+                console.error('Symbol not found for:', sName);
+                resolve(null);
+            }
+        });
+    };
+
+    const processData = async (jsonData, mergedData, openInterestData) => {
+        const tableBody = $('#dataTable tbody');
+        const uniqueSymbols = {};
+
+        for (const item of mergedData) {
+            if (!uniqueSymbols[item.S_NAME]) {
+                uniqueSymbols[item.S_NAME] = true;
+
+                const symbolInfo = await getSymbolName(item.S_NAME, jsonData);
+                if (symbolInfo) {
+                    const { symbol, sName } = symbolInfo;
+                    const filteredData = openInterestData.filter(oiItem => oiItem.OI_Symbol === symbol);
+
+                    if (filteredData.length > 0) {
+                        const oiItem = filteredData[0];
+                        tableBody.append('<tr>' +
+                            '<td>' + sName + '</td>' +
+                            '<td>' + symbol + '</td>' +
+                            '<td>' + oiItem.OI_OptType + '</td>' +
+                            '</tr>');
+                    } else {
+                        console.warn('Open interest data not found for symbol:', symbol);
+                    }
                 }
             }
+        }
+    };
 
-            $.getJSON('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=NSE&Type=Low&Period=1WEEK&Group=&Indices=&pageNo=1&PageSize=10000')
-                .done(function(dataNSE) {
-                    $.getJSON('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=BSE&Type=Low&Period=1WEEK&Group=&Indices=&pageNo=1&PageSize=10000')
-                        .done(function(dataBSE) {
-                            var mergedData = [];
-                            $.merge(mergedData, dataNSE);
-                            $.merge(mergedData, dataBSE);
+    (async () => {
+        try {
+            const jsonData = await fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json');
 
-                            var uniqueSymbols = {};
-                            var tableBody = $('#dataTable tbody');
+            const [dataNSE, dataBSE, openInterestData] = await Promise.all([
+                getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=NSE&Type=Low&Period=1WEEK&Group=&Indices=&PageSize=100'),
+                getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=BSE&Type=Low&Period=1WEEK&Group=&Indices=&PageSize=100'),
+                getAllPagedData('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&opt2=&date=&PageSize=100')
+            ]);
 
-                            mergedData.forEach(function(item) {
-                                var nseItem = dataNSE.find(x => x.S_NAME === item.S_NAME);
-                                var bseItem = dataBSE.find(x => x.S_NAME === item.S_NAME);
+            const mergedData = $.merge([], dataNSE);
+            $.merge(mergedData, dataBSE);
 
-                                if (nseItem && bseItem) {
-                                    getSymbolName(item.S_NAME, function(symbol, industry, sName) {
-                                        if (!uniqueSymbols[sName]) {
-                                            uniqueSymbols[sName] = true;
-
-                                            $.getJSON('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&opt2=&date=&pageNo=1&PageSize=10000')
-                                                .done(function(openInterestData) {
-                                                    var filteredData = openInterestData.filter(function(oiItem) {
-                                                        return oiItem.OI_Symbol === symbol;
-                                                    });
-
-                                                    if (filteredData.length > 0) {
-                                                        var oiItem = filteredData[0];
-                                                        tableBody.append('<tr>' +
-                                                            '<td>' + sName + '</td>' +
-                                                            '<td>' + symbol + '</td>' +
-                                                            '<td>' + oiItem.OI_OptType + '</td>' +
-                                                            '</tr>');
-                                                    } else {
-                                                        console.warn('Open interest data not found for symbol:', symbol);
-                                                    }
-                                                })
-                                                .fail(function() {
-                                                    console.error('Failed to fetch open interest data.');
-                                                });
-                                        }
-                                    });
-                                }
-                            });
-                        })
-                        .fail(function() {
-                            console.error('Failed to fetch BSE data.');
-                        });
-                })
-                .fail(function() {
-                    console.error('Failed to fetch NSE data.');
-                });
-        })
-        .fail(function() {
-            console.error('Failed to fetch symbol data.');
-        });
+            await processData(jsonData, mergedData, openInterestData);
+        } catch (error) {
+            console.error('An error occurred during processing:', error);
+        }
+    })();
 });
 </script>
 
