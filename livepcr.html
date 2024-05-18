@@ -55,8 +55,26 @@
 
   
   
-  
-<p style="color: #6c6c6c;">© 2024 Development Rights MKS <a href="#bankniftynav" class="active" style="float: right;color: #6c6c6c;">✪ BANKNIFTY PCR</a></p>
+<p style="color: #6c6c6c;margin: 0;">© Data Rights Belong to its respective owner- niftytrader.in, This tool is just for personal analysis. </p>
+<p style="color: #6c6c6c;">© 2024 Development Rights MKS <button style="
+    float: right;
+    color: #6c6c6c;
+    background-color: rgb(68, 122, 219);
+    color: white;
+    padding: 8px 8px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    position: fixed;
+    border-radius: 5px;
+    top: 23px;
+    right: 15px;
+    width: 180px;
+    box-shadow: 0 0 3px 0px black;
+	text-align-last:center;"><a href="#bankniftynav" class="active" style="text-decoration:none;color: white;"> BANKNIFTY PCR ∣</a></button></p>
+	
+	
+	
 <h2>Concluded Data:</h2>
 <div id="NiftyPCRavg"></div>
 <div id="BANKNiftyPCRavg"></div>
@@ -90,6 +108,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     let selectedExpiry;
     const baseURL = "https://services.niftytrader.in/webapi/option/oi-pcr-data?type=niftypcr&expiry=";
+	const refreshInterval = 1000;
     function formatDate(dateString) {
         const date = new Date(dateString);
         return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
@@ -255,6 +274,7 @@ document.addEventListener("DOMContentLoaded", function() {
         fetchDataAndPopulateTable();
     })
     .catch(error => console.error('Error fetching expiry dates:', error));
+
 });
 </script>
 
