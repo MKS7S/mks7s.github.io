@@ -12730,5 +12730,13 @@
   {
     "Symbol": "CARTRADE.NS",
     "S_NAME": "CarTrade Tech"
+  },
+  {
+    "Symbol": "GOENKA.BSE",
+    "S_NAME": "Goenka Diamond & Jew"
+  },
+  {
+    "Symbol": "ASCENSIVE.BSE",
+    "S_NAME": "Ascensive Educare"
   }
 ]
