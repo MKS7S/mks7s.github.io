@@ -12738,5 +12738,13 @@
   {
     "Symbol": "ASCENSIVE.BSE",
     "S_NAME": "Ascensive Educare"
+  },
+  {
+    "Symbol": "RASRESOR.BSE",
+    "S_NAME": "Ras Resorts & Apart"
+  },
+  {
+    "Symbol": "ZENITHHE.BSE",
+    "S_NAME": "Zenith Health Care"
   }
 ]
