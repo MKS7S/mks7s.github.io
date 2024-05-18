@@ -12682,5 +12682,53 @@
   {
     "Symbol": "SHARDUL.BO",
     "S_NAME": "Shardul Securities"
+  },
+  {
+    "Symbol": "SCPL.NS",
+    "S_NAME": "Sheetal Cool Prod"
+  },
+  {
+    "Symbol": "SOMATEX.NS",
+    "S_NAME": "Soma Textiles"
+  },
+  {
+    "Symbol": "SEMAC.BO",
+    "S_NAME": "Semac Consultants"
+  },
+  {
+    "Symbol": "RHFL.NS",
+    "S_NAME": "Reliance Home Financ"
+  },
+  {
+    "Symbol": "CARTRADE.NS",
+    "S_NAME": "CarTrade Tech"
+  },
+  {
+    "Symbol": "APLLTD.NS",
+    "S_NAME": "Alembic Pharma"
+  },
+  {
+    "Symbol": "SOMATEX.NS",
+    "S_NAME": "Soma Textiles"
+  },
+  {
+    "Symbol": "SEMAC.BO",
+    "S_NAME": "Semac Consultants"
+  },
+  {
+    "Symbol": "SCPL.NS",
+    "S_NAME": "Sheetal Cool Prod"
+  },
+  {
+    "Symbol": "APLLTD.NS",
+    "S_NAME": "Alembic Pharma"
+  },
+  {
+    "Symbol": "RHFL.NS",
+    "S_NAME": "Reliance Home Financ"
+  },
+  {
+    "Symbol": "CARTRADE.NS",
+    "S_NAME": "CarTrade Tech"
   }
 ]
