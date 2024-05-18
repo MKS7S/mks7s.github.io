@@ -97,6 +97,20 @@
     <div class="container">
         <p>© Data Rights Belong to their respective owners- nirmalbang.com, munafasutra.com, nseindia.com, bseindia.com. This tool is just for personal analysis.</p>
         <p>© 2024 Development Rights MKS</p>
+		<div id="Total_Symbol_Count">Total PreMade Symbol: </div>
+ <script>
+        async function fetchJsonData(url) {
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        }
+        async function countSymbols() {
+            const jsonData = await fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json');
+            const totalSymbols = jsonData.length; 
+            document.getElementById('Total_Symbol_Count').innerText = `Total Symbol Count: ${totalSymbols}`;
+        }
+        countSymbols();
+    </script>
 
         <h2 class="animate__animated animate__fadeInDown">Discovering Investment Opportunities: The Process Behind Finding Stocks</h2>
         <ol>
