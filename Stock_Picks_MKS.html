@@ -90,6 +90,9 @@
         a {
             color: #ffeb3b;
         }
+		.table-container {
+            overflow-x: auto;
+        }
     </style>
 </head>
 
@@ -125,6 +128,7 @@
             Note: On Mobile Please use <a href="https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=en&gl=US">Kiwi Browser (Link)</a> with extension <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino">CORS Unblock (Link)</a>. Output result takes around more than 5 minutes due to complex & heavy process, Chart request is limited to 25 per day if chart is not visible please use VPN to reset the exceeded request!
         </div>
 
+<div class="table-container">
         <table id="dataTable" class="table table-dark table-striped animate__animated animate__fadeInUp">
             <thead>
                 <tr>
@@ -140,6 +144,7 @@
                 <!-- Data will be populated here -->
             </tbody>
         </table>
+		</div>
 
         <div class="font-weight-bold">Charts:</div>
         <div id="chartContainer" class="animate__animated animate__zoomIn"></div>
@@ -474,6 +479,8 @@ $(document).ready(function() {
 </script>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
