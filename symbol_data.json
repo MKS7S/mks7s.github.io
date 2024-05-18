@@ -16068,6 +16068,21 @@
         {
         "Symbol": "SKYIND",
         "S_NAME": "Sky Industries"
+        },
+
+        {
+        "Symbol": "MITSHI",
+        "S_NAME": "Mitshi India"
+        },
+
+        {
+        "Symbol": "SAMYAKINT",
+        "S_NAME": "Samyak International"
+        },
+
+        {
+        "Symbol": "OSWAYRN",
+        "S_NAME": "Oswal Yarns"
         }
 
 ]
