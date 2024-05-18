@@ -12746,5 +12746,45 @@
   {
     "Symbol": "ZENITHHE",
     "S_NAME": "Zenith Health Care"
+  },
+  {
+    "Symbol": "ALEXANDER.BSE",
+    "S_NAME": "Alexander Stamps"
+  },
+  {
+    "Symbol": "NTCIND.BSE",
+    "S_NAME": "NTC Industries"
+  },
+  {
+    "Symbol": "ASHRAM.BSE",
+    "S_NAME": "Ashram Online.Com"
+  },
+  {
+    "Symbol": "ARCHITORG.BSE",
+    "S_NAME": "Archit Organosys"
+  },
+  {
+    "Symbol": "RAJINFRA.BSE",
+    "S_NAME": "Rajeswari Infrastruc"
+  },
+  {
+    "Symbol": "BETXIND.BSE",
+    "S_NAME": "Betex India"
+  },
+  {
+    "Symbol": "NIRAVCOM.BSE",
+    "S_NAME": "Nirav Commercials"
+  },
+  {
+    "Symbol": "RAVALSUGAR.BSE",
+    "S_NAME": "Ravalgaon Sugar Farm"
+  },
+  {
+    "Symbol": "FERVENTSYN.BSE",
+    "S_NAME": "Fervent Synergies"
+  },
+  {
+    "Symbol": "SHIVACEM.BSE",
+    "S_NAME": "Shiva Cement"
   }
 ]
