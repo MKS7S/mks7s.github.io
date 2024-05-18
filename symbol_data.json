@@ -12786,5 +12786,29 @@
   {
     "Symbol": "SHIVACEM",
     "S_NAME": "Shiva Cement"
+  },
+  {
+    "Symbol": "VISIONCINE",
+    "S_NAME": "Vision Cinemas"
+  },
+  {
+    "Symbol": "WAA",
+    "S_NAME": "WAA Solar"
+  },
+  {
+    "Symbol": "BFFL",
+    "S_NAME": "Bangalore Fort Farms"
+  },
+  {
+    "Symbol": "VARIMAN",
+    "S_NAME": "Variman Global Enter"
+  },
+  {
+    "Symbol": "ANJANIFIN",
+    "S_NAME": "Anjani Finance"
+  },
+  {
+    "Symbol": "TOYAMSL",
+    "S_NAME": "Toyam Sports"
   }
 ]
