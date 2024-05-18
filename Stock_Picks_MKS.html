@@ -107,7 +107,7 @@
         async function countSymbols() {
             const jsonData = await fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json');
             const totalSymbols = jsonData.length; 
-            document.getElementById('Total_Symbol_Count').innerText = `Total Symbol Count: ${totalSymbols}`;
+            document.getElementById('Total_Symbol_Count').innerText = `Total PreMade Symbol: ${totalSymbols}`;
         }
         countSymbols();
     </script>
