@@ -1,132 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automated Picks</title>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<meta charset="UTF-8">
-<title>Automated Picks</title>
-<style>
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-    th {
-        background-color: #383838;
-		color: white;
-    }
-    .positive {
-        background-color: green;
-        color: white;
-    }
-    .negative {
-        background-color: red;
-        color: white;
-    }
-    .flag-img {
-        max-width: 50px;
-        max-height: 30px;
-    }
-    .state-closed {
-        background-color: red;
-        color: white;
-    }
-    .state-open {
-        background-color: green;
-        color: white;
-    }
-	.state-pre {
-        background-color: #e7e700;
-        color: white;
-    }
-	.red-bg {
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #444;
+            text-align: left;
+            padding: 12px;
+        }
+
+        th {
+            background-color: #383838;
+            color: white;
+        }
+
+        .positive {
+            background-color: green;
+            color: white;
+        }
+
+        .negative {
+            background-color: red;
+            color: white;
+        }
+
+        .flag-img {
+            max-width: 50px;
+            max-height: 30px;
+        }
+
+        .state-closed {
+            background-color: red;
+            color: white;
+        }
+
+        .state-open {
+            background-color: green;
+            color: white;
+        }
+
+        .state-pre {
+            background-color: #e7e700;
+            color: white;
+        }
+
+        .red-bg {
             background-color: red;
         }
+
         .green-bg {
             background-color: green;
         }
-</style>
-<style>
-        /* Hide the div by default */
+
         #corsNote {
             display: none;
         }
+
+        h2 {
+            color: #ffeb3b;
+        }
+
+        p {
+            color: #9e9e9e;
+        }
+
+        a {
+            color: #ffeb3b;
+        }
     </style>
-	
-	
 </head>
-<body style="background: black;color: white;">
 
-<p style="color: #6c6c6c;margin: 0;">© Data Rights Belong to their respective owners- nirmalbang.com, munafasutra.com, nseindia.com, bseindia.com. This tool is just for personal analysis. </p>
-<p style="color: #6c6c6c;">© 2024 Development Rights MKS </p>
+<body>
+    <div class="container">
+        <p>© Data Rights Belong to their respective owners- nirmalbang.com, munafasutra.com, nseindia.com, bseindia.com. This tool is just for personal analysis.</p>
+        <p>© 2024 Development Rights MKS</p>
 
-<h2>Discovering Investment Opportunities: The Process Behind Finding Stocks</h2>
-<ol>
-    <li><strong>Data Merge:</strong> The system retrieves symbols from both NSE and BSE.</li>
-    <li><strong>Comparison:</strong> It analyzes stock data against 1-week and 52-week lows.</li>
-    <li><strong>Filtering:</strong> Stocks are screened based on factors like high open interest, price, and high volume.</li>
-    <li><strong>Validation:</strong> Filtered stocks are checked against FII and DII data to confirm investment opportunities.</li>
-    <li><strong>Insights:</strong> Users receive actionable investment insights based on validated data.</li>
-</ol>
+        <h2 class="animate__animated animate__fadeInDown">Discovering Investment Opportunities: The Process Behind Finding Stocks</h2>
+        <ol>
+            <li><strong>Data Merge:</strong> The system retrieves symbols from both NSE and BSE.</li>
+            <li><strong>Comparison:</strong> It analyzes stock data against 1-week and 52-week lows.</li>
+            <li><strong>Filtering:</strong> Stocks are screened based on factors like high open interest, price, and high volume.</li>
+            <li><strong>Validation:</strong> Filtered stocks are checked against FII and DII data to confirm investment opportunities.</li>
+            <li><strong>Insights:</strong> Users receive actionable investment insights based on validated data.</li>
+        </ol>
 
-	
-</br>
+        <div id="corsNote" style="color: red;">
+            Note: On Mobile Please use <a href="https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=en&gl=US">Kiwi Browser (Link)</a> with extension <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino">CORS Unblock (Link)</a>. Output result takes around more than 5 minutes due to complex & heavy process, Chart request is limited to 25 per day if chart is not visible please use VPN to reset the exceeded request!
+        </div>
 
-<div id="corsNote" style="color: red;">Note: On Mobile Please use <a href="https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=en&gl=US" style="color: yellow;">Kiwi Browser (Link)</a> with extension <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino" style="color: yellow;">CORS Unblock (Link)</a>. Output result takes around more than 5 minutes due to complex & heavy process, Chart request is limited to 25 per day if chart is not visible please use VPN to reset the exceeded request !</div>
+        <table id="dataTable" class="table table-dark table-striped animate__animated animate__fadeInUp">
+            <thead>
+                <tr>
+                    <th>Industry</th>
+                    <th>Symbol</th>
+                    <th>Contract</th>
+                    <th>FII DII In Equites</th>
+                    <th>FII DII In Options</th>
+                    <th>Price Change %</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be populated here -->
+            </tbody>
+        </table>
+
+        <div class="font-weight-bold">Charts:</div>
+        <div id="chartContainer" class="animate__animated animate__zoomIn"></div>
+    </div>
 
     <script>
         // Function to check if CORS is enabled
         function isCORSEnabled() {
             var xhr = new XMLHttpRequest();
-            // Try to make a request to a different domain
             try {
                 xhr.open("GET", "https://example.com", false);
                 xhr.send();
             } catch (error) {
-                // If there's an error, CORS is not enabled
                 return false;
             }
-            // If request succeeds, CORS is enabled
             return true;
         }
 
         // Check CORS status when the page loads
-        window.onload = function() {
+        window.onload = function () {
             if (!isCORSEnabled()) {
-                // CORS is not enabled, show the div
                 document.getElementById('corsNote').style.display = 'block';
             }
         };
     </script>
-
-</br>
-
-    <table id="dataTable">
-        <thead>
-            <tr>
-			     <th>Industry</th>
-                <th>Symbol</th>
-				<th>Contract</th>
-				<th>FII DII In Equites</th>
-				<th>FII DII In Options</th>
-				<th>Price Change %</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Data will be populated here -->
-        </tbody>
-    </table>
-	
-</br>
-<div style="font-weight: bold;">Charts:</div>
-<div id="chartContainer"></div>
 
 
 <script>
