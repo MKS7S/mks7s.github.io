@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Symbols</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>Stock Symbols</h2>
+    <table id="stockTable">
+        <thead>
+            <tr>
+                <th>Stock Symbol</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: 'https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256',
+                method: 'GET',
+                success: function(response) {
+                    // Check if the response status is success
+                    if(response.status === "success") {
+                        // Extract the screener results
+                        const screenerResults = response.screener.screener_result;
+
+                        // Iterate over the screener results and populate the table
+                        screenerResults.forEach(function(stock) {
+                            const symbol = stock.seg_sym.split(':')[1]; // Extract symbol after "NSE:"
+                            $('#stockTable tbody').append('<tr><td>' + symbol + '</td></tr>');
+                        });
+                    } else {
+                        console.error('Failed to fetch data');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error fetching data: ', status, error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
