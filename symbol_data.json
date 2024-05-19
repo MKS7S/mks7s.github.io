@@ -16158,6 +16158,12 @@
         {
         "Symbol": "INDRENEW",
         "S_NAME": "Ind Renewable Energy"
+        },
+
+        {
+        "Symbol": "AUBANK",
+        "S_NAME": "AU Small Fin. Bank"
         }
+
 
 ]
