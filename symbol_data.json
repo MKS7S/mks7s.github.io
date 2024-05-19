@@ -16163,6 +16163,26 @@
         {
         "Symbol": "AUBANK",
         "S_NAME": "AU Small Fin. Bank"
+        },
+
+        {
+        "Symbol": "ICICIGI",
+        "S_NAME": "ICICI Lombard Gen."
+        },
+
+        {
+        "Symbol": "ICICIGI",
+        "S_NAME": "ICICI Lombard Gen."
+        },
+
+        {
+        "Symbol": "WAREERTL",
+        "S_NAME": "Waaree Renewables"
+        },
+
+        {
+        "Symbol": "ABSLAMC",
+        "S_NAME": "Aditya Birla Sun AMC"
         }
 
 
