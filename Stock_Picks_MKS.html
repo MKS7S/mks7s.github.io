@@ -93,6 +93,9 @@
 		.table-container {
             overflow-x: auto;
         }
+		table {
+    width: 100%;
+}
     </style>
 </head>
 
@@ -121,6 +124,7 @@
             <li><strong>Comparison:</strong> It analyzes stock data against 1-week and 52-week lows.</li>
             <li><strong>Filtering:</strong> Stocks are screened based on factors like high open interest, price, and high volume.</li>
             <li><strong>Validation:</strong> Filtered stocks are checked against FII and DII data to confirm investment opportunities.</li>
+			<li><strong>Technical Analysis:</strong> Matches data with Daily MACD Crossover and Weekly MACD Crossover.</li>
             <li><strong>Insights:</strong> Users receive actionable investment insights based on validated data.</li>
         </ol>
 
@@ -129,12 +133,16 @@
         </div>
 
 <div class="table-container">
+<div class="table-responsive">
         <table id="dataTable" class="table table-dark table-striped animate__animated animate__fadeInUp">
             <thead>
                 <tr>
                     <th>Industry</th>
                     <th>Symbol</th>
                     <th>Contract</th>
+					<th>Expiry</th>
+					<th>Daily MACD Crossover</th>
+					<th>Weekly MACD Crossover</th>
                     <th>FII DII In Equites</th>
                     <th>FII DII In Options</th>
                     <th>Price Change %</th>
@@ -144,6 +152,7 @@
                 <!-- Data will be populated here -->
             </tbody>
         </table>
+		</div>
 		</div>
 
         <div class="font-weight-bold">Charts:</div>
@@ -177,12 +186,17 @@ $(document).ready(function() {
     const fetchJsonData = (url) => {
         return $.getJSON(url);
     };
-
+    const fetchData = (apiUrl) => {
+        return $.ajax({
+            url: "https://api.allorigins.win/get?url=" + encodeURIComponent(apiUrl),
+            method: "GET",
+            dataType: "json"
+        });
+    };
     const getAllPagedData = async (baseUrl) => {
         let allData = [];
         let pageNo = 1;
         let moreData = true;
-
         while (moreData) {
             try {
                 const data = await fetchJsonData(`${baseUrl}&pageNo=${pageNo}`);
@@ -197,44 +211,46 @@ $(document).ready(function() {
                 moreData = false;
             }
         }
-
         return allData;
     };
-
     const getSymbolName = (sName, jsonData) => {
         return new Promise((resolve, reject) => {
             const matchedSymbol = jsonData.find(item => item.S_NAME === sName);
             if (matchedSymbol && matchedSymbol.Symbol) {
                 const symbol = matchedSymbol.Symbol.replace(/\.NS$|\.BO$/, '');
-                const industry = matchedSymbol.Industry;
-                resolve({ symbol, industry, sName });
+                resolve({ symbol, sName });
             } else {
                 console.error('Symbol not found for:', sName);
                 resolve(null);
             }
         });
     };
-
-    const processData = async (jsonData, mergedData, openInterestData) => {
+    const processData = async (jsonData, mergedData, openInterestData, dailyMACDSymbols, weeklyMACDSymbols) => {
         const tableBody = $('#dataTable tbody');
         const uniqueSymbols = {};
-
         for (const item of mergedData) {
             if (!uniqueSymbols[item.S_NAME]) {
                 uniqueSymbols[item.S_NAME] = true;
-
                 const symbolInfo = await getSymbolName(item.S_NAME, jsonData);
                 if (symbolInfo) {
                     const { symbol, sName } = symbolInfo;
                     const filteredData = openInterestData.filter(oiItem => oiItem.OI_Symbol === symbol);
-
+                    const dailyMACDMatch = dailyMACDSymbols.find(sym => sym.Symbol === symbol);
+                    const weeklyMACDMatch = weeklyMACDSymbols.find(sym => sym.Symbol === symbol);
+                    const dailyMACDStatus = dailyMACDMatch ? 'true' : 'false';
+                    const weeklyMACDStatus = weeklyMACDMatch ? 'true' : 'false';
                     if (filteredData.length > 0) {
                         const oiItem = filteredData[0];
-                        tableBody.append('<tr>' +
-                            '<td>' + sName + '</td>' +
-                            '<td>' + symbol + '</td>' +
-                            '<td>' + oiItem.OI_OptType + '</td>' +
-                            '</tr>');
+                        if (oiItem.OI_OptType) {
+                            tableBody.append('<tr>' +
+                                '<td>' + sName + '</td>' +
+                                '<td>' + symbol + '</td>' +
+                                '<td>' + oiItem.OI_OptType + '</td>' +
+                                '<td>' + oiItem.OI_ExpDate + '</td>' +
+                                '<td>' + dailyMACDStatus + '</td>' +
+                                '<td>' + weeklyMACDStatus + '</td>' +
+                                '</tr>');
+                        }
                     } else {
                         console.warn('Open interest data not found for symbol:', symbol);
                     }
@@ -246,17 +262,24 @@ $(document).ready(function() {
     (async () => {
         try {
             const jsonData = await fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json');
-
-            const [dataNSE, dataBSE, openInterestData] = await Promise.all([
+            const [dataNSE, dataBSE, openInterestData, dailyMACDResponse, weeklyMACDResponse] = await Promise.all([
                 getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=NSE&Type=Low&Period=1WEEK&Group=&Indices=&PageSize=100'),
                 getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=BSE&Type=Low&Period=1WEEK&Group=&Indices=&PageSize=100'),
-                getAllPagedData('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&opt2=&date=&PageSize=100')
+                getAllPagedData('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&opt2=&date=&PageSize=100'),
+                fetchData("https://api.allorigins.win/get?url=" + encodeURIComponent("https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256")),
+                fetchData("https://api.allorigins.win/get?url=" + encodeURIComponent("https://api-op.streak.tech/open_screener/?slug=weeklymacd-920662"))
             ]);
+
+            const dailyMACDData = JSON.parse(dailyMACDResponse.contents);
+            const weeklyMACDData = JSON.parse(weeklyMACDResponse.contents);
+
+            const dailyMACDSymbols = dailyMACDData.screener?.screener_result?.map(result => ({ "Symbol": result.seg_sym.split(':')[1] })) || [];
+            const weeklyMACDSymbols = weeklyMACDData.screener?.screener_result?.map(result => ({ "Symbol": result.seg_sym.split(':')[1] })) || [];
 
             const mergedData = $.merge([], dataNSE);
             $.merge(mergedData, dataBSE);
 
-            await processData(jsonData, mergedData, openInterestData);
+            await processData(jsonData, mergedData, openInterestData, dailyMACDSymbols, weeklyMACDSymbols);
         } catch (error) {
             console.error('An error occurred during processing:', error);
         }
@@ -437,46 +460,40 @@ $(document).ready(function() {
 
 
 <script>
-    $(document).ready(function () {
-        function updateBackgroundColor() {
-            $('#dataTable tbody tr').each(function () {
-                var contractValue = $(this).find('td:eq(2)').text().trim();
-                if (contractValue === 'CE') {
-                    $(this).find('td:eq(2)').addClass('green-bg');
-                } else if (contractValue === 'PE') {
-                    $(this).find('td:eq(2)').addClass('red-bg');
+$(document).ready(function () {
+    function updateBackgroundColor() {
+        $('#dataTable td').each(function(index) {
+            var $cell = $(this);
+            var value = $cell.text().trim();
+            var columnIndex = $cell.index();
+            
+            if (value === 'CE' && columnIndex === 2) {
+                $cell.addClass('green-bg');
+            } else if (value === 'PE' && columnIndex === 2) {
+                $cell.addClass('red-bg');
+            } else if ((value === 'Bought' || value === 'Sold') && (columnIndex === 6 || columnIndex === 7)) {
+                $cell.addClass('green-bg');
+            } else if (!isNaN(parseFloat(value)) && (columnIndex === 8)) {
+                if (parseFloat(value) < 0) {
+                    $cell.addClass('red-bg');
+                } else {
+                    $cell.addClass('green-bg');
                 }
-
-                var equitesValue = $(this).find('td:eq(3)').text().trim();
-                if (equitesValue === 'Bought') {
-                    $(this).find('td:eq(3)').addClass('green-bg');
-                } else if (equitesValue === 'Sold') {
-                    $(this).find('td:eq(3)').addClass('red-bg');
+            } else if ((value === 'true' || value === 'false') && (columnIndex === 4 || columnIndex === 5)) {
+                if (value === 'true') {
+                    $cell.addClass('green-bg');
+                } else {
+                    $cell.addClass('red-bg');
                 }
+            }
+        });
+    }
 
-                var optionsValue = $(this).find('td:eq(4)').text().trim();
-                if (optionsValue === 'Bought') {
-                    $(this).find('td:eq(4)').addClass('green-bg');
-                } else if (optionsValue === 'Sold') {
-                    $(this).find('td:eq(4)').addClass('red-bg');
-                }
-
-                var priceChangeValue = $(this).find('td:eq(5)').text().trim();
-                if (priceChangeValue !== '-') {
-                    if (parseFloat(priceChangeValue) < 0) {
-                        $(this).find('td:eq(5)').addClass('red-bg');
-                    } else {
-                        $(this).find('td:eq(5)').addClass('green-bg');
-                    }
-                }
-            });
-        }
-
-        updateBackgroundColor();
-
-        setInterval(updateBackgroundColor, 1000);
-    });
+    updateBackgroundColor();
+    setInterval(updateBackgroundColor, 1000);
+});
 </script>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
