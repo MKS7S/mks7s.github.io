@@ -101,8 +101,16 @@
 
 <body>
     <div class="container">
-        <p>© Data Rights Belong to their respective owners- nirmalbang.com, munafasutra.com, streak.tech, nseindia.com, bseindia.com. This tool is just for personal analysis.</p>
-        <p>© 2024 Development Rights MKS</p>
+	<script>
+$(document).ready(function(){
+    setTimeout(function(){
+        $("#dataRights").hide();
+        $("#developmentRights").hide();
+    }, 15000);
+});
+</script>
+<p id="dataRights">© Data Rights Belong to their respective owners- nirmalbang.com, munafasutra.com, streak.tech, nseindia.com, bseindia.com. This tool is just for personal analysis.</p>
+<p id="developmentRights">© 2024 Development Rights MKS</p>
 		<div id="Total_Symbol_Count">Total PreMade Symbol: </div>
  <script>
         async function fetchJsonData(url) {
@@ -239,6 +247,13 @@ $(document).ready(function() {
                     const weeklyMACDMatch = weeklyMACDSymbols.find(sym => sym.Symbol === symbol);
                     const dailyMACDStatus = dailyMACDMatch ? 'true' : 'false';
                     const weeklyMACDStatus = weeklyMACDMatch ? 'true' : 'false';
+
+                    if (dailyMACDStatus !== weeklyMACDStatus) {
+                        console.log(`MACD Mismatch for symbol ${symbol}: Daily MACD = ${dailyMACDStatus}, Weekly MACD = ${weeklyMACDStatus}`);
+                    } else {
+                        console.log(`MACD Match for symbol ${symbol}: Daily MACD = ${dailyMACDStatus}, Weekly MACD = ${weeklyMACDStatus}`);
+                    }
+
                     if (filteredData.length > 0) {
                         const oiItem = filteredData[0];
                         if (oiItem.OI_OptType) {
@@ -252,7 +267,10 @@ $(document).ready(function() {
                                 '</tr>');
                         }
                     } else {
-                        console.warn('Open interest data not found for symbol:', symbol);
+                        console.warn(`Open interest data not found for symbol: ${symbol}`);
+                        if (dailyMACDStatus !== weeklyMACDStatus) {
+                            console.log(`MACD Mismatch (No OI Data): Symbol ${symbol}, Daily MACD = ${dailyMACDStatus}, Weekly MACD = ${weeklyMACDStatus}`);
+                        }
                     }
                 }
             }
