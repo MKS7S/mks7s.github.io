@@ -16838,6 +16838,36 @@
         {
         "Symbol": "AJMERA",
         "S_NAME": "Ajmera Realty&Infra"
+        },
+
+        {
+        "Symbol": "CCL",
+        "S_NAME": "CCL Products (India)"
+        },
+
+        {
+        "Symbol": "SERVOTECH",
+        "S_NAME": "Servotech Power Sys"
+        },
+
+        {
+        "Symbol": "OSWALSEEDS",
+        "S_NAME": "Shree Oswal Seeds"
+        },
+
+        {
+        "Symbol": "STEELXIND",
+        "S_NAME": "Steel Exchange India"
+        },
+
+        {
+        "Symbol": "JBCHEPHARM",
+        "S_NAME": "JB Chem & Pharma"
+        },
+
+        {
+        "Symbol": "MAGADSUGAR",
+        "S_NAME": "Magadh Sugar & Energ"
         }
 
 ]
