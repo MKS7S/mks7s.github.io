@@ -17013,6 +17013,936 @@
         {
         "Symbol": "TGBHOTELS",
         "S_NAME": "TGB Banquets"
+        },
+
+        {
+        "Symbol": "AAREYDRUGS",
+        "S_NAME": "Aarey Drugs & Pharma"
+        },
+
+        {
+        "Symbol": "AARTISURF",
+        "S_NAME": "AARTISURF"
+        },
+
+        {
+        "Symbol": "ADVANIHOTR",
+        "S_NAME": "Advani Hotel&Resorts"
+        },
+
+        {
+        "Symbol": "ARVSMART",
+        "S_NAME": "Arvind Smartspaces"
+        },
+
+        {
+        "Symbol": "ACEINTEG",
+        "S_NAME": "ACE Integrated Solut"
+        },
+
+        {
+        "Symbol": "CAPLIPOINT",
+        "S_NAME": "Caplin Point Lab"
+        },
+
+        {
+        "Symbol": "JUBLFOOD",
+        "S_NAME": "Jubilant FoodWorks"
+        },
+
+        {
+        "Symbol": "INDSWFTLAB",
+        "S_NAME": "Ind-Swift Lab."
+        },
+
+        {
+        "Symbol": "GANESHHOUC",
+        "S_NAME": "Ganesh Housing Corp"
+        },
+
+        {
+        "Symbol": "GARFIBRES",
+        "S_NAME": "Garware Tech. Fibres"
+        },
+
+        {
+        "Symbol": "ASIANENE",
+        "S_NAME": "Asian Energy Service"
+        },
+
+        {
+        "Symbol": "AKSHARCHEM",
+        "S_NAME": "Aksharchem (I)"
+        },
+
+        {
+        "Symbol": "KALYANKJIL",
+        "S_NAME": "Kalyan Jewell.India"
+        },
+
+        {
+        "Symbol": "ETHOSLTD",
+        "S_NAME": "Ethos Ltd."
+        },
+
+        {
+        "Symbol": "DEEPENR",
+        "S_NAME": "Deep Energy Res."
+        },
+
+        {
+        "Symbol": "BSOFT",
+        "S_NAME": "Birlasoft"
+        },
+
+        {
+        "Symbol": "LTTS",
+        "S_NAME": "L&T Technology Serv."
+        },
+
+        {
+        "Symbol": "FINPIPE",
+        "S_NAME": "Finolex Inds"
+        },
+
+        {
+        "Symbol": "NETWEB",
+        "S_NAME": "Netweb Technologies"
+        },
+
+        {
+        "Symbol": "NEWGEN",
+        "S_NAME": "Newgen Software Tech"
+        },
+
+        {
+        "Symbol": "BHANDARI",
+        "S_NAME": "Bhandari Hosiery Exp"
+        },
+
+        {
+        "Symbol": "MOLDTKPAC",
+        "S_NAME": "Mold-tek Packaging"
+        },
+
+        {
+        "Symbol": "RELINFRA",
+        "S_NAME": "Reliance Infra"
+        },
+
+        {
+        "Symbol": "ESAFSFB",
+        "S_NAME": "ESAF Small Finance"
+        },
+
+        {
+        "Symbol": "GULFOILLUB",
+        "S_NAME": "Gulf Oil Lubricant"
+        },
+
+        {
+        "Symbol": "MAPMYINDIA",
+        "S_NAME": "CE Info Systems"
+        },
+
+        {
+        "Symbol": "CHEMCON",
+        "S_NAME": "Chemcon Speciality"
+        },
+
+        {
+        "Symbol": "FIVESTAR",
+        "S_NAME": "Five Star Business"
+        },
+
+        {
+        "Symbol": "HGS",
+        "S_NAME": "Hinduja Global Soln."
+        },
+
+        {
+        "Symbol": "THOMASCOOK",
+        "S_NAME": "Thomas Cook (India)"
+        },
+
+        {
+        "Symbol": "CORALFINAC",
+        "S_NAME": "Coral India Fin &Hsg"
+        },
+
+        {
+        "Symbol": "AVTNPL",
+        "S_NAME": "AVT Natural Prod"
+        },
+
+        {
+        "Symbol": "MANGALAM",
+        "S_NAME": "Mangalam Drugs&Org."
+        },
+
+        {
+        "Symbol": "BESTAGRO",
+        "S_NAME": "Best Agrolife"
+        },
+
+        {
+        "Symbol": "JAYNECOIND",
+        "S_NAME": "Jayaswal Neco Inds"
+        },
+
+        {
+        "Symbol": "IITL",
+        "S_NAME": "Industl. Invst.Trust"
+        },
+
+        {
+        "Symbol": "THYROCARE",
+        "S_NAME": "Thyrocare Tech."
+        },
+
+        {
+        "Symbol": "GAEL",
+        "S_NAME": "Guj. Ambuja Exports"
+        },
+
+        {
+        "Symbol": "JGCHEM",
+        "S_NAME": "JG Chemicals"
+        },
+
+        {
+        "Symbol": "AROGRANITE",
+        "S_NAME": "Aro Granite"
+        },
+
+        {
+        "Symbol": "SMSLIFE",
+        "S_NAME": "SMS Lifesciences"
+        },
+
+        {
+        "Symbol": "ORIENTCER",
+        "S_NAME": "Orient Ceratech"
+        },
+
+        {
+        "Symbol": "VISHWARAJ",
+        "S_NAME": "Vishwaraj Sugar Ind."
+        },
+
+        {
+        "Symbol": "OFSS",
+        "S_NAME": "Oracle Finl. Service"
+        },
+
+        {
+        "Symbol": "UGARSUGAR",
+        "S_NAME": "Ugar Sugar Works"
+        },
+
+        {
+        "Symbol": "ARTEMISMED",
+        "S_NAME": "Artemis Medicare"
+        },
+
+        {
+        "Symbol": "HARIOMPIPE",
+        "S_NAME": "Hariom Pipe Inds."
+        },
+
+        {
+        "Symbol": "JISLDVREQS",
+        "S_NAME": "Jain Irrigation(DVR)"
+        },
+
+        {
+        "Symbol": "KELLTONTEC",
+        "S_NAME": "Kellton Tech Solut."
+        },
+
+        {
+        "Symbol": "KSOLVES",
+        "S_NAME": "KSolves India"
+        },
+
+        {
+        "Symbol": "M&MFIN",
+        "S_NAME": "Mah & Mah Finl. Serv"
+        },
+
+        {
+        "Symbol": "NIRAJ",
+        "S_NAME": "Niraj Cement Struct."
+        },
+
+        {
+        "Symbol": "PILANIINVS",
+        "S_NAME": "Pilani Investment"
+        },
+
+        {
+        "Symbol": "MAHEPC",
+        "S_NAME": "Mahindra EPC Irrigat"
+        },
+
+        {
+        "Symbol": "NAHARCAP",
+        "S_NAME": "Nahar Capital &Finl."
+        },
+
+        {
+        "Symbol": "RAJSREESUG",
+        "S_NAME": "Rajshree Sugars&Chem"
+        },
+
+        {
+        "Symbol": "RAMCOIND",
+        "S_NAME": "Ramco Inds."
+        },
+
+        {
+        "Symbol": "REMSONSIND",
+        "S_NAME": "Remsons Inds"
+        },
+
+        {
+        "Symbol": "RICOAUTO",
+        "S_NAME": "Rico Auto Inds"
+        },
+
+        {
+        "Symbol": "SOFTTECH",
+        "S_NAME": "SoftTech Engineers"
+        },
+
+        {
+        "Symbol": "TEMBO",
+        "S_NAME": "Tembo Global Inds."
+        },
+
+        {
+        "Symbol": "ALOKINDS",
+        "S_NAME": "Alok Inds"
+        },
+
+        {
+        "Symbol": "HISARMETAL",
+        "S_NAME": "Hisar Metal Inds"
+        },
+
+        {
+        "Symbol": "MCX",
+        "S_NAME": "Multi Commodity Exch"
+        },
+
+        {
+        "Symbol": "DBREALTY",
+        "S_NAME": "Valor Estate"
+        },
+
+        {
+        "Symbol": "VETO",
+        "S_NAME": "Veto Switchgears"
+        },
+
+        {
+        "Symbol": "WESTLIFE",
+        "S_NAME": "Westlife Development"
+        },
+
+        {
+        "Symbol": "AARVEEDEN",
+        "S_NAME": "Aarvee Denims & Exp."
+        },
+
+        {
+        "Symbol": "HCLTECH",
+        "S_NAME": "HCL Tech."
+        },
+
+        {
+        "Symbol": "SURYALAXMI",
+        "S_NAME": "Suryalakshmi Cotton"
+        },
+
+        {
+        "Symbol": "KILITCH",
+        "S_NAME": "Kilitch Drugs(India)"
+        },
+
+        {
+        "Symbol": "MAHLIFE",
+        "S_NAME": "Mahindra Life. Dev"
+        },
+
+        {
+        "Symbol": "PAKKA",
+        "S_NAME": "Pakka"
+        },
+
+        {
+        "Symbol": "PARACABLES",
+        "S_NAME": "Paramount Communicat"
+        },
+
+        {
+        "Symbol": "REPL",
+        "S_NAME": "Rudrabhishek Enter."
+        },
+
+        {
+        "Symbol": "LIBAS",
+        "S_NAME": "Libas Consumer Prod"
+        },
+
+        {
+        "Symbol": "SRHHYPOLTD",
+        "S_NAME": "Sree Rayal.Hi-Strent"
+        },
+
+        {
+        "Symbol": "SPARC",
+        "S_NAME": "Sun Pharma Adv. Res"
+        },
+
+        {
+        "Symbol": "SVPGLOB",
+        "S_NAME": "SVP Global Textiles"
+        },
+
+        {
+        "Symbol": "UDAICEMENT",
+        "S_NAME": "Udaipur Cement Works"
+        },
+
+        {
+        "Symbol": "TIPSINDLTD",
+        "S_NAME": "Tips Inds."
+        },
+
+        {
+        "Symbol": "MAXHEALTH",
+        "S_NAME": "Max Healthcare Inst"
+        },
+
+        {
+        "Symbol": "SBICARD",
+        "S_NAME": "SBI Cards AndPayment"
+        },
+
+        {
+        "Symbol": "INFOBEAN",
+        "S_NAME": "Infobeans Tech."
+        },
+
+        {
+        "Symbol": "ABATEAS",
+        "S_NAME": "Abate AS Industries"
+        },
+
+        {
+        "Symbol": "ABMKNO",
+        "S_NAME": "ABM Knowledgeware"
+        },
+
+        {
+        "Symbol": "AASHKA",
+        "S_NAME": "Aashka Hospitals"
+        },
+
+        {
+        "Symbol": "ADIEXRE",
+        "S_NAME": "Adinath Exim Resourc"
+        },
+
+        {
+        "Symbol": "543941",
+        "S_NAME": "Ahasolar Tech"
+        },
+
+        {
+        "Symbol": "ADVAIT",
+        "S_NAME": "Advait Infratech"
+        },
+
+        {
+        "Symbol": "AJANTSOY",
+        "S_NAME": "Ajanta Soya"
+        },
+
+        {
+        "Symbol": "ASYL",
+        "S_NAME": "Advance Syntex"
+        },
+
+        {
+        "Symbol": "AGIIL",
+        "S_NAME": "AGI Infra"
+        },
+
+        {
+        "Symbol": "BSOFT",
+        "S_NAME": "Birlasoft"
+        },
+
+        {
+        "Symbol": "INFOBEAN",
+        "S_NAME": "Infobeans Tech."
+        },
+
+        {
+        "Symbol": "AMBITION",
+        "S_NAME": "Ambition Mica"
+        },
+
+        {
+        "Symbol": "JGCHEM",
+        "S_NAME": "JG Chemicals"
+        },
+
+        {
+        "Symbol": "JAYNECOIND",
+        "S_NAME": "Jayaswal Neco Inds"
+        },
+
+        {
+        "Symbol": "M&MFIN",
+        "S_NAME": "Mah & Mah Finl. Serv"
+        },
+
+        {
+        "Symbol": "ANUPAM",
+        "S_NAME": "Anupam Finserv"
+        },
+
+        {
+        "Symbol": "SRHHYPOLTD",
+        "S_NAME": "Sree Rayal.Hi-Strent"
+        },
+
+        {
+        "Symbol": "ARTEMISMED",
+        "S_NAME": "Artemis Medicare"
+        },
+
+        {
+        "Symbol": "RELINFRA",
+        "S_NAME": "Reliance Infra"
+        },
+
+        {
+        "Symbol": "NEWGEN",
+        "S_NAME": "Newgen Software Tech"
+        },
+
+        {
+        "Symbol": "PILANIINVS",
+        "S_NAME": "Pilani Investment"
+        },
+
+        {
+        "Symbol": "MCX",
+        "S_NAME": "Multi Commodity Exch"
+        },
+
+        {
+        "Symbol": "ASIANHOTNR",
+        "S_NAME": "Asian Hotels (North)"
+        },
+
+        {
+        "Symbol": "PAKKA",
+        "S_NAME": "Pakka"
+        },
+
+        {
+        "Symbol": "BAGFILMS",
+        "S_NAME": "BAG Films & Media"
+        },
+
+        {
+        "Symbol": "DBREALTY",
+        "S_NAME": "Valor Estate"
+        },
+
+        {
+        "Symbol": "BGLOBAL",
+        "S_NAME": "BharatiyaGlobal Info"
+        },
+
+        {
+        "Symbol": "AURUM",
+        "S_NAME": "Aurum Proptech"
+        },
+
+        {
+        "Symbol": "COROMANDEL",
+        "S_NAME": "Coromandel Interntl."
+        },
+
+        {
+        "Symbol": "GLOBOFFS",
+        "S_NAME": "Global Offshore Serv"
+        },
+
+        {
+        "Symbol": "HEIDELBERG",
+        "S_NAME": "Heidelberg Cement"
+        },
+
+        {
+        "Symbol": "GANGOTRI",
+        "S_NAME": "Gangotri Textile"
+        },
+
+        {
+        "Symbol": "HEUBACHIND",
+        "S_NAME": "Heubach Colorants(I)"
+        },
+
+        {
+        "Symbol": "JHS",
+        "S_NAME": "JHS Svendgaard"
+        },
+
+        {
+        "Symbol": "GBFL",
+        "S_NAME": "Goenka Business"
+        },
+
+        {
+        "Symbol": "543520",
+        "S_NAME": "Global Longlife Hosp"
+        },
+
+        {
+        "Symbol": "HALDYNGL",
+        "S_NAME": "Haldyn Glass"
+        },
+
+        {
+        "Symbol": "HSCL",
+        "S_NAME": "Himadri Speciality"
+        },
+
+        {
+        "Symbol": "GOEL",
+        "S_NAME": "Goel Food Products"
+        },
+
+        {
+        "Symbol": "GEEK",
+        "S_NAME": "GEE"
+        },
+
+        {
+        "Symbol": "JAYIND",
+        "S_NAME": "Jayatma Industries"
+        },
+
+        {
+        "Symbol": "NAGAFERT",
+        "S_NAME": "Nagarjuna Fertilizer"
+        },
+
+        {
+        "Symbol": "NAVA",
+        "S_NAME": "Nava"
+        },
+
+        {
+        "Symbol": "MUTHOOTCAP",
+        "S_NAME": "Muthoot Capital Serv"
+        },
+
+        {
+        "Symbol": "LINCOLN",
+        "S_NAME": "Lincoln Pharma"
+        },
+
+        {
+        "Symbol": "PRECWIRE",
+        "S_NAME": "Precision Wire India"
+        },
+
+        {
+        "Symbol": "SOTL",
+        "S_NAME": "Savita Oil Tech"
+        },
+
+        {
+        "Symbol": "SHREYANIND",
+        "S_NAME": "Shreyans Inds"
+        },
+
+        {
+        "Symbol": "SKMEGGPROD",
+        "S_NAME": "SKM Egg Products"
+        },
+
+        {
+        "Symbol": "TIIL",
+        "S_NAME": "Technocraft Inds"
+        },
+
+        {
+        "Symbol": "TRIL",
+        "S_NAME": "Transformers & Rect"
+        },
+
+        {
+        "Symbol": "UNIDT",
+        "S_NAME": "United Drilling Tool"
+        },
+
+        {
+        "Symbol": "AARTISURF",
+        "S_NAME": "AARTISURF"
+        },
+
+        {
+        "Symbol": "ADVANIHOTR",
+        "S_NAME": "Advani Hotel&Resorts"
+        },
+
+        {
+        "Symbol": "INDSWFTLAB",
+        "S_NAME": "Ind-Swift Lab."
+        },
+
+        {
+        "Symbol": "DEEPENR",
+        "S_NAME": "Deep Energy Res."
+        },
+
+        {
+        "Symbol": "ETHOSLTD",
+        "S_NAME": "Ethos Ltd."
+        },
+
+        {
+        "Symbol": "ARVSMART",
+        "S_NAME": "Arvind Smartspaces"
+        },
+
+        {
+        "Symbol": "JUBLFOOD",
+        "S_NAME": "Jubilant FoodWorks"
+        },
+
+        {
+        "Symbol": "VIDHIING",
+        "S_NAME": "Vidhi Specialty Food"
+        },
+
+        {
+        "Symbol": "GULFOILLUB",
+        "S_NAME": "Gulf Oil Lubricant"
+        },
+
+        {
+        "Symbol": "FIVESTAR",
+        "S_NAME": "Five Star Business"
+        },
+
+        {
+        "Symbol": "KSOLVES",
+        "S_NAME": "KSolves India"
+        },
+
+        {
+        "Symbol": "VISHWARAJ",
+        "S_NAME": "Vishwaraj Sugar Ind."
+        },
+
+        {
+        "Symbol": "THOMASCOOK",
+        "S_NAME": "Thomas Cook (India)"
+        },
+
+        {
+        "Symbol": "HGS",
+        "S_NAME": "Hinduja Global Soln."
+        },
+
+        {
+        "Symbol": "AVTNPL",
+        "S_NAME": "AVT Natural Prod"
+        },
+
+        {
+        "Symbol": "GAEL",
+        "S_NAME": "Guj. Ambuja Exports"
+        },
+
+        {
+        "Symbol": "ESAFSFB",
+        "S_NAME": "ESAF Small Finance"
+        },
+
+        {
+        "Symbol": "ASIANENE",
+        "S_NAME": "Asian Energy Service"
+        },
+
+        {
+        "Symbol": "CAPLIPOINT",
+        "S_NAME": "Caplin Point Lab"
+        },
+
+        {
+        "Symbol": "FINPIPE",
+        "S_NAME": "Finolex Inds"
+        },
+
+        {
+        "Symbol": "GANESHHOUC",
+        "S_NAME": "Ganesh Housing Corp"
+        },
+
+        {
+        "Symbol": "NETWEB",
+        "S_NAME": "Netweb Technologies"
+        },
+
+        {
+        "Symbol": "IITL",
+        "S_NAME": "Industl. Invst.Trust"
+        },
+
+        {
+        "Symbol": "BESTAGRO",
+        "S_NAME": "Best Agrolife"
+        },
+
+        {
+        "Symbol": "ORIENTCER",
+        "S_NAME": "Orient Ceratech"
+        },
+
+        {
+        "Symbol": "UGARSUGAR",
+        "S_NAME": "Ugar Sugar Works"
+        },
+
+        {
+        "Symbol": "MANGALAM",
+        "S_NAME": "Mangalam Drugs&Org."
+        },
+
+        {
+        "Symbol": "THYROCARE",
+        "S_NAME": "Thyrocare Tech."
+        },
+
+        {
+        "Symbol": "VISHAL",
+        "S_NAME": "Vishal Fabrics"
+        },
+
+        {
+        "Symbol": "WESTLIFE",
+        "S_NAME": "Westlife Development"
+        },
+
+        {
+        "Symbol": "HARIOMPIPE",
+        "S_NAME": "Hariom Pipe Inds."
+        },
+
+        {
+        "Symbol": "SPARC",
+        "S_NAME": "Sun Pharma Adv. Res"
+        },
+
+        {
+        "Symbol": "JISLDVREQS",
+        "S_NAME": "Jain Irrigation(DVR)"
+        },
+
+        {
+        "Symbol": "MAHEPC",
+        "S_NAME": "Mahindra EPC Irrigat"
+        },
+
+        {
+        "Symbol": "NIRAJ",
+        "S_NAME": "Niraj Cement Struct."
+        },
+
+        {
+        "Symbol": "SVPGLOB",
+        "S_NAME": "SVP Global Textiles"
+        },
+
+        {
+        "Symbol": "SOFTTECH",
+        "S_NAME": "SoftTech Engineers"
+        },
+
+        {
+        "Symbol": "REMSONSIND",
+        "S_NAME": "Remsons Inds"
+        },
+
+        {
+        "Symbol": "SBICARD",
+        "S_NAME": "SBI Cards AndPayment"
+        },
+
+        {
+        "Symbol": "KELLTONTEC",
+        "S_NAME": "Kellton Tech Solut."
+        },
+
+        {
+        "Symbol": "NAHARCAP",
+        "S_NAME": "Nahar Capital &Finl."
+        },
+
+        {
+        "Symbol": "OFSS",
+        "S_NAME": "Oracle Finl. Service"
+        },
+
+        {
+        "Symbol": "UDAICEMENT",
+        "S_NAME": "Udaipur Cement Works"
+        },
+
+        {
+        "Symbol": "HISARMETAL",
+        "S_NAME": "Hisar Metal Inds"
+        },
+
+        {
+        "Symbol": "TIPSINDLTD",
+        "S_NAME": "Tips Inds."
+        },
+
+        {
+        "Symbol": "HCLTECH",
+        "S_NAME": "HCL Tech."
+        },
+
+        {
+        "Symbol": "WSI",
+        "S_NAME": "W.S. Industries"
+        },
+
+        {
+        "Symbol": "WATERBASE",
+        "S_NAME": "Waterbase"
+        },
+
+        {
+        "Symbol": "ZUARIIND",
+        "S_NAME": "Zuari Industries"
+        },
+
+        {
+        "Symbol": "DCM",
+        "S_NAME": "DCM"
         }
 
 ]
