@@ -16868,6 +16868,96 @@
         {
         "Symbol": "MAGADSUGAR",
         "S_NAME": "Magadh Sugar & Energ"
+        },
+
+        {
+        "Symbol": "SMCGLOBAL",
+        "S_NAME": "SMC Global Sec."
+        },
+
+        {
+        "Symbol": "GLOSTERLTD",
+        "S_NAME": "Gloster"
+        },
+
+        {
+        "Symbol": "KRITI",
+        "S_NAME": "Kriti Industries (I)"
+        },
+
+        {
+        "Symbol": "ARIHANTSUP",
+        "S_NAME": "Arihant Superstruct."
+        },
+
+        {
+        "Symbol": "SBCL",
+        "S_NAME": "Shivalik Bimetal"
+        },
+
+        {
+        "Symbol": "SINCLAIR",
+        "S_NAME": "Sinclairs Hotels"
+        },
+
+        {
+        "Symbol": "TATVA",
+        "S_NAME": "Tatva Chintan Pharma"
+        },
+
+        {
+        "Symbol": "VERANDA",
+        "S_NAME": "Veranda Learning Sln"
+        },
+
+        {
+        "Symbol": "DBSTOCKBRO",
+        "S_NAME": "DB Intnl.StockBroker"
+        },
+
+        {
+        "Symbol": "JLHL",
+        "S_NAME": "Jupiter Life Line"
+        },
+
+        {
+        "Symbol": "STEELCITY",
+        "S_NAME": "Steel City Securitie"
+        },
+
+        {
+        "Symbol": "KRYSTAL",
+        "S_NAME": "Krystal Integrated"
+        },
+
+        {
+        "Symbol": "TOKYOPLAST",
+        "S_NAME": "Tokyo Plast Intl."
+        },
+
+        {
+        "Symbol": "SMCGLOBAL",
+        "S_NAME": "SMC Global Sec."
+        },
+
+        {
+        "Symbol": "ARIHANTSUP",
+        "S_NAME": "Arihant Superstruct."
+        },
+
+        {
+        "Symbol": "JLHL",
+        "S_NAME": "Jupiter Life Line"
+        },
+
+        {
+        "Symbol": "SBCL",
+        "S_NAME": "Shivalik Bimetal"
+        },
+
+        {
+        "Symbol": "VERANDA",
+        "S_NAME": "Veranda Learning Sln"
         }
 
 ]
