@@ -16408,6 +16408,551 @@
         {
         "Symbol": "WAAREERTL",
         "S_NAME": "Waaree Renewables"
+        },
+
+        {
+        "Symbol": "AXISCADES",
+        "S_NAME": "Axiscades Tech."
+        },
+
+        {
+        "Symbol": "AGRITECH",
+        "S_NAME": "Agri-Tech (India)"
+        },
+
+        {
+        "Symbol": "DIACABS",
+        "S_NAME": "Diamond Power Infra"
+        },
+
+        {
+        "Symbol": "BAFNAPH",
+        "S_NAME": "Bafna Pharma"
+        },
+
+        {
+        "Symbol": "ALPSINDUS",
+        "S_NAME": "Alps Inds"
+        },
+
+        {
+        "Symbol": "DHRUV",
+        "S_NAME": "Dhruv Consultancy Se"
+        },
+
+        {
+        "Symbol": "APTUS",
+        "S_NAME": "Aptus Value Housing"
+        },
+
+        {
+        "Symbol": "AMNPLST",
+        "S_NAME": "Amines & Plastic"
+        },
+
+        {
+        "Symbol": "ELECTHERM",
+        "S_NAME": "Electrotherm India"
+        },
+
+        {
+        "Symbol": "BAJAJHLDNG",
+        "S_NAME": "Bajaj Hold & Invest"
+        },
+
+        {
+        "Symbol": "GLS",
+        "S_NAME": "Glenmark Life Scienc"
+        },
+
+        {
+        "Symbol": "GLOBALVECT",
+        "S_NAME": "Global Vectra Helico"
+        },
+
+        {
+        "Symbol": "GODREJCP",
+        "S_NAME": "Godrej Consumer Prod"
+        },
+
+        {
+        "Symbol": "HINDNATGLS",
+        "S_NAME": "Hind National Glass"
+        },
+
+        {
+        "Symbol": "INTENTECH",
+        "S_NAME": "Intense Tech"
+        },
+
+        {
+        "Symbol": "INTLCONV",
+        "S_NAME": "International Convey"
+        },
+
+        {
+        "Symbol": "JISLJALEQS",
+        "S_NAME": "Jain Irrigation Sys"
+        },
+
+        {
+        "Symbol": "LGBBROSLTD",
+        "S_NAME": "LG Balakrishnan&Bros"
+        },
+
+        {
+        "Symbol": "ORISSAMINE",
+        "S_NAME": "OMDC"
+        },
+
+        {
+        "Symbol": "PIGL",
+        "S_NAME": "Power & Inst. (Guj)"
+        },
+
+        {
+        "Symbol": "PRAENG",
+        "S_NAME": "Prajay Engg.Syndicat"
+        },
+
+        {
+        "Symbol": "RAJTV",
+        "S_NAME": "Raj TV Network"
+        },
+
+        {
+        "Symbol": "RPPINFRA",
+        "S_NAME": "RPP Infra Projects"
+        },
+
+        {
+        "Symbol": "CHCL",
+        "S_NAME": "Cian Healthcare"
+        },
+
+        {
+        "Symbol": "AANCHALISP",
+        "S_NAME": "Aanchal Ispat"
+        },
+
+        {
+        "Symbol": "SALSTEEL",
+        "S_NAME": "SAL Steels"
+        },
+
+        {
+        "Symbol": "S&SPOWER",
+        "S_NAME": "S&S Power"
+        },
+
+        {
+        "Symbol": "SATIN",
+        "S_NAME": "Satin Creditcare"
+        },
+
+        {
+        "Symbol": "SABTNL",
+        "S_NAME": "Sri Adhikari Brother"
+        },
+
+        {
+        "Symbol": "SURYODAY",
+        "S_NAME": "Suryoday Small Finan"
+        },
+
+        {
+        "Symbol": "SUVENPHAR",
+        "S_NAME": "Suven Pharma"
+        },
+
+        {
+        "Symbol": "TECHIN",
+        "S_NAME": "TechIndia Nirman"
+        },
+
+        {
+        "Symbol": "TIJARIA",
+        "S_NAME": "Tijaria Polypipe"
+        },
+
+        {
+        "Symbol": "TNPL",
+        "S_NAME": "TN Newsprints"
+        },
+
+        {
+        "Symbol": "TFL",
+        "S_NAME": "Transwarranty Fin."
+        },
+
+        {
+        "Symbol": "UMAEXPORTS",
+        "S_NAME": "Uma Expo"
+        },
+
+        {
+        "Symbol": "AMRUTANJAN",
+        "S_NAME": "Amrutanjan Healthcar"
+        },
+
+        {
+        "Symbol": "ANSALAPI",
+        "S_NAME": "Ansal Prop. & Infra"
+        },
+
+        {
+        "Symbol": "7SEASL",
+        "S_NAME": "7Seas Entertain"
+        },
+
+        {
+        "Symbol": "AAL",
+        "S_NAME": "A-1 Acid"
+        },
+
+        {
+        "Symbol": "ACCEDERE",
+        "S_NAME": "Accedere"
+        },
+
+        {
+        "Symbol": "ADORFO",
+        "S_NAME": "Ador Fontech"
+        },
+
+        {
+        "Symbol": "ADVPETR-B",
+        "S_NAME": "Advance Petro"
+        },
+
+        {
+        "Symbol": "CLSEL",
+        "S_NAME": "Chaman Lal Setia Exp"
+        },
+
+        {
+        "Symbol": "ARMAN",
+        "S_NAME": "Arman Holdings"
+        },
+
+        {
+        "Symbol": "AUTOPINS",
+        "S_NAME": "Auto Pins"
+        },
+
+        {
+        "Symbol": "BESTEAST",
+        "S_NAME": "Best Eastern Hotels"
+        },
+
+        {
+        "Symbol": "BILLWIN",
+        "S_NAME": "Billwin Industries"
+        },
+
+        {
+        "Symbol": "AXELPOLY",
+        "S_NAME": "Axel Polymers"
+        },
+
+        {
+        "Symbol": "CILSEC",
+        "S_NAME": "Cil Securities"
+        },
+
+        {
+        "Symbol": "EUROTEXIND",
+        "S_NAME": "Eurotex Inds.&Export"
+        },
+
+        {
+        "Symbol": "CIL",
+        "S_NAME": "Citizen Infoline"
+        },
+
+        {
+        "Symbol": "COMCL",
+        "S_NAME": "Comfort Commotrade"
+        },
+
+        {
+        "Symbol": "DANUBE",
+        "S_NAME": "Danube Industries"
+        },
+
+        {
+        "Symbol": "GUJAPOLLO",
+        "S_NAME": "Guj. Apollo Inds"
+        },
+
+        {
+        "Symbol": "DGL",
+        "S_NAME": "Diksha Greens"
+        },
+
+        {
+        "Symbol": "BINNY",
+        "S_NAME": "Binny"
+        },
+
+        {
+        "Symbol": "DAPS",
+        "S_NAME": "DAPS Advertising"
+        },
+
+        {
+        "Symbol": "DRL",
+        "S_NAME": "Disha Resources"
+        },
+
+        {
+        "Symbol": "BARONINF",
+        "S_NAME": "Baron Infotech"
+        },
+
+        {
+        "Symbol": "ARTSONEN",
+        "S_NAME": "Artson Engineering"
+        },
+
+        {
+        "Symbol": "ECORECO",
+        "S_NAME": "Eco Recycling"
+        },
+
+        {
+        "Symbol": "FINKURVE",
+        "S_NAME": "Finkurve Financial"
+        },
+
+        {
+        "Symbol": "GLCL",
+        "S_NAME": "Globe Commercials"
+        },
+
+        {
+        "Symbol": "DIAMANT",
+        "S_NAME": "Diamant Infra"
+        },
+
+        {
+        "Symbol": "LIKHITHA",
+        "S_NAME": "Likhitha Infrastruct"
+        },
+
+        {
+        "Symbol": "BAJAJHLDNG",
+        "S_NAME": "Bajaj Hold & Invest"
+        },
+
+        {
+        "Symbol": "JAYBHCR",
+        "S_NAME": "Jayabharat Credit"
+        },
+
+        {
+        "Symbol": "JAYKAY",
+        "S_NAME": "Jaykay Enterprises"
+        },
+
+        {
+        "Symbol": "JDORGOCHEM",
+        "S_NAME": "JD Orgochem"
+        },
+
+        {
+        "Symbol": "OBCL",
+        "S_NAME": "Orissa BengalCarrier"
+        },
+
+        {
+        "Symbol": "JULIEN",
+        "S_NAME": "Julien Agro Infra"
+        },
+
+        {
+        "Symbol": "PAEL",
+        "S_NAME": "PAE"
+        },
+
+        {
+        "Symbol": "KAYPOWR",
+        "S_NAME": "Kay Power and Paper"
+        },
+
+        {
+        "Symbol": "RAINBOW",
+        "S_NAME": "RainbowChildrenS Med"
+        },
+
+        {
+        "Symbol": "RATNAVEER",
+        "S_NAME": "Ratnaveer Precision"
+        },
+
+        {
+        "Symbol": "SETUINFRA",
+        "S_NAME": "Setubandhan Infra"
+        },
+
+        {
+        "Symbol": "DWL",
+        "S_NAME": "Dhruv Wellness"
+        },
+
+        {
+        "Symbol": "DOLPHMED",
+        "S_NAME": "Dolphin Medical Serv"
+        },
+
+        {
+        "Symbol": "INFRONICS",
+        "S_NAME": "Infronics Systems"
+        },
+
+        {
+        "Symbol": "ITCONS",
+        "S_NAME": "ITCONS E-Solutions"
+        },
+
+        {
+        "Symbol": "SHEMAROO",
+        "S_NAME": "Shemaroo Entertain."
+        },
+
+        {
+        "Symbol": "MCLOUD",
+        "S_NAME": "Magellanic Cloud"
+        },
+
+        {
+        "Symbol": "SPTL",
+        "S_NAME": "Sintex Plastics Tech"
+        },
+
+        {
+        "Symbol": "MANRAJH",
+        "S_NAME": "Manraj Housing Fin"
+        },
+
+        {
+        "Symbol": "SRGHFL",
+        "S_NAME": "SRG Housing"
+        },
+
+        {
+        "Symbol": "MONOT",
+        "S_NAME": "Monotype India"
+        },
+
+        {
+        "Symbol": "TFCILTD",
+        "S_NAME": "Tourism Finance Corp"
+        },
+
+        {
+        "Symbol": "MULTIBASE",
+        "S_NAME": "Multibase India"
+        },
+
+        {
+        "Symbol": "ZODJRDMKJ",
+        "S_NAME": "Zodiac-JRD-MKJ"
+        },
+
+        {
+        "Symbol": "AXISCADES",
+        "S_NAME": "Axiscades Tech."
+        },
+
+        {
+        "Symbol": "BAFNAPH",
+        "S_NAME": "Bafna Pharma"
+        },
+
+        {
+        "Symbol": "APTUS",
+        "S_NAME": "Aptus Value Housing"
+        },
+
+        {
+        "Symbol": "LOTUSEYE",
+        "S_NAME": "Lotus Eye Hospital"
+        },
+
+        {
+        "Symbol": "GLS",
+        "S_NAME": "Glenmark Life Scienc"
+        },
+
+        {
+        "Symbol": "GODREJCP",
+        "S_NAME": "Godrej Consumer Prod"
+        },
+
+        {
+        "Symbol": "HINDNATGLS",
+        "S_NAME": "Hind National Glass"
+        },
+
+        {
+        "Symbol": "JISLJALEQS",
+        "S_NAME": "Jain Irrigation Sys"
+        },
+
+        {
+        "Symbol": "LGBBROSLTD",
+        "S_NAME": "LG Balakrishnan&Bros"
+        },
+
+        {
+        "Symbol": "INTENTECH",
+        "S_NAME": "Intense Tech"
+        },
+
+        {
+        "Symbol": "INTLCONV",
+        "S_NAME": "International Convey"
+        },
+
+        {
+        "Symbol": "ORISSAMINE",
+        "S_NAME": "OMDC"
+        },
+
+        {
+        "Symbol": "SATIN",
+        "S_NAME": "Satin Creditcare"
+        },
+
+        {
+        "Symbol": "KEERTHI",
+        "S_NAME": "Keerthi Industries"
+        },
+
+        {
+        "Symbol": "GEETANJ",
+        "S_NAME": "Geetanjali Credit"
+        },
+
+        {
+        "Symbol": "KESARPE",
+        "S_NAME": "Kesar Petroproducts"
+        },
+
+        {
+        "Symbol": "KPT",
+        "S_NAME": "KPT Industries"
+        },
+
+        {
+        "Symbol": "KRIFILIND",
+        "S_NAME": "Krishna Filament Ind"
+        },
+
+        {
+        "Symbol": "SUVENPHAR",
+        "S_NAME": "Suven Pharma"
         }
 
 ]
