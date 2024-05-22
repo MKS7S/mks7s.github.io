@@ -19698,6 +19698,46 @@
         {
         "Symbol": "SPIC",
         "S_NAME": "SPIC"
+        },
+
+        {
+        "Symbol": "ADITYA",
+        "S_NAME": "Aditya Ispat"
+        },
+
+        {
+        "Symbol": "BPLPHARMA",
+        "S_NAME": "Bharat Parenterals"
+        },
+
+        {
+        "Symbol": "FREDUN",
+        "S_NAME": "Fredun Pharma"
+        },
+
+        {
+        "Symbol": "HIGHENE",
+        "S_NAME": "High Energy Batterie"
+        },
+
+        {
+        "Symbol": "526025",
+        "S_NAME": "Globus Power Generat"
+        },
+
+        {
+        "Symbol": "GILADAFINS",
+        "S_NAME": "Gilada Finance & Inv"
+        },
+
+        {
+        "Symbol": "EVERESTO",
+        "S_NAME": "Everest Organics"
+        },
+
+        {
+        "Symbol": "BCLENTERPR",
+        "S_NAME": "BCL Enterprises"
         }
 
 ]
