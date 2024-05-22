@@ -13,6 +13,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Animate.css for animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	
     <style>
         body {
             background-color: black;
@@ -75,10 +76,6 @@
             background-color: green;
         }
 
-        #corsNote {
-            display: none;
-        }
-
         h2 {
             color: #ffeb3b;
         }
@@ -97,9 +94,126 @@
     width: 100%;
 }
     </style>
+	<style>
+    #corsNote {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 2px solid #f5c6cb;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 50px auto;
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    #corsNote h2 {
+        display: flex;
+        align-items: center;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    #corsNote h2 svg {
+        margin-right: 10px;
+        fill: #721c24;
+    }
+    #corsNote h2 span {
+        color: #dc3545;
+        animation: pulse 1s ease infinite;
+        font-weight: bold;
+    }
+    #corsNote a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    #corsNote a:hover {
+        text-decoration: underline;
+    }
+    #corsNote ul {
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+    #corsNote p {
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+    #corsNote p:last-child {
+        margin-bottom: 0;
+    }
+    #corsNote .note {
+        color: #155724;
+        font-style: italic;
+    }
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    @media (max-width: 600px) {
+        #corsNote {
+            padding: 15px;
+            margin: 20px 10px;
+        }
+        #corsNote h2 {
+            font-size: 1.2em;
+        }
+    }
+</style>
 </head>
 
-<body>
+
+	
+	
+<body style="display: none;">
+<div id="corsNote">
+    <h2>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24"><path d="M480 936q-72 0-135-27t-112-74q-48-48-75-111.5T130 586q0-71 27-134t75-112q48-48 111-75t135-27q71 0 134 27t112 75q48 48 75 111.5T830 586q0 71-27 134t-75 112q-48 48-111 75t-135 27Zm-50-180h100V586H430v170Zm50-230q18 0 30-12t12-30q0-18-12-30t-30-12q-18 0-30 12t-12 30q0 18 12 30t30 12Zm0 370q140 0 238-98t98-238q0-140-98-238t-238-98q-140 0-238 98T144 586q0 140 98 238t238 98Z"/></svg>
+        <span>CORS is not enabled!</span>
+    </h2>
+    <p>This application won't work properly without CORS (Cross-Origin Resource Sharing) enabled. It's crucial for accessing certain features and functionalities.</p>
+    <p>To ensure seamless operation:</p>
+    <ul>
+        <li>For Mobile: Use <a href="https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=en&gl=US">Kiwi Browser</a> along with the <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino">CORS Unblock</a> extension.</li>
+        <li>For PC: Install and use the <a href="https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino">CORS Unblock</a> extension on your browser.</li>
+    </ul>
+    <p class="note">Remember: Once CORS is enabled, this message will no longer appear.</p>
+</div>
+
+
+  
+  <script>
+        // Function to check if CORS is enabled
+        function checkCORS() {
+            fetch('https://example.com', { mode: 'cors' })
+                .then(response => {
+                    // If CORS is blocked, show #corsNote
+                    if (!response.ok) {
+                        document.getElementById('corsNote').style.display = 'block';
+                        document.body.style.display = 'block'; // Ensure body is visible
+                    } else {
+                        // If CORS is enabled, hide #corsNote and show the body content
+                        document.getElementById('corsNote').style.display = 'none';
+                        document.body.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    // If there's an error (e.g., network issue), show #corsNote
+                    console.error('Error checking CORS:', error);
+                    document.getElementById('corsNote').style.display = 'block';
+                    document.body.style.display = 'block'; // Ensure body is visible
+                });
+        }
+
+        // Call checkCORS function when the page loads
+        window.addEventListener('load', checkCORS);
+    </script>
+
+	
     <div class="container">
 	<script>
 $(document).ready(function(){
@@ -136,9 +250,7 @@ $(document).ready(function(){
             <li><strong>Insights:</strong> Users receive actionable investment insights based on validated data.</li>
         </ol>
 
-        <div id="corsNote" style="color: red;">
-            Note: On Mobile Please use <a href="https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=en&gl=US">Kiwi Browser (Link)</a> with extension <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino">CORS Unblock (Link)</a>. Output result takes around more than 5 minutes due to complex & heavy process, Chart request is limited to 25 per day if chart is not visible please use VPN to reset the exceeded request!
-        </div>
+
 
 <div class="table-container">
 <div class="table-responsive">
@@ -167,26 +279,7 @@ $(document).ready(function(){
         <div id="chartContainer" class="animate__animated animate__zoomIn"></div>
     </div>
 
-    <script>
-        // Function to check if CORS is enabled
-        function isCORSEnabled() {
-            var xhr = new XMLHttpRequest();
-            try {
-                xhr.open("GET", "https://example.com", false);
-                xhr.send();
-            } catch (error) {
-                return false;
-            }
-            return true;
-        }
 
-        // Check CORS status when the page loads
-        window.onload = function () {
-            if (!isCORSEnabled()) {
-                document.getElementById('corsNote').style.display = 'block';
-            }
-        };
-    </script>
 
 
 <script>
