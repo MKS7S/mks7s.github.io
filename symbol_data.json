@@ -19738,6 +19738,41 @@
         {
         "Symbol": "BCLENTERPR",
         "S_NAME": "BCL Enterprises"
+        },
+
+        {
+        "Symbol": "UNICHEMLAB",
+        "S_NAME": "Unichem Lab"
+        },
+
+        {
+        "Symbol": "BCLIND",
+        "S_NAME": "BCL Industries"
+        },
+
+        {
+        "Symbol": "BECTORFOOD",
+        "S_NAME": "Mrs.Bectors Food"
+        },
+
+        {
+        "Symbol": "GOLDIAM",
+        "S_NAME": "Goldiam Internatl."
+        },
+
+        {
+        "Symbol": "CONSOFINVT",
+        "S_NAME": "Consolid. Finv.&Hold"
+        },
+
+        {
+        "Symbol": "BCLIND",
+        "S_NAME": "BCL Industries"
+        },
+
+        {
+        "Symbol": "UNICHEMLAB",
+        "S_NAME": "Unichem Lab"
         }
 
 ]
