@@ -19628,6 +19628,26 @@
         {
         "Symbol": "KANSAINER",
         "S_NAME": "Kansai Nerolac Paint"
+        },
+
+        {
+        "Symbol": "NIBL",
+        "S_NAME": "NRB Industrial"
+        },
+
+        {
+        "Symbol": "BSHSL",
+        "S_NAME": "Bombay Super Hybrid"
+        },
+
+        {
+        "Symbol": "PRIVISCL",
+        "S_NAME": "Privi Speciality Che"
+        },
+
+        {
+        "Symbol": "ASTEC",
+        "S_NAME": "Astec Lifesciences"
         }
 
 ]
