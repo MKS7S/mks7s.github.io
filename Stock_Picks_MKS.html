@@ -489,8 +489,10 @@ $(document).ready(function () {
                 $cell.addClass('green-bg');
             } else if (value === 'PE' && columnIndex === 2) {
                 $cell.addClass('red-bg');
-            } else if ((value === 'Bought' || value === 'Sold') && (columnIndex === 6 || columnIndex === 7)) {
+            } else if (value === 'Bought' && (columnIndex === 6 || columnIndex === 7)) {
                 $cell.addClass('green-bg');
+            } else if (value === 'Sold' && (columnIndex === 6 || columnIndex === 7)) {
+                $cell.addClass('red-bg');
             } else if (!isNaN(parseFloat(value)) && (columnIndex === 8)) {
                 if (parseFloat(value) < 0) {
                     $cell.addClass('red-bg');
@@ -511,6 +513,7 @@ $(document).ready(function () {
     setInterval(updateBackgroundColor, 1000);
 });
 </script>
+
 
 
 
