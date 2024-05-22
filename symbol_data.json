@@ -19656,18 +19656,8 @@
         },
 
         {
-        "Symbol": "GARNET",
-        "S_NAME": "Garnet Construction"
-        },
-
-        {
-        "Symbol": "DIVSHKT",
-        "S_NAME": "Divyashakti"
-        },
-
-        {
-        "Symbol": "DUKEOFS",
-        "S_NAME": "Duke Offshore"
+        "Symbol": "BONLON",
+        "S_NAME": "Bonlon Industries"
         },
 
         {
@@ -19676,43 +19666,38 @@
         },
 
         {
-        "Symbol": "BPLPHARMA",
-        "S_NAME": "Bharat Parenterals"
+        "Symbol": "ACROW",
+        "S_NAME": "Acrow India"
         },
 
         {
-        "Symbol": "FUTURSEC",
-        "S_NAME": "Futuristic Sec"
+        "Symbol": "DHARFIN",
+        "S_NAME": "Dharani Finance"
         },
 
         {
-        "Symbol": "GOODRICKE",
-        "S_NAME": "Goodricke Group"
+        "Symbol": "GIANLIFE",
+        "S_NAME": "Gian Life Care"
         },
 
         {
-        "Symbol": "DRONACHRYA",
-        "S_NAME": "Droneacharya Aerial"
+        "Symbol": "DUROPLY",
+        "S_NAME": "Duroply Industries"
         },
 
         {
-        "Symbol": "526025",
-        "S_NAME": "Globus Power Generat"
-        },
-
-        {
-        "Symbol": "BONLON",
-        "S_NAME": "Bonlon Industries"
-        },
-
-        {
-        "Symbol": "SPIC",
-        "S_NAME": "SPIC"
+        "Symbol": "JAGANLAM",
+        "S_NAME": "Jagan Lamps"
         },
 
         {
         "Symbol": "VIKASWSP",
         "S_NAME": "Vikas WSP"
+        },
+
+        {
+        "Symbol": "SPIC",
+        "S_NAME": "SPIC"
         }
 
 ]
