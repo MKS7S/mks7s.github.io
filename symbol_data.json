@@ -19773,6 +19773,16 @@
         {
         "Symbol": "UNICHEMLAB",
         "S_NAME": "Unichem Lab"
+        },
+
+        {
+        "Symbol": "YATHARTH",
+        "S_NAME": "Yatharth Hospital"
+        },
+
+        {
+        "Symbol": "CHEMBOND",
+        "S_NAME": "Chembond Chemicals"
         }
 
 ]
