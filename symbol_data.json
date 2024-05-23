@@ -20913,6 +20913,381 @@
         {
         "Symbol": "BENARA",
         "S_NAME": "Benara Bearings"
+        },
+
+        {
+        "Symbol": "ICEMAKE",
+        "S_NAME": "ICE MakeRefrigeratio"
+        },
+
+        {
+        "Symbol": "CGPOWER",
+        "S_NAME": "CG Power & Indl.Soln"
+        },
+
+        {
+        "Symbol": "DYNAMATECH",
+        "S_NAME": "Dynamatic Tech"
+        },
+
+        {
+        "Symbol": "BARBEQUE",
+        "S_NAME": "Barbeque-Nation Hosp"
+        },
+
+        {
+        "Symbol": "JAYSREETEA",
+        "S_NAME": "Jay Shree Tea"
+        },
+
+        {
+        "Symbol": "GODIGIT",
+        "S_NAME": "Go Digit General Ins"
+        },
+
+        {
+        "Symbol": "HITECHGEAR",
+        "S_NAME": "Hi-Tech Gears"
+        },
+
+        {
+        "Symbol": "DCAL",
+        "S_NAME": "Dishman Carbogen Amc"
+        },
+
+        {
+        "Symbol": "BUTTERFLY",
+        "S_NAME": "ButterflyGandhimathi"
+        },
+
+        {
+        "Symbol": "JTLIND",
+        "S_NAME": "JTL Industries"
+        },
+
+        {
+        "Symbol": "RPTECH",
+        "S_NAME": "Rashi Peripheral"
+        },
+
+        {
+        "Symbol": "GNFC",
+        "S_NAME": "GNFC"
+        },
+
+        {
+        "Symbol": "EXIDEIND",
+        "S_NAME": "Exide Inds"
+        },
+
+        {
+        "Symbol": "AGSTRA",
+        "S_NAME": "AGS Transact Tech"
+        },
+
+        {
+        "Symbol": "ASPINWALL",
+        "S_NAME": "Aspinwall & Co"
+        },
+
+        {
+        "Symbol": "BANKA",
+        "S_NAME": "Banka Bioloo"
+        },
+
+        {
+        "Symbol": "MUFTI",
+        "S_NAME": "Credo Brands Mktg"
+        },
+
+        {
+        "Symbol": "EROSMEDIA",
+        "S_NAME": "Eros Internatl.Media"
+        },
+
+        {
+        "Symbol": "ESABINDIA",
+        "S_NAME": "Esab india"
+        },
+
+        {
+        "Symbol": "HOMEFIRST",
+        "S_NAME": "Home First Finance"
+        },
+
+        {
+        "Symbol": "KMSUGAR",
+        "S_NAME": "KM Sugar Mills"
+        },
+
+        {
+        "Symbol": "NAVINFLUOR",
+        "S_NAME": "Navin Fluorine Intl"
+        },
+
+        {
+        "Symbol": "RADIANTCMS",
+        "S_NAME": "Radiant Cash Mgmnt."
+        },
+
+        {
+        "Symbol": "ROUTE",
+        "S_NAME": "Route Mobile"
+        },
+
+        {
+        "Symbol": "KCPSUGIND",
+        "S_NAME": "KCP Sugar&Inds. Corp"
+        },
+
+        {
+        "Symbol": "ALKYLAMINE",
+        "S_NAME": "Alkyl Amines Chem"
+        },
+
+        {
+        "Symbol": "KECL",
+        "S_NAME": "Kirloskar Electric"
+        },
+
+        {
+        "Symbol": "LFIC",
+        "S_NAME": "Lakshmi Finance&Indl"
+        },
+
+        {
+        "Symbol": "MANAKCOAT",
+        "S_NAME": "Manaksia Coated"
+        },
+
+        {
+        "Symbol": "POWERGRID",
+        "S_NAME": "Power Grid Corp"
+        },
+
+        {
+        "Symbol": "RBA",
+        "S_NAME": "Restau. Brands Asia"
+        },
+
+        {
+        "Symbol": "SUTLEJTEX",
+        "S_NAME": "Sutlej Textiles&Inds"
+        },
+
+        {
+        "Symbol": "SARLAPOLY",
+        "S_NAME": "Sarla Perform. Fiber"
+        },
+
+        {
+        "Symbol": "CHOLAHLDNG",
+        "S_NAME": "Cholamandalam Fin."
+        },
+
+        {
+        "Symbol": "CNOVAPETRO",
+        "S_NAME": "CIL Nova Petro"
+        },
+
+        {
+        "Symbol": "BIKAJI",
+        "S_NAME": "Bikaji Foods Inter."
+        },
+
+        {
+        "Symbol": "NH",
+        "S_NAME": "Narayana Hrudayalay"
+        },
+
+        {
+        "Symbol": "INSECTICID",
+        "S_NAME": "Insecticides India"
+        },
+
+        {
+        "Symbol": "DOLPHIN",
+        "S_NAME": "Dolphin Offshore Ent"
+        },
+
+        {
+        "Symbol": "DARSHANORNA",
+        "S_NAME": "Darshan Orna"
+        },
+
+        {
+        "Symbol": "COMFINTE",
+        "S_NAME": "Comfort Intech"
+        },
+
+        {
+        "Symbol": "BLOOM",
+        "S_NAME": "Bloom Dekor"
+        },
+
+        {
+        "Symbol": "CTL",
+        "S_NAME": "Capital Trade Links"
+        },
+
+        {
+        "Symbol": "BENGALT",
+        "S_NAME": "Bengal Tea & Fabrics"
+        },
+
+        {
+        "Symbol": "AMERISE",
+        "S_NAME": "Amerise Biosciences"
+        },
+
+        {
+        "Symbol": "BNHOLDINGS",
+        "S_NAME": "BN Holdings"
+        },
+
+        {
+        "Symbol": "ATISHAY",
+        "S_NAME": "Atishay"
+        },
+
+        {
+        "Symbol": "ACEMEN",
+        "S_NAME": "ACE Men Engg Works"
+        },
+
+        {
+        "Symbol": "ASSOCER",
+        "S_NAME": "Associated Ceramics"
+        },
+
+        {
+        "Symbol": "DCAL",
+        "S_NAME": "Dishman Carbogen Amc"
+        },
+
+        {
+        "Symbol": "RBA",
+        "S_NAME": "Restau. Brands Asia"
+        },
+
+        {
+        "Symbol": "CGPOWER",
+        "S_NAME": "CG Power & Indl.Soln"
+        },
+
+        {
+        "Symbol": "MANAKCOAT",
+        "S_NAME": "Manaksia Coated"
+        },
+
+        {
+        "Symbol": "RPTECH",
+        "S_NAME": "Rashi Peripheral"
+        },
+
+        {
+        "Symbol": "GODIGIT",
+        "S_NAME": "Go Digit General Ins"
+        },
+
+        {
+        "Symbol": "POWERGRID",
+        "S_NAME": "Power Grid Corp"
+        },
+
+        {
+        "Symbol": "SARLAPOLY",
+        "S_NAME": "Sarla Perform. Fiber"
+        },
+
+        {
+        "Symbol": "HOMEFIRST",
+        "S_NAME": "Home First Finance"
+        },
+
+        {
+        "Symbol": "ALKYLAMINE",
+        "S_NAME": "Alkyl Amines Chem"
+        },
+
+        {
+        "Symbol": "KECL",
+        "S_NAME": "Kirloskar Electric"
+        },
+
+        {
+        "Symbol": "BARBEQUE",
+        "S_NAME": "Barbeque-Nation Hosp"
+        },
+
+        {
+        "Symbol": "MUFTI",
+        "S_NAME": "Credo Brands Mktg"
+        },
+
+        {
+        "Symbol": "RADIANTCMS",
+        "S_NAME": "Radiant Cash Mgmnt."
+        },
+
+        {
+        "Symbol": "HITECHGEAR",
+        "S_NAME": "Hi-Tech Gears"
+        },
+
+        {
+        "Symbol": "DYNAMATECH",
+        "S_NAME": "Dynamatic Tech"
+        },
+
+        {
+        "Symbol": "AGSTRA",
+        "S_NAME": "AGS Transact Tech"
+        },
+
+        {
+        "Symbol": "NAVINFLUOR",
+        "S_NAME": "Navin Fluorine Intl"
+        },
+
+        {
+        "Symbol": "ESABINDIA",
+        "S_NAME": "Esab india"
+        },
+
+        {
+        "Symbol": "EROSMEDIA",
+        "S_NAME": "Eros Internatl.Media"
+        },
+
+        {
+        "Symbol": "GNFC",
+        "S_NAME": "GNFC"
+        },
+
+        {
+        "Symbol": "EXIDEIND",
+        "S_NAME": "Exide Inds"
+        },
+
+        {
+        "Symbol": "NUVOCO",
+        "S_NAME": "Nuvoco Vistas Corpor"
+        },
+
+        {
+        "Symbol": "DOLPHIN",
+        "S_NAME": "Dolphin Offshore Ent"
+        },
+
+        {
+        "Symbol": "INSECTICID",
+        "S_NAME": "Insecticides India"
+        },
+
+        {
+        "Symbol": "NH",
+        "S_NAME": "Narayana Hrudayalay"
         }
 
 ]
