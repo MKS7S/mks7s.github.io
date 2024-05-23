@@ -1,66 +1,637 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Stock Symbols</title>
-    <style>
-        table {
-            width: 50%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        table, th, td {
-            border: 1px solid black;
-        }
-        th, td {
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1024">
+    <title>Automated Picks</title>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-    <h2>Stock Symbols</h2>
-
-
-
-
-    <script>
-    $(document).ready(function() {
-        function fetchData(apiUrl) {
-            return $.ajax({
-                url: "https://api.allorigins.win/get?url=" + encodeURIComponent(apiUrl),
-                method: "GET",
-                dataType: "json"
-            });
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	
+    <style>
+        body {
+            background-color: black;
+            color: #e0e0e0;
+			font-family: Calibri;
+			height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
         }
 
-        fetchData("https://api-op.streak.tech/open_screener/?slug=weeklymacd-920662")
-        .done(function(response) {
-            var data = JSON.parse(response.contents);
-            var symbols = data.screener.screener_result.map(function(result) {
-                return { "Symbol": result.seg_sym.split(':')[1] };
-            });
-            console.log(JSON.stringify(symbols, null, 2));
-        })
-        .fail(function(xhr, status, error) {
-            console.error("An error occurred: " + status + " " + error);
-        });
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
 
-        fetchData("https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256")
-        .done(function(response) {
-            var data = JSON.parse(response.contents);
-            var symbols = data.screener.screener_result.map(function(result) {
-                return { "Symbol": result.seg_sym.split(':')[1] };
-            });
-            console.log(JSON.stringify(symbols, null, 2));
-        })
-        .fail(function(xhr, status, error) {
-            console.error("An error occurred: " + status + " " + error);
+        th,
+        td {
+            border: 1px solid #444;
+            text-align: left;
+            padding: 12px;
+			background: #292929;
+        }
+
+        th {
+            background-color: #383838;
+            color: white;
+        }
+
+        .positive {
+            background-color: green;
+            color: white;
+        }
+
+        .negative {
+            background-color: red;
+            color: white;
+        }
+
+        .flag-img {
+            max-width: 50px;
+            max-height: 30px;
+        }
+
+        .state-closed {
+            background-color: red;
+            color: white;
+        }
+
+        .state-open {
+            background-color: green;
+            color: white;
+        }
+
+        .state-pre {
+            background-color: #e7e700;
+            color: white;
+        }
+
+        .red-bg {
+            background-color: red;
+        }
+
+        .green-bg {
+            background-color: green;
+        }
+
+        h2 {
+            color: #ffeb3b;
+        }
+
+        p {
+            color: #9e9e9e;
+        }
+
+        a {
+            color: #ffeb3b;
+        }
+		.table-container {
+            overflow-x: auto;
+        }
+		table {
+    width: 100%;
+}
+    </style>
+	<style>
+    #corsNote {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 2px solid #f5c6cb;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 50px auto;
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    #corsNote h2 {
+        display: flex;
+        align-items: center;
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    #corsNote h2 svg {
+        margin-right: 10px;
+        fill: #721c24;
+    }
+    #corsNote h2 span {
+        color: #dc3545;
+        animation: pulse 1s ease infinite;
+        font-weight: bold;
+    }
+    #corsNote a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    #corsNote a:hover {
+        text-decoration: underline;
+    }
+    #corsNote ul {
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+    #corsNote p {
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+    #corsNote p:last-child {
+        margin-bottom: 0;
+    }
+    #corsNote .note {
+        color: #155724;
+        font-style: italic;
+    }
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+    @media (max-width: 600px) {
+        #corsNote {
+            padding: 15px;
+            margin: 20px 10px;
+        }
+        #corsNote h2 {
+            font-size: 1.2em;
+        }
+    }
+</style>
+</head>
+
+
+	
+	
+<body style="display: none;">
+<div id="corsNote">
+    <h2>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24"><path d="M480 936q-72 0-135-27t-112-74q-48-48-75-111.5T130 586q0-71 27-134t75-112q48-48 111-75t135-27q71 0 134 27t112 75q48 48 75 111.5T830 586q0 71-27 134t-75 112q-48 48-111 75t-135 27Zm-50-180h100V586H430v170Zm50-230q18 0 30-12t12-30q0-18-12-30t-30-12q-18 0-30 12t-12 30q0 18 12 30t30 12Zm0 370q140 0 238-98t98-238q0-140-98-238t-238-98q-140 0-238 98T144 586q0 140 98 238t238 98Z"/></svg>
+        <span>Error: CORS is not enabled!</span>
+    </h2>
+    <p>This application won't work properly without CORS (Cross-Origin Resource Sharing) enabled. It's crucial for accessing certain features and functionalities.</p>
+    <p>To ensure seamless operation:</p>
+    <ul>
+        <li>For Mobile: Use <a href="https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=en&gl=US">Kiwi Browser</a> along with the <a href="https://chromewebstore.google.com/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino">CORS Unblock</a> extension.</li>
+        <li>For PC: Install and use the <a href="https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloancbhjino">CORS Unblock</a> extension on your browser.</li>
+    </ul>
+    <p class="note">Remember: Once CORS is enabled, this message will no longer appear.</p>
+</div>
+
+
+  
+  <script>
+        // Function to check if CORS is enabled
+        function checkCORS() {
+            fetch('https://example.com', { mode: 'cors' })
+                .then(response => {
+                    // If CORS is blocked, show #corsNote
+                    if (!response.ok) {
+                        document.getElementById('corsNote').style.display = 'block';
+                        document.body.style.display = 'block'; // Ensure body is visible
+                    } else {
+                        // If CORS is enabled, hide #corsNote and show the body content
+                        document.getElementById('corsNote').style.display = 'none';
+                        document.body.style.display = 'block';
+                    }
+                })
+                .catch(error => {
+                    // If there's an error (e.g., network issue), show #corsNote
+                    console.error('Error checking CORS:', error);
+                    document.getElementById('corsNote').style.display = 'block';
+                    document.body.style.display = 'block'; // Ensure body is visible
+                });
+        }
+
+        // Call checkCORS function when the page loads
+        window.addEventListener('load', checkCORS);
+    </script>
+
+	
+    <div class="container">
+	<script>
+$(document).ready(function(){
+    setTimeout(function(){
+        $("#dataRights").hide();
+        $("#developmentRights").hide();
+    }, 15000);
+});
+</script>
+<p id="dataRights">© Data Rights Belong to their respective owners- nirmalbang.com, munafasutra.com, streak.tech, nseindia.com, bseindia.com. This tool is just for personal analysis.</p>
+<p id="developmentRights">© 2024 Development Rights MKS</p>
+ <script>
+        async function fetchJsonData(url) {
+            const response = await fetch(url);
+            const data = await response.json();
+            return data;
+        }
+        async function countSymbols() {
+            const jsonData = await fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json');
+            const totalSymbols = jsonData.length; 
+            document.getElementById('Total_Symbol_Count').innerText = `${totalSymbols}`;
+        }
+        countSymbols();
+    </script>
+
+       <h2 class="animate__animated animate__fadeInDown" style="font-size: 30px;">
+        <i class="fas fa-chart-line"></i> The Process Behind Finding Best Stock From <text id="Total_Symbol_Count"></text> Stocks
+    </h2>
+    <ol>
+        <li><strong><i class="fas fa-database"></i> Data Merge:</strong> The system retrieves symbols from both NSE and BSE.</li>
+        <li><strong><i class="fas fa-balance-scale"></i> Comparison:</strong> It analyzes stock data against 1-week and 52-week lows.</li>
+        <li><strong><i class="fas fa-filter"></i> Filtering:</strong> Stocks are screened based on factors like high open interest, price, and high volume.</li>
+        <li><strong><i class="fas fa-check-circle"></i> Validation:</strong> Filtered stocks are checked against FII and DII data to confirm investment opportunities.</li>
+        <li><strong><i class="fas fa-chart-line"></i> Technical Analysis:</strong> Matches data with Daily MACD Crossover and Weekly MACD Crossover.</li>
+        <li><strong><i class="fas fa-lightbulb"></i> Insights:</strong> Users receive actionable investment insights based on validated data.</li>
+    </ol>
+
+
+<div class="table-container">
+<div class="table-responsive">
+        <table id="dataTable" class="table table-dark table-striped animate__animated animate__fadeInUp">
+            <thead>
+                <tr>
+                    <th>Industry</th>
+                    <th>Symbol</th>
+                    <th>Contract</th>
+					<th>Expiry</th>
+					<th>Daily MACD Crossover</th>
+					<th>Weekly MACD Crossover</th>
+                    <th>FII DII In Equites</th>
+                    <th>FII DII In Options</th>
+                    <th>Price Change %</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be populated here -->
+            </tbody>
+        </table>
+		</div>
+		</div>
+
+        <div class="font-weight-bold">Charts:</div>
+        <div id="chartContainer" class="animate__animated animate__zoomIn"></div>
+    </div>
+
+
+
+<script>
+$(document).ready(function() {
+    const fetchJsonData = (url) => {
+        return $.getJSON(url);
+    };
+
+    const fetchData = (apiUrl) => {
+        return $.ajax({
+            url: "https://api.allorigins.win/get?url=" + encodeURIComponent(apiUrl),
+            method: "GET",
+            dataType: "json"
         });
-    });
+    };
+
+    const getAllPagedData = async (baseUrl) => {
+        let allData = [];
+        let pageNo = 1;
+        let moreData = true;
+        while (moreData) {
+            try {
+                const data = await fetchJsonData(`${baseUrl}&pageNo=${pageNo}`);
+                if (data.length > 0) {
+                    allData = allData.concat(data);
+                    pageNo++;
+                } else {
+                    moreData = false;
+                }
+            } catch (error) {
+                console.error(`Failed to fetch data from page ${pageNo}:`, error);
+                moreData = false;
+            }
+        }
+        return allData;
+    };
+
+    const getSymbolName = (sName, jsonData) => {
+        return new Promise((resolve, reject) => {
+            const matchedSymbol = jsonData.find(item => item.S_NAME === sName);
+            if (matchedSymbol && matchedSymbol.Symbol) {
+                const symbol = matchedSymbol.Symbol.replace(/\.NS$|\.BO$/, '');
+                resolve({ symbol, sName });
+            } else {
+                console.error('Symbol not found for:', sName);
+                resolve(null);
+            }
+        });
+    };
+
+    const processData = async (jsonData, mergedData, openInterestData, dailyMACDSymbols, weeklyMACDSymbols) => {
+        const tableBody = $('#dataTable tbody');
+        const uniqueSymbols = {};
+        for (const item of mergedData) {
+            if (!uniqueSymbols[item.S_NAME]) {
+                uniqueSymbols[item.S_NAME] = true;
+                const symbolInfo = await getSymbolName(item.S_NAME, jsonData);
+                if (symbolInfo) {
+                    const { symbol, sName } = symbolInfo;
+                    const filteredData = openInterestData.filter(oiItem => oiItem.OI_Symbol === symbol);
+                    const dailyDMCMatch = dailyMACDSymbols.some(sym => filteredData.some(oiItem => oiItem.OI_Symbol === sym.DMCsymbol));
+                    const weeklyWMCMatch = weeklyMACDSymbols.some(sym => filteredData.some(oiItem => oiItem.OI_Symbol === sym.WMCsymbol));
+                    
+                    const dailyMACDStatus = dailyDMCMatch ? 'true' : 'false';
+                    const weeklyMACDStatus = weeklyWMCMatch ? 'true' : 'false';
+
+                    if (dailyDMCMatch !== weeklyWMCMatch) {
+                        console.log(`MACD Mismatch for symbol ${symbol}: Daily DMC = ${dailyDMCMatch}, Weekly WMC = ${weeklyWMCMatch}`);
+                    } else {
+                        console.log(`MACD Match for symbol ${symbol}: Daily DMC = ${dailyDMCMatch}, Weekly WMC = ${weeklyWMCMatch}`);
+                    }
+
+                    if (filteredData.length > 0) {
+                        const oiItem = filteredData[0];
+                        if (oiItem.OI_OptType) {
+                            tableBody.append('<tr>' +
+                                '<td>' + sName + '</td>' +
+                                '<td>' + symbol + '</td>' +
+                                '<td>' + oiItem.OI_OptType + '</td>' +
+                                '<td>' + oiItem.OI_ExpDate + '</td>' +
+                                '<td>' + dailyMACDStatus + '</td>' +
+                                '<td>' + weeklyMACDStatus + '</td>' +
+                                '</tr>');
+                        }
+                    } else {
+                        console.warn(`Open interest data not found for symbol: ${symbol}`);
+                        if (dailyDMCMatch !== weeklyWMCMatch) {
+                            console.log(`MACD Mismatch (No OI Data): Symbol ${symbol}, Daily DMC = ${dailyDMCMatch}, Weekly WMC = ${weeklyWMCMatch}`);
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    (async () => {
+        try {
+            const jsonData = await fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json');
+            const [dataNSE, dataBSE, openInterestData, dailyMACDResponse, weeklyMACDResponse] = await Promise.all([
+                getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=NSE&Type=Low&Period=1WEEK&Group=&Indices=&PageSize=100'),
+                getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=BSE&Type=Low&Period=1WEEK&Group=&Indices=&PageSize=100'),
+                getAllPagedData('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&opt2=&date=&PageSize=100'),
+                fetchData("https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256"),
+                fetchData("https://api-op.streak.tech/open_screener/?slug=weeklymacd-920662")
+            ]);
+
+            const dailyMACDSymbolsResponse = await fetchData("https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256");
+            const weeklyMACDSymbolsResponse = await fetchData("https://api-op.streak.tech/open_screener/?slug=weeklymacd-920662");
+            const dailyMACDData = JSON.parse(dailyMACDSymbolsResponse.contents);
+            const weeklyMACDData = JSON.parse(weeklyMACDSymbolsResponse.contents);
+            const dailyMACDSymbols = dailyMACDData.screener?.screener_result?.map(result => ({ "DMCsymbol": result.seg_sym.split(':')[1] })) || [];
+            const weeklyMACDSymbols = weeklyMACDData.screener?.screener_result?.map(result => ({ "WMCsymbol": result.seg_sym.split(':')[1] })) || [];
+
+            console.log('Daily MACD Symbols JSON:', JSON.stringify(dailyMACDSymbols, null, 2));
+            console.log('Weekly MACD Symbols JSON:', JSON.stringify(weeklyMACDSymbols, null, 2));
+
+            const mergedData = $.merge([], dataNSE);
+            $.merge(mergedData, dataBSE);
+            await processData(jsonData, mergedData, openInterestData, dailyMACDSymbols, weeklyMACDSymbols);
+        } catch (error) {
+            console.error('An error occurred during processing:', error);
+        }
+    })();
+});
 </script>
 
 
+
+
+
+
+
+
+
+<script>
+$(document).ready(function() {
+    var symbolsProcessed = {};
+
+    function fetchAndRenderChart(symbol, industry, apiKey) {
+        if (symbolsProcessed[symbol]) return;
+
+        symbolsProcessed[symbol] = true;
+
+        var startDate = '2015-01-01';
+
+        $.ajax({
+            url: `https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol=${symbol}.BSE&apikey=${apiKey}&start_date=${startDate}`,
+            dataType: 'json',
+            success: function(response) {
+                if (!response || !response['Meta Data']) {
+                    console.log('Response does not contain Meta Data, switching to second API key...');
+                    fetchAndRenderChart(symbol, industry, '15F0X65XKNRAH11Y');
+                    return;
+                }
+
+                var weeklyData = response['Weekly Time Series'];
+                var dates = Object.keys(weeklyData).filter(date => date >= startDate);
+                var trace = {
+                    x: dates,
+                    close: dates.map(date => parseFloat(weeklyData[date]['4. close'])),
+                    high: dates.map(date => parseFloat(weeklyData[date]['2. high'])),
+                    low: dates.map(date => parseFloat(weeklyData[date]['3. low'])),
+                    open: dates.map(date => parseFloat(weeklyData[date]['1. open'])),
+                    type: 'candlestick',
+                    name: symbol
+                };
+                var chartDiv = $('<div>').appendTo('#chartContainer')[0];
+                Plotly.newPlot(chartDiv, [trace], {
+                    title: `Weekly Candlestick Chart for ${symbol} (${industry})`,
+                    xaxis: { title: 'Date' },
+                    yaxis: { title: 'Price' }
+                });
+                $('#chartContainer').append('<br>');
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching data:', error);
+                if (apiKey === '6EMIJ5B2WIKKX892') {
+                    console.log('Error with first API key, switching to second API key...');
+                    fetchAndRenderChart(symbol, industry, '15F0X65XKNRAH11Y');
+                } else {
+                    console.error('Error fetching data with second API key:', error);
+                }
+            }
+        });
+    }
+
+    function updateChartColumn() {
+        $('#dataTable tbody tr').each(function() {
+            var symbol = $(this).find('td:eq(1)').text();
+            var industry = $(this).find('td:eq(0)').text();
+            if (symbol) {
+                fetchAndRenderChart(symbol, industry, '6EMIJ5B2WIKKX892');
+            }
+        });
+    }
+
+    setInterval(updateChartColumn, 1000);
+});
+</script>
+
+<script>
+$(document).ready(function() {
+    var matchedSymbols = {};
+    var lastTableRowCount = 0;
+    var unmatchedSymbols = {};
+
+    function fetchDataAndMatch() {
+        $.post('https://munafasutra.com/nse/FIIDII/', {})
+            .done(function(data) {
+                var tempDiv = $('<div>').html(data);
+                var table = tempDiv.find('#allFIIDII table');
+
+                var jsonData = [];
+
+                table.find('tr').first().find('td').each(function(index) {
+                    var headerText = $(this).text().trim();
+                    switch(headerText) {
+                        case 'Company':
+                            $(this).attr('id', 'symbol');
+                            break;
+                        case 'FII/DII cash':
+                            $(this).attr('id', 'FIIDII_EQ');
+                            break;
+                        case 'FII/DII FNO':
+                            $(this).attr('id', 'FIIDII_FNO');
+                            break;
+                        case 'Price change':
+                            $(this).attr('id', 'Price_Chng');
+                            break;
+                    }
+                });
+
+                table.find('tr').slice(1).each(function() {
+                    var rowData = {};
+                    $(this).find('td').each(function(index, cell) {
+                        var headerText = table.find('tr').first().find('td').eq(index).text().trim();
+                        var cellText = $(cell).text().trim();
+                        
+                        if (headerText === 'Company') {
+                            var matches = cellText.match(/\(([^)]+)\)/g);
+                            if (matches) {
+                                for (var i = 0; i < matches.length; i++) {
+                                    var match = matches[i].replace(/[()]/g, '');
+                                    if (!match.match(/\bIndia\b/i)) {
+                                        cellText = match;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+
+                        rowData[headerText] = cellText;
+                    });
+                    jsonData.push(rowData);
+                });
+
+                var currentTableRowCount = $("#dataTable tbody tr").length;
+
+                if (currentTableRowCount === lastTableRowCount) {
+                    return;
+                }
+
+                $("#dataTable tbody tr").each(function() {
+                    var symbol = $(this).find("td:nth-child(2)").text().trim();
+
+                    if (!matchedSymbols[symbol] && !unmatchedSymbols[symbol]) {
+                        var matched = jsonData.find(function(item) {
+                            return item["Company"].toUpperCase() === symbol.toUpperCase();
+                        });
+
+                        if (matched) {
+                            var tr = $(this);
+                            var fiidiiEq = matched["FII/DII cash"] || "-";
+                            var fiidiiFno = matched["FII/DII FNO"] || "-";
+                            var priceChange = matched["Price change"] || "-";
+
+                            tr.append("<td>" + fiidiiEq + "</td>");
+                            tr.append("<td>" + fiidiiFno + "</td>");
+                            tr.append("<td>" + priceChange + "</td>");
+
+                            matchedSymbols[symbol] = true;
+                        } else {
+                            unmatchedSymbols[symbol] = true;
+                            $(this).append("<td>-</td>");
+                            $(this).append("<td>-</td>");
+                            $(this).append("<td>-</td>");
+                        }
+                    }
+                });
+
+                lastTableRowCount = currentTableRowCount;
+            })
+            .fail(function() {
+                console.error("Failed to retrieve data.");
+            });
+    }
+
+    setInterval(fetchDataAndMatch, 2000);
+
+    fetchDataAndMatch();
+});
+</script>
+
+
+<script>
+$(document).ready(function () {
+    function updateBackgroundColor() {
+        $('#dataTable td').each(function(index) {
+            var $cell = $(this);
+            var value = $cell.text().trim();
+            var columnIndex = $cell.index();
+            
+            if (value === 'CE' && columnIndex === 2) {
+                $cell.addClass('green-bg');
+            } else if (value === 'PE' && columnIndex === 2) {
+                $cell.addClass('red-bg');
+            } else if (value === 'Bought' && (columnIndex === 6 || columnIndex === 7)) {
+                $cell.addClass('green-bg');
+            } else if (value === 'Sold' && (columnIndex === 6 || columnIndex === 7)) {
+                $cell.addClass('red-bg');
+            } else if (!isNaN(parseFloat(value)) && (columnIndex === 8)) {
+                if (parseFloat(value) < 0) {
+                    $cell.addClass('red-bg');
+                } else {
+                    $cell.addClass('green-bg');
+                }
+            } else if ((value === 'true' || value === 'false') && (columnIndex === 4 || columnIndex === 5)) {
+                if (value === 'true') {
+                    $cell.addClass('green-bg');
+                } else {
+                    $cell.addClass('red-bg');
+                }
+            }
+        });
+    }
+
+    updateBackgroundColor();
+    setInterval(updateBackgroundColor, 1000);
+});
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
