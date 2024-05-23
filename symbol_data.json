@@ -20833,6 +20833,31 @@
         {
         "Symbol": "MEP",
         "S_NAME": "MEP Infrastructure"
+        },
+
+        {
+        "Symbol": "KHAICHEM",
+        "S_NAME": "Khaitan Chem & Fert."
+        },
+
+        {
+        "Symbol": "IGARASHI",
+        "S_NAME": "Igarashi Motors"
+        },
+
+        {
+        "Symbol": "KIMS",
+        "S_NAME": "Krishna Inst.Medi"
+        },
+
+        {
+        "Symbol": "KHAICHEM",
+        "S_NAME": "Khaitan Chem & Fert."
+        },
+
+        {
+        "Symbol": "IGARASHI",
+        "S_NAME": "Igarashi Motors"
         }
 
 ]
