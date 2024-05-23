@@ -20,41 +20,47 @@
 </head>
 <body>
     <h2>Stock Symbols</h2>
-    <table id="stockTable">
-        <thead>
-            <tr>
-                <th>Stock Symbol</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+
+
+
 
     <script>
-        $(document).ready(function() {
-            $.ajax({
-                url: 'https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256',
-                method: 'GET',
-                success: function(response) {
-                    // Check if the response status is success
-                    if(response.status === "success") {
-                        // Extract the screener results
-                        const screenerResults = response.screener.screener_result;
-
-                        // Iterate over the screener results and populate the table
-                        screenerResults.forEach(function(stock) {
-                            const symbol = stock.seg_sym.split(':')[1]; // Extract symbol after "NSE:"
-                            $('#stockTable tbody').append('<tr><td>' + symbol + '</td></tr>');
-                        });
-                    } else {
-                        console.error('Failed to fetch data');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error fetching data: ', status, error);
-                }
+    $(document).ready(function() {
+        function fetchData(apiUrl) {
+            return $.ajax({
+                url: "https://api.allorigins.win/get?url=" + encodeURIComponent(apiUrl),
+                method: "GET",
+                dataType: "json"
             });
+        }
+
+        fetchData("https://api-op.streak.tech/open_screener/?slug=weeklymacd-920662")
+        .done(function(response) {
+            var data = JSON.parse(response.contents);
+            var symbols = data.screener.screener_result.map(function(result) {
+                return { "Symbol": result.seg_sym.split(':')[1] };
+            });
+            console.log(JSON.stringify(symbols, null, 2));
+        })
+        .fail(function(xhr, status, error) {
+            console.error("An error occurred: " + status + " " + error);
         });
-    </script>
+
+        fetchData("https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256")
+        .done(function(response) {
+            var data = JSON.parse(response.contents);
+            var symbols = data.screener.screener_result.map(function(result) {
+                return { "Symbol": result.seg_sym.split(':')[1] };
+            });
+            console.log(JSON.stringify(symbols, null, 2));
+        })
+        .fail(function(xhr, status, error) {
+            console.error("An error occurred: " + status + " " + error);
+        });
+    });
+</script>
+
+
+
 </body>
 </html>
