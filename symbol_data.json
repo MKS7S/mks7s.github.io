@@ -20888,6 +20888,31 @@
         {
         "Symbol": "GRWRHITECH",
         "S_NAME": "Garware Hi-Tech"
+        },
+
+        {
+        "Symbol": "ALFATRAN",
+        "S_NAME": "Alfa Transformers"
+        },
+
+        {
+        "Symbol": "ARFIN",
+        "S_NAME": "Arfin India"
+        },
+
+        {
+        "Symbol": "BCCFUBA",
+        "S_NAME": "BCC Fuba India"
+        },
+
+        {
+        "Symbol": "APTPACK",
+        "S_NAME": "Apt Packaging"
+        },
+
+        {
+        "Symbol": "BENARA",
+        "S_NAME": "Benara Bearings"
         }
 
 ]
