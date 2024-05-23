@@ -20733,6 +20733,61 @@
         {
         "Symbol": "HINDWAREAP",
         "S_NAME": "Hindware Home Innov."
+        },
+
+        {
+        "Symbol": "SWSOLAR",
+        "S_NAME": "Sterling and Wilson"
+        },
+
+        {
+        "Symbol": "FUSION",
+        "S_NAME": "Fusion Micro Fin."
+        },
+
+        {
+        "Symbol": "KIRLPNU",
+        "S_NAME": "Kirloskar Pneumatic"
+        },
+
+        {
+        "Symbol": "AVONMORE",
+        "S_NAME": "Avonmore Capital"
+        },
+
+        {
+        "Symbol": "AGROPHOS",
+        "S_NAME": "Agro Phos"
+        },
+
+        {
+        "Symbol": "AMBICAAGAR",
+        "S_NAME": "Ambica Agarbathies"
+        },
+
+        {
+        "Symbol": "COMSYN",
+        "S_NAME": "Commercial Synbags"
+        },
+
+        {
+        "Symbol": "SWSOLAR",
+        "S_NAME": "Sterling and Wilson"
+        },
+
+        {
+        "Symbol": "AVONMORE",
+        "S_NAME": "Avonmore Capital"
+        },
+
+        {
+        "Symbol": "FUSION",
+        "S_NAME": "Fusion Micro Fin."
+        },
+
+        {
+        "Symbol": "AMBICAAGAR",
+        "S_NAME": "Ambica Agarbathies"
         }
 
 ]
