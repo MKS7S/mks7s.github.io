@@ -20813,6 +20813,21 @@
         {
         "Symbol": "ONMOBILE",
         "S_NAME": "Onmobile Global"
+        },
+
+        {
+        "Symbol": "AADHARHFC",
+        "S_NAME": "Aadhar Housing Fin"
+        },
+
+        {
+        "Symbol": "KAKATCEM",
+        "S_NAME": "Kakatiya Cemen Sugar"
+        },
+
+        {
+        "Symbol": "AADHARHFC",
+        "S_NAME": "Aadhar Housing Fin"
         }
 
 ]
