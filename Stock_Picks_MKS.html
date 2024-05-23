@@ -288,12 +288,12 @@ $(document).ready(function(){
 
 
 
-
 <script>
 $(document).ready(function() {
     const fetchJsonData = (url) => {
         return $.getJSON(url);
     };
+
     const fetchData = (apiUrl) => {
         return $.ajax({
             url: "https://api.allorigins.win/get?url=" + encodeURIComponent(apiUrl),
@@ -301,6 +301,7 @@ $(document).ready(function() {
             dataType: "json"
         });
     };
+
     const getAllPagedData = async (baseUrl) => {
         let allData = [];
         let pageNo = 1;
@@ -321,6 +322,7 @@ $(document).ready(function() {
         }
         return allData;
     };
+
     const getSymbolName = (sName, jsonData) => {
         return new Promise((resolve, reject) => {
             const matchedSymbol = jsonData.find(item => item.S_NAME === sName);
@@ -333,6 +335,7 @@ $(document).ready(function() {
             }
         });
     };
+
     const processData = async (jsonData, mergedData, openInterestData, dailyMACDSymbols, weeklyMACDSymbols) => {
         const tableBody = $('#dataTable tbody');
         const uniqueSymbols = {};
@@ -343,15 +346,16 @@ $(document).ready(function() {
                 if (symbolInfo) {
                     const { symbol, sName } = symbolInfo;
                     const filteredData = openInterestData.filter(oiItem => oiItem.OI_Symbol === symbol);
-                    const dailyMACDMatch = dailyMACDSymbols.find(sym => sym.Symbol === symbol);
-                    const weeklyMACDMatch = weeklyMACDSymbols.find(sym => sym.Symbol === symbol);
-                    const dailyMACDStatus = dailyMACDMatch ? 'true' : 'false';
-                    const weeklyMACDStatus = weeklyMACDMatch ? 'true' : 'false';
+                    const dailyDMCMatch = dailyMACDSymbols.some(sym => filteredData.some(oiItem => oiItem.OI_Symbol === sym.DMCsymbol));
+                    const weeklyWMCMatch = weeklyMACDSymbols.some(sym => filteredData.some(oiItem => oiItem.OI_Symbol === sym.WMCsymbol));
+                    
+                    const dailyMACDStatus = dailyDMCMatch ? 'true' : 'false';
+                    const weeklyMACDStatus = weeklyWMCMatch ? 'true' : 'false';
 
-                    if (dailyMACDStatus !== weeklyMACDStatus) {
-                        console.log(`MACD Mismatch for symbol ${symbol}: Daily MACD = ${dailyMACDStatus}, Weekly MACD = ${weeklyMACDStatus}`);
+                    if (dailyDMCMatch !== weeklyWMCMatch) {
+                        console.log(`MACD Mismatch for symbol ${symbol}: Daily DMC = ${dailyDMCMatch}, Weekly WMC = ${weeklyWMCMatch}`);
                     } else {
-                        console.log(`MACD Match for symbol ${symbol}: Daily MACD = ${dailyMACDStatus}, Weekly MACD = ${weeklyMACDStatus}`);
+                        console.log(`MACD Match for symbol ${symbol}: Daily DMC = ${dailyDMCMatch}, Weekly WMC = ${weeklyWMCMatch}`);
                     }
 
                     if (filteredData.length > 0) {
@@ -368,8 +372,8 @@ $(document).ready(function() {
                         }
                     } else {
                         console.warn(`Open interest data not found for symbol: ${symbol}`);
-                        if (dailyMACDStatus !== weeklyMACDStatus) {
-                            console.log(`MACD Mismatch (No OI Data): Symbol ${symbol}, Daily MACD = ${dailyMACDStatus}, Weekly MACD = ${weeklyMACDStatus}`);
+                        if (dailyDMCMatch !== weeklyWMCMatch) {
+                            console.log(`MACD Mismatch (No OI Data): Symbol ${symbol}, Daily DMC = ${dailyDMCMatch}, Weekly WMC = ${weeklyWMCMatch}`);
                         }
                     }
                 }
@@ -384,19 +388,22 @@ $(document).ready(function() {
                 getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=NSE&Type=Low&Period=1WEEK&Group=&Indices=&PageSize=100'),
                 getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=BSE&Type=Low&Period=1WEEK&Group=&Indices=&PageSize=100'),
                 getAllPagedData('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&opt2=&date=&PageSize=100'),
-                fetchData("https://api.allorigins.win/get?url=" + encodeURIComponent("https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256")),
-                fetchData("https://api.allorigins.win/get?url=" + encodeURIComponent("https://api-op.streak.tech/open_screener/?slug=weeklymacd-920662"))
+                fetchData("https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256"),
+                fetchData("https://api-op.streak.tech/open_screener/?slug=weeklymacd-920662")
             ]);
 
-            const dailyMACDData = JSON.parse(dailyMACDResponse.contents);
-            const weeklyMACDData = JSON.parse(weeklyMACDResponse.contents);
+            const dailyMACDSymbolsResponse = await fetchData("https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256");
+            const weeklyMACDSymbolsResponse = await fetchData("https://api-op.streak.tech/open_screener/?slug=weeklymacd-920662");
+            const dailyMACDData = JSON.parse(dailyMACDSymbolsResponse.contents);
+            const weeklyMACDData = JSON.parse(weeklyMACDSymbolsResponse.contents);
+            const dailyMACDSymbols = dailyMACDData.screener?.screener_result?.map(result => ({ "DMCsymbol": result.seg_sym.split(':')[1] })) || [];
+            const weeklyMACDSymbols = weeklyMACDData.screener?.screener_result?.map(result => ({ "WMCsymbol": result.seg_sym.split(':')[1] })) || [];
 
-            const dailyMACDSymbols = dailyMACDData.screener?.screener_result?.map(result => ({ "Symbol": result.seg_sym.split(':')[1] })) || [];
-            const weeklyMACDSymbols = weeklyMACDData.screener?.screener_result?.map(result => ({ "Symbol": result.seg_sym.split(':')[1] })) || [];
+            console.log('Daily MACD Symbols JSON:', JSON.stringify(dailyMACDSymbols, null, 2));
+            console.log('Weekly MACD Symbols JSON:', JSON.stringify(weeklyMACDSymbols, null, 2));
 
             const mergedData = $.merge([], dataNSE);
             $.merge(mergedData, dataBSE);
-
             await processData(jsonData, mergedData, openInterestData, dailyMACDSymbols, weeklyMACDSymbols);
         } catch (error) {
             console.error('An error occurred during processing:', error);
@@ -404,6 +411,12 @@ $(document).ready(function() {
     })();
 });
 </script>
+
+
+
+
+
+
 
 
 
