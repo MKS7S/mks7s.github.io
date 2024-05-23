@@ -20593,6 +20593,121 @@
         {
         "Symbol": "WEPSOLN",
         "S_NAME": "WEP Solutions"
+        },
+
+        {
+        "Symbol": "KSB",
+        "S_NAME": "KSB"
+        },
+
+        {
+        "Symbol": "SHREECEM",
+        "S_NAME": "Shree Cement"
+        },
+
+        {
+        "Symbol": "UFO",
+        "S_NAME": "UFO Moviez"
+        },
+
+        {
+        "Symbol": "ZFCVINDIA",
+        "S_NAME": "ZF Comm Vehic Contr"
+        },
+
+        {
+        "Symbol": "LEXUS",
+        "S_NAME": "Lexus Granito (I)"
+        },
+
+        {
+        "Symbol": "KALAMANDIR",
+        "S_NAME": "Sai Silks (Kalaman)"
+        },
+
+        {
+        "Symbol": "ABANSENT",
+        "S_NAME": "ABans Enterprises"
+        },
+
+        {
+        "Symbol": "AVANTEL",
+        "S_NAME": "Avantel"
+        },
+
+        {
+        "Symbol": "JETAIRWAYS",
+        "S_NAME": "Jet Airways (I)"
+        },
+
+        {
+        "Symbol": "BCCL",
+        "S_NAME": "Bhatia Colour Chem"
+        },
+
+        {
+        "Symbol": "DUNCANENG",
+        "S_NAME": "Duncan Engineering"
+        },
+
+        {
+        "Symbol": "CROPSTER",
+        "S_NAME": "Cropster Agro"
+        },
+
+        {
+        "Symbol": "ACML",
+        "S_NAME": "Aditya Consumer"
+        },
+
+        {
+        "Symbol": "GOKAKTEX",
+        "S_NAME": "Gokak Textiles"
+        },
+
+        {
+        "Symbol": "GEMSPIN",
+        "S_NAME": "Gem Spinners"
+        },
+
+        {
+        "Symbol": "CRANEINFRA",
+        "S_NAME": "Crane Infra"
+        },
+
+        {
+        "Symbol": "GANONPRO",
+        "S_NAME": "Ganon Products"
+        },
+
+        {
+        "Symbol": "INDBNK",
+        "S_NAME": "Ind Bank Housing"
+        },
+
+        {
+        "Symbol": "UFO",
+        "S_NAME": "UFO Moviez"
+        },
+
+        {
+        "Symbol": "KSB",
+        "S_NAME": "KSB"
+        },
+
+        {
+        "Symbol": "KALAMANDIR",
+        "S_NAME": "Sai Silks (Kalaman)"
+        },
+
+        {
+        "Symbol": "SHREECEM",
+        "S_NAME": "Shree Cement"
+        },
+
+        {
+        "Symbol": "ZFCVINDIA",
+        "S_NAME": "ZF Comm Vehic Contr"
         }
 
 ]
