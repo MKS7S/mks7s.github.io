@@ -19958,6 +19958,346 @@
         {
         "Symbol": "LAFFANSQ",
         "S_NAME": "Laffans Petrochem"
+        },
+
+        {
+        "Symbol": "HDIL",
+        "S_NAME": "HDIL"
+        },
+
+        {
+        "Symbol": "CENTUM",
+        "S_NAME": "Centrum Electronics"
+        },
+
+        {
+        "Symbol": "TIDEWATER",
+        "S_NAME": "Tide Water Oil Co(I)"
+        },
+
+        {
+        "Symbol": "ESTER",
+        "S_NAME": "Ester Inds"
+        },
+
+        {
+        "Symbol": "KAVVERITEL",
+        "S_NAME": "Kavveri Telecom Prod"
+        },
+
+        {
+        "Symbol": "TREJHARA",
+        "S_NAME": "Trejhara Solutions"
+        },
+
+        {
+        "Symbol": "FCSSOFT",
+        "S_NAME": "FCS Software Soltns."
+        },
+
+        {
+        "Symbol": "GOCOLORS",
+        "S_NAME": "Go Fashion (India)"
+        },
+
+        {
+        "Symbol": "INDNIPPON",
+        "S_NAME": "India Nipon Electric"
+        },
+
+        {
+        "Symbol": "CENTURYTEX",
+        "S_NAME": "Century Textile &Ind"
+        },
+
+        {
+        "Symbol": "TBOTEK",
+        "S_NAME": "TBO Tek"
+        },
+
+        {
+        "Symbol": "WELINV",
+        "S_NAME": "Welspun Investments"
+        },
+
+        {
+        "Symbol": "MACPOWER",
+        "S_NAME": "Macpower CNC Machine"
+        },
+
+        {
+        "Symbol": "BYKE",
+        "S_NAME": "The Byke Hospitality"
+        },
+
+        {
+        "Symbol": "ATLANTAA",
+        "S_NAME": "Atlantaa"
+        },
+
+        {
+        "Symbol": "PHOTOQUP",
+        "S_NAME": "Photoquip India"
+        },
+
+        {
+        "Symbol": "BHASKAGR",
+        "S_NAME": "Bhaskar Agrochem"
+        },
+
+        {
+        "Symbol": "GTV",
+        "S_NAME": "GTV Engineering"
+        },
+
+        {
+        "Symbol": "ASALCBR",
+        "S_NAME": "Assoc Alcohols &Brew"
+        },
+
+        {
+        "Symbol": "GUJALKALI",
+        "S_NAME": "Guj. Alkalies & Chem"
+        },
+
+        {
+        "Symbol": "BASML",
+        "S_NAME": "Bannari Amman Spg"
+        },
+
+        {
+        "Symbol": "ZODIACLOTH",
+        "S_NAME": "Zodiac Clothing Co"
+        },
+
+        {
+        "Symbol": "BONDADA",
+        "S_NAME": "Bondada Engineering"
+        },
+
+        {
+        "Symbol": "RKDL",
+        "S_NAME": "Ravi Kumar Distiller"
+        },
+
+        {
+        "Symbol": "RTFL",
+        "S_NAME": "Real Touch"
+        },
+
+        {
+        "Symbol": "MMWL",
+        "S_NAME": "Media Matrix World"
+        },
+
+        {
+        "Symbol": "INNOVTEC",
+        "S_NAME": "Innovative Tech Pack"
+        },
+
+        {
+        "Symbol": "KELENRG",
+        "S_NAME": "Keltech Energies"
+        },
+
+        {
+        "Symbol": "PULSRIN",
+        "S_NAME": "Pulsar International"
+        },
+
+        {
+        "Symbol": "KBSINDIA",
+        "S_NAME": "KBS India"
+        },
+
+        {
+        "Symbol": "NOL",
+        "S_NAME": "National Oxygen"
+        },
+
+        {
+        "Symbol": "MODINATUR",
+        "S_NAME": "Modi Naturals"
+        },
+
+        {
+        "Symbol": "PECOS",
+        "S_NAME": "Pecos Hotels"
+        },
+
+        {
+        "Symbol": "GALAGEX",
+        "S_NAME": "Galaxy Agrico"
+        },
+
+        {
+        "Symbol": "FUTSOL",
+        "S_NAME": "Futuristic Solutions"
+        },
+
+        {
+        "Symbol": "EVANS",
+        "S_NAME": "Evans Electric"
+        },
+
+        {
+        "Symbol": "JINDCAP",
+        "S_NAME": "Jindal Capital"
+        },
+
+        {
+        "Symbol": "PADALPO",
+        "S_NAME": "Padmanabh Alloys"
+        },
+
+        {
+        "Symbol": "PRAVEG",
+        "S_NAME": "Praveg"
+        },
+
+        {
+        "Symbol": "ADITYASP",
+        "S_NAME": "Aditya Spinners"
+        },
+
+        {
+        "Symbol": "KISAN",
+        "S_NAME": "Kisan Mouldings"
+        },
+
+        {
+        "Symbol": "MCLOUD",
+        "S_NAME": "Magellanic Cloud"
+        },
+
+        {
+        "Symbol": "MSL",
+        "S_NAME": "Mangalam Seeds"
+        },
+
+        {
+        "Symbol": "DECANBRG",
+        "S_NAME": "Deccan Bearings"
+        },
+
+        {
+        "Symbol": "DUTRON",
+        "S_NAME": "Dutron Polymers"
+        },
+
+        {
+        "Symbol": "PERMAGN",
+        "S_NAME": "Permanent Magnets"
+        },
+
+        {
+        "Symbol": "ASHIS",
+        "S_NAME": "Ashiana Ispat"
+        },
+
+        {
+        "Symbol": "BIRLAPREC",
+        "S_NAME": "Birla Precision Tech"
+        },
+
+        {
+        "Symbol": "CAPRO",
+        "S_NAME": "Caprolactam Chem"
+        },
+
+        {
+        "Symbol": "PERFEPA",
+        "S_NAME": "Perfectpac"
+        },
+
+        {
+        "Symbol": "DECIPHER",
+        "S_NAME": "Decipher Labs"
+        },
+
+        {
+        "Symbol": "DYNAVSN",
+        "S_NAME": "Dynavision"
+        },
+
+        {
+        "Symbol": "EIKO",
+        "S_NAME": "Eiko Lifesciences"
+        },
+
+        {
+        "Symbol": "ADVLIFE",
+        "S_NAME": "Advance Lifestyles"
+        },
+
+        {
+        "Symbol": "NITTAGELA",
+        "S_NAME": "Nitta Gelatin India"
+        },
+
+        {
+        "Symbol": "KINGFA",
+        "S_NAME": "Kingfa Science"
+        },
+
+        {
+        "Symbol": "SAFFRON",
+        "S_NAME": "Saffron Industries"
+        },
+
+        {
+        "Symbol": "SHIVAAGRO",
+        "S_NAME": "Shiva Global Agro"
+        },
+
+        {
+        "Symbol": "CENTURYTEX",
+        "S_NAME": "Century Textile &Ind"
+        },
+
+        {
+        "Symbol": "CENTUM",
+        "S_NAME": "Centrum Electronics"
+        },
+
+        {
+        "Symbol": "ESTER",
+        "S_NAME": "Ester Inds"
+        },
+
+        {
+        "Symbol": "TIDEWATER",
+        "S_NAME": "Tide Water Oil Co(I)"
+        },
+
+        {
+        "Symbol": "SAPL",
+        "S_NAME": "Sar Auto Products"
+        },
+
+        {
+        "Symbol": "OSCARGLO",
+        "S_NAME": "Oscar Global"
+        },
+
+        {
+        "Symbol": "SPSL",
+        "S_NAME": "Shree Precoated"
+        },
+
+        {
+        "Symbol": "BYKE",
+        "S_NAME": "The Byke Hospitality"
+        },
+
+        {
+        "Symbol": "BAPACK",
+        "S_NAME": "B&A"
+        },
+
+        {
+        "Symbol": "KAVVERITEL",
+        "S_NAME": "Kavveri Telecom Prod"
         }
 
 ]
