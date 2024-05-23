@@ -20858,6 +20858,36 @@
         {
         "Symbol": "IGARASHI",
         "S_NAME": "Igarashi Motors"
+        },
+
+        {
+        "Symbol": "EMKAY",
+        "S_NAME": "EmkayGlobal Finl.Ser"
+        },
+
+        {
+        "Symbol": "GRWRHITECH",
+        "S_NAME": "Garware Hi-Tech"
+        },
+
+        {
+        "Symbol": "BBTC",
+        "S_NAME": "Bombay Burmah Trdg."
+        },
+
+        {
+        "Symbol": "CAPITALSFB",
+        "S_NAME": "Capital Small Fin."
+        },
+
+        {
+        "Symbol": "EMBASSY",
+        "S_NAME": "Embassy Office Parks"
+        },
+
+        {
+        "Symbol": "GRWRHITECH",
+        "S_NAME": "Garware Hi-Tech"
         }
 
 ]
