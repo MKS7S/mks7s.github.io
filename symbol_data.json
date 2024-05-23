@@ -20803,6 +20803,16 @@
         {
         "Symbol": "GESHIP",
         "S_NAME": "GE Shipping"
+        },
+
+        {
+        "Symbol": "PAR",
+        "S_NAME": "Par Drugs & Chem."
+        },
+
+        {
+        "Symbol": "ONMOBILE",
+        "S_NAME": "Onmobile Global"
         }
 
 ]
