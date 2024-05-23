@@ -10,7 +10,6 @@
     <!-- Plotly -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Animate.css for animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 	
@@ -18,6 +17,7 @@
         body {
             background-color: black;
             color: #e0e0e0;
+			font-family: Calibri;
         }
 
         table {
@@ -31,6 +31,7 @@
             border: 1px solid #444;
             text-align: left;
             padding: 12px;
+			background: #292929;
         }
 
         th {
@@ -225,7 +226,6 @@ $(document).ready(function(){
 </script>
 <p id="dataRights">© Data Rights Belong to their respective owners- nirmalbang.com, munafasutra.com, streak.tech, nseindia.com, bseindia.com. This tool is just for personal analysis.</p>
 <p id="developmentRights">© 2024 Development Rights MKS</p>
-		<div id="Total_Symbol_Count">Total PreMade Symbol: </div>
  <script>
         async function fetchJsonData(url) {
             const response = await fetch(url);
@@ -235,12 +235,12 @@ $(document).ready(function(){
         async function countSymbols() {
             const jsonData = await fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json');
             const totalSymbols = jsonData.length; 
-            document.getElementById('Total_Symbol_Count').innerText = `Total PreMade Symbol: ${totalSymbols}`;
+            document.getElementById('Total_Symbol_Count').innerText = `${totalSymbols}`;
         }
         countSymbols();
     </script>
 
-        <h2 class="animate__animated animate__fadeInDown">The Process Behind Finding Stocks</h2>
+        <h2 class="animate__animated animate__fadeInDown" style="font-size: 30px;">The Process Behind Finding Best Stock From <text id="Total_Symbol_Count"></text> Stocks</h2>
         <ol>
             <li><strong>Data Merge:</strong> The system retrieves symbols from both NSE and BSE.</li>
             <li><strong>Comparison:</strong> It analyzes stock data against 1-week and 52-week lows.</li>
