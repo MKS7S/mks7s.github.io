@@ -20828,6 +20828,11 @@
         {
         "Symbol": "AADHARHFC",
         "S_NAME": "Aadhar Housing Fin"
+        },
+
+        {
+        "Symbol": "MEP",
+        "S_NAME": "MEP Infrastructure"
         }
 
 ]
