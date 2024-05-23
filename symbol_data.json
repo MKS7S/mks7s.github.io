@@ -20298,6 +20298,301 @@
         {
         "Symbol": "KAVVERITEL",
         "S_NAME": "Kavveri Telecom Prod"
+        },
+
+        {
+        "Symbol": "ASTRON",
+        "S_NAME": "Astron Paper & Board"
+        },
+
+        {
+        "Symbol": "ARE&M",
+        "S_NAME": "Amara Raja Energy"
+        },
+
+        {
+        "Symbol": "DUCON",
+        "S_NAME": "Ducon Infra."
+        },
+
+        {
+        "Symbol": "BALUFORGE",
+        "S_NAME": "Balu Forge Industrie"
+        },
+
+        {
+        "Symbol": "ARIHANTCAP",
+        "S_NAME": "Arihant Capital Mkt."
+        },
+
+        {
+        "Symbol": "ADVIKCA",
+        "S_NAME": "Advik Capital"
+        },
+
+        {
+        "Symbol": "BMW",
+        "S_NAME": "BMW Industries"
+        },
+
+        {
+        "Symbol": "CHATHA",
+        "S_NAME": "Chatha Foods"
+        },
+
+        {
+        "Symbol": "RATEGAIN",
+        "S_NAME": "RateGain Travel"
+        },
+
+        {
+        "Symbol": "AMBARPIL",
+        "S_NAME": "Ambar Protein"
+        },
+
+        {
+        "Symbol": "ARIHANT",
+        "S_NAME": "Arihant Foundn. &Hsg"
+        },
+
+        {
+        "Symbol": "BESTEAST",
+        "S_NAME": "Best Eastern Hotels"
+        },
+
+        {
+        "Symbol": "AMTL",
+        "S_NAME": "Advance Metering"
+        },
+
+        {
+        "Symbol": "CHOKSILA",
+        "S_NAME": "Choksi Lab"
+        },
+
+        {
+        "Symbol": "CITYONLINE",
+        "S_NAME": "City Online Services"
+        },
+
+        {
+        "Symbol": "DITCO",
+        "S_NAME": "Decorous Invest"
+        },
+
+        {
+        "Symbol": "DEEPAKSP",
+        "S_NAME": "Deepak Spinners"
+        },
+
+        {
+        "Symbol": "DYNAMICP",
+        "S_NAME": "Dynamic Portfolio"
+        },
+
+        {
+        "Symbol": "EASTWEST",
+        "S_NAME": "East West Holdings"
+        },
+
+        {
+        "Symbol": "EVERFIN",
+        "S_NAME": "Everlon Financials"
+        },
+
+        {
+        "Symbol": "FINKURVE",
+        "S_NAME": "Finkurve Financial"
+        },
+
+        {
+        "Symbol": "FORBESCO",
+        "S_NAME": "Forbes & Company"
+        },
+
+        {
+        "Symbol": "FRONTCAP",
+        "S_NAME": "Frontier Capital"
+        },
+
+        {
+        "Symbol": "IL&FSTRANS",
+        "S_NAME": "IL&FS Trans &Network"
+        },
+
+        {
+        "Symbol": "GCMCAPI",
+        "S_NAME": "GCM Capital Advisors"
+        },
+
+        {
+        "Symbol": "GVFILM",
+        "S_NAME": "GV Films"
+        },
+
+        {
+        "Symbol": "INDIANACRY",
+        "S_NAME": "Indian Acrylics"
+        },
+
+        {
+        "Symbol": "INTELLCAP",
+        "S_NAME": "Intellivate Capital"
+        },
+
+        {
+        "Symbol": "JFL",
+        "S_NAME": "Jhandewalas Foods"
+        },
+
+        {
+        "Symbol": "JYOTI",
+        "S_NAME": "Jyoti"
+        },
+
+        {
+        "Symbol": "KOBO",
+        "S_NAME": "Kobo Biotech"
+        },
+
+        {
+        "Symbol": "MACPLASQ",
+        "S_NAME": "Machino Plastics"
+        },
+
+        {
+        "Symbol": "SHREERAMA",
+        "S_NAME": "Shree RamaMulti-Tech"
+        },
+
+        {
+        "Symbol": "PHYTO",
+        "S_NAME": "Phyto Chem (India)"
+        },
+
+        {
+        "Symbol": "MDRNSTL",
+        "S_NAME": "Modern Steels"
+        },
+
+        {
+        "Symbol": "MODIPON",
+        "S_NAME": "Modipon"
+        },
+
+        {
+        "Symbol": "PRADPME",
+        "S_NAME": "Pradeep Metals"
+        },
+
+        {
+        "Symbol": "RESGEN",
+        "S_NAME": "RESGEN"
+        },
+
+        {
+        "Symbol": "PUNJCOMMU",
+        "S_NAME": "Punjab Communication"
+        },
+
+        {
+        "Symbol": "PROCLB",
+        "S_NAME": "Pro CLB Global"
+        },
+
+        {
+        "Symbol": "RSDFIN",
+        "S_NAME": "RSD Finance"
+        },
+
+        {
+        "Symbol": "SPECFOOD",
+        "S_NAME": "Spectrum Foods"
+        },
+
+        {
+        "Symbol": "SUNILAGR",
+        "S_NAME": "Sunil Agro Foods"
+        },
+
+        {
+        "Symbol": "SHUKRAPHAR",
+        "S_NAME": "Shukra Pharma"
+        },
+
+        {
+        "Symbol": "SUPERIOR",
+        "S_NAME": "Superior Finlease"
+        },
+
+        {
+        "Symbol": "SVS",
+        "S_NAME": "SVS Ventures"
+        },
+
+        {
+        "Symbol": "TRL",
+        "S_NAME": "Taylormade Renewable"
+        },
+
+        {
+        "Symbol": "SHAHFOOD",
+        "S_NAME": "Shah Foods"
+        },
+
+        {
+        "Symbol": "URSUGAR",
+        "S_NAME": "UR Sugar Industries"
+        },
+
+        {
+        "Symbol": "VPL",
+        "S_NAME": "Vrundavan Plantation"
+        },
+
+        {
+        "Symbol": "SHREEPAC",
+        "S_NAME": "Shree Pacetronix"
+        },
+
+        {
+        "Symbol": "SOUTHMG",
+        "S_NAME": "Southern Magnesium"
+        },
+
+        {
+        "Symbol": "SUNGOLD",
+        "S_NAME": "Sungold Capital"
+        },
+
+        {
+        "Symbol": "ARE&M",
+        "S_NAME": "Amara Raja Energy"
+        },
+
+        {
+        "Symbol": "DUCON",
+        "S_NAME": "Ducon Infra."
+        },
+
+        {
+        "Symbol": "UNIABEXAL",
+        "S_NAME": "Uni Abex Alloy Prod"
+        },
+
+        {
+        "Symbol": "RATEGAIN",
+        "S_NAME": "RateGain Travel"
+        },
+
+        {
+        "Symbol": "BALUFORGE",
+        "S_NAME": "Balu Forge Industrie"
+        },
+
+        {
+        "Symbol": "WEPSOLN",
+        "S_NAME": "WEP Solutions"
         }
 
 ]
