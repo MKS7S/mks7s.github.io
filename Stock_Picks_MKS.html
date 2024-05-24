@@ -154,6 +154,14 @@
         color: #155724;
         font-style: italic;
     }
+	.true-cell {
+            background-color: green;
+            color: white;
+        }
+        .false-cell {
+            background-color: red;
+            color: white;
+        }
     @keyframes pulse {
         0% {
             transform: scale(1);
@@ -274,6 +282,9 @@ $(document).ready(function(){
 					<th>Expiry</th>
 					<th>Daily MACD Crossover</th>
 					<th>Weekly MACD Crossover</th>
+<th>FII DII In Equities</th>
+<th>FII DII In Options</th>
+<th>Price Change %</th>
                 </tr>
             </thead>
             <tbody>
@@ -646,70 +657,64 @@ $(document).ready(function () {
 
 
 
-<script>
-  $(document).ready(function() {
-    // Function to fetch data from API
-    const fetchData = apiUrl => new Promise((resolve, reject) => {
-        $.ajax({
-            url: `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`,
-            method: "GET",
-            dataType: "json"
-        }).done(resolve).fail(reject);
-    });
-
-    // Function to fetch all slugs
-    const fetchAllSlugs = (apiUrl, pageNumber, allSlugs) => {
-        fetchData(`${apiUrl}${pageNumber}`).then(response => {
-            const data = JSON.parse(response.contents).data;
-            const slugs = data.results.filter(r => r.symbol_count > 0).map(r => r.slug);
-            allSlugs.push(...slugs);
-
-            if (pageNumber < data.total_pages) {
-                fetchAllSlugs(apiUrl, pageNumber + 1, allSlugs);
-            } else {
-                fetchAllDataForSlugs(allSlugs);
-            }
-        }).catch(error => console.error("Error fetching slugs:", error));
-    };
-
-    // Function to fetch data for all slugs
-    const fetchAllDataForSlugs = slugs => {
-        let currentIndex = 0;
-        const processSlug = () => {
-            if (currentIndex < slugs.length) {
-                fetchData(`https://api-op.streak.tech/open_screener/?slug=${slugs[currentIndex]}`).then(response => {
-                    const symbols = JSON.parse(response.contents).screener.screener_result.map(r => r.seg_sym.split(':')[1]);
-                    updateTableWithSlugData(slugs[currentIndex], symbols);
-                    currentIndex++;
-                    processSlug();
-                }).catch(error => {
-                    console.error(`Error fetching data for slug ${slugs[currentIndex]}:`, error);
-                    currentIndex++;
-                    processSlug();
-                });
-            } else {
-                console.log("All slugs processed");
-            }
-        };
-        processSlug();
-    };
-
-    // Function to update table with slug data
-    const updateTableWithSlugData = (slug, symbols) => {
-        // Append header for slug column
-        $('#dataTable thead tr').append(`<th>${slug}</th>`);
-
-        // Iterate over each row and update with matched symbols
-        $('#dataTable tbody tr').each(function() {
-            const symbol = $(this).find('td:eq(1)').text().trim();
-            const matched = symbols.includes(symbol);
-            $(this).append(`<td>${matched ? 'true' : 'false'}</td>`);
+ <script>
+    $(document).ready(function() {
+        const fetchData = apiUrl => new Promise((resolve, reject) => {
+            $.ajax({
+                url: `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`,
+                method: "GET",
+                dataType: "json"
+            }).done(resolve).fail(reject);
         });
-    };
 
-    // Start fetching slugs
-    fetchAllSlugs("https://s-op.streak.tech/screeners/discover?pageNumber=", 1, []);
-});
+        const fetchAllSlugs = (apiUrl, pageNumber, allSlugs) => {
+            fetchData(`${apiUrl}${pageNumber}`).then(response => {
+                const data = JSON.parse(response.contents).data;
+                const slugs = data.results.filter(r => r.symbol_count > 0).map(r => r.slug);
+                allSlugs.push(...slugs);
+
+                if (pageNumber < data.total_pages) {
+                    fetchAllSlugs(apiUrl, pageNumber + 1, allSlugs);
+                } else {
+                    fetchAllDataForSlugs(allSlugs);
+                }
+            }).catch(error => console.error("Error fetching slugs:", error));
+        };
+
+        const fetchAllDataForSlugs = slugs => {
+            let currentIndex = 0;
+
+            const processSlug = () => {
+                if (currentIndex < slugs.length) {
+                    fetchData(`https://api-op.streak.tech/open_screener/?slug=${slugs[currentIndex]}`).then(response => {
+                        const symbols = JSON.parse(response.contents).screener.screener_result.map(r => r.seg_sym.split(':')[1]);
+                        updateTableWithSlugData(slugs[currentIndex], symbols);
+                        currentIndex++;
+                        setTimeout(processSlug, 2000); // 2-second delay between calls
+                    }).catch(error => {
+                        console.error(`Error fetching data for slug ${slugs[currentIndex]}:`, error);
+                        currentIndex++;
+                        setTimeout(processSlug, 2000); // 2-second delay between calls
+                    });
+                } else {
+                    console.log("All slugs processed");
+                }
+            };
+
+            processSlug();
+        };
+
+        const updateTableWithSlugData = (slug, symbols) => {
+            $('#dataTable thead tr').append(`<th>${slug}</th>`);
+            $('#dataTable tbody tr').each(function() {
+                const symbol = $(this).find('td:eq(0)').text().trim();
+                const matched = symbols.includes(symbol);
+                $(this).append(`<td class="${matched ? 'true-cell' : 'false-cell'}">${matched ? 'true' : 'false'}</td>`);
+            });
+        };
+
+        fetchAllSlugs("https://s-op.streak.tech/screeners/discover?pageNumber=", 1, []);
+    });
 </script>
 
 
