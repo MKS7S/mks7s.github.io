@@ -704,7 +704,7 @@ $(document).ready(function () {
 
             const updateTableWithSlugData = (slug, symbols) => {
                 const columnIndex = $('#dataTable thead tr th').length;
-                $(`#dataTable thead tr th:nth-child(9)`).after(`<th>${slug}</th>`);
+                $(`#dataTable thead tr th:nth-child(9)`).after(`<th style="background-color: #383838;color:#29B6F6;;">${slug}</th>`);
                 $('#dataTable tbody tr').each(function() {
                     const symbol = $(this).find('td:eq(1)').text().trim(); // Assuming Symbol is the second column
                     const matched = symbols.includes(symbol);
