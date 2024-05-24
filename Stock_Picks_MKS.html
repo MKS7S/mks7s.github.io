@@ -186,6 +186,41 @@
 </head>
 
 
+<style>
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      background-color: #252525;
+      border: 1px solid #3a3a3a;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .carousel-text {
+      display: inline-block;
+      padding-left: 100%;
+      animation: slide 15s linear infinite;
+      font-family: 'Arial', sans-serif;
+      font-size: 16px;
+      color: #ffffff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+	  font-weight: bold;
+    font-family: monospace;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="carousel-container">
+  <div class="carousel-text">
+    © Data Rights Belong to their respective owners - nirmalbang.com, munafasutra.com, streak.tech, nseindia.com, bseindia.com. This tool is just for personal analysis.
+  </div>
+</div>
 	
 	
 <body style="display: none;">
@@ -242,7 +277,7 @@ $(document).ready(function(){
     }, 15000);
 });
 </script>
-<p id="dataRights">© Data Rights Belong to their respective owners- nirmalbang.com, munafasutra.com, streak.tech, nseindia.com, bseindia.com. This tool is just for personal analysis.</p>
+
 <p id="developmentRights">© 2024 Development Rights MKS</p>
  <script>
         async function fetchJsonData(url) {
