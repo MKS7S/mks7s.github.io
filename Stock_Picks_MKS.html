@@ -655,7 +655,7 @@ $(document).ready(function () {
 
 
  <script>
-        $(document).ready(function() {
+ $(document).ready(function() {
     const MAX_RETRIES = 3;
     const RETRY_DELAY = 2000;
 
@@ -682,7 +682,7 @@ $(document).ready(function () {
     const fetchAllSlugs = (apiUrl, pageNumber, allSlugs) => {
         fetchDataWithRetry(`${apiUrl}${pageNumber}`).then(response => {
             const data = JSON.parse(response.contents).data;
-            const slugs = data.results.filter(r => r.symbol_count > 0).map(r => r.slug);
+            const slugs = data.results.filter(r => r.symbol_count > 0).map(r => ({ slug: r.slug, imageUrl: r.image_url }));
             allSlugs.push(...slugs);
 
             if (pageNumber < data.total_pages) {
@@ -698,13 +698,13 @@ $(document).ready(function () {
 
         const processSlug = () => {
             if (currentIndex < slugs.length) {
-                fetchDataWithRetry(`https://api-op.streak.tech/open_screener/?slug=${slugs[currentIndex]}`).then(response => {
+                fetchDataWithRetry(`https://api-op.streak.tech/open_screener/?slug=${slugs[currentIndex].slug}`).then(response => {
                     const symbols = JSON.parse(response.contents).screener.screener_result.map(r => r.seg_sym.split(':')[1]);
-                    updateTableWithSlugData(slugs[currentIndex], symbols);
+                    updateTableWithSlugData(slugs[currentIndex].slug, symbols, slugs[currentIndex].imageUrl);
                     currentIndex++;
                     setTimeout(processSlug, RETRY_DELAY);
                 }).catch(error => {
-                    console.error(`Error fetching data for slug ${slugs[currentIndex]}:`, error);
+                    console.error(`Error fetching data for slug ${slugs[currentIndex].slug}:`, error);
                     currentIndex++;
                     setTimeout(processSlug, RETRY_DELAY);
                 });
@@ -716,9 +716,10 @@ $(document).ready(function () {
         processSlug();
     };
 
-    const updateTableWithSlugData = (slug, symbols) => {
+    const updateTableWithSlugData = (slug, symbols, imageUrl) => {
         const columnIndex = $('#dataTable thead tr th').length;
-        $(`#dataTable thead tr th:nth-child(9)`).after(`<th style="background-color: #383838;color:#29B6F6;;">${slug}</th>`);
+        $(`#dataTable thead tr th:nth-child(9)`).after(`<th style="background-color: #383838;color:#29B6F6;font-size: 13px;">
+            <img src="${imageUrl}" alt="${slug}" style="max-width: 50px; max-height: 50px; vertical-align: initial;"> ${slug}</th>`);
         $('#dataTable tbody tr').each(function() {
             const symbol = $(this).find('td:eq(1)').text().trim();
             const matched = symbols.includes(symbol);
