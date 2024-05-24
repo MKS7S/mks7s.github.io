@@ -491,6 +491,7 @@ $(document).ready(function() {
     var matchedSymbols = {};
     var lastTableRowCount = 0;
     var unmatchedSymbols = {};
+    var headersAppended = false;  // To track if headers are already added
 
     function fetchDataAndMatch() {
         $.post('https://munafasutra.com/nse/FIIDII/', {})
@@ -517,14 +518,6 @@ $(document).ready(function() {
                             break;
                     }
                 });
-
-                // Append table header
-                var headerRow = '<tr>';
-                table.find('tr').first().find('td').each(function() {
-                    headerRow += '<th>' + $(this).text().trim() + '</th>';
-                });
-                headerRow += '<th>FII/DII cash</th><th>FII/DII FNO</th><th>Price change</th></tr>';
-                $("#dataTable thead").html(headerRow);
 
                 table.find('tr').slice(1).each(function() {
                     var rowData = {};
@@ -554,6 +547,13 @@ $(document).ready(function() {
 
                 if (currentTableRowCount === lastTableRowCount) {
                     return;
+                }
+
+                if (!headersAppended) {
+                    $("#dataTable thead tr").append("<th>FII DII In Equities</th>");
+                    $("#dataTable thead tr").append("<th>FII DII In Options</th>");
+                    $("#dataTable thead tr").append("<th>Price Change %</th>");
+                    headersAppended = true;
                 }
 
                 $("#dataTable tbody tr").each(function() {
@@ -596,6 +596,7 @@ $(document).ready(function() {
     fetchDataAndMatch();
 });
 </script>
+
 
 
 <script>
