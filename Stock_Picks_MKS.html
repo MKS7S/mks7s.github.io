@@ -719,7 +719,7 @@ $(document).ready(function () {
     const updateTableWithSlugData = (slug, symbols, imageUrl) => {
         const columnIndex = $('#dataTable thead tr th').length;
         $(`#dataTable thead tr th:nth-child(9)`).after(`<th style="background-color: #383838;color:#29B6F6;font-size: 13px;">
-            <img src="${imageUrl}" alt="${slug}" style="max-width: 50px; max-height: 50px; vertical-align: initial;"> ${slug}</th>`);
+            <img src="${imageUrl}" alt="${slug}" style="max-width: 50px; max-height: 50px; vertical-align: middle;"> ${slug}</th>`);
         $('#dataTable tbody tr').each(function() {
             const symbol = $(this).find('td:eq(1)').text().trim();
             const matched = symbols.includes(symbol);
