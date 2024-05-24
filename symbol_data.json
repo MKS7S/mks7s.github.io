@@ -22388,6 +22388,16 @@
         {
         "Symbol": "MASFIN",
         "S_NAME": "MAS Financial Serv"
+        },
+
+        {
+        "Symbol": "FIBERWEB",
+        "S_NAME": "Fiberweb India"
+        },
+
+        {
+        "Symbol": "MGEL",
+        "S_NAME": "Mangalam Global Ent"
         }
 
 ]
