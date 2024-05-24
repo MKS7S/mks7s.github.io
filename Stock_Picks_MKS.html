@@ -560,13 +560,6 @@ $(document).ready(function() {
                     return;
                 }
 
-                if (!headersAppended) {
-                    $("#dataTable thead tr").append("<th>FII DII In Equities</th>");
-                    $("#dataTable thead tr").append("<th>FII DII In Options</th>");
-                    $("#dataTable thead tr").append("<th>Price Change %</th>");
-                    headersAppended = true;
-                }
-
                 $("#dataTable tbody tr").each(function() {
                     var symbol = $(this).find("td:nth-child(2)").text().trim();
 
