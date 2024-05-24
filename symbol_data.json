@@ -22148,6 +22148,226 @@
         {
         "Symbol": "SDBL",
         "S_NAME": "Som Distilleries"
+        },
+
+        {
+        "Symbol": "GMDCLTD",
+        "S_NAME": "GMDC"
+        },
+
+        {
+        "Symbol": "CENTURYPLY",
+        "S_NAME": "Century Plyboards(I)"
+        },
+
+        {
+        "Symbol": "HBLPOWER",
+        "S_NAME": "HBL Power Sys"
+        },
+
+        {
+        "Symbol": "EIDPARRY",
+        "S_NAME": "E.I.D. Parry (I)"
+        },
+
+        {
+        "Symbol": "SPANDANA",
+        "S_NAME": "Spandana Sphoorty"
+        },
+
+        {
+        "Symbol": "CREDITACC",
+        "S_NAME": "CreditAccess Grameen"
+        },
+
+        {
+        "Symbol": "GNA",
+        "S_NAME": "GNA  Axles"
+        },
+
+        {
+        "Symbol": "63MOONS",
+        "S_NAME": "63 Moons Tech."
+        },
+
+        {
+        "Symbol": "AJWAFUN",
+        "S_NAME": "Ajwa Fun World"
+        },
+
+        {
+        "Symbol": "INDIGO",
+        "S_NAME": "Interglobe Aviation"
+        },
+
+        {
+        "Symbol": "EKC",
+        "S_NAME": "Everest Kanto Cylind"
+        },
+
+        {
+        "Symbol": "FGPR",
+        "S_NAME": "FGP"
+        },
+
+        {
+        "Symbol": "TREL",
+        "S_NAME": "Transindia Real Est"
+        },
+
+        {
+        "Symbol": "HARISH",
+        "S_NAME": "Harish Textile Engin"
+        },
+
+        {
+        "Symbol": "BORORENEW",
+        "S_NAME": "Borosil Renewables"
+        },
+
+        {
+        "Symbol": "MBLINFRA",
+        "S_NAME": "MBL Infrastructures"
+        },
+
+        {
+        "Symbol": "DPWIRES",
+        "S_NAME": "D.P. Wires"
+        },
+
+        {
+        "Symbol": "HONAUT",
+        "S_NAME": "Honeywell Automation"
+        },
+
+        {
+        "Symbol": "NESCO",
+        "S_NAME": "NESCO"
+        },
+
+        {
+        "Symbol": "TEXRAIL",
+        "S_NAME": "Texmaco Rail & Eng."
+        },
+
+        {
+        "Symbol": "VGUARD",
+        "S_NAME": "V-Guard Inds."
+        },
+
+        {
+        "Symbol": "ANDHRSUGAR",
+        "S_NAME": "Andhra Sugars"
+        },
+
+        {
+        "Symbol": "AMBIT",
+        "S_NAME": "Ambitious Plasto"
+        },
+
+        {
+        "Symbol": "ANJANI",
+        "S_NAME": "Anjani Synth"
+        },
+
+        {
+        "Symbol": "BAMPSL",
+        "S_NAME": "Bampsl Sec"
+        },
+
+        {
+        "Symbol": "DELPHIFX",
+        "S_NAME": "Delphi World Money"
+        },
+
+        {
+        "Symbol": "FSC",
+        "S_NAME": "Future Supply Chain"
+        },
+
+        {
+        "Symbol": "GTNTEX",
+        "S_NAME": "GTN Textiles"
+        },
+
+        {
+        "Symbol": "INDBANK",
+        "S_NAME": "Indbank Merch. Bankg"
+        },
+
+        {
+        "Symbol": "STLTECH",
+        "S_NAME": "Sterlite Technologie"
+        },
+
+        {
+        "Symbol": "TALBROAUTO",
+        "S_NAME": "Talbros Auto Compont"
+        },
+
+        {
+        "Symbol": "GMDCLTD",
+        "S_NAME": "GMDC"
+        },
+
+        {
+        "Symbol": "CENTURYPLY",
+        "S_NAME": "Century Plyboards(I)"
+        },
+
+        {
+        "Symbol": "HBLPOWER",
+        "S_NAME": "HBL Power Sys"
+        },
+
+        {
+        "Symbol": "SPANDANA",
+        "S_NAME": "Spandana Sphoorty"
+        },
+
+        {
+        "Symbol": "CREDITACC",
+        "S_NAME": "CreditAccess Grameen"
+        },
+
+        {
+        "Symbol": "GNA",
+        "S_NAME": "GNA  Axles"
+        },
+
+        {
+        "Symbol": "INDIGO",
+        "S_NAME": "Interglobe Aviation"
+        },
+
+        {
+        "Symbol": "EKC",
+        "S_NAME": "Everest Kanto Cylind"
+        },
+
+        {
+        "Symbol": "BORORENEW",
+        "S_NAME": "Borosil Renewables"
+        },
+
+        {
+        "Symbol": "MBLINFRA",
+        "S_NAME": "MBL Infrastructures"
+        },
+
+        {
+        "Symbol": "HONAUT",
+        "S_NAME": "Honeywell Automation"
+        },
+
+        {
+        "Symbol": "NESCO",
+        "S_NAME": "NESCO"
+        },
+
+        {
+        "Symbol": "VGUARD",
+        "S_NAME": "V-Guard Inds."
         }
 
 ]
