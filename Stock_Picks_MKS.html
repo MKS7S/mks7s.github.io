@@ -84,7 +84,7 @@
         }
 		
 		.yellow-bg {
-            background-color: yellow;
+            background-color: deepskyblue;
         }
 
         h2 {
@@ -274,13 +274,9 @@ $(document).ready(function(){
 					<th>Expiry</th>
 					<th>Daily MACD Crossover</th>
 					<th>Weekly MACD Crossover</th>
-                    <th>FII DII In Equites</th>
-                    <th>FII DII In Options</th>
-                    <th>Price Change %</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Data will be populated here -->
             </tbody>
         </table>
 		</div>
@@ -522,6 +518,14 @@ $(document).ready(function() {
                     }
                 });
 
+                // Append table header
+                var headerRow = '<tr>';
+                table.find('tr').first().find('td').each(function() {
+                    headerRow += '<th>' + $(this).text().trim() + '</th>';
+                });
+                headerRow += '<th>FII/DII cash</th><th>FII/DII FNO</th><th>Price change</th></tr>';
+                $("#dataTable thead").html(headerRow);
+
                 table.find('tr').slice(1).each(function() {
                     var rowData = {};
                     $(this).find('td').each(function(index, cell) {
@@ -597,7 +601,7 @@ $(document).ready(function() {
 <script>
 $(document).ready(function () {
     function updateBackgroundColor() {
-        $('#dataTable td').each(function(index) {
+        $('#dataTable').find('td').each(function(index) {
             var $cell = $(this);
             var value = $cell.text().trim();
             var columnIndex = $cell.index();
@@ -628,12 +632,84 @@ $(document).ready(function () {
         });
     }
 
+    // Update background color initially
     updateBackgroundColor();
-    setInterval(updateBackgroundColor, 1000);
+
+    // Monitor for changes in the table using event delegation
+    $(document).on('DOMSubtreeModified', '#dataTable', function() {
+        updateBackgroundColor();
+    });
 });
 </script>
 
 
+
+
+<script>
+  $(document).ready(function() {
+    // Function to fetch data from API
+    const fetchData = apiUrl => new Promise((resolve, reject) => {
+        $.ajax({
+            url: `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`,
+            method: "GET",
+            dataType: "json"
+        }).done(resolve).fail(reject);
+    });
+
+    // Function to fetch all slugs
+    const fetchAllSlugs = (apiUrl, pageNumber, allSlugs) => {
+        fetchData(`${apiUrl}${pageNumber}`).then(response => {
+            const data = JSON.parse(response.contents).data;
+            const slugs = data.results.filter(r => r.symbol_count > 0).map(r => r.slug);
+            allSlugs.push(...slugs);
+
+            if (pageNumber < data.total_pages) {
+                fetchAllSlugs(apiUrl, pageNumber + 1, allSlugs);
+            } else {
+                fetchAllDataForSlugs(allSlugs);
+            }
+        }).catch(error => console.error("Error fetching slugs:", error));
+    };
+
+    // Function to fetch data for all slugs
+    const fetchAllDataForSlugs = slugs => {
+        let currentIndex = 0;
+        const processSlug = () => {
+            if (currentIndex < slugs.length) {
+                fetchData(`https://api-op.streak.tech/open_screener/?slug=${slugs[currentIndex]}`).then(response => {
+                    const symbols = JSON.parse(response.contents).screener.screener_result.map(r => r.seg_sym.split(':')[1]);
+                    updateTableWithSlugData(slugs[currentIndex], symbols);
+                    currentIndex++;
+                    processSlug();
+                }).catch(error => {
+                    console.error(`Error fetching data for slug ${slugs[currentIndex]}:`, error);
+                    currentIndex++;
+                    processSlug();
+                });
+            } else {
+                console.log("All slugs processed");
+            }
+        };
+        processSlug();
+    };
+
+    // Function to update table with slug data
+    const updateTableWithSlugData = (slug, symbols) => {
+        // Append header for slug column
+        $('#dataTable thead tr').append(`<th>${slug}</th>`);
+
+        // Iterate over each row and update with matched symbols
+        $('#dataTable tbody tr').each(function() {
+            const symbol = $(this).find('td:eq(1)').text().trim();
+            const matched = symbols.includes(symbol);
+            $(this).append(`<td>${matched ? 'true' : 'false'}</td>`);
+        });
+    };
+
+    // Start fetching slugs
+    fetchAllSlugs("https://s-op.streak.tech/screeners/discover?pageNumber=", 1, []);
+});
+</script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
