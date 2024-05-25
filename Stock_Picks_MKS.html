@@ -184,13 +184,14 @@
 </style>
 </head>
 
-<style>
+<head>
+  <style>
     .carousel-container {
-      width: 100%;
       overflow: hidden;
       white-space: nowrap;
       box-sizing: border-box;
       background-color: #252525;
+	  max-width:20000px;
       border: 1px solid #3a3a3a;
       padding: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -234,7 +235,7 @@
 </head>
 <body>
 
-<div class="carousel-container">
+<div class="carousel-container" id="carouselContainer">
   <div class="carousel-text">
     © The data is the property of its respective owners: nirmalbang.com, munafasutra.com, streak.tech, nseindia.com, and bseindia.com. This tool is intended solely for personal analysis and use.
   </div>
@@ -242,6 +243,7 @@
     Developed By R2X2
   </div>
 </div>
+
 
 
 
@@ -361,6 +363,76 @@
         <li><strong><i class="fas fa-chart-line"></i> Technical Analysis:</strong> Matches data with Daily MACD Crossover and Weekly MACD Crossover.</li>
         <li><strong><i class="fas fa-lightbulb"></i> Insights:</strong> Users receive actionable investment insights based on validated data.</li>
     </ol>
+
+
+<style>
+  .timer-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+}
+
+.loading-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #fff, #ccc);
+  animation: pulse 2s infinite alternate;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+}
+
+.timer {
+  font-size: 24px;
+  text-align: center;
+  line-height: 200px; /* Centering text vertically */
+}
+
+/* Adjustments for better visibility */
+@keyframes countdown {
+  0% { opacity: 1; }
+  99% { opacity: 1; }
+  100% { opacity: 0; }
+}
+</style>
+<div id="timer">Loading In 2:00</div> <!-- Adjusted initial text -->
+
+<script>
+ // Set the timer duration (in seconds)
+const duration = 120; // Adjusted duration to 3 minutes
+
+// Get the timer element
+const timer = document.getElementById('timer');
+
+// Start the countdown
+let timeLeft = duration;
+const countdownInterval = setInterval(() => {
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+  timer.innerHTML = `Loading In ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`; // Updated display format
+  timeLeft--;
+
+  // If the countdown is finished, hide the timer and clear the interval
+  if (timeLeft < 0) {
+    clearInterval(countdownInterval);
+    timer.style.display = 'none';
+  }
+}, 1000);
+</script>
 
 
 <div class="table-container">
