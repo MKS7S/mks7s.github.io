@@ -185,7 +185,6 @@
 </style>
 </head>
 
-
 <style>
     .carousel-container {
       width: 100%;
@@ -196,6 +195,7 @@
       border: 1px solid #3a3a3a;
       padding: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
     }
     .carousel-text {
       display: inline-block;
@@ -205,12 +205,31 @@
       font-size: 16px;
       color: #ffffff;
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-	  font-weight: bold;
-    font-family: monospace;
+      font-weight: bold;
+      font-family: monospace;
     }
     @keyframes slide {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
+    }
+    .sticky-right {
+      position: absolute;
+      right: 0px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ff062e; 
+      color: #ffffff;
+      padding: 5px 10px;
+      border: 1px solid #3a3a3a;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      text-align: center;
+      white-space: nowrap;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 </head>
@@ -220,7 +239,14 @@
   <div class="carousel-text">
     © Data Rights Belong to their respective owners - nirmalbang.com, munafasutra.com, streak.tech, nseindia.com, bseindia.com. This tool is just for personal analysis.
   </div>
+  <div class="sticky-right">
+    Developed By R2X2
+  </div>
 </div>
+
+
+
+
 	
 	
 <body style="display: none;">
@@ -269,31 +295,63 @@
 
 	
     <div class="container">
-	<script>
-$(document).ready(function(){
-    setTimeout(function(){
-        $("#dataRights").hide();
-        $("#developmentRights").hide();
-    }, 15000);
-});
-</script>
 
-<p id="developmentRights">© 2024 Development Rights MKS</p>
- <script>
+
+<style>
+        .animate__animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        .animate__fadeInDown {
+            animation-name: fadeInDown;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translate3d(0, -100%, 0);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+<script>
         async function fetchJsonData(url) {
             const response = await fetch(url);
             const data = await response.json();
             return data;
         }
+
+        function animateNumber(element, start, end, duration) {
+            const range = end - start;
+            let startTime = null;
+
+            function updateNumber(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const currentNumber = Math.floor(progress * range + start);
+                element.innerText = currentNumber;
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateNumber);
+                }
+            }
+
+            requestAnimationFrame(updateNumber);
+        }
+
         async function countSymbols() {
             const jsonData = await fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json');
-            const totalSymbols = jsonData.length; 
-            document.getElementById('Total_Symbol_Count').innerText = `${totalSymbols}`;
+            const totalSymbols = jsonData.length;
+            const symbolCountElement = document.getElementById('Total_Symbol_Count');
+            animateNumber(symbolCountElement, 0, totalSymbols, 2000); // Animate over 2 seconds
         }
+
         countSymbols();
     </script>
 
-       <h2 class="animate__animated animate__fadeInDown" style="font-size: 30px;">
+        <h2 class="animate__animated animate__fadeInDown" style="font-size: 30px;">
         <i class="fas fa-chart-line"></i> The Process Behind Finding Best Stock From <text id="Total_Symbol_Count"></text> Stocks
     </h2>
     <ol>
