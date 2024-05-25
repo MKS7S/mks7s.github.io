@@ -99,7 +99,6 @@
             color: #ffeb3b;
         }
 		.table-container {
-            overflow-x: auto;
         }
 		table {
     width: 100%;
@@ -373,8 +372,6 @@
                     <th>Symbol</th>
                     <th>Contract</th>
 					<th>Expiry</th>
-					<th>Daily MACD Crossover</th>
-					<th>Weekly MACD Crossover</th>
                 </tr>
             </thead>
             <tbody>
@@ -390,77 +387,122 @@
 
 
 <script>
-$(document).ready(async function() {
+$(async function() {
     const fetchJsonData = url => $.getJSON(url);
-    const fetchData = apiUrl => $.ajax({url: "https://api.allorigins.win/get?url=" + encodeURIComponent(apiUrl), method: "GET", dataType: "json"});
     const getAllPagedData = async baseUrl => {
-        let allData = [], pageNo = 1, moreData = true;
-        while (moreData) {
+        let allData = [], pageNo = 1;
+        while (true) {
             try {
                 const data = await fetchJsonData(`${baseUrl}&pageNo=${pageNo}`);
-                if (data.length > 0) {
-                    allData = allData.concat(data);
-                    pageNo++;
-                } else moreData = false;
+                if (!data.length) break;
+                allData.push(...data);
+                pageNo++;
             } catch (error) {
                 console.error(`Failed to fetch data from page ${pageNo}:`, error);
-                moreData = false;
+                break;
             }
         }
         return allData;
     };
-    const getSymbolName = (sName, jsonData) => new Promise((resolve, reject) => {
+
+    const getSymbolName = (sName, jsonData) => {
         const matchedSymbol = jsonData.find(item => item.S_NAME === sName);
-        if (matchedSymbol && matchedSymbol.Symbol) resolve({ symbol: matchedSymbol.Symbol.replace(/\.NS$|\.BO$/, ''), sName });
-        else {
-            console.error('Symbol not found for:', sName);
-            resolve(null);
-        }
-    });
-    const processData = async (jsonData, mergedData, openInterestData, dailyMACDSymbols, weeklyMACDSymbols) => {
-        const tableBody = $('#dataTable tbody'), uniqueSymbols = {};
+        return matchedSymbol ? { symbol: matchedSymbol.Symbol.replace(/\.NS$|\.BO$/, ''), sName } : null;
+    };
+
+    const processData = async (jsonData, mergedData, openInterestData) => {
+        const tableBody = $('#dataTable tbody');
+        const uniqueSymbols = {};
         for (const item of mergedData) {
             if (!uniqueSymbols[item.S_NAME]) {
                 uniqueSymbols[item.S_NAME] = true;
-                const symbolInfo = await getSymbolName(item.S_NAME, jsonData);
+                const symbolInfo = getSymbolName(item.S_NAME, jsonData);
                 if (symbolInfo) {
-                    const { symbol, sName } = symbolInfo, filteredData = openInterestData.filter(oiItem => oiItem.OI_Symbol === symbol),
-                    dailyDMCMatch = dailyMACDSymbols.some(sym => filteredData.some(oiItem => oiItem.OI_Symbol === sym.DMCsymbol)),
-                    weeklyWMCMatch = weeklyMACDSymbols.some(sym => filteredData.some(oiItem => oiItem.OI_Symbol === sym.WMCsymbol)),
-                    dailyMACDStatus = dailyDMCMatch ? 'true' : 'false', weeklyMACDStatus = weeklyWMCMatch ? 'true' : 'false';
-                    if (dailyDMCMatch !== weeklyWMCMatch) console.log(`MACD Mismatch for symbol ${symbol}: Daily DMC = ${dailyDMCMatch}, Weekly WMC = ${weeklyWMCMatch}`);
-                    else console.log(`MACD Match for symbol ${symbol}: Daily DMC = ${dailyDMCMatch}, Weekly WMC = ${weeklyWMCMatch}`);
-                    if (filteredData.length > 0) {
-                        const oiItem = filteredData[0];
-                        if (oiItem.OI_OptType) tableBody.append('<tr><td>' + sName + '</td><td>' + symbol + '</td><td>' + oiItem.OI_OptType + '</td><td>' + oiItem.OI_ExpDate + '</td><td>' + dailyMACDStatus + '</td><td>' + weeklyMACDStatus + '</td></tr>');
-                    } else console.warn(`Open interest data not found for symbol: ${symbol}`), dailyDMCMatch !== weeklyWMCMatch && console.log(`MACD Mismatch (No OI Data): Symbol ${symbol}, Daily DMC = ${dailyDMCMatch}, Weekly WMC = ${weeklyWMCMatch}`);
+                    const { symbol, sName } = symbolInfo;
+                    const filteredData = openInterestData.filter(oi => oi.OI_Symbol === symbol);
+                    if (filteredData.length && filteredData[0].OI_OptType) {
+                        tableBody.append(`<tr><td>${sName}</td><td>${symbol}</td><td>${filteredData[0].OI_OptType}</td><td>${filteredData[0].OI_ExpDate}</td></tr>`);
+                        console.log(`Matched symbol: ${symbol}`);
+                    } else {
+                        console.warn(`Open interest data not found for symbol: ${symbol}`);
+                    }
                 }
             }
         }
     };
+
     try {
-        const jsonData = await fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json'),
-        [dataNSE, dataBSE, openInterestData, dailyMACDResponse, weeklyMACDResponse] = await Promise.all([
-            getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=NSE&Type=Low&Period=1WEEK&Group=&Indices=&PageSize=100'),
-            getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=BSE&Type=Low&Period=1WEEK&Group=&Indices=&PageSize=100'),
-            getAllPagedData('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&opt2=&date=&PageSize=100'),
-            fetchData("https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256"),
-            fetchData("https://api-op.streak.tech/open_screener/?slug=weeklymacd-920662")
-        ]),
-        dailyMACDSymbolsResponse = await fetchData("https://api-op.streak.tech/open_screener/?slug=macd-daily-crossover-371256"),
-        weeklyMACDSymbolsResponse = await fetchData("https://api-op.streak.tech/open_screener/?slug=weeklymacd-920662"),
-        dailyMACDData = JSON.parse(dailyMACDSymbolsResponse.contents),
-        weeklyMACDData = JSON.parse(weeklyMACDSymbolsResponse.contents),
-        dailyMACDSymbols = dailyMACDData.screener?.screener_result?.map(result => ({ "DMCsymbol": result.seg_sym.split(':')[1] })) || [],
-        weeklyMACDSymbols = weeklyMACDData.screener?.screener_result?.map(result => ({ "WMCsymbol": result.seg_sym.split(':')[1] })) || [];
-        console.log('Daily MACD Symbols JSON:', JSON.stringify(dailyMACDSymbols, null, 2));
-        console.log('Weekly MACD Symbols JSON:', JSON.stringify(weeklyMACDSymbols, null, 2));
-        const mergedData = $.merge([], dataNSE);
-        $.merge(mergedData, dataBSE);
-        await processData(jsonData, mergedData, openInterestData, dailyMACDSymbols, weeklyMACDSymbols);
-    } catch (error) { console.error('An error occurred during processing:', error); }
+        const [jsonData, dataNSE, dataBSE, openInterestData] = await Promise.all([
+            fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json'),
+            getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=NSE&Type=Low&Period=1WEEK&PageSize=100'),
+            getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=BSE&Type=Low&Period=1WEEK&PageSize=100'),
+            getAllPagedData('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&PageSize=100')
+        ]);
+
+        const mergedData = [...dataNSE, ...dataBSE];
+        await processData(jsonData, mergedData, openInterestData);
+    } catch (error) {
+        console.error('An error occurred during processing:', error);
+    }
 });
 </script>
+
+
+<script>
+setTimeout(async function() {
+    // Your script here
+    $(async function() {
+        const fetchJsonData = url => $.getJSON(url);
+        const getAllPagedData = async baseUrl => {
+            let allData = [], pageNo = 1, data;
+            while ((data = await fetchJsonData(`${baseUrl}&pageNo=${pageNo++}`)).length) allData.push(...data);
+            return allData;
+        };
+
+        try {
+            const [jsonData, openInterestData] = await Promise.all([
+                fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json'),
+                getAllPagedData('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&PageSize=100')
+            ]);
+
+            const baseUrl = "https://www.screener.in/screens/103296/52-week-lows/?limit=25&page=";
+            let currentPage = 1;
+            let existingSymbols = new Set(); // Keep track of existing symbols
+            
+            (function fetchData(page) {
+                if (page > 30) return;
+                $.get(`${baseUrl}${page}`, data => {
+                    const symbols = $(data).find('table tbody tr td a[href^="/company/"]').map((_, el) => $(el).attr('href').split('/')[2]).get();
+                    if (!symbols.length) return;
+                    const matchedSymbols = symbols.map(symbol => {
+                        if (existingSymbols.has(symbol)) return null; // Skip if symbol already exists
+                        const oi = openInterestData.find(oi => oi.OI_Symbol === symbol);
+                        const industry = jsonData.find(data => data.Symbol === symbol)?.S_NAME || "Unknown";
+                        existingSymbols.add(symbol); // Add symbol to the set
+                        return oi ? { Industry: industry, Symbol: symbol, OptionType: oi.OI_OptType, ExpiryDate: oi.OI_ExpDate } : null;
+                    }).filter(Boolean);
+                    displaySymbolsInTable(matchedSymbols);
+                    fetchData(++currentPage);
+                }).fail(err => console.error(`Failed to fetch data from page ${page}: ${err}`));
+            })(currentPage);
+
+            const displaySymbolsInTable = matchedSymbols => {
+                const tableBody = $('#dataTable tbody');
+                matchedSymbols.forEach(({ Industry, Symbol, OptionType, ExpiryDate }) => {
+                    // Check if the symbol already exists in the table
+                    if (!tableBody.find(`tr:contains('${Symbol}')`).length) {
+                        tableBody.append(`<tr><td>${Industry}</td><td>${Symbol}</td><td>${OptionType}</td><td>${ExpiryDate}</td></tr>`);
+                    }
+                });
+            };
+        } catch (error) {
+            console.error('An error occurred during processing:', error);
+        }
+    });
+}, 15000); // 15 seconds delay
+</script>
+
+
 
 
 
@@ -632,17 +674,17 @@ $(document).ready(function () {
                 $cell.addClass('green-bg');
             } else if (value === 'PE' && columnIndex === 2) {
                 $cell.addClass('red-bg');
-            } else if (value === 'Bought' && (columnIndex === 6 || columnIndex === 7)) {
+            } else if (value === 'Bought' && (columnIndex === 4 || columnIndex === 5)) {
                 $cell.addClass('green-bg');
-            } else if (value === 'Sold' && (columnIndex === 6 || columnIndex === 7)) {
+            } else if (value === 'Sold' && (columnIndex === 4 || columnIndex === 5)) {
                 $cell.addClass('red-bg');
-            } else if (!isNaN(parseFloat(value)) && (columnIndex === 8)) {
+            } else if (!isNaN(parseFloat(value)) && (columnIndex === 6)) {
                 if (parseFloat(value) < 0) {
                     $cell.addClass('red-bg');
                 } else {
                     $cell.addClass('green-bg');
                 }
-            } else if ((value === 'true' || value === 'false') && (columnIndex === 4 || columnIndex === 5)) {
+            } else if ((value === 'true' || value === 'false') && (columnIndex === 6 || columnIndex === 7)) {
                 if (value === 'true') {
                     $cell.addClass('green-bg');
                 } else {
@@ -667,49 +709,89 @@ $(document).ready(function () {
 
 
 
- <script>
-$(document).ready(() => setTimeout(() => {
-    const MAX_RETRIES = 3, RETRY_DELAY = 2e3;
-    const fetchDataWithRetry = (apiUrl, retries = 0) => new Promise((resolve, reject) => {
-        $.ajax({ url: `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`, method: "GET", dataType: "json" })
-        .done(resolve).fail(() => retries < MAX_RETRIES ? setTimeout(() => fetchDataWithRetry(apiUrl, retries + 1).then(resolve).catch(reject), RETRY_DELAY) : reject(new Error(`Failed to fetch data after ${MAX_RETRIES} attempts`)));
-    });
-    const fetchAllSlugs = (apiUrl, pageNumber, allSlugs) => fetchDataWithRetry(`${apiUrl}${pageNumber}`).then(response => {
-        const data = JSON.parse(response.contents).data;
-        const slugs = data.results.filter(r => r.symbol_count > 0).map(r => ({ slug: r.slug, imageUrl: r.image_url }));
-        allSlugs.push(...slugs);
-        pageNumber < data.total_pages ? fetchAllSlugs(apiUrl, pageNumber + 1, allSlugs) : fetchAllDataForSlugs(allSlugs);
-    }).catch(error => console.error("Error fetching slugs:", error));
-    const fetchAllDataForSlugs = slugs => {
-        let currentIndex = 0;
-        const processSlug = () => {
-            if (currentIndex < slugs.length) {
-                fetchDataWithRetry(`https://api-op.streak.tech/open_screener/?slug=${slugs[currentIndex].slug}`).then(response => {
-                    const symbols = JSON.parse(response.contents).screener.screener_result.map(r => r.seg_sym.split(':')[1]);
-                    updateTableWithSlugData(slugs[currentIndex].slug, symbols, slugs[currentIndex].imageUrl);
-                    currentIndex++;
-                    setTimeout(processSlug, RETRY_DELAY);
-                }).catch(error => {
-                    console.error(`Error fetching data for slug ${slugs[currentIndex].slug}:`, error);
-                    currentIndex++;
-                    setTimeout(processSlug, RETRY_DELAY);
-                });
-            } else console.log("All slugs processed");
-        };
-        processSlug();
+<script>
+$(document).ready(() => {
+    let macdColumnsAppended = false;
+
+    const appendMacdColumns = () => {
+        if (!macdColumnsAppended) {
+            macdColumnsAppended = true;
+
+            const columnHeaderMap = {
+                "macd-daily-crossover-371256": "Daily MACD Crossover",
+                "weeklymacd-920662": "Weekly MACD Crossover"
+            };
+
+            Object.entries(columnHeaderMap).forEach(([slug, columnHeader]) => {
+                const columnIndex = $('#dataTable thead tr th').length;
+                $(`#dataTable thead tr th:nth-child(7)`).after(`<th style="background-color: #383838;color:#29B6F6;font-size: 13px;"><img src="${imageUrl}" alt="${slug}" style="max-width: 50px; max-height: 50px; vertical-align: middle;"> ${columnHeader}</th>`);
+            });
+        }
     };
-    const updateTableWithSlugData = (slug, symbols, imageUrl) => {
-        const columnIndex = $('#dataTable thead tr th').length;
-        $(`#dataTable thead tr th:nth-child(9)`).after(`<th style="background-color: #383838;color:#29B6F6;font-size: 13px;"><img src="${imageUrl}" alt="${slug}" style="max-width: 50px; max-height: 50px; vertical-align: middle;"> ${slug}</th>`);
-        $('#dataTable tbody tr').each(function() {
-            const symbol = $(this).find('td:eq(1)').text().trim();
-            const matched = symbols.includes(symbol);
-            $(this).find(`td:nth-child(9)`).after(`<td class="${matched ? 'true-cell' : 'false-cell'}">${matched}</td>`);
+
+    setTimeout(() => {
+        const MAX_RETRIES = 20, RETRY_DELAY = 2e3;
+
+        const fetchDataWithRetry = (apiUrl, retries = 0) => new Promise((resolve, reject) => {
+            $.ajax({ url: `https://api.allorigins.win/get?url=${encodeURIComponent(apiUrl)}`, method: "GET", dataType: "json" })
+            .done(resolve).fail(() => retries < MAX_RETRIES ? setTimeout(() => fetchDataWithRetry(apiUrl, retries + 1).then(resolve).catch(reject), RETRY_DELAY) : reject(new Error(`Failed to fetch data after ${MAX_RETRIES} attempts`)));
         });
-    };
-    fetchAllSlugs("https://s-op.streak.tech/screeners/discover?pageNumber=", 1, []);
-}, 15e3));
+
+        const fetchAllSlugs = (apiUrl, pageNumber, allSlugs) => fetchDataWithRetry(`${apiUrl}${pageNumber}`).then(response => {
+            const data = JSON.parse(response.contents).data;
+            const slugs = data.results.filter(r => r.symbol_count > 0).map(r => ({ slug: r.slug, imageUrl: r.image_url }));
+            allSlugs.push(...slugs);
+            pageNumber < data.total_pages ? fetchAllSlugs(apiUrl, pageNumber + 1, allSlugs) : fetchAllDataForSlugs(allSlugs.concat([
+                { slug: "macd-daily-crossover-371256", imageUrl: "https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/MACD.png" },
+                { slug: "weeklymacd-920662", imageUrl: "https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/MACD.png" }
+            ]));
+        }).catch(error => console.error("Error fetching slugs:", error));
+
+        const fetchAllDataForSlugs = slugs => {
+            let currentIndex = 0;
+            const processSlug = () => {
+                if (currentIndex < slugs.length) {
+                    fetchDataWithRetry(`https://api-op.streak.tech/open_screener/?slug=${slugs[currentIndex].slug}`).then(response => {
+                        const symbols = JSON.parse(response.contents).screener.screener_result.map(r => r.seg_sym.split(':')[1]);
+                        updateTableWithSlugData(slugs[currentIndex].slug, symbols, slugs[currentIndex].imageUrl);
+                        currentIndex++;
+                        setTimeout(processSlug, RETRY_DELAY);
+                    }).catch(error => {
+                        console.error(`Error fetching data for slug ${slugs[currentIndex].slug}:`, error);
+                        currentIndex++;
+                        setTimeout(processSlug, RETRY_DELAY);
+                    });
+                } else console.log("All slugs processed");
+            };
+            processSlug();
+        };
+
+        const updateTableWithSlugData = (slug, symbols, imageUrl) => {
+            appendMacdColumns();
+            const columnHeaderMap = {
+                "macd-daily-crossover-371256": "Daily MACD Crossover",
+                "weeklymacd-920662": "Weekly MACD Crossover"
+            };
+
+            const columnHeader = columnHeaderMap[slug] || slug;
+            const columnIndex = $('#dataTable thead tr th').length;
+
+            const defaultImageUrl = "https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/NA.png";
+            const imageSrc = imageUrl && typeof imageUrl === 'string' && imageUrl.trim() !== '' ? imageUrl : defaultImageUrl;
+
+            $(`#dataTable thead tr th:nth-child(7)`).after(`<th style="background-color: #383838;color:#29B6F6;font-size: 13px;"><img src="${imageSrc}" alt="${slug}" style="max-width: 50px; max-height: 50px; vertical-align: middle;"> ${columnHeader}</th>`);
+            $('#dataTable tbody tr').each(function() {
+                const symbol = $(this).find('td:eq(1)').text().trim();
+                const matched = symbols.includes(symbol);
+                $(this).find(`td:nth-child(7)`).after(`<td class="${matched ? 'true-cell' : 'false-cell'}">${matched}</td>`);
+            });
+        };
+        fetchAllSlugs("https://s-op.streak.tech/screeners/discover?pageNumber=", 1, []);
+    }, 30e3);
+});
 </script>
+
+
 
 
 
