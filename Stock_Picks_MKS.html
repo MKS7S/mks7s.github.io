@@ -802,6 +802,7 @@ $(document).ready(() => {
             macdColumnsAppended = true;
 
             const columnHeaderMap = {
+			    "short-term-bearish": "Short Term Bearish",
                 "macd-daily-crossover-371256": "Daily MACD Crossover",
                 "weeklymacd-920662": "Weekly MACD Crossover"
             };
@@ -826,6 +827,7 @@ $(document).ready(() => {
             const slugs = data.results.filter(r => r.symbol_count > 0).map(r => ({ slug: r.slug, imageUrl: r.image_url }));
             allSlugs.push(...slugs);
             pageNumber < data.total_pages ? fetchAllSlugs(apiUrl, pageNumber + 1, allSlugs) : fetchAllDataForSlugs(allSlugs.concat([
+			    { slug: "short-term-bearish", imageUrl: "https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/short-term-bearish.png" },
                 { slug: "macd-daily-crossover-371256", imageUrl: "https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/MACD.png" },
                 { slug: "weeklymacd-920662", imageUrl: "https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/MACD.png" }
             ]));
@@ -853,6 +855,7 @@ $(document).ready(() => {
         const updateTableWithSlugData = (slug, symbols, imageUrl) => {
             appendMacdColumns();
             const columnHeaderMap = {
+			    "short-term-bearish": "Short Term Bearish",
                 "macd-daily-crossover-371256": "Daily MACD Crossover",
                 "weeklymacd-920662": "Weekly MACD Crossover"
             };
