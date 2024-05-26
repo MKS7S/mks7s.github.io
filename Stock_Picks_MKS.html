@@ -909,6 +909,105 @@ $(document).ready(() => {
 });
 </script>
 
+<script>
+$(function() {
+    const startAfterDelay = () => {
+        const baseUrl = 'https://api-op.streak.tech/marketplace/';
+        const proxyUrl = 'https://api.allorigins.win/get?url=';
+        const updateInterval = 2000;
+
+        const fetchWithRetry = (url, options, maxRetries, delay) => new Promise((resolve, reject) => {
+            const fetchUrl = (url, options, remainingRetries) => $.ajax(url, options)
+                .done(resolve)
+                .fail((xhr, status, error) => remainingRetries > 0 ? setTimeout(() => fetchUrl(url, options, remainingRetries - 1), delay * 1000) : reject(`Max retries exceeded (${maxRetries}). Last error: ${error}`));
+            fetchUrl(url, options, maxRetries);
+        });
+
+        const fetchData = () => {
+            $.ajax({
+                url: proxyUrl + encodeURIComponent(baseUrl + '?page_limit=12&resp=json&page=1'),
+                type: 'GET',
+                success: response => {
+                    const totalPages = JSON.parse(response.contents).pages;
+                    const allData = [];
+
+                    const fetchPageData = page => $.ajax({
+                        url: proxyUrl + encodeURIComponent(baseUrl + '?page_limit=12&resp=json&page=' + page),
+                        type: 'GET',
+                        success: response => {
+                            const algos = JSON.parse(response.contents).algo;
+                            allData.push(...algos);
+                            page < totalPages ? fetchPageData(page + 1) : displayData(allData);
+                        },
+                        error: (xhr, status, error) => console.error(`Error fetching data for page ${page}:`, error)
+                    });
+
+                    fetchPageData(1);
+                },
+                error: (xhr, status, error) => console.error('Error fetching initial data:', error)
+            });
+        };
+
+        function displayData(data) {
+            const maxConcurrentRequests = 5;
+            let currentIndex = 0;
+            const totalRequests = data.length;
+
+            const fetchNextBatch = () => {
+                const requests = [];
+                for (let i = 0; i < maxConcurrentRequests && currentIndex < totalRequests; i++) {
+                    const algo = data[currentIndex];
+                    const slugUrl = 'https://api-op.streak.tech/backtest/?slug=' + algo.slug + '&resp=json&max_count=-2';
+
+                    requests.push(
+                        fetchWithRetry(proxyUrl + encodeURIComponent(slugUrl), { type: 'GET' }, 3, 2)
+                            .then(response => {
+                                const backtestResults = JSON.parse(response.contents).backtest_results || [];
+                                if (backtestResults.length > 0 && backtestResults[0].algo_obj && backtestResults[0].algo_obj.scripList) {
+                                    const scripList = backtestResults[0].algo_obj.scripList.map(scrip => scrip.symbol);
+
+                                    // Check if symbols exist
+                                    const tableRows = document.querySelectorAll('#dataTable tbody tr');
+                                    if (tableRows.length > 0) {
+                                        // Append the header
+                                        const headerRow = document.querySelector('#dataTable thead tr');
+                                        const headerCell = document.createElement('th');
+                                        headerCell.textContent = algo.slug;
+                                        headerRow.appendChild(headerCell);
+
+                                        // Append data to each row
+                                        tableRows.forEach(row => {
+                                            const symbolCell = row.querySelector('td:first-child');
+                                            const symbolText = symbolCell.textContent.trim();
+                                            const match = scripList.includes(symbolText);
+                                            const cell = row.insertCell();
+                                            cell.textContent = match ? 'true' : 'false';
+                                            cell.style.backgroundColor = match ? 'green' : 'red'; // Set background color
+                                        });
+                                    }
+                                }
+                            })
+                            .catch(error => console.error(`Error fetching data for slug ${algo.slug}:`, error))
+                    );
+                    currentIndex++;
+                }
+
+                Promise.all(requests).then(() => currentIndex < totalRequests ? fetchNextBatch() : null);
+            };
+
+            fetchNextBatch();
+        }
+
+        fetchData();
+        setInterval(fetchData, updateInterval); // Periodically fetch data every updateInterval
+    };
+
+    // Start the script after a 2-minute delay
+    setTimeout(startAfterDelay, 2 * 60 * 1000); // 2 minutes in milliseconds
+});
+</script>
+
+
 
 
 
