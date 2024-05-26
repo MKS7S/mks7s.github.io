@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1024">
+    <meta name="viewport" content="width=4096">
     <title>Automated Picks</title>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -191,11 +191,11 @@
       white-space: nowrap;
       box-sizing: border-box;
       background-color: #252525;
-	  max-width:20000px;
       border: 1px solid #3a3a3a;
       padding: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       position: relative;
+      width: 100%; /* Start with 100% width */
     }
     .carousel-text {
       display: inline-block;
@@ -244,6 +244,35 @@
   </div>
 </div>
 
+
+
+<script>
+  function adjustCarouselWidth() {
+    var dataTable = document.getElementById('dataTable');
+    var carouselContainer = document.getElementById('carouselContainer');
+    var tableWidth = dataTable.offsetWidth;
+    var windowWidth = window.innerWidth;
+    var percentageWidth = (tableWidth / windowWidth) * 100;
+    carouselContainer.style.width = percentageWidth + '%';
+  }
+
+  // Call the function to adjust the width initially
+  adjustCarouselWidth();
+
+  // Adjust the width on window resize as well
+  window.addEventListener('resize', adjustCarouselWidth);
+
+  // Create a ResizeObserver to watch for changes to the table size
+  var resizeObserver = new ResizeObserver(function(entries) {
+    for (let entry of entries) {
+      adjustCarouselWidth();
+    }
+  });
+
+  // Observe the table for size changes
+  var target = document.getElementById('dataTable');
+  resizeObserver.observe(target);
+</script>
 
 
 
