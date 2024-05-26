@@ -751,16 +751,18 @@ $(function() {
                 });
                 var tr = $(this);
                 if (matched) {
-                    var fiidiiEq = matched["FII/DII cash"] || "-",
-                        fiidiiFno = matched["FII/DII FNO"] || "-",
-                        priceChange = matched["Price change"] || "-";
-                    tr.find("td").slice(-3).remove();
-                    tr.append("<td>" + fiidiiEq + "</td><td>" + fiidiiFno + "</td><td>" + priceChange + "</td>");
+                    var fiidiiEq = matched["FII/DII cash"] || "-";
+                    var fiidiiFno = matched["FII/DII FNO"] || "-";
+                    var priceChange = matched["Price change"] || "-";
+                    tr.find("td:nth-child(5)").text(fiidiiEq);
+                    tr.find("td:nth-child(6)").text(fiidiiFno);
+                    tr.find("td:nth-child(7)").text(priceChange);
                     matchedSymbols[symbol] = true;
                 } else {
+                    tr.find("td:nth-child(5)").text("-");
+                    tr.find("td:nth-child(6)").text("-");
+                    tr.find("td:nth-child(7)").text("-");
                     unmatchedSymbols[symbol] = true;
-                    tr.find("td").slice(-3).remove();
-                    tr.append("<td>-</td><td>-</td><td>-</td>");
                 }
             }
         });
