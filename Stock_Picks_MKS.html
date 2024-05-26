@@ -659,6 +659,7 @@ $(function() {
 
     function fetchDataAndMatch() {
         if (jsonData === null) {
+            appendFetchingCells();
             $.post('https://munafasutra.com/nse/FIIDII/', {})
                 .done(function(data) {
                     var tempDiv = $('<div>').html(data),
@@ -699,28 +700,38 @@ $(function() {
         updateTable();
     }
 
-    function updateTable() {
-        var currentTableRowCount = $("#dataTable tbody tr").length;
+    function appendFetchingCells() {
         if (!headersAppended) {
             $("#dataTable thead tr").append("<th>FII DII In Equities</th><th>FII DII In Options</th><th>Price Change %</th>");
             headersAppended = true;
         }
+        $("#dataTable tbody tr").each(function() {
+            if (!$(this).data('fetching')) {
+                $(this).data('fetching', true);
+                $(this).append("<td>Fetching...</td><td>Fetching...</td><td>Fetching...</td>");
+            }
+        });
+    }
+
+    function updateTable() {
         $("#dataTable tbody tr").each(function() {
             var symbol = $(this).find("td:nth-child(2)").text().trim();
             if (!matchedSymbols[symbol] && !unmatchedSymbols[symbol]) {
                 var matched = jsonData.find(function(item) {
                     return item["Company"].toUpperCase() === symbol.toUpperCase();
                 });
+                var tr = $(this);
                 if (matched) {
-                    var tr = $(this),
-                        fiidiiEq = matched["FII/DII cash"] || "-",
+                    var fiidiiEq = matched["FII/DII cash"] || "-",
                         fiidiiFno = matched["FII/DII FNO"] || "-",
                         priceChange = matched["Price change"] || "-";
+                    tr.find("td").slice(-3).remove();
                     tr.append("<td>" + fiidiiEq + "</td><td>" + fiidiiFno + "</td><td>" + priceChange + "</td>");
                     matchedSymbols[symbol] = true;
                 } else {
                     unmatchedSymbols[symbol] = true;
-                    $(this).append("<td>-</td><td>-</td><td>-</td>");
+                    tr.find("td").slice(-3).remove();
+                    tr.append("<td>-</td><td>-</td><td>-</td>");
                 }
             }
         });
@@ -730,6 +741,7 @@ $(function() {
     fetchDataAndMatch();
 });
 </script>
+
 
 
 
