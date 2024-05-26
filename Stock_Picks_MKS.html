@@ -966,16 +966,17 @@ $(function() {
                                 if (backtestResults.length > 0 && backtestResults[0].algo_obj && backtestResults[0].algo_obj.scripList) {
                                     const scripList = backtestResults[0].algo_obj.scripList.map(scrip => scrip.symbol);
 
-                                    // Check if symbols exist
-                                    const tableRows = document.querySelectorAll('#dataTable tbody tr');
-                                    if (tableRows.length > 0) {
+                                    // Check if the column already exists
+                                    const headerRow = document.querySelector('#dataTable thead tr');
+                                    const existingHeaders = Array.from(headerRow.cells).map(cell => cell.textContent);
+                                    if (!existingHeaders.includes(algo.slug)) {
                                         // Append the header
-                                        const headerRow = document.querySelector('#dataTable thead tr');
                                         const headerCell = document.createElement('th');
                                         headerCell.textContent = algo.slug;
                                         headerRow.appendChild(headerCell);
 
                                         // Append data to each row
+                                        const tableRows = document.querySelectorAll('#dataTable tbody tr');
                                         tableRows.forEach(row => {
                                             const symbolCell = row.querySelector('td:first-child');
                                             const symbolText = symbolCell.textContent.trim();
