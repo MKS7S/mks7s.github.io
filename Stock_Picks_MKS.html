@@ -25,26 +25,6 @@
             display: flex;
             flex-direction: column;
         }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        th,
-        td {
-            border: 1px solid #444;
-            text-align: left;
-            padding: 12px;
-			background: #292929;
-        }
-
-        th {
-            background-color: #383838;
-            color: white;
-        }
-
         .positive {
             background-color: green;
             color: white;
@@ -98,11 +78,6 @@
         a {
             color: #ffeb3b;
         }
-		.table-container {
-        }
-		table {
-    width: 100%;
-}
     </style>
 	<style>
     #corsNote {
@@ -464,22 +439,93 @@ const countdownInterval = setInterval(() => {
 </script>
 
 
+
+<style>
+    /* Define styles for table */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #444;
+        text-align: left;
+        padding: 12px;
+        background: #292929;
+        transition: opacity 0.5s ease; /* Add transition for animation */
+    }
+
+    th {
+        background-color: #383838;
+        color: white;
+        position: sticky;
+        left: 0; /* Ensures the header is frozen */
+        top: 0;
+    }
+
+    td:first-child, th:first-child {
+    position: sticky;
+    left: 0; /* Ensures the first column is frozen */
+    z-index: 10; /* Lower z-index to keep the first column behind new columns */
+    background-color: #383838;
+    border: 0px solid #444; /* Add right border explicitly */
+	box-shadow: inset 0 0 1px 1px black;
+}
+
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+</style>
+
+
+<script>
+    // JavaScript to handle real-time updates and animations
+    window.onload = function () {
+        // Observer to watch for changes in the tbody
+        var observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                    // Added new cells
+                    mutation.addedNodes.forEach(function (node) {
+                        if (node.nodeType === 1 && node.tagName === 'TR') {
+                            // Apply animation to the new row
+                            node.classList.add('animate__animated', 'animate__fadeInUp');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Start observing the tbody
+        observer.observe(document.querySelector('#dataTable tbody'), {
+            childList: true,
+            subtree: true
+        });
+    };
+</script>
+
+
 <div class="table-container">
-<div class="table-responsive">
-        <table id="dataTable" class="table table-dark table-striped animate__animated animate__fadeInUp">
-            <thead>
-                <tr>
-                    <th>Industry</th>
-                    <th>Symbol</th>
-                    <th>Contract</th>
-					<th>Expiry</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-		</div>
-		</div>
+    <table id="dataTable" class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th class="freeze-column" style="z-index: 100000;">Industry</th>
+                <th class="freeze-column-2">Symbol</th>
+                <th>Contract</th>
+                <th>Expiry</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your table data here -->
+        </tbody>
+    </table>
+</div>
+
+
+
+
 
         <div class="font-weight-bold">Charts:</div>
         <div id="chartContainer" class="animate__animated animate__zoomIn"></div>
