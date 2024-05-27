@@ -570,9 +570,8 @@ $(async function() {
                     if (filteredData.length && filteredData[0].OI_OptType) {
                         tableBody.append(`<tr><td>${sName}</td><td>${symbol}</td><td>${filteredData[0].OI_OptType}</td><td>${filteredData[0].OI_ExpDate}</td></tr>`);
                         console.log(`Matched symbol: ${symbol}`);
-                    } else {
-                        console.warn(`Open interest data not found for symbol: ${symbol}`);
-                    }
+                    } 
+                    // Removed the warning log here
                 }
             }
         }
@@ -593,6 +592,7 @@ $(async function() {
     }
 });
 </script>
+
 
 
 <script>
@@ -1019,26 +1019,21 @@ $(function() {
     };
 
     const updateTable = (slug, scripList) => {
-    const headerRow = $('#dataTable thead tr');
-    if (!headerRow.find(`th:contains(${slug})`).length) {
-        headerRow.append(`<th>${slug}</th>`);
-    }
-
-    $('#dataTable tbody tr').each(function() {
-        const symbol = $(this).find('td:nth-child(2)').text().trim().toLowerCase();
-        console.log(`Symbol from table: ${symbol}`);
-        const match = scripList.some(scrip => {
-            console.log(`Symbol from JSON: ${scrip.Symbol}`);
-            return scrip.Symbol.trim().toLowerCase() === symbol;
-        });
-        let cell = $(this).find(`td[data-slug=${slug}]`);
-        if (!cell.length) {
-            cell = $(`<td data-slug=${slug}></td>`).appendTo(this);
+        const headerRow = $('#dataTable thead tr');
+        if (!headerRow.find(`th:contains(${slug})`).length) {
+            headerRow.append(`<th>${slug}</th>`);
         }
-        cell.text(match ? 'true' : 'false').css('background-color', match ? 'green' : 'red');
-    });
-};
 
+        $('#dataTable tbody tr').each(function() {
+            const symbol = $(this).find('td:nth-child(2)').text().trim().toLowerCase();
+            const match = scripList.some(scrip => scrip.Symbol.trim().toLowerCase() === symbol);
+            let cell = $(this).find(`td[data-slug=${slug}]`);
+            if (!cell.length) {
+                cell = $(`<td data-slug=${slug}></td>`).appendTo(this);
+            }
+            cell.text(match ? 'true' : 'false').css('background-color', match ? 'green' : 'red');
+        });
+    };
 
     const startAfterDelay = () => {
         fetchData();
@@ -1048,6 +1043,7 @@ $(function() {
     setTimeout(startAfterDelay, delayBeforeStart);
 });
 </script>
+
 
 
 
