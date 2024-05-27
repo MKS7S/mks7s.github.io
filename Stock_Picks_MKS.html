@@ -941,27 +941,33 @@ $(document).ready(() => {
 });
 </script>
 
+
+
+
+
 <script>
 $(function() {
     const baseUrl = 'https://api-op.streak.tech/marketplace/';
     const proxyUrl = 'https://api.allorigins.win/get?url=';
-    const updateInterval = 2000;
-    const delayBeforeStart = 120000;
     const maxConcurrentRequests = 5;
+    const delayBeforeStart = 120000; // 2 minutes delay
+    const delayBetweenRequests = 2000; // 2 seconds delay between requests
 
     const fetchWithRetry = (url, retries = 3) => {
-        const attemptFetch = () => $.ajax(url)
-            .then(response => JSON.parse(response.contents))
-            .fail((_, __, error) => {
-                if (retries > 0) {
-                    retries--;
-                    setTimeout(attemptFetch, 2000);
-                } else {
-                    throw error;
-                }
-            });
+        const attemptFetch = (resolve, reject) => {
+            $.ajax(url)
+                .then(response => resolve(JSON.parse(response.contents)))
+                .fail((_, __, error) => {
+                    if (retries > 0) {
+                        setTimeout(() => attemptFetch(resolve, reject), delayBetweenRequests);
+                        retries--;
+                    } else {
+                        reject(error);
+                    }
+                });
+        };
 
-        return attemptFetch();
+        return new Promise(attemptFetch);
     };
 
     const fetchData = async () => {
@@ -971,6 +977,7 @@ $(function() {
             let allData = [];
 
             for (let page = 1; page <= totalPages; page++) {
+                await new Promise(resolve => setTimeout(resolve, delayBetweenRequests)); // Delay between page requests
                 const pageData = await fetchWithRetry(proxyUrl + encodeURIComponent(`${baseUrl}?page_limit=12&resp=json&page=${page}`));
                 allData = allData.concat(pageData.algo);
             }
@@ -991,19 +998,17 @@ $(function() {
             for (let i = 0; i < maxConcurrentRequests && currentIndex < totalRequests; i++) {
                 const algo = data[currentIndex];
                 const slugUrl = `https://api-op.streak.tech/backtest/?slug=${algo.slug}&resp=json&max_count=-2`;
-                
+
                 requests.push(
                     fetchWithRetry(proxyUrl + encodeURIComponent(slugUrl))
                         .then(response => {
                             const backtestResults = response.backtest_results || [];
                             if (backtestResults.length > 0 && backtestResults[0].algo_obj && backtestResults[0].algo_obj.scripList) {
                                 const scripList = backtestResults[0].algo_obj.scripList.map(scrip => ({ Symbol: scrip.symbol }));
-                                const tableData = { [algo.slug]: scripList };
-                                console.log(JSON.stringify(tableData, null, 2));
-                                updateTable(algo.slug, scripList);
+                                updateTable(algo.slug || 'NA', scripList);
                             }
                         })
-                        .catch(error => console.error(`Error fetching data for slug ${algo.slug}: ${error}`))
+                        .catch(error => console.error(`Error fetching data for slug ${algo.slug || 'NA'}: ${error}`))
                 );
 
                 currentIndex++;
@@ -1011,6 +1016,7 @@ $(function() {
 
             await Promise.all(requests);
             if (currentIndex < totalRequests) {
+                await new Promise(resolve => setTimeout(resolve, delayBetweenRequests)); // Delay between batch requests
                 fetchBatch();
             }
         };
@@ -1020,30 +1026,26 @@ $(function() {
 
     const updateTable = (slug, scripList) => {
         const headerRow = $('#dataTable thead tr');
-        if (!headerRow.find(`th:contains(${slug})`).length) {
-            headerRow.append(`<th>${slug}</th>`);
+        const displaySlug = slug || 'NA';
+        if (!headerRow.find(`th:contains(${displaySlug})`).length) {
+            headerRow.append(`<th>${displaySlug}</th>`);
         }
 
         $('#dataTable tbody tr').each(function() {
             const symbol = $(this).find('td:nth-child(2)').text().trim().toLowerCase();
             const match = scripList.some(scrip => scrip.Symbol.trim().toLowerCase() === symbol);
-            let cell = $(this).find(`td[data-slug=${slug}]`);
+            let cell = $(this).find(`td[data-slug=${displaySlug}]`);
             if (!cell.length) {
-                cell = $(`<td data-slug=${slug}></td>`).appendTo(this);
+                cell = $(`<td data-slug=${displaySlug}></td>`).appendTo(this);
             }
             cell.text(match ? 'true' : 'false').css('background-color', match ? 'green' : 'red');
         });
     };
 
-    const startAfterDelay = () => {
-        fetchData();
-        setInterval(fetchData, updateInterval);
-    };
-
-    setTimeout(startAfterDelay, delayBeforeStart);
+    // Start fetching data after delay
+    setTimeout(fetchData, delayBeforeStart);
 });
 </script>
-
 
 
 
