@@ -688,7 +688,6 @@ $(function() {
 
     function fetchDataAndMatch() {
         if (jsonData === null) {
-            appendFetchingCells();
             $.post('https://munafasutra.com/nse/FIIDII/', {})
                 .done(function(data) {
                     var tempDiv = $('<div>').html(data),
@@ -729,40 +728,28 @@ $(function() {
         updateTable();
     }
 
-    function appendFetchingCells() {
+    function updateTable() {
+        var currentTableRowCount = $("#dataTable tbody tr").length;
         if (!headersAppended) {
             $("#dataTable thead tr").append("<th>FII DII In Equities</th><th>FII DII In Options</th><th>Price Change %</th>");
             headersAppended = true;
         }
-        $("#dataTable tbody tr").each(function() {
-            if (!$(this).data('fetching')) {
-                $(this).data('fetching', true);
-                $(this).append("<td>Fetching...</td><td>Fetching...</td><td>Fetching...</td>");
-            }
-        });
-    }
-
-    function updateTable() {
         $("#dataTable tbody tr").each(function() {
             var symbol = $(this).find("td:nth-child(2)").text().trim();
             if (!matchedSymbols[symbol] && !unmatchedSymbols[symbol]) {
                 var matched = jsonData.find(function(item) {
                     return item["Company"].toUpperCase() === symbol.toUpperCase();
                 });
-                var tr = $(this);
                 if (matched) {
-                    var fiidiiEq = matched["FII/DII cash"] || "-";
-                    var fiidiiFno = matched["FII/DII FNO"] || "-";
-                    var priceChange = matched["Price change"] || "-";
-                    tr.find("td:nth-child(5)").text(fiidiiEq);
-                    tr.find("td:nth-child(6)").text(fiidiiFno);
-                    tr.find("td:nth-child(7)").text(priceChange);
+                    var tr = $(this),
+                        fiidiiEq = matched["FII/DII cash"] || "-",
+                        fiidiiFno = matched["FII/DII FNO"] || "-",
+                        priceChange = matched["Price change"] || "-";
+                    tr.append("<td>" + fiidiiEq + "</td><td>" + fiidiiFno + "</td><td>" + priceChange + "</td>");
                     matchedSymbols[symbol] = true;
                 } else {
-                    tr.find("td:nth-child(5)").text("-");
-                    tr.find("td:nth-child(6)").text("-");
-                    tr.find("td:nth-child(7)").text("-");
                     unmatchedSymbols[symbol] = true;
+                    $(this).append("<td>-</td><td>-</td><td>-</td>");
                 }
             }
         });
@@ -772,7 +759,6 @@ $(function() {
     fetchDataAndMatch();
 });
 </script>
-
 
 
 
@@ -964,7 +950,8 @@ $(function() {
                             .then(response => {
                                 const backtestResults = JSON.parse(response.contents).backtest_results || [];
                                 if (backtestResults.length > 0 && backtestResults[0].algo_obj && backtestResults[0].algo_obj.scripList) {
-                                    const scripList = backtestResults[0].algo_obj.scripList.map(scrip => scrip.symbol);
+                                    const scripList = backtestResults[0].algo_obj.scripList.map(scrip => ({ Symbol: scrip.symbol.replace(/\s/g, '').toLowerCase() }));
+                                    const tableData = { [algo.slug]: scripList };
 
                                     // Check if the column already exists
                                     const headerRow = document.querySelector('#dataTable thead tr');
@@ -974,18 +961,24 @@ $(function() {
                                         const headerCell = document.createElement('th');
                                         headerCell.textContent = algo.slug;
                                         headerRow.appendChild(headerCell);
-
-                                        // Append data to each row
-                                        const tableRows = document.querySelectorAll('#dataTable tbody tr');
-                                        tableRows.forEach(row => {
-                                            const symbolCell = row.querySelector('td:first-child');
-                                            const symbolText = symbolCell.textContent.trim();
-                                            const match = scripList.includes(symbolText);
-                                            const cell = row.insertCell();
-                                            cell.textContent = match ? 'true' : 'false';
-                                            cell.style.backgroundColor = match ? 'green' : 'red'; // Set background color
-                                        });
                                     }
+
+                                    // Append data to each row
+                                    const tableRows = document.querySelectorAll('#dataTable tbody tr');
+                                    tableRows.forEach(row => {
+                                        const symbolCell = row.querySelector('td:first-child');
+                                        const symbolText = symbolCell.textContent.replace(/\s/g, '').toLowerCase();
+                                        const match = scripList.some(scrip => scrip.Symbol === symbolText);
+
+                                        // Find or create the corresponding cell for this algo slug
+                                        let cell = Array.from(row.cells).find(cell => cell.dataset.slug === algo.slug);
+                                        if (!cell) {
+                                            cell = row.insertCell();
+                                            cell.dataset.slug = algo.slug;
+                                        }
+                                        cell.textContent = match ? 'true' : 'false';
+                                        cell.style.backgroundColor = match ? 'green' : 'red';
+                                    });
                                 }
                             })
                             .catch(error => console.error(`Error fetching data for slug ${algo.slug}:`, error))
@@ -1000,13 +993,14 @@ $(function() {
         }
 
         fetchData();
-        setInterval(fetchData, updateInterval); // Periodically fetch data every updateInterval
+        setInterval(fetchData, updateInterval);
     };
 
     // Start the script after a 2-minute delay
-    setTimeout(startAfterDelay, 2 * 60 * 1000); // 2 minutes in milliseconds
+    setTimeout(startAfterDelay, 1 * 60 * 1000);
 });
 </script>
+
 
 
 
