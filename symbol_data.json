@@ -23818,6 +23818,406 @@
         {
         "Symbol": "SALEM",
         "S_NAME": "Salem Erode Invest"
+        },
+
+        {
+        "Symbol": "ALPHAGEO",
+        "S_NAME": "Alphageo India"
+        },
+
+        {
+        "Symbol": "AUTOAXLES",
+        "S_NAME": "Auto.Axle"
+        },
+
+        {
+        "Symbol": "BAJAJCON",
+        "S_NAME": "Bajaj Corp"
+        },
+
+        {
+        "Symbol": "CARBORUNIV",
+        "S_NAME": "Carborundum Univer."
+        },
+
+        {
+        "Symbol": "COLPAL",
+        "S_NAME": "Colgate Palmol. (I)"
+        },
+
+        {
+        "Symbol": "FSL",
+        "S_NAME": "Firstsource Solution"
+        },
+
+        {
+        "Symbol": "GVKPIL",
+        "S_NAME": "GVK Power & Infra"
+        },
+
+        {
+        "Symbol": "HONDAPOWER",
+        "S_NAME": "Honda India Power"
+        },
+
+        {
+        "Symbol": "INDIANHUME",
+        "S_NAME": "India Hume Pipe"
+        },
+
+        {
+        "Symbol": "IOLCP",
+        "S_NAME": "IOL Chem & Pharma"
+        },
+
+        {
+        "Symbol": "KIRLOSENG",
+        "S_NAME": "Kirloskar Oil Eng"
+        },
+
+        {
+        "Symbol": "LLOYDSME",
+        "S_NAME": "Lloyds Metals&Energy"
+        },
+
+        {
+        "Symbol": "ONEPOINT",
+        "S_NAME": "One Point OneSolutin"
+        },
+
+        {
+        "Symbol": "ONGC",
+        "S_NAME": "ONGC"
+        },
+
+        {
+        "Symbol": "POCL",
+        "S_NAME": "Pondy Oxides & Chem."
+        },
+
+        {
+        "Symbol": "PRAKASH",
+        "S_NAME": "Prakash Inds."
+        },
+
+        {
+        "Symbol": "SAIL",
+        "S_NAME": "SAIL"
+        },
+
+        {
+        "Symbol": "SELMC",
+        "S_NAME": "SEL Manufacturing"
+        },
+
+        {
+        "Symbol": "SPCENET",
+        "S_NAME": "Spacenet Enterprises"
+        },
+
+        {
+        "Symbol": "STCINDIA",
+        "S_NAME": "State Trading Corp"
+        },
+
+        {
+        "Symbol": "TATACONSUM",
+        "S_NAME": "Tata Consumer Produc"
+        },
+
+        {
+        "Symbol": "TEXMOPIPES",
+        "S_NAME": "Texmo Pipes & Prod."
+        },
+
+        {
+        "Symbol": "TNPETRO",
+        "S_NAME": "TN Petro Products"
+        },
+
+        {
+        "Symbol": "VSTTILLERS",
+        "S_NAME": "VST Tillers Tractors"
+        },
+
+        {
+        "Symbol": "ACEENGITEC",
+        "S_NAME": "ACE Engitech"
+        },
+
+        {
+        "Symbol": "ACTIVE",
+        "S_NAME": "Active Clothing Co"
+        },
+
+        {
+        "Symbol": "ADLINE",
+        "S_NAME": "Adline Chem Lab"
+        },
+
+        {
+        "Symbol": "AICHAMP",
+        "S_NAME": "AI Champdany"
+        },
+
+        {
+        "Symbol": "ALFAICA",
+        "S_NAME": "Alfa Ica (India)"
+        },
+
+        {
+        "Symbol": "ARMANFIN",
+        "S_NAME": "Arman Financial Serv"
+        },
+
+        {
+        "Symbol": "ABVL",
+        "S_NAME": "Arunjyoti Bio Vent"
+        },
+
+        {
+        "Symbol": "ASHNI",
+        "S_NAME": "Ashnisha Industries"
+        },
+
+        {
+        "Symbol": "BLS",
+        "S_NAME": "BLS Internatl.Serv"
+        },
+
+        {
+        "Symbol": "BIMETAL",
+        "S_NAME": "Bimetal Bearings"
+        },
+
+        {
+        "Symbol": "BLSINFOTE",
+        "S_NAME": "BLS Infotech"
+        },
+
+        {
+        "Symbol": "BSELINFRA",
+        "S_NAME": "BSEL Algo"
+        },
+
+        {
+        "Symbol": "CAPRIHANS",
+        "S_NAME": "Caprihans India"
+        },
+
+        {
+        "Symbol": "CARGOSOL",
+        "S_NAME": "Cargosol Logistics"
+        },
+
+        {
+        "Symbol": "COARO",
+        "S_NAME": "Coastal Roadways"
+        },
+
+        {
+        "Symbol": "COMMAND",
+        "S_NAME": "Command Polymers"
+        },
+
+        {
+        "Symbol": "CHOKSI",
+        "S_NAME": "Choksi Imaging"
+        },
+
+        {
+        "Symbol": "CISTRO",
+        "S_NAME": "Cistro Telelink"
+        },
+
+        {
+        "Symbol": "COMFINCAP",
+        "S_NAME": "Comfort Fincap"
+        },
+
+        {
+        "Symbol": "CHOTHANI",
+        "S_NAME": "Chothani Foods"
+        },
+
+        {
+        "Symbol": "DIVSHKT",
+        "S_NAME": "Divyashakti"
+        },
+
+        {
+        "Symbol": "CONCORD",
+        "S_NAME": "Concord Drugs"
+        },
+
+        {
+        "Symbol": "DAIKAFFI",
+        "S_NAME": "Daikaffil Chemicals"
+        },
+
+        {
+        "Symbol": "CRAVATEX",
+        "S_NAME": "Cravatex"
+        },
+
+        {
+        "Symbol": "DLCL",
+        "S_NAME": "Dr Lalchandani Labs"
+        },
+
+        {
+        "Symbol": "EVOQ",
+        "S_NAME": "EVOQ Remedies"
+        },
+
+        {
+        "Symbol": "EKANSH",
+        "S_NAME": "Ekansh Concepts"
+        },
+
+        {
+        "Symbol": "ENKEIWHEL",
+        "S_NAME": "Enkei Wheels"
+        },
+
+        {
+        "Symbol": "EPSOMPRO",
+        "S_NAME": "Epsom Properties"
+        },
+
+        {
+        "Symbol": "ELAND",
+        "S_NAME": "E-Land Apparel"
+        },
+
+        {
+        "Symbol": "FINEORG",
+        "S_NAME": "Fine Organic Inds."
+        },
+
+        {
+        "Symbol": "FINELINE",
+        "S_NAME": "Fine-Line Circuits"
+        },
+
+        {
+        "Symbol": "GOBLIN",
+        "S_NAME": "Goblin India"
+        },
+
+        {
+        "Symbol": "IVC",
+        "S_NAME": "IL&FS Investment Mgr"
+        },
+
+        {
+        "Symbol": "LATENTVIEW",
+        "S_NAME": "Latent View Analytic"
+        },
+
+        {
+        "Symbol": "CARBORUNIV",
+        "S_NAME": "Carborundum Univer."
+        },
+
+        {
+        "Symbol": "AUTOAXLES",
+        "S_NAME": "Auto.Axle"
+        },
+
+        {
+        "Symbol": "FSL",
+        "S_NAME": "Firstsource Solution"
+        },
+
+        {
+        "Symbol": "ALPHAGEO",
+        "S_NAME": "Alphageo India"
+        },
+
+        {
+        "Symbol": "HONDAPOWER",
+        "S_NAME": "Honda India Power"
+        },
+
+        {
+        "Symbol": "BAJAJCON",
+        "S_NAME": "Bajaj Corp"
+        },
+
+        {
+        "Symbol": "INDIANHUME",
+        "S_NAME": "India Hume Pipe"
+        },
+
+        {
+        "Symbol": "ONGC",
+        "S_NAME": "ONGC"
+        },
+
+        {
+        "Symbol": "KIRLOSENG",
+        "S_NAME": "Kirloskar Oil Eng"
+        },
+
+        {
+        "Symbol": "LLOYDSME",
+        "S_NAME": "Lloyds Metals&Energy"
+        },
+
+        {
+        "Symbol": "PRAKASH",
+        "S_NAME": "Prakash Inds."
+        },
+
+        {
+        "Symbol": "SAIL",
+        "S_NAME": "SAIL"
+        },
+
+        {
+        "Symbol": "POCL",
+        "S_NAME": "Pondy Oxides & Chem."
+        },
+
+        {
+        "Symbol": "VSTTILLERS",
+        "S_NAME": "VST Tillers Tractors"
+        },
+
+        {
+        "Symbol": "TNPETRO",
+        "S_NAME": "TN Petro Products"
+        },
+
+        {
+        "Symbol": "TATACONSUM",
+        "S_NAME": "Tata Consumer Produc"
+        },
+
+        {
+        "Symbol": "PATSPINLTD",
+        "S_NAME": "Patspin India"
+        },
+
+        {
+        "Symbol": "PODDARHOUS",
+        "S_NAME": "Poddar Hsg.&Devlop."
+        },
+
+        {
+        "Symbol": "RAMGOPOLY",
+        "S_NAME": "Ramgopal Polytex"
+        },
+
+        {
+        "Symbol": "SADBHIN",
+        "S_NAME": "Sadbhav Infra. Proj"
+        },
+
+        {
+        "Symbol": "URAVI",
+        "S_NAME": "Uravi T And Wedge"
         }
 
 ]
