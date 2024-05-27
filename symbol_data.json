@@ -23373,6 +23373,451 @@
         {
         "Symbol": "7NR",
         "S_NAME": "7NR Retail"
+        },
+
+        {
+        "Symbol": "MADHAV",
+        "S_NAME": "Madhav Marbles&Gran."
+        },
+
+        {
+        "Symbol": "AGARIND",
+        "S_NAME": "Agarwal Indl. Corp"
+        },
+
+        {
+        "Symbol": "ACE",
+        "S_NAME": "Action Const. Equip"
+        },
+
+        {
+        "Symbol": "DIVGIITTS",
+        "S_NAME": "Divgi Torqtransfer"
+        },
+
+        {
+        "Symbol": "GODFRYPHLP",
+        "S_NAME": "Godfrey Phillips"
+        },
+
+        {
+        "Symbol": "GOKUL",
+        "S_NAME": "Gokul Refoils & Solv"
+        },
+
+        {
+        "Symbol": "BOMDYEING",
+        "S_NAME": "Bombay Dyeing Mfg."
+        },
+
+        {
+        "Symbol": "KTKBANK",
+        "S_NAME": "Karnataka Bank"
+        },
+
+        {
+        "Symbol": "GREENPOWER",
+        "S_NAME": "Orient Green Power"
+        },
+
+        {
+        "Symbol": "QUICKHEAL",
+        "S_NAME": "Quick Heal Tech"
+        },
+
+        {
+        "Symbol": "ICIL",
+        "S_NAME": "Indo Count Inds"
+        },
+
+        {
+        "Symbol": "SUMEETINDS",
+        "S_NAME": "Sumeet Inds"
+        },
+
+        {
+        "Symbol": "TECHNOE",
+        "S_NAME": "Techno Electric &Eng"
+        },
+
+        {
+        "Symbol": "KANORICHEM",
+        "S_NAME": "Kanoria Chem. & Inds"
+        },
+
+        {
+        "Symbol": "AVL",
+        "S_NAME": "Aditya Vision"
+        },
+
+        {
+        "Symbol": "ADORMUL",
+        "S_NAME": "Ador Multiprod"
+        },
+
+        {
+        "Symbol": "ADESHWAR",
+        "S_NAME": "Adeshwar Meditex"
+        },
+
+        {
+        "Symbol": "BERGEPAINT",
+        "S_NAME": "Berger Paints India"
+        },
+
+        {
+        "Symbol": "BAJAJHIND",
+        "S_NAME": "Bajaj Hindusthan Sug"
+        },
+
+        {
+        "Symbol": "AMCOIND",
+        "S_NAME": "Amco India"
+        },
+
+        {
+        "Symbol": "AUROLAB",
+        "S_NAME": "Auro Laboratories"
+        },
+
+        {
+        "Symbol": "BERLDRG",
+        "S_NAME": "Beryl Drugs"
+        },
+
+        {
+        "Symbol": "BEMHY",
+        "S_NAME": "Bemco Hydraulics"
+        },
+
+        {
+        "Symbol": "ALKOSIGN",
+        "S_NAME": "Alkosign"
+        },
+
+        {
+        "Symbol": "BRIGHTBR",
+        "S_NAME": "Bright Brothers"
+        },
+
+        {
+        "Symbol": "AMRAAGRI",
+        "S_NAME": "Amraworld Agrico"
+        },
+
+        {
+        "Symbol": "BITL",
+        "S_NAME": "Bronze Infra-Tech"
+        },
+
+        {
+        "Symbol": "CILSEC",
+        "S_NAME": "Cil Securities"
+        },
+
+        {
+        "Symbol": "DLINKINDIA",
+        "S_NAME": "D-Link (India)"
+        },
+
+        {
+        "Symbol": "DENISCHEM",
+        "S_NAME": "Denis Chem Lab"
+        },
+
+        {
+        "Symbol": "DHPIND",
+        "S_NAME": "DHP India"
+        },
+
+        {
+        "Symbol": "CINDHO",
+        "S_NAME": "Cindrella Hotels"
+        },
+
+        {
+        "Symbol": "EKI",
+        "S_NAME": "EKI Energy Services"
+        },
+
+        {
+        "Symbol": "CCFCL",
+        "S_NAME": "Classic Global"
+        },
+
+        {
+        "Symbol": "EXHICON",
+        "S_NAME": "Exhicon Events Media"
+        },
+
+        {
+        "Symbol": "EXPOGAS",
+        "S_NAME": "Expo Gas Containers"
+        },
+
+        {
+        "Symbol": "DOLPHMED",
+        "S_NAME": "Dolphin Medical Serv"
+        },
+
+        {
+        "Symbol": "INFLAME",
+        "S_NAME": "Inflame Appliances"
+        },
+
+        {
+        "Symbol": "GUJHYSPIN",
+        "S_NAME": "Gujarat Hy-Spin"
+        },
+
+        {
+        "Symbol": "IMEC",
+        "S_NAME": "IMEC Services"
+        },
+
+        {
+        "Symbol": "JACKSON",
+        "S_NAME": "Jackson Investments"
+        },
+
+        {
+        "Symbol": "HELPAGE",
+        "S_NAME": "Helpage Finlease"
+        },
+
+        {
+        "Symbol": "HEMACEM",
+        "S_NAME": "Hemadri Cements"
+        },
+
+        {
+        "Symbol": "KGPETRO",
+        "S_NAME": "KG Petrochem"
+        },
+
+        {
+        "Symbol": "ACE",
+        "S_NAME": "Action Const. Equip"
+        },
+
+        {
+        "Symbol": "LUHARUKA",
+        "S_NAME": "Luharuka Media"
+        },
+
+        {
+        "Symbol": "MENNPIS",
+        "S_NAME": "Menon Pistons"
+        },
+
+        {
+        "Symbol": "KINETRU",
+        "S_NAME": "Kinetic Trust"
+        },
+
+        {
+        "Symbol": "MANRAJH",
+        "S_NAME": "Manraj Housing Fin"
+        },
+
+        {
+        "Symbol": "MAL",
+        "S_NAME": "Meyer Apparel"
+        },
+
+        {
+        "Symbol": "MAYUKH",
+        "S_NAME": "Mayukh Dealtrade"
+        },
+
+        {
+        "Symbol": "MONEYBOXX",
+        "S_NAME": "Moneyboxx Finance"
+        },
+
+        {
+        "Symbol": "STARHEALTH",
+        "S_NAME": "Star Health and Allied"
+        },
+
+        {
+        "Symbol": "NUCLEUS",
+        "S_NAME": "Nucleus Software Exp"
+        },
+
+        {
+        "Symbol": "PIXTRANS",
+        "S_NAME": "Pix Transmission"
+        },
+
+        {
+        "Symbol": "PHARMAID",
+        "S_NAME": "Pharmaids Pharma"
+        },
+
+        {
+        "Symbol": "RAJGASES",
+        "S_NAME": "Rajasthan Gases"
+        },
+
+        {
+        "Symbol": "TCFCFINQ",
+        "S_NAME": "TCFC Finance"
+        },
+
+        {
+        "Symbol": "STARHFL",
+        "S_NAME": "Star Housing Finance"
+        },
+
+        {
+        "Symbol": "SURAJ",
+        "S_NAME": "Suraj"
+        },
+
+        {
+        "Symbol": "TCI",
+        "S_NAME": "Transport Corp."
+        },
+
+        {
+        "Symbol": "VIVAA",
+        "S_NAME": "Vivaa Tradecom"
+        },
+
+        {
+        "Symbol": "TRANSCHEM",
+        "S_NAME": "Transchem"
+        },
+
+        {
+        "Symbol": "AGARIND",
+        "S_NAME": "Agarwal Indl. Corp"
+        },
+
+        {
+        "Symbol": "TRIMURTHI",
+        "S_NAME": "Trimurthi"
+        },
+
+        {
+        "Symbol": "GREENPOWER",
+        "S_NAME": "Orient Green Power"
+        },
+
+        {
+        "Symbol": "DIVGIITTS",
+        "S_NAME": "Divgi Torqtransfer"
+        },
+
+        {
+        "Symbol": "QUICKHEAL",
+        "S_NAME": "Quick Heal Tech"
+        },
+
+        {
+        "Symbol": "GODFRYPHLP",
+        "S_NAME": "Godfrey Phillips"
+        },
+
+        {
+        "Symbol": "VSL",
+        "S_NAME": "Veeram Securities"
+        },
+
+        {
+        "Symbol": "VOLLF",
+        "S_NAME": "Voltaire Leasing"
+        },
+
+        {
+        "Symbol": "KTKBANK",
+        "S_NAME": "Karnataka Bank"
+        },
+
+        {
+        "Symbol": "WPIL",
+        "S_NAME": "WPIL"
+        },
+
+        {
+        "Symbol": "VITESSE",
+        "S_NAME": "Vitesse Agro"
+        },
+
+        {
+        "Symbol": "BOMDYEING",
+        "S_NAME": "Bombay Dyeing Mfg."
+        },
+
+        {
+        "Symbol": "WINPRO",
+        "S_NAME": "WinPro Industries"
+        },
+
+        {
+        "Symbol": "WINSOMTX",
+        "S_NAME": "Winsome Textile"
+        },
+
+        {
+        "Symbol": "TECHNOE",
+        "S_NAME": "Techno Electric &Eng"
+        },
+
+        {
+        "Symbol": "ICIL",
+        "S_NAME": "Indo Count Inds"
+        },
+
+        {
+        "Symbol": "SUMEETINDS",
+        "S_NAME": "Sumeet Inds"
+        },
+
+        {
+        "Symbol": "YASHRAJC",
+        "S_NAME": "Yashraj Containeurs"
+        },
+
+        {
+        "Symbol": "YOGI",
+        "S_NAME": "Yogi"
+        },
+
+        {
+        "Symbol": "SAICOM",
+        "S_NAME": "Saianand Commercial"
+        },
+
+        {
+        "Symbol": "OROSMITHS",
+        "S_NAME": "Orosil Smiths"
+        },
+
+        {
+        "Symbol": "SEALMATIC",
+        "S_NAME": "Sealmatic India"
+        },
+
+        {
+        "Symbol": "SAMPRE",
+        "S_NAME": "Sampre Nutritions"
+        },
+
+        {
+        "Symbol": "SHELTER",
+        "S_NAME": "Shelter Pharma"
+        },
+
+        {
+        "Symbol": "SICAGEN",
+        "S_NAME": "Sicagen India"
+        },
+
+        {
+        "Symbol": "SALEM",
+        "S_NAME": "Salem Erode Invest"
         }
 
 ]
