@@ -24273,6 +24273,1001 @@
         {
         "Symbol": "INFORTEC",
         "S_NAME": "Informed Tech"
+        },
+
+        {
+        "Symbol": "NATIONALUM",
+        "S_NAME": "National Aluminium"
+        },
+
+        {
+        "Symbol": "CROMPTON",
+        "S_NAME": "Crompt.Greaves Cons."
+        },
+
+        {
+        "Symbol": "AIIL",
+        "S_NAME": "Authum Inv. & Infra"
+        },
+
+        {
+        "Symbol": "NIACL",
+        "S_NAME": "New India Assurance"
+        },
+
+        {
+        "Symbol": "IDBI",
+        "S_NAME": "IDBI"
+        },
+
+        {
+        "Symbol": "APCL",
+        "S_NAME": "Anjani Portland Cem."
+        },
+
+        {
+        "Symbol": "SAMPANN",
+        "S_NAME": "Sampann Utpadan"
+        },
+
+        {
+        "Symbol": "BHEL",
+        "S_NAME": "BHEL"
+        },
+
+        {
+        "Symbol": "CDSL",
+        "S_NAME": "Central Dep. Service"
+        },
+
+        {
+        "Symbol": "DCMSRIND",
+        "S_NAME": "DCM Shriram Inds."
+        },
+
+        {
+        "Symbol": "DTIL",
+        "S_NAME": "Dhunseri Tea"
+        },
+
+        {
+        "Symbol": "DSSL",
+        "S_NAME": "Dynacons Sys & Sol"
+        },
+
+        {
+        "Symbol": "EIMCOELECO",
+        "S_NAME": "Eimco Elecon (India)"
+        },
+
+        {
+        "Symbol": "FMGOETZE",
+        "S_NAME": "Federal-Mogul Goetze"
+        },
+
+        {
+        "Symbol": "FMNL",
+        "S_NAME": "Future MarketNetwork"
+        },
+
+        {
+        "Symbol": "GRINFRA",
+        "S_NAME": "GR Infraprojects"
+        },
+
+        {
+        "Symbol": "ITDC",
+        "S_NAME": "Ind Tourism Dev Corp"
+        },
+
+        {
+        "Symbol": "ISFT",
+        "S_NAME": "Intrasoft Tech"
+        },
+
+        {
+        "Symbol": "DEEPAKFERT",
+        "S_NAME": "Deepak Fert & Petro"
+        },
+
+        {
+        "Symbol": "J&KBANK",
+        "S_NAME": "J&K Bank"
+        },
+
+        {
+        "Symbol": "JPPOWER",
+        "S_NAME": "JP Power Ventures"
+        },
+
+        {
+        "Symbol": "KPIL",
+        "S_NAME": "Kalpataru Projects"
+        },
+
+        {
+        "Symbol": "MEDIASSIST",
+        "S_NAME": "Medi Assist Health"
+        },
+
+        {
+        "Symbol": "MTNL",
+        "S_NAME": "MTNL"
+        },
+
+        {
+        "Symbol": "NBCC",
+        "S_NAME": "NBCC (India)"
+        },
+
+        {
+        "Symbol": "NRBBEARING",
+        "S_NAME": "NRB Bearings"
+        },
+
+        {
+        "Symbol": "RCOM",
+        "S_NAME": "Reliance Comm"
+        },
+
+        {
+        "Symbol": "SECURKLOUD",
+        "S_NAME": "Securekloud Tech."
+        },
+
+        {
+        "Symbol": "SESHAPAPER",
+        "S_NAME": "Seshasayee Paper"
+        },
+
+        {
+        "Symbol": "DBCORP",
+        "S_NAME": "D.B. Corp"
+        },
+
+        {
+        "Symbol": "LLOYDSENGG",
+        "S_NAME": "Lloyds Engr Works"
+        },
+
+        {
+        "Symbol": "NOIDATOLL",
+        "S_NAME": "Noida Toll Bridge"
+        },
+
+        {
+        "Symbol": "AVROIND",
+        "S_NAME": "Avro India"
+        },
+
+        {
+        "Symbol": "PGIL",
+        "S_NAME": "Pearl Global Inds."
+        },
+
+        {
+        "Symbol": "RITES",
+        "S_NAME": "Rites"
+        },
+
+        {
+        "Symbol": "SCHAND",
+        "S_NAME": "S Chand And Co"
+        },
+
+        {
+        "Symbol": "SALASAR",
+        "S_NAME": "Salasar Techno Engg."
+        },
+
+        {
+        "Symbol": "SHAKTIPUMP",
+        "S_NAME": "Shakti Pumps (I)"
+        },
+
+        {
+        "Symbol": "SHANKARA",
+        "S_NAME": "Shankara Bldg. Prod"
+        },
+
+        {
+        "Symbol": "SHYAMMETL",
+        "S_NAME": "Shyam Metalics&Ener"
+        },
+
+        {
+        "Symbol": "SIRCA",
+        "S_NAME": "SIRCA Paints India"
+        },
+
+        {
+        "Symbol": "SUDARSCHEM",
+        "S_NAME": "Sudarshan Chemicals"
+        },
+
+        {
+        "Symbol": "SUNDRMBRAK",
+        "S_NAME": "Sundaram BrakeLining"
+        },
+
+        {
+        "Symbol": "TATAINVEST",
+        "S_NAME": "Tata Invest Corp"
+        },
+
+        {
+        "Symbol": "TATAMTRDVR",
+        "S_NAME": "Tata Motors - DVR"
+        },
+
+        {
+        "Symbol": "TATAPOWER",
+        "S_NAME": "Tata Power"
+        },
+
+        {
+        "Symbol": "UTIAMC",
+        "S_NAME": "UTI Asset Management"
+        },
+
+        {
+        "Symbol": "VSSL",
+        "S_NAME": "Vardhman Special"
+        },
+
+        {
+        "Symbol": "AIML",
+        "S_NAME": "Alliance Integrated"
+        },
+
+        {
+        "Symbol": "544037",
+        "S_NAME": "Amic Forging"
+        },
+
+        {
+        "Symbol": "ARYAN",
+        "S_NAME": "Aryan Share & Stock"
+        },
+
+        {
+        "Symbol": "ASHCAP",
+        "S_NAME": "Ashirwad Capital"
+        },
+
+        {
+        "Symbol": "ASIIL",
+        "S_NAME": "ASI Industries"
+        },
+
+        {
+        "Symbol": "ATVPR",
+        "S_NAME": "ATV Projects India"
+        },
+
+        {
+        "Symbol": "BCP",
+        "S_NAME": "B.C. Power Controls"
+        },
+
+        {
+        "Symbol": "BIBCL",
+        "S_NAME": "Bharat Immunological"
+        },
+
+        {
+        "Symbol": "BIHSPONG",
+        "S_NAME": "Bihar Sponge Iron"
+        },
+
+        {
+        "Symbol": "BI",
+        "S_NAME": "Bilcare"
+        },
+
+        {
+        "Symbol": "CPL",
+        "S_NAME": "Captain Polyplast"
+        },
+
+        {
+        "Symbol": "CARGOTRANS",
+        "S_NAME": "Cargotrans Maritime"
+        },
+
+        {
+        "Symbol": "CEEJAY",
+        "S_NAME": "Ceejay Finance"
+        },
+
+        {
+        "Symbol": "CHLOGIST",
+        "S_NAME": "Chartered Logistics"
+        },
+
+        {
+        "Symbol": "DDIL",
+        "S_NAME": "Deep Diamond India"
+        },
+
+        {
+        "Symbol": "DLTNCBL",
+        "S_NAME": "Delton Cables"
+        },
+
+        {
+        "Symbol": "ELIXIR",
+        "S_NAME": "Elixir Capital"
+        },
+
+        {
+        "Symbol": "FILTRA",
+        "S_NAME": "Filtra Consultants"
+        },
+
+        {
+        "Symbol": "FFPL",
+        "S_NAME": "Foundry Fuel Prod"
+        },
+
+        {
+        "Symbol": "GALXBRG",
+        "S_NAME": "Galaxy Bearings"
+        },
+
+        {
+        "Symbol": "GARNET",
+        "S_NAME": "Garnet Construction"
+        },
+
+        {
+        "Symbol": "GRAVISSHO",
+        "S_NAME": "Graviss Hospitality"
+        },
+
+        {
+        "Symbol": "GOODYEAR",
+        "S_NAME": "Goodyear India"
+        },
+
+        {
+        "Symbol": "HARIAAPL",
+        "S_NAME": "Haria Apparels"
+        },
+
+        {
+        "Symbol": "HAWKINCOOK",
+        "S_NAME": "Hawkins Cookers"
+        },
+
+        {
+        "Symbol": "HRYNSHP",
+        "S_NAME": "Hariyana Ship Break"
+        },
+
+        {
+        "Symbol": "INCON",
+        "S_NAME": "Incon Engineers"
+        },
+
+        {
+        "Symbol": "INDICAP",
+        "S_NAME": "Inditrade Capital"
+        },
+
+        {
+        "Symbol": "INOVSYNTH",
+        "S_NAME": "Innovassynth Invest"
+        },
+
+        {
+        "Symbol": "INDOUS",
+        "S_NAME": "Indo US Bio-Tech"
+        },
+
+        {
+        "Symbol": "INTLCOMBQ",
+        "S_NAME": "International Combus"
+        },
+
+        {
+        "Symbol": "IDM",
+        "S_NAME": "International Data"
+        },
+
+        {
+        "Symbol": "JPOLYINVST",
+        "S_NAME": "Jindal Poly Invest"
+        },
+
+        {
+        "Symbol": "KRRAIL",
+        "S_NAME": "K&R Rail Engineering"
+        },
+
+        {
+        "Symbol": "KAHAN",
+        "S_NAME": "Kahan Packaging"
+        },
+
+        {
+        "Symbol": "JUMBO",
+        "S_NAME": "Jumbo Bag"
+        },
+
+        {
+        "Symbol": "KAMADGIRI",
+        "S_NAME": "Kamadgiri Fashion"
+        },
+
+        {
+        "Symbol": "KALYANI",
+        "S_NAME": "Kalyani Cast-Tech"
+        },
+
+        {
+        "Symbol": "KAPILRAJ",
+        "S_NAME": "Kapil Raj Finance"
+        },
+
+        {
+        "Symbol": "KINGSINFR",
+        "S_NAME": "Kings Infra Ventures"
+        },
+
+        {
+        "Symbol": "KIRANVYPAR",
+        "S_NAME": "Kiran Vyapar"
+        },
+
+        {
+        "Symbol": "KKSHL",
+        "S_NAME": "KK Shah Hospitals"
+        },
+
+        {
+        "Symbol": "KDL",
+        "S_NAME": "KKRRAFTON Developers"
+        },
+
+        {
+        "Symbol": "KMCSHIL",
+        "S_NAME": "KMC Speciality Hosp"
+        },
+
+        {
+        "Symbol": "KEL",
+        "S_NAME": "Kotia Enterprises"
+        },
+
+        {
+        "Symbol": "KPT",
+        "S_NAME": "KPT Industries"
+        },
+
+        {
+        "Symbol": "KSET",
+        "S_NAME": "KSE"
+        },
+
+        {
+        "Symbol": "KUBERJI",
+        "S_NAME": "Kuber Udyog"
+        },
+
+        {
+        "Symbol": "KRYPTONQ",
+        "S_NAME": "Krypton Industries"
+        },
+
+        {
+        "Symbol": "LABELKRAFT",
+        "S_NAME": "Labelkraft Techno"
+        },
+
+        {
+        "Symbol": "LELAVOIR",
+        "S_NAME": "Le Lavoir"
+        },
+
+        {
+        "Symbol": "LLOYDSENT",
+        "S_NAME": "Lloyds Enterprises"
+        },
+
+        {
+        "Symbol": "MINFY",
+        "S_NAME": "Mahaveer Infoway"
+        },
+
+        {
+        "Symbol": "KARANWO",
+        "S_NAME": "Manor Estates"
+        },
+
+        {
+        "Symbol": "SPITZE",
+        "S_NAME": "Maruti Interior Prod"
+        },
+
+        {
+        "Symbol": "MINDSPACE",
+        "S_NAME": "Mindspace Business"
+        },
+
+        {
+        "Symbol": "MLKFOOD",
+        "S_NAME": "Milkfood"
+        },
+
+        {
+        "Symbol": "MIVENMACH",
+        "S_NAME": "Miven Machine Tools"
+        },
+
+        {
+        "Symbol": "MONIND",
+        "S_NAME": "Monind"
+        },
+
+        {
+        "Symbol": "MYSORPETRO",
+        "S_NAME": "Mysore Petro Chem"
+        },
+
+        {
+        "Symbol": "NINSYS",
+        "S_NAME": "Nintec Systems"
+        },
+
+        {
+        "Symbol": "MYSTICELE",
+        "S_NAME": "Mystic Electronics"
+        },
+
+        {
+        "Symbol": "PRIMAIN",
+        "S_NAME": "Prima Industries"
+        },
+
+        {
+        "Symbol": "OLATECH",
+        "S_NAME": "Olatech Solutions"
+        },
+
+        {
+        "Symbol": "PGINVIT-IV",
+        "S_NAME": "POWERGRID Infra"
+        },
+
+        {
+        "Symbol": "PCL",
+        "S_NAME": "Prospect Commodities"
+        },
+
+        {
+        "Symbol": "PADMALAYAT",
+        "S_NAME": "Padmalaya Telefilms"
+        },
+
+        {
+        "Symbol": "NOVARTIND",
+        "S_NAME": "Novartis"
+        },
+
+        {
+        "Symbol": "NYSSACORP",
+        "S_NAME": "Nyssa Corporation"
+        },
+
+        {
+        "Symbol": "PICTUREHS",
+        "S_NAME": "Picturehouse Media"
+        },
+
+        {
+        "Symbol": "PANTH",
+        "S_NAME": "Panth Infinity"
+        },
+
+        {
+        "Symbol": "RATNABHUMI",
+        "S_NAME": "Ratnabhumi Developer"
+        },
+
+        {
+        "Symbol": "RDBRL",
+        "S_NAME": "RDB Rasayans"
+        },
+
+        {
+        "Symbol": "REXNORD",
+        "S_NAME": "Rexnord Electronics"
+        },
+
+        {
+        "Symbol": "RISAINTL",
+        "S_NAME": "RISA International"
+        },
+
+        {
+        "Symbol": "RISHITECH",
+        "S_NAME": "Rishi Techtex"
+        },
+
+        {
+        "Symbol": "ROYALCU",
+        "S_NAME": "Royal Cushion Vinyl"
+        },
+
+        {
+        "Symbol": "RRIL",
+        "S_NAME": "RRIL"
+        },
+
+        {
+        "Symbol": "RUDRA",
+        "S_NAME": "Rudra Global Infra"
+        },
+
+        {
+        "Symbol": "RTSPOWR",
+        "S_NAME": "RTS Power Corp"
+        },
+
+        {
+        "Symbol": "SALORAINTL",
+        "S_NAME": "Salora International"
+        },
+
+        {
+        "Symbol": "SAILANI",
+        "S_NAME": "Sailani Tours N Trav"
+        },
+
+        {
+        "Symbol": "SAMSRITA",
+        "S_NAME": "Samsrita Labs"
+        },
+
+        {
+        "Symbol": "SANINFRA",
+        "S_NAME": "Sanmit Infra"
+        },
+
+        {
+        "Symbol": "7TEC",
+        "S_NAME": "Saven Technologies"
+        },
+
+        {
+        "Symbol": "SARVOTTAM",
+        "S_NAME": "Sarvottam Finvest"
+        },
+
+        {
+        "Symbol": "SHINDL",
+        "S_NAME": "Sharat Industries"
+        },
+
+        {
+        "Symbol": "SHILCTECH",
+        "S_NAME": "Shilchar Tech"
+        },
+
+        {
+        "Symbol": "SHREMETAL",
+        "S_NAME": "Shree Metalloys"
+        },
+
+        {
+        "Symbol": "SHRIKRISH",
+        "S_NAME": "Shri Krishna Devcon"
+        },
+
+        {
+        "Symbol": "SHRYDUS",
+        "S_NAME": "Shrydus Industries"
+        },
+
+        {
+        "Symbol": "SIKA",
+        "S_NAME": "Sika Interplant Sys"
+        },
+
+        {
+        "Symbol": "SINGER",
+        "S_NAME": "Singer India"
+        },
+
+        {
+        "Symbol": "SKPSEC",
+        "S_NAME": "SKP Securities"
+        },
+
+        {
+        "Symbol": "SSLEL",
+        "S_NAME": "Sir Shadi Lal Enter"
+        },
+
+        {
+        "Symbol": "SMARTFIN",
+        "S_NAME": "Smart Finsec"
+        },
+
+        {
+        "Symbol": "SONALAD",
+        "S_NAME": "Sonal Adhesives"
+        },
+
+        {
+        "Symbol": "SML",
+        "S_NAME": "Soni Medicare"
+        },
+
+        {
+        "Symbol": "SPELS",
+        "S_NAME": "SPEL Semiconductor"
+        },
+
+        {
+        "Symbol": "SPRAYKING",
+        "S_NAME": "Sprayking"
+        },
+
+        {
+        "Symbol": "SPS",
+        "S_NAME": "SPS Finquest"
+        },
+
+        {
+        "Symbol": "SRMENERGY",
+        "S_NAME": "SRM Energy"
+        },
+
+        {
+        "Symbol": "SUDARSHAN",
+        "S_NAME": "Sudarshan Pharma Ind"
+        },
+
+        {
+        "Symbol": "SUDTIND-B",
+        "S_NAME": "Suditi Industries"
+        },
+
+        {
+        "Symbol": "SUMEDHA",
+        "S_NAME": "Sumedha Fiscal Serv"
+        },
+
+        {
+        "Symbol": "SUMERUIND",
+        "S_NAME": "Sumeru Industries"
+        },
+
+        {
+        "Symbol": "SCL",
+        "S_NAME": "Sunshine Capital"
+        },
+
+        {
+        "Symbol": "SUPER",
+        "S_NAME": "Super Sales India"
+        },
+
+        {
+        "Symbol": "SURJIND",
+        "S_NAME": "Suraj Industries"
+        },
+
+        {
+        "Symbol": "SVARTCORP",
+        "S_NAME": "Swasti Vinayaka Art"
+        },
+
+        {
+        "Symbol": "TALBROSENG",
+        "S_NAME": "Talbros Engineering"
+        },
+
+        {
+        "Symbol": "TEXELIN",
+        "S_NAME": "Texel Industries"
+        },
+
+        {
+        "Symbol": "TCMD",
+        "S_NAME": "TCM"
+        },
+
+        {
+        "Symbol": "TOKYOFIN",
+        "S_NAME": "Tokyo Finance"
+        },
+
+        {
+        "Symbol": "TTFL",
+        "S_NAME": "Trident Texofab"
+        },
+
+        {
+        "Symbol": "NATIONALUM",
+        "S_NAME": "National Aluminium"
+        },
+
+        {
+        "Symbol": "CROMPTON",
+        "S_NAME": "Crompt.Greaves Cons."
+        },
+
+        {
+        "Symbol": "AIIL",
+        "S_NAME": "Authum Inv. & Infra"
+        },
+
+        {
+        "Symbol": "IDBI",
+        "S_NAME": "IDBI"
+        },
+
+        {
+        "Symbol": "BHEL",
+        "S_NAME": "BHEL"
+        },
+
+        {
+        "Symbol": "DCMSRIND",
+        "S_NAME": "DCM Shriram Inds."
+        },
+
+        {
+        "Symbol": "DTIL",
+        "S_NAME": "Dhunseri Tea"
+        },
+
+        {
+        "Symbol": "DSSL",
+        "S_NAME": "Dynacons Sys & Sol"
+        },
+
+        {
+        "Symbol": "FMGOETZE",
+        "S_NAME": "Federal-Mogul Goetze"
+        },
+
+        {
+        "Symbol": "GRINFRA",
+        "S_NAME": "GR Infraprojects"
+        },
+
+        {
+        "Symbol": "ITDC",
+        "S_NAME": "Ind Tourism Dev Corp"
+        },
+
+        {
+        "Symbol": "J&KBANK",
+        "S_NAME": "J&K Bank"
+        },
+
+        {
+        "Symbol": "DEEPAKFERT",
+        "S_NAME": "Deepak Fert & Petro"
+        },
+
+        {
+        "Symbol": "JPPOWER",
+        "S_NAME": "JP Power Ventures"
+        },
+
+        {
+        "Symbol": "KPIL",
+        "S_NAME": "Kalpataru Projects"
+        },
+
+        {
+        "Symbol": "MEDIASSIST",
+        "S_NAME": "Medi Assist Health"
+        },
+
+        {
+        "Symbol": "MTNL",
+        "S_NAME": "MTNL"
+        },
+
+        {
+        "Symbol": "NBCC",
+        "S_NAME": "NBCC (India)"
+        },
+
+        {
+        "Symbol": "NRBBEARING",
+        "S_NAME": "NRB Bearings"
+        },
+
+        {
+        "Symbol": "AVROIND",
+        "S_NAME": "Avro India"
+        },
+
+        {
+        "Symbol": "LLOYDSENGG",
+        "S_NAME": "Lloyds Engr Works"
+        },
+
+        {
+        "Symbol": "PGIL",
+        "S_NAME": "Pearl Global Inds."
+        },
+
+        {
+        "Symbol": "RITES",
+        "S_NAME": "Rites"
+        },
+
+        {
+        "Symbol": "SALASAR",
+        "S_NAME": "Salasar Techno Engg."
+        },
+
+        {
+        "Symbol": "SECURKLOUD",
+        "S_NAME": "Securekloud Tech."
+        },
+
+        {
+        "Symbol": "SESHAPAPER",
+        "S_NAME": "Seshasayee Paper"
+        },
+
+        {
+        "Symbol": "SHAKTIPUMP",
+        "S_NAME": "Shakti Pumps (I)"
+        },
+
+        {
+        "Symbol": "SHANKARA",
+        "S_NAME": "Shankara Bldg. Prod"
+        },
+
+        {
+        "Symbol": "SHYAMMETL",
+        "S_NAME": "Shyam Metalics&Ener"
+        },
+
+        {
+        "Symbol": "SIRCA",
+        "S_NAME": "SIRCA Paints India"
+        },
+
+        {
+        "Symbol": "SUDARSCHEM",
+        "S_NAME": "Sudarshan Chemicals"
+        },
+
+        {
+        "Symbol": "SUNDRMBRAK",
+        "S_NAME": "Sundaram BrakeLining"
+        },
+
+        {
+        "Symbol": "TATAMTRDVR",
+        "S_NAME": "Tata Motors - DVR"
+        },
+
+        {
+        "Symbol": "TATAPOWER",
+        "S_NAME": "Tata Power"
+        },
+
+        {
+        "Symbol": "UTIAMC",
+        "S_NAME": "UTI Asset Management"
+        },
+
+        {
+        "Symbol": "VSSL",
+        "S_NAME": "Vardhman Special"
         }
 
 ]
