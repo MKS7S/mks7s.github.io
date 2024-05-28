@@ -25268,6 +25268,81 @@
         {
         "Symbol": "VSSL",
         "S_NAME": "Vardhman Special"
+        },
+
+        {
+        "Symbol": "GREENPANEL",
+        "S_NAME": "Greenpanel Inds."
+        },
+
+        {
+        "Symbol": "SUNFLAG",
+        "S_NAME": "Sunflag Iron & Steel"
+        },
+
+        {
+        "Symbol": "PRESTIGE",
+        "S_NAME": "Prestige EstatesProj"
+        },
+
+        {
+        "Symbol": "MITCON",
+        "S_NAME": "Mitcon Consultancy"
+        },
+
+        {
+        "Symbol": "ANDREWYU",
+        "S_NAME": "Andrew Yule"
+        },
+
+        {
+        "Symbol": "SBGLP",
+        "S_NAME": "Suratwwala Business"
+        },
+
+        {
+        "Symbol": "UMESLTD",
+        "S_NAME": "Usha Martin Educatn."
+        },
+
+        {
+        "Symbol": "THANGAMAYL",
+        "S_NAME": "Thangamayil Jeweller"
+        },
+
+        {
+        "Symbol": "ANSALHSG",
+        "S_NAME": "Ansal Housing"
+        },
+
+        {
+        "Symbol": "PBAINFRA",
+        "S_NAME": "PBA Infrastructure"
+        },
+
+        {
+        "Symbol": "GREENPANEL",
+        "S_NAME": "Greenpanel Inds."
+        },
+
+        {
+        "Symbol": "SUNFLAG",
+        "S_NAME": "Sunflag Iron & Steel"
+        },
+
+        {
+        "Symbol": "SBGLP",
+        "S_NAME": "Suratwwala Business"
+        },
+
+        {
+        "Symbol": "PRESTIGE",
+        "S_NAME": "Prestige EstatesProj"
+        },
+
+        {
+        "Symbol": "UMESLTD",
+        "S_NAME": "Usha Martin Educatn."
         }
 
 ]
