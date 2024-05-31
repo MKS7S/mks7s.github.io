@@ -27118,6 +27118,281 @@
         {
         "Symbol": "ULTRACEMCO",
         "S_NAME": "Ultratech Cement"
+        },
+
+        {
+        "Symbol": "HAL",
+        "S_NAME": "Hindustan Aeron"
+        },
+
+        {
+        "Symbol": "GRSE",
+        "S_NAME": "Garden Reach Ship"
+        },
+
+        {
+        "Symbol": "UNIONBANK",
+        "S_NAME": "Union Bank Of India"
+        },
+
+        {
+        "Symbol": "BALAXI",
+        "S_NAME": "Balaxi Pharma."
+        },
+
+        {
+        "Symbol": "WEWIN",
+        "S_NAME": "We Win"
+        },
+
+        {
+        "Symbol": "CANTABIL",
+        "S_NAME": "Cantabil Retail"
+        },
+
+        {
+        "Symbol": "FABINO",
+        "S_NAME": "Fabino Life Sciences"
+        },
+
+        {
+        "Symbol": "OROSMITHS",
+        "S_NAME": "HS India"
+        },
+
+        {
+        "Symbol": "KJMCFIN",
+        "S_NAME": "KJMC Financial Serv"
+        },
+
+        {
+        "Symbol": "KRISHNACAP",
+        "S_NAME": "Krishna Capital"
+        },
+
+        {
+        "Symbol": "MODULEX",
+        "S_NAME": "Modulex Construction"
+        },
+
+        {
+        "Symbol": "MPL",
+        "S_NAME": "MPL Plastics"
+        },
+
+        {
+        "Symbol": "NHCFOODS",
+        "S_NAME": "NHC Foods"
+        },
+
+        {
+        "Symbol": "QUESTCAP",
+        "S_NAME": "Quest Capital Market"
+        },
+
+        {
+        "Symbol": "RITESHIN",
+        "S_NAME": "Ritesh International"
+        },
+
+        {
+        "Symbol": "RANDER",
+        "S_NAME": "Rander Corporation"
+        },
+
+        {
+        "Symbol": "RETINA",
+        "S_NAME": "Retina Paints"
+        },
+
+        {
+        "Symbol": "RELICAB",
+        "S_NAME": "Relicab Cable"
+        },
+
+        {
+        "Symbol": "SIDDHA",
+        "S_NAME": "Siddha Ventures"
+        },
+
+        {
+        "Symbol": "SHASHIJIT",
+        "S_NAME": "Shashijit Infra"
+        },
+
+        {
+        "Symbol": "HAL",
+        "S_NAME": "Hindustan Aeron"
+        },
+
+        {
+        "Symbol": "SMAUTO",
+        "S_NAME": "SM Auto Stamping"
+        },
+
+        {
+        "Symbol": "UNIONBANK",
+        "S_NAME": "Union Bank Of India"
+        },
+
+        {
+        "Symbol": "GRSE",
+        "S_NAME": "Garden Reach Ship"
+        },
+
+        {
+        "Symbol": "ROJL",
+        "S_NAME": "RO Jewels"
+        },
+
+        {
+        "Symbol": "RLFL",
+        "S_NAME": "RLFL"
+        },
+
+        {
+        "Symbol": "SHGANEL",
+        "S_NAME": "Shree Ganesh Elasto"
+        },
+
+        {
+        "Symbol": "SRSOLTD",
+        "S_NAME": "Silicon Rental Solut"
+        },
+
+        {
+        "Symbol": "SRD",
+        "S_NAME": "Shankar Lal Rampal"
+        },
+
+        {
+        "Symbol": "VEERENRGY",
+        "S_NAME": "Veer Energy & Infra"
+        },
+
+        {
+        "Symbol": "TTIENT",
+        "S_NAME": "TTI Enterprise"
+        },
+
+        {
+        "Symbol": "TCIIND",
+        "S_NAME": "TCI Industries"
+        },
+
+        {
+        "Symbol": "SRIKPRIND",
+        "S_NAME": "Sri KPR Industries"
+        },
+
+        {
+        "Symbol": "ULTRACAB",
+        "S_NAME": "Ultracab"
+        },
+
+        {
+        "Symbol": "STML",
+        "S_NAME": "Steelman Telecom"
+        },
+
+        {
+        "Symbol": "YUG",
+        "S_NAME": "Yug Decor"
+        },
+
+        {
+        "Symbol": "TRANSVOY",
+        "S_NAME": "Transvoy Logistics"
+        },
+
+        {
+        "Symbol": "STDSFAC",
+        "S_NAME": "Standard Surfactants"
+        },
+
+        {
+        "Symbol": "TRICOMFRU",
+        "S_NAME": "Tricom Fruit Product"
+        },
+
+        {
+        "Symbol": "ZENLABS",
+        "S_NAME": "Zenlabs Ethica"
+        },
+
+        {
+        "Symbol": "UNJHAFOR",
+        "S_NAME": "Unjha Formulations"
+        },
+
+        {
+        "Symbol": "THAKDEV",
+        "S_NAME": "Thakkers Developers"
+        },
+
+        {
+        "Symbol": "VAMA",
+        "S_NAME": "Vama Industries"
+        },
+
+        {
+        "Symbol": "TITANSEC",
+        "S_NAME": "Titan Securities"
+        },
+
+        {
+        "Symbol": "YSL",
+        "S_NAME": "The Yamuna Syndicate"
+        },
+
+        {
+        "Symbol": "VALSONQ",
+        "S_NAME": "Valson Industries"
+        },
+
+        {
+        "Symbol": "UPSURGE",
+        "S_NAME": "Upsurge Investment"
+        },
+
+        {
+        "Symbol": "VAPIENTER",
+        "S_NAME": "Vapi Enterprise"
+        },
+
+        {
+        "Symbol": "TAMBOLIIN",
+        "S_NAME": "Tamboli Industries"
+        },
+
+        {
+        "Symbol": "YASHINNO",
+        "S_NAME": "Yash Innoventures"
+        },
+
+        {
+        "Symbol": "WSFX",
+        "S_NAME": "WSFX Global Pay"
+        },
+
+        {
+        "Symbol": "VXLINSTR",
+        "S_NAME": "VXL Instruments"
+        },
+
+        {
+        "Symbol": "TUNITEX",
+        "S_NAME": "Tuni Textile Mills"
+        },
+
+        {
+        "Symbol": "SYTIXSE",
+        "S_NAME": "Systematix Securitie"
+        },
+
+        {
+        "Symbol": "STARDELTA",
+        "S_NAME": "Star Delta Transform"
         }
 
 ]
