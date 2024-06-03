@@ -27393,6 +27393,101 @@
         {
         "Symbol": "STARDELTA",
         "S_NAME": "Star Delta Transform"
+        },
+
+        {
+        "Symbol": "IRIS",
+        "S_NAME": "Iris Business Serv."
+        },
+
+        {
+        "Symbol": "ARSSINFRA",
+        "S_NAME": "ARSS Infra Project"
+        },
+
+        {
+        "Symbol": "ACKNIT",
+        "S_NAME": "Acknit Industries"
+        },
+
+        {
+        "Symbol": "AMBOAGRI",
+        "S_NAME": "Ambo Agritec"
+        },
+
+        {
+        "Symbol": "ATHCON",
+        "S_NAME": "Athena Constructions"
+        },
+
+        {
+        "Symbol": "EFCIL",
+        "S_NAME": "EFC (I)"
+        },
+
+        {
+        "Symbol": "ELNET",
+        "S_NAME": "Elnet Technologies"
+        },
+
+        {
+        "Symbol": "EPBIO",
+        "S_NAME": "EP Biocomposites"
+        },
+
+        {
+        "Symbol": "HINDMILL",
+        "S_NAME": "Hindoostan Mills"
+        },
+
+        {
+        "Symbol": "DIAMANT",
+        "S_NAME": "Diamant Infra"
+        },
+
+        {
+        "Symbol": "BINNY",
+        "S_NAME": "Binny"
+        },
+
+        {
+        "Symbol": "KONARKSY",
+        "S_NAME": "Konark Synthetic"
+        },
+
+        {
+        "Symbol": "VISESHINFO",
+        "S_NAME": "MPS Infotecnics"
+        },
+
+        {
+        "Symbol": "PANAENERG",
+        "S_NAME": "Panasonic Energy Ind"
+        },
+
+        {
+        "Symbol": "RAPICUT",
+        "S_NAME": "Rapicut Carbides"
+        },
+
+        {
+        "Symbol": "RICHAIND",
+        "S_NAME": "Richa industries"
+        },
+
+        {
+        "Symbol": "SAGARSOFT",
+        "S_NAME": "Sagarsoft (India)"
+        },
+
+        {
+        "Symbol": "SAICAPI",
+        "S_NAME": "Sai Capital"
+        },
+
+        {
+        "Symbol": "ARSSINFRA",
+        "S_NAME": "ARSS Infra Project"
         }
 
 ]
