@@ -27488,6 +27488,416 @@
         {
         "Symbol": "ARSSINFRA",
         "S_NAME": "ARSS Infra Project"
+        },
+
+        {
+        "Symbol": "ADANIENSOL",
+        "S_NAME": "Adani Energy Solut."
+        },
+
+        {
+        "Symbol": "HINDPETRO",
+        "S_NAME": "HPCL"
+        },
+
+        {
+        "Symbol": "MAZDOCK",
+        "S_NAME": "Mazagon Dock Ship"
+        },
+
+        {
+        "Symbol": "PFC",
+        "S_NAME": "Power Finance Corp"
+        },
+
+        {
+        "Symbol": "TITAGARH",
+        "S_NAME": "Titagarh Railsystems"
+        },
+
+        {
+        "Symbol": "DHINDIA",
+        "S_NAME": "D&H India"
+        },
+
+        {
+        "Symbol": "INDIASHLTR",
+        "S_NAME": "India Shelter Fin."
+        },
+
+        {
+        "Symbol": "INDOTECH",
+        "S_NAME": "Indo Tech Transform."
+        },
+
+        {
+        "Symbol": "JMA",
+        "S_NAME": "Jullundur Motor Agen"
+        },
+
+        {
+        "Symbol": "AAPLUSTRAD",
+        "S_NAME": "AA Plus Tradelink"
+        },
+
+        {
+        "Symbol": "ALUFLUOR",
+        "S_NAME": "Alufluoride"
+        },
+
+        {
+        "Symbol": "BRIDGESE",
+        "S_NAME": "Bridge Securities"
+        },
+
+        {
+        "Symbol": "DCMFINSERV",
+        "S_NAME": "DCM Financial Serv."
+        },
+
+        {
+        "Symbol": "ARL",
+        "S_NAME": "Anand Rayons"
+        },
+
+        {
+        "Symbol": "DJML",
+        "S_NAME": "DJ Mediaprint & Logi"
+        },
+
+        {
+        "Symbol": "ARNOLD",
+        "S_NAME": "Arnold Holdings"
+        },
+
+        {
+        "Symbol": "ASHAI",
+        "S_NAME": "Ashiana Agro"
+        },
+
+        {
+        "Symbol": "ASIAN",
+        "S_NAME": "Asian Warehousing"
+        },
+
+        {
+        "Symbol": "BITS",
+        "S_NAME": "BITS"
+        },
+
+        {
+        "Symbol": "BOMBWIR",
+        "S_NAME": "Bombay Wire Ropes"
+        },
+
+        {
+        "Symbol": "BRAHMINFRA",
+        "S_NAME": "Brahmaputra Infra"
+        },
+
+        {
+        "Symbol": "CAMEXLTD",
+        "S_NAME": "Camex"
+        },
+
+        {
+        "Symbol": "CORALAB",
+        "S_NAME": "Coral Laboratories"
+        },
+
+        {
+        "Symbol": "DELTA",
+        "S_NAME": "Delta Industrial"
+        },
+
+        {
+        "Symbol": "ECS",
+        "S_NAME": "ECS Biztech"
+        },
+
+        {
+        "Symbol": "ETTX",
+        "S_NAME": "ETT"
+        },
+
+        {
+        "Symbol": "1STCUS",
+        "S_NAME": "First Custodian Fund"
+        },
+
+        {
+        "Symbol": "FRANKLININD",
+        "S_NAME": "Franklin Industries"
+        },
+
+        {
+        "Symbol": "GARWSYN",
+        "S_NAME": "Garware Synthetics"
+        },
+
+        {
+        "Symbol": "GVBL",
+        "S_NAME": "Genomic Valley"
+        },
+
+        {
+        "Symbol": "HIPOLIN",
+        "S_NAME": "Hipolin"
+        },
+
+        {
+        "Symbol": "IEL",
+        "S_NAME": "IEL"
+        },
+
+        {
+        "Symbol": "INDCTST",
+        "S_NAME": "Inducto Steel"
+        },
+
+        {
+        "Symbol": "INTECCAP",
+        "S_NAME": "Intec Capital"
+        },
+
+        {
+        "Symbol": "INTCAPL",
+        "S_NAME": "Integra Capital"
+        },
+
+        {
+        "Symbol": "IPRINGLTD",
+        "S_NAME": "IP Rings"
+        },
+
+        {
+        "Symbol": "JSHL",
+        "S_NAME": "JLA Infraville"
+        },
+
+        {
+        "Symbol": "KENNAMET",
+        "S_NAME": "Kennametal India"
+        },
+
+        {
+        "Symbol": "KHAZANCHI",
+        "S_NAME": "Khazanchi Jewellers"
+        },
+
+        {
+        "Symbol": "KPL",
+        "S_NAME": "Kwality Pharma"
+        },
+
+        {
+        "Symbol": "MUL",
+        "S_NAME": "Mauria Udyog"
+        },
+
+        {
+        "Symbol": "MODIS",
+        "S_NAME": "Modi's Navnirman"
+        },
+
+        {
+        "Symbol": "NAVODAYENT",
+        "S_NAME": "Navoday Enterprises"
+        },
+
+        {
+        "Symbol": "NAVKAR",
+        "S_NAME": "Navkar Urbanstructur"
+        },
+
+        {
+        "Symbol": "NSL",
+        "S_NAME": "Northern Spirits"
+        },
+
+        {
+        "Symbol": "NITINCAST",
+        "S_NAME": "Nitin Castings"
+        },
+
+        {
+        "Symbol": "OTCO",
+        "S_NAME": "Otco International"
+        },
+
+        {
+        "Symbol": "ORGANICREC",
+        "S_NAME": "Organic Recycling"
+        },
+
+        {
+        "Symbol": "PATRON",
+        "S_NAME": "Patron Exim"
+        },
+
+        {
+        "Symbol": "POEL",
+        "S_NAME": "Pocl Enterprises"
+        },
+
+        {
+        "Symbol": "QUINT",
+        "S_NAME": "Quint Digital"
+        },
+
+        {
+        "Symbol": "RAMSONS",
+        "S_NAME": "Ramsons Projects"
+        },
+
+        {
+        "Symbol": "RAJPUTANA",
+        "S_NAME": "Rajputana Investment"
+        },
+
+        {
+        "Symbol": "RISHILASE",
+        "S_NAME": "Rishi Laser"
+        },
+
+        {
+        "Symbol": "SABOOSOD",
+        "S_NAME": "Saboo Sodium Chloro"
+        },
+
+        {
+        "Symbol": "SBECSUG",
+        "S_NAME": "SBEC Sugar"
+        },
+
+        {
+        "Symbol": "SCANSTL",
+        "S_NAME": "Scan Steels"
+        },
+
+        {
+        "Symbol": "SHRDAIS",
+        "S_NAME": "Sharda Ispat"
+        },
+
+        {
+        "Symbol": "SAHLIBHFI",
+        "S_NAME": "Shalibhadra Finance"
+        },
+
+        {
+        "Symbol": "SEASONST",
+        "S_NAME": "Seasons Textiles"
+        },
+
+        {
+        "Symbol": "SHARPINV",
+        "S_NAME": "Sharp Investments"
+        },
+
+        {
+        "Symbol": "SIKOZY",
+        "S_NAME": "Sikozy Realtors"
+        },
+
+        {
+        "Symbol": "SMFIL",
+        "S_NAME": "Smiths & Founders"
+        },
+
+        {
+        "Symbol": "SKYLMILAR",
+        "S_NAME": "Skyline Millars"
+        },
+
+        {
+        "Symbol": "SIMPLEXCAS",
+        "S_NAME": "Simplex Castings"
+        },
+
+        {
+        "Symbol": "SMRUTHIORG",
+        "S_NAME": "Smruthi Organics"
+        },
+
+        {
+        "Symbol": "SOLIMAC",
+        "S_NAME": "Solitaire Machine"
+        },
+
+        {
+        "Symbol": "SRECR",
+        "S_NAME": "Sreechem Resins"
+        },
+
+        {
+        "Symbol": "STARLOG",
+        "S_NAME": "Starlog Enterprises"
+        },
+
+        {
+        "Symbol": "SUCROSA",
+        "S_NAME": "Super Crop Safe"
+        },
+
+        {
+        "Symbol": "SUBSM",
+        "S_NAME": "Subhash Silk Mills"
+        },
+
+        {
+        "Symbol": "SVCIND",
+        "S_NAME": "SVC Industries"
+        },
+
+        {
+        "Symbol": "SUNILTX",
+        "S_NAME": "Sunil Industries"
+        },
+
+        {
+        "Symbol": "ADANIENSOL",
+        "S_NAME": "Adani Energy Solut."
+        },
+
+        {
+        "Symbol": "HINDPETRO",
+        "S_NAME": "HPCL"
+        },
+
+        {
+        "Symbol": "MAZDOCK",
+        "S_NAME": "Mazagon Dock Ship"
+        },
+
+        {
+        "Symbol": "PFC",
+        "S_NAME": "Power Finance Corp"
+        },
+
+        {
+        "Symbol": "DCMFINSERV",
+        "S_NAME": "DCM Financial Serv."
+        },
+
+        {
+        "Symbol": "DJML",
+        "S_NAME": "DJ Mediaprint & Logi"
+        },
+
+        {
+        "Symbol": "INDIASHLTR",
+        "S_NAME": "India Shelter Fin."
+        },
+
+        {
+        "Symbol": "INDOTECH",
+        "S_NAME": "Indo Tech Transform."
+        },
+
+        {
+        "Symbol": "TITAGARH",
+        "S_NAME": "Titagarh Railsystems"
         }
 
 ]
