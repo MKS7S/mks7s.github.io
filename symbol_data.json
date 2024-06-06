@@ -27898,6 +27898,86 @@
         {
         "Symbol": "TITAGARH",
         "S_NAME": "Titagarh Railsystems"
+        },
+
+        {
+        "Symbol": "ACHYUT",
+        "S_NAME": "Achyut Healthcare"
+        },
+
+        {
+        "Symbol": "EIGHTY",
+        "S_NAME": "Eighty Jewellers"
+        },
+
+        {
+        "Symbol": "544094",
+        "S_NAME": "Euphoria Infotech"
+        },
+
+        {
+        "Symbol": "GANHOLD",
+        "S_NAME": "Ganesh Holdings"
+        },
+
+        {
+        "Symbol": "IFL",
+        "S_NAME": "IFL Enterprises"
+        },
+
+        {
+        "Symbol": "MACH",
+        "S_NAME": "MAC Hotels"
+        },
+
+        {
+        "Symbol": "MILEFUR",
+        "S_NAME": "Milestone Furniture"
+        },
+
+        {
+        "Symbol": "SAMTEX",
+        "S_NAME": "Samtex Fashions"
+        },
+
+        {
+        "Symbol": "SHALPRO",
+        "S_NAME": "Shalimar Productions"
+        },
+
+        {
+        "Symbol": "ZSARACOM",
+        "S_NAME": "Saraswati Commercial"
+        },
+
+        {
+        "Symbol": "SW1",
+        "S_NAME": "SW Investments"
+        },
+
+        {
+        "Symbol": "TRANSFD",
+        "S_NAME": "Transglobe Foods"
+        },
+
+        {
+        "Symbol": "TRIVENIENT",
+        "S_NAME": "Triveni Enterprises"
+        },
+
+        {
+        "Symbol": "UNIQUEO",
+        "S_NAME": "Unique Organics"
+        },
+
+        {
+        "Symbol": "VEL",
+        "S_NAME": "Vaxfab Enterprise"
+        },
+
+        {
+        "Symbol": "VENLONENT",
+        "S_NAME": "Venlon Enterprises"
         }
 
 ]
