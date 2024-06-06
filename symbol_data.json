@@ -27978,6 +27978,56 @@
         {
         "Symbol": "VENLONENT",
         "S_NAME": "Venlon Enterprises"
+        },
+
+        {
+        "Symbol": "CFL",
+        "S_NAME": "Classic Filaments"
+        },
+
+        {
+        "Symbol": "EMERALL",
+        "S_NAME": "Emerald Leisures"
+        },
+
+        {
+        "Symbol": "GROVY",
+        "S_NAME": "Grovy India"
+        },
+
+        {
+        "Symbol": "KIRANPR",
+        "S_NAME": "Kiran Print-Pack"
+        },
+
+        {
+        "Symbol": "MEHSECU",
+        "S_NAME": "Mehta Securities"
+        },
+
+        {
+        "Symbol": "RONI",
+        "S_NAME": "Roni Households"
+        },
+
+        {
+        "Symbol": "SIMPLXPAP",
+        "S_NAME": "Simplex Papers"
+        },
+
+        {
+        "Symbol": "SDL",
+        "S_NAME": "Span Divergent"
+        },
+
+        {
+        "Symbol": "SAKTHIFIN",
+        "S_NAME": "Sakthi Finance"
+        },
+
+        {
+        "Symbol": "SRINACHA",
+        "S_NAME": "Sri Nachammai Cotton"
         }
 
 ]
