@@ -28028,6 +28028,81 @@
         {
         "Symbol": "SRINACHA",
         "S_NAME": "Sri Nachammai Cotton"
+        },
+
+        {
+        "Symbol": "MAFIA",
+        "S_NAME": "Mafia Trends"
+        },
+
+        {
+        "Symbol": "KONNDOR",
+        "S_NAME": "Konndor Industries"
+        },
+
+        {
+        "Symbol": "MUKTA",
+        "S_NAME": "Mukta Agriculture"
+        },
+
+        {
+        "Symbol": "MILESTONE",
+        "S_NAME": "Milestone Global"
+        },
+
+        {
+        "Symbol": "INTRGLB",
+        "S_NAME": "Inter Globe Finance"
+        },
+
+        {
+        "Symbol": "MKTCREAT",
+        "S_NAME": "Market Creators"
+        },
+
+        {
+        "Symbol": "NATHUEC",
+        "S_NAME": "Natura Hue Chem"
+        },
+
+        {
+        "Symbol": "PJL",
+        "S_NAME": "Patdiam Jewellery"
+        },
+
+        {
+        "Symbol": "OCTAL",
+        "S_NAME": "Octal Credit Capital"
+        },
+
+        {
+        "Symbol": "RFSL",
+        "S_NAME": "Richfield Financial"
+        },
+
+        {
+        "Symbol": "SKIFL",
+        "S_NAME": "Shree Krishna Infra"
+        },
+
+        {
+        "Symbol": "WESTLEIRES",
+        "S_NAME": "West Leisure Resorts"
+        },
+
+        {
+        "Symbol": "VASINFRA",
+        "S_NAME": "Vas Infrastructure"
+        },
+
+        {
+        "Symbol": "SGNTE",
+        "S_NAME": "SGN Telecoms"
+        },
+
+        {
+        "Symbol": "SCC",
+        "S_NAME": "Scintilla Commercial"
         }
 
 ]
