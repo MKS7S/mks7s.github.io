@@ -28123,6 +28123,116 @@
         {
         "Symbol": "UNTTEMI",
         "S_NAME": "United Leasing"
+        },
+
+        {
+        "Symbol": "BOROSCI",
+        "S_NAME": "Borosil Scientific"
+        },
+
+        {
+        "Symbol": "CAPRICORN",
+        "S_NAME": "Capricorn Systems"
+        },
+
+        {
+        "Symbol": "BPMAX",
+        "S_NAME": "BP Capital"
+        },
+
+        {
+        "Symbol": "JETINFRA",
+        "S_NAME": "Jet Infraventure"
+        },
+
+        {
+        "Symbol": "MEGRISOFT",
+        "S_NAME": "Megri Soft"
+        },
+
+        {
+        "Symbol": "MELSTAR",
+        "S_NAME": "Melstar Informn.Tech"
+        },
+
+        {
+        "Symbol": "MCLTD",
+        "S_NAME": "Munoth Communication"
+        },
+
+        {
+        "Symbol": "PRATIK",
+        "S_NAME": "Pratik Panels"
+        },
+
+        {
+        "Symbol": "PRSNTIN",
+        "S_NAME": "Prashant India"
+        },
+
+        {
+        "Symbol": "SEL",
+        "S_NAME": "Sanathnagar Enterpri"
+        },
+
+        {
+        "Symbol": "SRDAPRT",
+        "S_NAME": "Sarda Proteins"
+        },
+
+        {
+        "Symbol": "SHANTAI",
+        "S_NAME": "Shantai Industries"
+        },
+
+        {
+        "Symbol": "SHIVAGR",
+        "S_NAME": "Shivagrico Implement"
+        },
+
+        {
+        "Symbol": "STEPHANOTIS",
+        "S_NAME": "Stephanotis Finance"
+        },
+
+        {
+        "Symbol": "STRLGUA",
+        "S_NAME": "Sterling Guaranty"
+        },
+
+        {
+        "Symbol": "STURDY",
+        "S_NAME": "Sturdy Industries"
+        },
+
+        {
+        "Symbol": "SWOEF",
+        "S_NAME": "Swojas Energy Foods"
+        },
+
+        {
+        "Symbol": "UMIYA",
+        "S_NAME": "Umiya Tube"
+        },
+
+        {
+        "Symbol": "VIJAYTX",
+        "S_NAME": "Vijay Textiles"
+        },
+
+        {
+        "Symbol": "VIRYA",
+        "S_NAME": "Virya Resources"
+        },
+
+        {
+        "Symbol": "WWALUM",
+        "S_NAME": "Worldwide Aluminium"
+        },
+
+        {
+        "Symbol": "BOROSCI",
+        "S_NAME": "Borosil Scientific"
         }
 
 ]
