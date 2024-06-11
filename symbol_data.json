@@ -28243,6 +28243,51 @@
         {
         "Symbol": "KRONOX",
         "S_NAME": "Kronox Lab Sciences"
+        },
+
+        {
+        "Symbol": "RAJOOENG",
+        "S_NAME": "Rajoo Engineers"
+        },
+
+        {
+        "Symbol": "HBLEAS",
+        "S_NAME": "HB Leasing & Finance"
+        },
+
+        {
+        "Symbol": "MAYURFL",
+        "S_NAME": "Mayur Floorings"
+        },
+
+        {
+        "Symbol": "EUROLED",
+        "S_NAME": "Euro Leder Fashion"
+        },
+
+        {
+        "Symbol": "MONGIPA",
+        "S_NAME": "Moongipa Capital Fin"
+        },
+
+        {
+        "Symbol": "SHREESHAY",
+        "S_NAME": "Shreeshay Engineers"
+        },
+
+        {
+        "Symbol": "SUGALDAM",
+        "S_NAME": "Sugal & Damani Share"
+        },
+
+        {
+        "Symbol": "TECHNVISN",
+        "S_NAME": "TechNVision Ventures"
+        },
+
+        {
+        "Symbol": "VAMSHIRU",
+        "S_NAME": "Vamshi Rubber"
         }
 
 ]
