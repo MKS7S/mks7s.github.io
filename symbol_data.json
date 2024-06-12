@@ -28288,6 +28288,51 @@
         {
         "Symbol": "VAMSHIRU",
         "S_NAME": "Vamshi Rubber"
+        },
+
+        {
+        "Symbol": "KKPLASTICK",
+        "S_NAME": "Kkalpana Plastick"
+        },
+
+        {
+        "Symbol": "INNOCORP",
+        "S_NAME": "Innocorp"
+        },
+
+        {
+        "Symbol": "GOLDENCREST",
+        "S_NAME": "Golden Crest"
+        },
+
+        {
+        "Symbol": "ISTRNETWK",
+        "S_NAME": "iStreet Network"
+        },
+
+        {
+        "Symbol": "CDG",
+        "S_NAME": "CDG Petchem"
+        },
+
+        {
+        "Symbol": "ESHAMEDIA",
+        "S_NAME": "Esha Media Research"
+        },
+
+        {
+        "Symbol": "COMPUPN",
+        "S_NAME": "Computer Point"
+        },
+
+        {
+        "Symbol": "BRIGHT",
+        "S_NAME": "Bright Outdoor Media"
+        },
+
+        {
+        "Symbol": "MPILCORPL",
+        "S_NAME": "MPIL Corporation"
         }
 
 ]
