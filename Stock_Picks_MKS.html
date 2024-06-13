@@ -580,9 +580,9 @@ $(async function() {
     try {
         const [jsonData, dataNSE, dataBSE, openInterestData] = await Promise.all([
             fetchJsonData('https://raw.githubusercontent.com/MKS7S/mks7s.github.io/master/symbol_data.json'),
-            getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=NSE&Type=Low&Period=1WEEK&PageSize=100'),
-            getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=BSE&Type=Low&Period=1WEEK&PageSize=100'),
-            getAllPagedData('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&PageSize=100')
+            getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=NSE&Type=Low&Period=1WEEK&PageSize=10000'),
+            getAllPagedData('https://www.nirmalbang.com/ajaxpages/equity/EquityHighsAndLows.aspx?Exchange=BSE&Type=Low&Period=1WEEK&PageSize=10000'),
+            getAllPagedData('https://www.nirmalbang.com/ajaxpages/derivative/DerivOpenInterest.aspx?opt1=IOIIPRIVOL&PageSize=10000')
         ]);
 
         const mergedData = [...dataNSE, ...dataBSE];
