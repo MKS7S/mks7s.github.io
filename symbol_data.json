@@ -28463,6 +28463,76 @@
         {
         "Symbol": "SSPNFIN",
         "S_NAME": "SSPN Finance"
+        },
+
+        {
+        "Symbol": "ABHICAP",
+        "S_NAME": "Abhinav Capital Serv"
+        },
+
+        {
+        "Symbol": "SRUSTEELS",
+        "S_NAME": "SRU Steels"
+        },
+
+        {
+        "Symbol": "LALPATHLAB",
+        "S_NAME": "Dr. Lal Pathlabs"
+        },
+
+        {
+        "Symbol": "MCCHRLS-B",
+        "S_NAME": "Mac Charles (India)"
+        },
+
+        {
+        "Symbol": "SAUMYA",
+        "S_NAME": "Saumya Consultants"
+        },
+
+        {
+        "Symbol": "SUPERSHAKT",
+        "S_NAME": "Supershakti Metaliks"
+        },
+
+        {
+        "Symbol": "TANVI",
+        "S_NAME": "Tanvi Foods"
+        },
+
+        {
+        "Symbol": "UNITEDINT",
+        "S_NAME": "United Interactive"
+        },
+
+        {
+        "Symbol": "VRL",
+        "S_NAME": "Vasundhara Rasayans"
+        },
+
+        {
+        "Symbol": "VEERHEALTH",
+        "S_NAME": "Veerhealth Care"
+        },
+
+        {
+        "Symbol": "VISCO",
+        "S_NAME": "Visco Trade Associat"
+        },
+
+        {
+        "Symbol": "VIVOBIOT",
+        "S_NAME": "Vivo Bio Tech"
+        },
+
+        {
+        "Symbol": "YASHMGM",
+        "S_NAME": "Yash Management"
+        },
+
+        {
+        "Symbol": "LALPATHLAB",
+        "S_NAME": "Dr. Lal Pathlabs"
         }
 
 ]
