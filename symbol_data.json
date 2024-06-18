@@ -28538,6 +28538,161 @@
         {
         "Symbol": "DML",
         "S_NAME": "Diggi Multitrade"
+        },
+
+        {
+        "Symbol": "DRREDDY",
+        "S_NAME": "Dr. Reddy's Lab"
+        },
+
+        {
+        "Symbol": "METROPOLIS",
+        "S_NAME": "Metropolis Health."
+        },
+
+        {
+        "Symbol": "RESPONIND",
+        "S_NAME": "Responsive Inds"
+        },
+
+        {
+        "Symbol": "BARONINF",
+        "S_NAME": "Baron Infotech"
+        },
+
+        {
+        "Symbol": "CALCOM",
+        "S_NAME": "Calcom Vision"
+        },
+
+        {
+        "Symbol": "BRAWN",
+        "S_NAME": "Brawn Biotech"
+        },
+
+        {
+        "Symbol": "CBPL",
+        "S_NAME": "Chandra Bhagat Pharm"
+        },
+
+        {
+        "Symbol": "CFSL.FRK",
+        "S_NAME": "CFSL"
+        },
+
+        {
+        "Symbol": "CHANDRIMA",
+        "S_NAME": "Chandrima Mercantile"
+        },
+
+        {
+        "Symbol": "FLORATX",
+        "S_NAME": "Flora Textiles"
+        },
+
+        {
+        "Symbol": "GOLCA",
+        "S_NAME": "Golden Carpets"
+        },
+
+        {
+        "Symbol": "HINDADH",
+        "S_NAME": "Hindustan Adhesives"
+        },
+
+        {
+        "Symbol": "MAHESH",
+        "S_NAME": "Mahesh Developers"
+        },
+
+        {
+        "Symbol": "MANBRO",
+        "S_NAME": "Manbro Industries"
+        },
+
+        {
+        "Symbol": "NPRFIN",
+        "S_NAME": "NPR Finance"
+        },
+
+        {
+        "Symbol": "PROGREXV",
+        "S_NAME": "Progrex Ventures"
+        },
+
+        {
+        "Symbol": "PURPLE",
+        "S_NAME": "Purple Entertainment"
+        },
+
+        {
+        "Symbol": "SHIVAEXPO",
+        "S_NAME": "Shiva Granito Export"
+        },
+
+        {
+        "Symbol": "SILVOAK",
+        "S_NAME": "Silver Oak (India)"
+        },
+
+        {
+        "Symbol": "SOUTHERNIN",
+        "S_NAME": "Southern Infosys"
+        },
+
+        {
+        "Symbol": "TAVERNIER",
+        "S_NAME": "Tavernier Resources"
+        },
+
+        {
+        "Symbol": "TEJNAKSH",
+        "S_NAME": "Tejnaksh Healthcare"
+        },
+
+        {
+        "Symbol": "TIMESGREEN",
+        "S_NAME": "Times Green Energy"
+        },
+
+        {
+        "Symbol": "VINYOFL",
+        "S_NAME": "Vinyoflex"
+        },
+
+        {
+        "Symbol": "VIRTUALS",
+        "S_NAME": "Virtualsoft Systems"
+        },
+
+        {
+        "Symbol": "VISHALBL",
+        "S_NAME": "Vishal Bearings"
+        },
+
+        {
+        "Symbol": "WENDT",
+        "S_NAME": "Wendt India"
+        },
+
+        {
+        "Symbol": "DRREDDY",
+        "S_NAME": "Dr. Reddy's Lab"
+        },
+
+        {
+        "Symbol": "ZENOTECH",
+        "S_NAME": "Zenotech Laboratorie"
+        },
+
+        {
+        "Symbol": "METROPOLIS",
+        "S_NAME": "Metropolis Health."
+        },
+
+        {
+        "Symbol": "RESPONIND",
+        "S_NAME": "Responsive Inds"
         }
 
 ]
