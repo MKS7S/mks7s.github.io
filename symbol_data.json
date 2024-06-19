@@ -28693,6 +28693,121 @@
         {
         "Symbol": "RESPONIND",
         "S_NAME": "Responsive Inds"
+        },
+
+        {
+        "Symbol": "GLAXO",
+        "S_NAME": "Glaxosmithkline Phar"
+        },
+
+        {
+        "Symbol": "PGHH",
+        "S_NAME": "P&G Hygiene"
+        },
+
+        {
+        "Symbol": "ABFRL",
+        "S_NAME": "Aditya Birla Fashion"
+        },
+
+        {
+        "Symbol": "RKSWAMY",
+        "S_NAME": "RK Swamy"
+        },
+
+        {
+        "Symbol": "CAPACITE",
+        "S_NAME": "Capacite Infraproj."
+        },
+
+        {
+        "Symbol": "HINDALCO",
+        "S_NAME": "Hindalco"
+        },
+
+        {
+        "Symbol": "ACESOFT",
+        "S_NAME": "Ace Software Exp"
+        },
+
+        {
+        "Symbol": "ANDHRAPET",
+        "S_NAME": "Andhra Petrochem"
+        },
+
+        {
+        "Symbol": "BOMTALKIES",
+        "S_NAME": "Bombay Talkies"
+        },
+
+        {
+        "Symbol": "HILIKS",
+        "S_NAME": "Hiliks Technologies"
+        },
+
+        {
+        "Symbol": "KIRLFER",
+        "S_NAME": "Kirloskar Ferrous"
+        },
+
+        {
+        "Symbol": "INNOVATIVE",
+        "S_NAME": "Innovative Ideals"
+        },
+
+        {
+        "Symbol": "KRANTI",
+        "S_NAME": "Kranti Industries"
+        },
+
+        {
+        "Symbol": "OMNITEX",
+        "S_NAME": "Omnitex Industries"
+        },
+
+        {
+        "Symbol": "PALMJEWELS",
+        "S_NAME": "PALM Jewels"
+        },
+
+        {
+        "Symbol": "GLAXO",
+        "S_NAME": "Glaxosmithkline Phar"
+        },
+
+        {
+        "Symbol": "PGHH",
+        "S_NAME": "P&G Hygiene"
+        },
+
+        {
+        "Symbol": "RKSWAMY",
+        "S_NAME": "RK Swamy"
+        },
+
+        {
+        "Symbol": "ABFRL",
+        "S_NAME": "Aditya Birla Fashion"
+        },
+
+        {
+        "Symbol": "CAPACITE",
+        "S_NAME": "Capacite Infraproj."
+        },
+
+        {
+        "Symbol": "TAIIND",
+        "S_NAME": "Tai Industries"
+        },
+
+        {
+        "Symbol": "SYBLY",
+        "S_NAME": "Sybly Industries"
+        },
+
+        {
+        "Symbol": "HINDALCO",
+        "S_NAME": "Hindalco"
         }
 
 ]
