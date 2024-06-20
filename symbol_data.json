@@ -28808,6 +28808,26 @@
         {
         "Symbol": "HINDALCO",
         "S_NAME": "Hindalco"
+        },
+
+        {
+        "Symbol": "DIVISLAB",
+        "S_NAME": "Divi's Lab"
+        },
+
+        {
+        "Symbol": "KESARENT",
+        "S_NAME": "Kesar Enterprises"
+        },
+
+        {
+        "Symbol": "DIVISLAB",
+        "S_NAME": "Divi's Lab"
+        },
+
+        {
+        "Symbol": "DANUBE",
+        "S_NAME": "Danube Industries"
         }
 
 ]
