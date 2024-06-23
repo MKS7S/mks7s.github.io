@@ -28828,6 +28828,136 @@
         {
         "Symbol": "DANUBE",
         "S_NAME": "Danube Industries"
+        },
+
+        {
+        "Symbol": "PNB",
+        "S_NAME": "PNB"
+        },
+
+        {
+        "Symbol": "BALKRISIND",
+        "S_NAME": "Balkrishna Inds."
+        },
+
+        {
+        "Symbol": "TEXINFRA",
+        "S_NAME": "Texmaco Infra"
+        },
+
+        {
+        "Symbol": "AFFORDABLE",
+        "S_NAME": "Affordable Robotic"
+        },
+
+        {
+        "Symbol": "ASHOKRE",
+        "S_NAME": "Ashoka Refineries"
+        },
+
+        {
+        "Symbol": "DILIGENT",
+        "S_NAME": "Diligent Industries"
+        },
+
+        {
+        "Symbol": "GUJCMDS",
+        "S_NAME": "Gujchem Distillers"
+        },
+
+        {
+        "Symbol": "DRL",
+        "S_NAME": "Disha Resources"
+        },
+
+        {
+        "Symbol": "ELCIDIN",
+        "S_NAME": "Elcid Investment"
+        },
+
+        {
+        "Symbol": "GETALONG",
+        "S_NAME": "Getalong Enterprise"
+        },
+
+        {
+        "Symbol": "HANMAN",
+        "S_NAME": "Hanman Fit"
+        },
+
+        {
+        "Symbol": "INLANPR",
+        "S_NAME": "Inland Printers"
+        },
+
+        {
+        "Symbol": "JAYBHCR",
+        "S_NAME": "Jayabharat Credit"
+        },
+
+        {
+        "Symbol": "LADDERUP",
+        "S_NAME": "Ladderup Finance"
+        },
+
+        {
+        "Symbol": "LAKHOTIA",
+        "S_NAME": "Lakhotia Polyesters"
+        },
+
+        {
+        "Symbol": "MIHIKA",
+        "S_NAME": "Mihika Industries"
+        },
+
+        {
+        "Symbol": "MEAPL",
+        "S_NAME": "Modern Engineering"
+        },
+
+        {
+        "Symbol": "PNB",
+        "S_NAME": "PNB"
+        },
+
+        {
+        "Symbol": "TEXINFRA",
+        "S_NAME": "Texmaco Infra"
+        },
+
+        {
+        "Symbol": "BALKRISIND",
+        "S_NAME": "Balkrishna Inds."
+        },
+
+        {
+        "Symbol": "STERPOW",
+        "S_NAME": "Sterling Powergensys"
+        },
+
+        {
+        "Symbol": "RANJEET",
+        "S_NAME": "Ranjeet Mechatronics"
+        },
+
+        {
+        "Symbol": "VELHO",
+        "S_NAME": "Velan Hotels"
+        },
+
+        {
+        "Symbol": "TULIVE",
+        "S_NAME": "Tulive Developers"
+        },
+
+        {
+        "Symbol": "UTLINDS",
+        "S_NAME": "UTL Industries"
+        },
+
+        {
+        "Symbol": "YAMNINV",
+        "S_NAME": "Yamini Investments"
         }
 
 ]
