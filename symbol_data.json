@@ -29093,6 +29093,66 @@
         {
         "Symbol": "RCF",
         "S_NAME": "RCF"
+        },
+
+        {
+        "Symbol": "BHARTIHEXA",
+        "S_NAME": "Bharti Hexacom Ltd."
+        },
+
+        {
+        "Symbol": "INDUSINDBK",
+        "S_NAME": "Indusind Bank"
+        },
+
+        {
+        "Symbol": "BPTEX",
+        "S_NAME": "Blue Pearl Texspin"
+        },
+
+        {
+        "Symbol": "CHCL",
+        "S_NAME": "Cian Healthcare"
+        },
+
+        {
+        "Symbol": "GCKL",
+        "S_NAME": "Galaxy Cloud Kitchen"
+        },
+
+        {
+        "Symbol": "GARODCH",
+        "S_NAME": "Garodia Chemicals"
+        },
+
+        {
+        "Symbol": "INDUSINDBK",
+        "S_NAME": "Indusind Bank"
+        },
+
+        {
+        "Symbol": "BHARTIHEXA",
+        "S_NAME": "Bharti Hexacom Ltd."
+        },
+
+        {
+        "Symbol": "NETTLINX",
+        "S_NAME": "Nettlinx"
+        },
+
+        {
+        "Symbol": "SAENTER",
+        "S_NAME": "South Asian Enter"
+        },
+
+        {
+        "Symbol": "SNIM",
+        "S_NAME": "Svarnim Trade Udyog"
+        },
+
+        {
+        "Symbol": "TRITONV",
+        "S_NAME": "Triton Valves"
         }
 
 ]
