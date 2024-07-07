@@ -29153,6 +29153,56 @@
         {
         "Symbol": "TRITONV",
         "S_NAME": "Triton Valves"
+        },
+
+        {
+        "Symbol": "RETAIL",
+        "S_NAME": "JHS Svendgaard Retl"
+        },
+
+        {
+        "Symbol": "VERTOZ",
+        "S_NAME": "Vertoz"
+        },
+
+        {
+        "Symbol": "BHUDEVI",
+        "S_NAME": "Bhudevi Infra Proj"
+        },
+
+        {
+        "Symbol": "LAXMIPATI",
+        "S_NAME": "Laxmipati Engineerin"
+        },
+
+        {
+        "Symbol": "ZBINTXPP",
+        "S_NAME": "Binayak Tex Process"
+        },
+
+        {
+        "Symbol": "DGL",
+        "S_NAME": "Diksha Greens"
+        },
+
+        {
+        "Symbol": "RAFL",
+        "S_NAME": "Raghuvansh Agro"
+        },
+
+        {
+        "Symbol": "INDSUCR",
+        "S_NAME": "Indian Sucrose"
+        },
+
+        {
+        "Symbol": "544188",
+        "S_NAME": "Magenta Lifecare"
+        },
+
+        {
+        "Symbol": "REGENCY",
+        "S_NAME": "Regency Fincorp"
         }
 
 ]
