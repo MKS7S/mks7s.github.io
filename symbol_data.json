@@ -29353,6 +29353,31 @@
         {
         "Symbol": "ABDL",
         "S_NAME": "Allied Blenders"
+        },
+
+        {
+        "Symbol": "LEX",
+        "S_NAME": "LEX Nimble Solutions"
+        },
+
+        {
+        "Symbol": "RPIL",
+        "S_NAME": "Ritesh Properties"
+        },
+
+        {
+        "Symbol": "TRESCON",
+        "S_NAME": "Trescon"
+        },
+
+        {
+        "Symbol": "UNIROYAL",
+        "S_NAME": "Uniroyal Industries"
+        },
+
+        {
+        "Symbol": "VMS",
+        "S_NAME": "VMS Industries"
         }
 
 ]
