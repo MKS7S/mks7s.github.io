@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Input Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <form id="timeForm">
+        <label for="dateFrom">Date From:</label>
+        <input type="datetime-local" id="dateFrom" name="dateFrom" required>
+        <br><br>
+        <label for="dateTo">Date To:</label>
+        <input type="datetime-local" id="dateTo" name="dateTo" required>
+        <br><br>
+        <button type="button" id="submitBtn">Submit</button>
+    </form>
+
+    <script>
+        $(document).ready(function () {
+            // Get current time
+            const currentTime = new Date();
+            const nextMinute = new Date(currentTime.getTime() + 60000); // 1 minute later
+
+            // Format time as required by input[type=datetime-local]
+            const formatDateTimeLocal = (date) => {
+                const pad = num => num < 10 ? '0' + num : num;
+                return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+            };
+
+            // Set default values
+            $('#dateFrom').val(formatDateTimeLocal(currentTime));
+            $('#dateTo').val(formatDateTimeLocal(nextMinute));
+
+            // Handle form submission
+            $('#submitBtn').click(function () {
+                const dateFrom = $('#dateFrom').val().replace('T', ' ') + ":00";
+                const dateTo = $('#dateTo').val().replace('T', ' ') + ":00";
+
+                const settings = {
+                    "url": "http://127.0.0.1/IMS/CRUD/UploadDT_NM?userId=NAMPS&userPass=NAMPS@123",
+                    "method": "POST",
+                    "timeout": 0,
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "data": JSON.stringify({
+                        "models": [
+                            {
+                                "Date_from": dateFrom,
+                                "Date_to": dateTo,
+                                "Period": "0",
+                                "Instrument_status": "0",
+                                "Data_status": "0",
+                                "Quality": "0",
+                                "WF": "0",
+                                "Add1": "0",
+                                "Add2": "0",
+                                "Parameter": "1",
+                                "Value": "22.3"
+                            },
+                            {
+                                "Date_from": dateFrom,
+                                "Date_to": dateTo,
+                                "Period": "0",
+                                "Instrument_status": "0",
+                                "Data_status": "0",
+                                "Quality": "0",
+                                "WF": "0",
+                                "Add1": "0",
+                                "Add2": "0",
+                                "Parameter": "2",
+                                "Value": "24324.1"
+                            }
+                        ]
+                    }),
+                };
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
