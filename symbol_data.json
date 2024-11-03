@@ -29468,6 +29468,36 @@
         {
         "Symbol": "SHARDAMOTR",
         "S_NAME": "Sharda Motor Inds."
+        },
+
+        {
+        "Symbol": "OCCLLTD",
+        "S_NAME": "OCCL"
+        },
+
+        {
+        "Symbol": "SHEKHAWATI",
+        "S_NAME": "Shekhawati Indust."
+        },
+
+        {
+        "Symbol": "ADVPETR-B",
+        "S_NAME": "Advance Petro"
+        },
+
+        {
+        "Symbol": "544270",
+        "S_NAME": "Khyati Global Vent"
+        },
+
+        {
+        "Symbol": "FISCHER",
+        "S_NAME": "Fischer Medical"
+        },
+
+        {
+        "Symbol": "OCCLLTD",
+        "S_NAME": "OCCL"
         }
 
 ]
