@@ -1,0 +1,75 @@
+{
+  "Bhopal Division": [
+    "Bhopal",
+    "Vidisha",
+    "Raisen",
+    "Rajgarh",
+    "Sehore"
+  ],
+  "Chambal Division": [
+    "Morena",
+    "Bhind",
+    "Sheopur"
+  ],
+  "Gwalior Division": [
+    "Gwalior",
+    "Guna",
+    "Shivpuri",
+    "Datia",
+    "Ashoknagar"
+  ],
+  "Indore Division": [
+    "Indore",
+    "Dhar",
+    "Jhabua",
+    "Alirajpur",
+    "Barwani",
+    "Burhanpur",
+    "Khandwa",
+    "Khargone"
+  ],
+  "Jabalpur Division": [
+    "Jabalpur",
+    "Katni",
+    "Narsinghpur",
+    "Chhindwara",
+    "Seoni",
+    "Mandla",
+    "Dindori",
+    "Balaghat"
+  ],
+  "Hoshangabad Division": [
+    "Hoshangabad",
+    "Harda",
+    "Betul"
+  ],
+  "Rewa Division": [
+    "Rewa",
+    "Satna",
+    "Sidhi",
+    "Singrauli",
+    "Mauganj"
+  ],
+  "Sagar Division": [
+    "Sagar",
+    "Damoh",
+    "Panna",
+    "Chhatarpur",
+    "Tikamgarh",
+    "Niwari"
+  ],
+  "Shahdol Division": [
+    "Shahdol",
+    "Anuppur",
+    "Umaria"
+  ],
+  "Ujjain Division": [
+    "Ujjain",
+    "Dewas",
+    "Shajapur",
+    "Agar Malwa",
+    "Ratlam",
+    "Mandsaur",
+    "Neemuch"
+  ]
+}
