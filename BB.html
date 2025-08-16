@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Bhasker Family – अभिषेक & खुशबू बेबी – गर्भावस्था ट्रैकर</title>
+  <style>
+    body{
+      font-family:'Noto Sans Devanagari',sans-serif;
+      background-image:radial-gradient(circle at 10% 10%, rgba(255,240,245,0.6) 0%, transparent 25%), 
+                        radial-gradient(circle at 90% 90%, rgba(230,245,255,0.6) 0%, transparent 25%), 
+                        linear-gradient(180deg,#fffefd,#f6fbff);
+      margin:0;padding:0;line-height:1.6;color:#333;
+    }
+    .container{max-width:650px;margin:auto;padding:16px;}
+    .baby-hero{background:linear-gradient(135deg,#ffe6f0,#e6f0ff);padding:18px;border-radius:20px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+    .baby-hero h1{margin:0;font-size:1.6rem;color:#7b1b5a;}
+    .baby-hero p{margin:6px 0 0;font-size:0.95rem;color:#555;}
+    .card{background:#fff;border-radius:14px;padding:16px;margin-top:18px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+    .progress{height:18px;border-radius:10px;background:#f3f4f6;overflow:hidden;margin:12px 0;}
+    .progress-bar{height:100%;background:linear-gradient(90deg,#f472b6,#60a5fa);text-align:center;color:#fff;font-size:0.8rem;font-weight:bold;}
+    .stage{font-weight:bold;color:#2563eb;}
+    ul{padding-left:18px}
+    .baby-svg{margin-top:16px;text-align:center;}
+    svg{max-width:160px;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="baby-hero">
+      <h1>👨‍👩‍👧 The Bhasker Family</h1>
+      <h2>👶 अभिषेक & खुशबू बेबी – गर्भावस्था ट्रैकर (हिन्दी)</h2>
+      <p>आपके नन्हे मेहमान के आने की यात्रा</p>
+    </div>
+
+    <div class="card" id="tracker"></div>
+
+    <div class="card" id="babyInfo"></div>
+
+    <div class="card">
+      <h3>गर्भावस्था तिमाही (Trimester)</h3>
+      <ul>
+        <li><strong>पहली तिमाही (0–12 सप्ताह):</strong> भ्रूण का दिल बनता है, हाथ-पाँव का आकार आने लगता है।</li>
+        <li><strong>दूसरी तिमाही (13–27 सप्ताह):</strong> बच्चा माँ की आवाज़ सुनना शुरू करता है, चेहरे पर भाव दिखते हैं।</li>
+        <li><strong>तीसरी तिमाही (28–40 सप्ताह):</strong> बच्चा वजन और ताकत बढ़ाता है, जन्म के लिए तैयार होता है।</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🍎 आहार और देखभाल</h3>
+      <ul>
+        <li><strong>पहली तिमाही:</strong> हरी सब्ज़ियाँ, फल, सूखे मेवे और फोलिक एसिड ज़रूरी। थकान कम करने के लिए आराम करें।</li>
+        <li><strong>दूसरी तिमाही:</strong> कैल्शियम और प्रोटीन से भरपूर भोजन लें – दूध, दही, दालें, अंडे। हल्की कसरत करें।</li>
+        <li><strong>तीसरी तिमाही:</strong> आयरन और विटामिन-C ज़रूरी। टहलना और सकारात्मक रहना बहुत लाभकारी है।</li>
+      </ul>
+    </div>
+  </div>
+
+<script>
+  const pregnancyStart = new Date("2025-07-05T00:00:00");
+  const dueDate = new Date(pregnancyStart);
+  dueDate.setMonth(dueDate.getMonth() + 9);
+
+  function updateTracker(){
+    const now = new Date();
+    const diffMs = now - pregnancyStart;
+    const totalMs = dueDate - pregnancyStart;
+
+    const weeksPassed = Math.floor(diffMs/(1000*60*60*24*7));
+    const weeksLeft = Math.max(0,40 - weeksPassed);
+    const percent = Math.min(100, Math.floor((diffMs/totalMs)*100));
+
+    let stage = "";
+    let babyLook = "";
+
+    if(weeksPassed <= 4){
+      stage = "शुरुआती अवस्था";
+      babyLook = "भ्रूण एक छोटे बीज जैसा है, आकार कुछ मिलीमीटर।";
+    } else if(weeksPassed <= 8){
+      stage = "6–8 सप्ताह (पहली तिमाही)";
+      babyLook = "दिल की धड़कन शुरू हो चुकी है, हाथ-पाँव की कली निकल रही है।";
+    } else if(weeksPassed <= 12){
+      stage = "पहली तिमाही (9–12 सप्ताह)";
+      babyLook = "चेहरा बन रहा है, आँखें और कान का आकार दिखने लगता है।";
+    } else if(weeksPassed <= 20){
+      stage = "दूसरी तिमाही की शुरुआत";
+      babyLook = "बच्चा अब हिलना-डुलना शुरू करता है, उँगलियों के निशान बनने लगते हैं।";
+    } else if(weeksPassed <= 28){
+      stage = "दूसरी तिमाही (20–28 सप्ताह)";
+      babyLook = "बच्चा माँ की आवाज़ सुन सकता है, चेहरा और बाल बन चुके हैं।";
+    } else if(weeksPassed <= 36){
+      stage = "तीसरी तिमाही की शुरुआत";
+      babyLook = "बच्चा तेजी से वजन बढ़ा रहा है, आँखें खोल-बंद कर सकता है।";
+    } else {
+      stage = "जन्म की तैयारी";
+      babyLook = "बच्चा पूरी तरह विकसित है, किसी भी समय जन्म ले सकता है।";
+    }
+
+    document.getElementById("tracker").innerHTML = `
+      <h3>📅 ड्यू डेट: ${dueDate.toLocaleDateString('hi-IN')}</h3>
+      <p><strong>${weeksPassed}</strong> सप्ताह हो चुके हैं, <strong>${weeksLeft}</strong> सप्ताह बाकी हैं।</p>
+      <div class="progress"><div class="progress-bar" style="width:${percent}%">${percent}%</div></div>
+    `;
+
+    document.getElementById("babyInfo").innerHTML = `
+      <h3>👣 बेबी का चरण</h3>
+      <p class="stage">वर्तमान अवस्था: ${stage}</p>
+      <p>बेबी का रूप: ${babyLook}</p>
+      <div class="baby-svg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+          <circle cx="32" cy="32" r="30" fill="#ffe0e6" stroke="#ff99b3" stroke-width="2"/>
+          <circle cx="24" cy="28" r="6" fill="#fff"/>
+          <circle cx="40" cy="28" r="6" fill="#fff"/>
+          <circle cx="24" cy="28" r="3" fill="#333"/>
+          <circle cx="40" cy="28" r="3" fill="#333"/>
+          <path d="M22 42 q10 8 20 0" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+    `;
+  }
+
+  updateTracker();
+  setInterval(updateTracker, 60000);
+</script>
+</body>
+</html>
