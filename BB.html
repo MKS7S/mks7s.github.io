@@ -57,23 +57,30 @@
   </div>
 
 <script>
-  const pregnancyStart = new Date("2025-07-05T00:00:00");
-  const dueDate = new Date(pregnancyStart);
-  dueDate.setMonth(dueDate.getMonth() + 9);
+  // 🔹 LMP Date (from medical report)
+  const lmpDate = new Date("2025-07-01T00:00:00");
+
+  // 🔹 Pregnancy start is LMP
+  const pregnancyStart = lmpDate;
+
+  // 🔹 Due Date = LMP + 40 weeks (280 days)
+  const dueDate = new Date(lmpDate);
+  dueDate.setDate(dueDate.getDate() + 280);
 
   function updateTracker(){
     const now = new Date();
     const diffMs = now - pregnancyStart;
     const totalMs = dueDate - pregnancyStart;
 
-    const weeksPassed = Math.floor(diffMs/(1000*60*60*24*7));
-    const weeksLeft = Math.max(0,40 - weeksPassed);
+    const weeksPassed = Math.max(0, Math.floor(diffMs/(1000*60*60*24*7)));
+    const weeksLeft = Math.max(0, 40 - weeksPassed);
     const percent = Math.min(100, Math.floor((diffMs/totalMs)*100));
 
     // 🔹 बेबी की उम्र (महीना + दिन)
     let months = now.getMonth() - pregnancyStart.getMonth() + 
                  (12 * (now.getFullYear() - pregnancyStart.getFullYear()));
     let days = now.getDate() - pregnancyStart.getDate();
+
     if (days < 0) {
       months -= 1;
       const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
@@ -82,7 +89,7 @@
 
     let stage = "";
     let babyLook = "";
-    let babyImg = "Img_BB/month1.png"; // default
+    let babyImg = "Img_BB/month1.png";
 
     if(weeksPassed <= 4){
       stage = "शुरुआती अवस्था";
@@ -98,38 +105,42 @@
       babyImg = "Img_BB/month3.png";
     } else if(weeksPassed <= 16){
       stage = "दूसरी तिमाही की शुरुआत (13–16 सप्ताह)";
-      babyLook = "बच्चा अब हिलना-डुलना शुरू करता है, उँगलियों के निशान बनने लगते हैं।";
+      babyLook = "बच्चा अब हिलना-डुलना शुरू करता है।";
       babyImg = "Img_BB/month4.png";
     } else if(weeksPassed <= 20){
       stage = "17–20 सप्ताह";
-      babyLook = "बच्चा अब और सक्रिय है, माँ को हल्की किक महसूस हो सकती है।";
+      babyLook = "माँ को हल्की किक महसूस हो सकती है।";
       babyImg = "Img_BB/month5.png";
     } else if(weeksPassed <= 24){
       stage = "21–24 सप्ताह";
-      babyLook = "बच्चा आवाज़ पर प्रतिक्रिया करता है, त्वचा पतली है।";
+      babyLook = "बच्चा आवाज़ पर प्रतिक्रिया करता है।";
       babyImg = "Img_BB/month6.png";
     } else if(weeksPassed <= 28){
       stage = "25–28 सप्ताह";
-      babyLook = "चेहरा और बाल स्पष्ट हैं, नींद-जागने का चक्र बनने लगता है।";
+      babyLook = "चेहरा और बाल स्पष्ट हैं।";
       babyImg = "Img_BB/month7.png";
     } else if(weeksPassed <= 32){
-      stage = "तीसरी तिमाही की शुरुआत (29–32 सप्ताह)";
-      babyLook = "बच्चा तेजी से वजन बढ़ा रहा है, आँखें खोल-बंद कर सकता है।";
+      stage = "तीसरी तिमाही (29–32 सप्ताह)";
+      babyLook = "बच्चा तेजी से वजन बढ़ा रहा है।";
       babyImg = "Img_BB/month8.png";
     } else {
       stage = "जन्म की तैयारी (33–40 सप्ताह)";
-      babyLook = "बच्चा पूरी तरह विकसित है, किसी भी समय जन्म ले सकता है।";
+      babyLook = "बच्चा पूरी तरह विकसित है।";
       babyImg = "Img_BB/month9.png";
     }
 
     document.getElementById("tracker").innerHTML = `
-      <h3>📅 ड्यू डेट: ${dueDate.toLocaleDateString('hi-IN')}</h3>
-      <p><strong>${weeksPassed}</strong> सप्ताह हो चुके हैं, <strong>${weeksLeft}</strong> सप्ताह बाकी हैं।</p>
-      <div class="progress"><div class="progress-bar" style="width:${percent}%">${percent}%</div></div>
+      <h3>🩺 LMP तारीख: ${lmpDate.toLocaleDateString('hi-IN')}</h3>
+      <h3>📅 अनुमानित ड्यू डेट: ${dueDate.toLocaleDateString('hi-IN')}</h3>
+      <p><strong>${weeksPassed}</strong> सप्ताह पूरे हो चुके हैं,
+      <strong>${weeksLeft}</strong> सप्ताह बाकी हैं।</p>
+      <div class="progress">
+        <div class="progress-bar" style="width:${percent}%">${percent}%</div>
+      </div>
     `;
 
     document.getElementById("babyInfo").innerHTML = `
-      <h3>👣 बेबी का चरण</h3>
+      <h3>👣 बेबी का विकास</h3>
       <p class="stage">वर्तमान अवस्था: ${stage}</p>
       <p>बेबी का रूप: ${babyLook}</p>
       <p>🍼 बेबी की उम्र: <strong>${months} महीने ${days} दिन</strong></p>
@@ -142,5 +153,7 @@
   updateTracker();
   setInterval(updateTracker, 60000);
 </script>
+
 </body>
 </html>
+
