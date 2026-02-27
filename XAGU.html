@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ETF Portfolio Dashboard</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+    padding: 40px;
+    color: #2c3e50;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-weight: 600;
+}
+
+/* Card */
+.card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+/* Inputs */
+input {
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid #dcdfe6;
+    margin: 5px;
+    width: 180px;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+input:focus {
+    border-color: #1f4e79;
+    outline: none;
+    box-shadow: 0 0 5px rgba(31,78,121,0.2);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dcdfe6;
+    background: white;
+}
+
+th {
+    background: #1f4e79;
+    color: white;
+    padding: 14px;
+    font-weight: 500;
+    border: 1px solid #dcdfe6;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #000000
+}
+
+tbody tr:hover {
+    background: #f2f7ff;
+}
+
+tfoot td {
+    font-weight: 600;
+    background: #f9fafb;
+}
+
+/* Profit & Loss */
+.profit {
+    color: #1e8e3e;
+    font-weight: 600;
+}
+
+.loss {
+    color: #d93025;
+    font-weight: 600;
+}
+
+.spot-box {
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: 500;
+}
+</style>
+</head>
+
+<body>
+
+<h2>ETF Portfolio Dashboard</h2>
+
+<div class="card">
+<h3>Enter ETF Prices</h3>
+<input type="number" id="silverPrice" placeholder="Silver ETF (₹)">
+<input type="number" id="goldPrice" placeholder="Gold ETF (₹)">
+<input type="number" id="usdinr" placeholder="USDINR (e.g. 83)">
+</div>
+
+<div class="card">
+<h3>Converted Spot Prices (Estimated)</h3>
+<div id="silverSpot" class="spot-box"></div>
+<div id="goldSpot" class="spot-box"></div>
+</div>
+
+<div class="card">
+<h3>Holdings</h3>
+
+<table id="holdings">
+<thead>
+<tr>
+<th>📌 Symbol</th>
+<th>📦 Qty</th>
+<th>💵 Buy Price</th>
+<th>👤 User</th>
+<th>📈 P/L</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>⚪ SBISILVER</td><td>441</td><td>242.59</td><td rowspan="2">Abhishek</td><td class="pl"></td></tr>
+<tr><td>🟡 SETFGOLD</td><td>878</td><td>125.44</td><td class="pl"></td></tr>
+
+<tr><td>⚪ SBISILVER</td><td>638</td><td>247.47</td><td rowspan="2">Mummy</td><td class="pl"></td></tr>
+<tr><td>🟡 SETFGOLD</td><td>1171</td><td>126.47</td><td class="pl"></td></tr>
+
+<tr><td>⚪ SBISILVER</td><td>683</td><td>239.55</td><td rowspan="2">Henry</td><td class="pl"></td></tr>
+<tr><td>🟡 SETFGOLD</td><td>1324</td><td>123.07</td><td class="pl"></td></tr>
+
+<tr><td>⚪ SBISILVER</td><td>481</td><td>213.61</td><td rowspan="2">Khushbu</td><td class="pl"></td></tr>
+<tr><td>🟡 SETFGOLD</td><td>1284</td><td>124.08</td><td class="pl"></td></tr>
+</tbody>
+
+<tfoot>
+<tr>
+<td colspan="4">Total Portfolio P/L</td>
+<td id="totalPL"></td>
+</tr>
+</tfoot>
+</table>
+</div>
+
+<script>
+function calculate() {
+
+    let silverETF = parseFloat($("#silverPrice").val());
+    let goldETF   = parseFloat($("#goldPrice").val());
+    let usdinr    = parseFloat($("#usdinr").val());
+
+    const OUNCE_TO_GRAM = 31.1035;
+
+    if (!isNaN(silverETF) && !isNaN(usdinr)) {
+        let silverSpot = (silverETF * OUNCE_TO_GRAM) / usdinr;
+        $("#silverSpot").html("Silver Spot (XAGUSD): $" + silverSpot.toFixed(2));
+    } else { $("#silverSpot").html(""); }
+
+    if (!isNaN(goldETF) && !isNaN(usdinr)) {
+        let goldSpot = (goldETF * OUNCE_TO_GRAM) / usdinr;
+        $("#goldSpot").html("Gold Spot (XAUUSD): $" + goldSpot.toFixed(2));
+    } else { $("#goldSpot").html(""); }
+
+    let totalPL = 0;
+
+    $("#holdings tbody tr").each(function() {
+
+        let symbol = $(this).find("td:eq(0)").text();
+        let qty = parseFloat($(this).find("td:eq(1)").text());
+        let buy = parseFloat($(this).find("td:eq(2)").text());
+
+        let live = 0;
+        if (symbol.includes("SILVER")) live = silverETF;
+        if (symbol.includes("GOLD"))  live = goldETF;
+
+        if (!isNaN(live)) {
+            let pl = (qty * live) - (qty * buy);
+            totalPL += pl;
+
+            let cls = pl >= 0 ? "profit" : "loss";
+            $(this).find(".pl").html(`<span class="${cls}">₹${pl.toFixed(2)}</span>`);
+        }
+    });
+
+    let cls = totalPL >= 0 ? "profit" : "loss";
+    $("#totalPL").html(`<span class="${cls}">₹${totalPL.toFixed(2)}</span>`);
+}
+
+$("#silverPrice, #goldPrice, #usdinr").on("input", calculate);
+</script>
+
+</body>
+</html>
