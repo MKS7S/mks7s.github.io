@@ -149,11 +149,73 @@ tfoot td {
 </div>
 
 <script>
+
+/* ---------- FETCH LIVE PRICE FROM GROWW DEPTH ---------- */
+
+async function fetchLivePrice(symbol) {
+
+    try {
+
+        let url = `https://groww.in/v1/api/stocks_data/v1/tr_live_book/exchange/NSE/segment/CASH/${symbol}/latest`;
+
+        let res = await fetch(url);
+        let data = await res.json();
+
+        let prices = [];
+
+        // Collect buyBook prices
+        if (data.buyBook) {
+            Object.values(data.buyBook).forEach(level => {
+                if (level.price) prices.push(level.price);
+            });
+        }
+
+        // Collect sellBook prices
+        if (data.sellBook) {
+            Object.values(data.sellBook).forEach(level => {
+                if (level.price) prices.push(level.price);
+            });
+        }
+
+        if (prices.length > 0) {
+            return Math.max(...prices); // 🔥 Highest price
+        }
+
+        return null;
+
+    } catch (err) {
+        console.log("Groww Live fetch error:", err);
+        return null;
+    }
+}
+
+
+/* ---------- LOAD LIVE DATA ---------- */
+
+async function loadLivePrices() {
+
+    $("#silverPrice").val("Loading...");
+    $("#goldPrice").val("Loading...");
+
+    let [silver, gold] = await Promise.all([
+        fetchLivePrice("SBISILVER"),
+        fetchLivePrice("SETFGOLD")
+    ]);
+
+    if (silver) $("#silverPrice").val(parseFloat(silver).toFixed(2));
+    if (gold)   $("#goldPrice").val(parseFloat(gold).toFixed(2));
+
+    calculate();
+}
+
+
+/* ---------- CALCULATION ---------- */
+
 function calculate() {
 
     let silverETF = parseFloat($("#silverPrice").val());
     let goldETF   = parseFloat($("#goldPrice").val());
-    let usdinr    = parseFloat($("#usdinr").val());
+    let usdinr    = parseFloat($("#usdinr").val()); // keep manual USDINR
 
     const OUNCE_TO_GRAM = 31.1035;
 
@@ -180,6 +242,7 @@ function calculate() {
         if (symbol.includes("GOLD"))  live = goldETF;
 
         if (!isNaN(live)) {
+
             let pl = (qty * live) - (qty * buy);
             totalPL += pl;
 
@@ -192,7 +255,14 @@ function calculate() {
     $("#totalPL").html(`<span class="${cls}">₹${totalPL.toFixed(2)}</span>`);
 }
 
+
+/* ---------- AUTO REFRESH ---------- */
+
+loadLivePrices();
+setInterval(loadLivePrices, 15000); // refresh every 15 sec
+
 $("#silverPrice, #goldPrice, #usdinr").on("input", calculate);
+
 </script>
 
 </body>
