@@ -150,12 +150,13 @@ tfoot td {
 
 <script>
 
-/* ---------- FETCH LIVE PRICE FROM GROWW DEPTH ---------- */
+let autoFetchInterval = null;
+let userStartedTyping = false;
+
+/* ---------- FETCH LIVE PRICE ---------- */
 
 async function fetchLivePrice(symbol) {
-
     try {
-
         let url = `https://groww.in/v1/api/stocks_data/v1/tr_live_book/exchange/NSE/segment/CASH/${symbol}/latest`;
 
         let res = await fetch(url);
@@ -163,25 +164,19 @@ async function fetchLivePrice(symbol) {
 
         let prices = [];
 
-        // Collect buyBook prices
         if (data.buyBook) {
             Object.values(data.buyBook).forEach(level => {
                 if (level.price) prices.push(level.price);
             });
         }
 
-        // Collect sellBook prices
         if (data.sellBook) {
             Object.values(data.sellBook).forEach(level => {
                 if (level.price) prices.push(level.price);
             });
         }
 
-        if (prices.length > 0) {
-            return Math.max(...prices); // 🔥 Highest price
-        }
-
-        return null;
+        return prices.length > 0 ? Math.max(...prices) : null;
 
     } catch (err) {
         console.log("Groww Live fetch error:", err);
@@ -189,10 +184,12 @@ async function fetchLivePrice(symbol) {
     }
 }
 
-
 /* ---------- LOAD LIVE DATA ---------- */
 
 async function loadLivePrices() {
+
+    // 🚫 If user started typing → stop API completely
+    if (userStartedTyping) return;
 
     $("#silverPrice").val("Loading...");
     $("#goldPrice").val("Loading...");
@@ -208,26 +205,29 @@ async function loadLivePrices() {
     calculate();
 }
 
-
 /* ---------- CALCULATION ---------- */
 
 function calculate() {
 
     let silverETF = parseFloat($("#silverPrice").val());
     let goldETF   = parseFloat($("#goldPrice").val());
-    let usdinr    = parseFloat($("#usdinr").val()); // keep manual USDINR
+    let usdinr    = parseFloat($("#usdinr").val());
 
     const OUNCE_TO_GRAM = 31.1035;
 
     if (!isNaN(silverETF) && !isNaN(usdinr)) {
         let silverSpot = (silverETF * OUNCE_TO_GRAM) / usdinr;
         $("#silverSpot").html("Silver Spot (XAGUSD): $" + silverSpot.toFixed(2));
-    } else { $("#silverSpot").html(""); }
+    } else {
+        $("#silverSpot").html("");
+    }
 
     if (!isNaN(goldETF) && !isNaN(usdinr)) {
         let goldSpot = (goldETF * OUNCE_TO_GRAM) / usdinr;
         $("#goldSpot").html("Gold Spot (XAUUSD): $" + goldSpot.toFixed(2));
-    } else { $("#goldSpot").html(""); }
+    } else {
+        $("#goldSpot").html("");
+    }
 
     let totalPL = 0;
 
@@ -255,13 +255,29 @@ function calculate() {
     $("#totalPL").html(`<span class="${cls}">₹${totalPL.toFixed(2)}</span>`);
 }
 
+/* ---------- INITIAL LOAD ---------- */
 
-/* ---------- AUTO REFRESH ---------- */
-
+// ✅ Run only once on page load
 loadLivePrices();
-setInterval(loadLivePrices, 15000); // refresh every 15 sec
 
-$("#silverPrice, #goldPrice, #usdinr").on("input", calculate);
+/* ---------- OPTIONAL AUTO REFRESH (CAN REMOVE IF NOT NEEDED) ---------- */
+
+autoFetchInterval = setInterval(loadLivePrices, 15000);
+
+/* ---------- STOP AUTO FETCH WHEN USER TYPES ---------- */
+
+$("#silverPrice, #goldPrice, #usdinr").on("input", function() {
+
+    userStartedTyping = true;
+
+    if (autoFetchInterval) {
+        clearInterval(autoFetchInterval);
+        autoFetchInterval = null;
+        console.log("Auto fetch stopped because user started typing.");
+    }
+
+    calculate();
+});
 
 </script>
 
