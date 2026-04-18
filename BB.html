@@ -3,215 +3,892 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>राधिका भास्कर – Smart Care Dashboard</title>
+<title>राधिका भास्कर – Baby Care ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-body{
-font-family:'Noto Sans Devanagari',sans-serif;
-background:linear-gradient(180deg,#fff,#eef6ff);
-margin:0;padding:0;color:#333;
-animation:fadeIn 1s ease-in;
+:root {
+  --pink:    #ff6b9d;
+  --purple:  #a855f7;
+  --blue:    #60a5fa;
+  --mint:    #34d399;
+  --yellow:  #fbbf24;
+  --orange:  #fb923c;
+  --soft-bg: #fff8fb;
 }
 
-@keyframes fadeIn{
-from{opacity:0} to{opacity:1}
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  background: var(--soft-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.container{max-width:720px;margin:auto;padding:15px;}
-
-.hero{
-background:linear-gradient(135deg,#ffd6e7,#d6e6ff);
-padding:20px;border-radius:20px;text-align:center;
-animation:slideDown 0.8s ease;
+/* ── Floating Background Particles ── */
+.particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+  opacity: 0.18;
+}
+@keyframes floatUp {
+  0%   { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity:0; }
+  10%  { opacity: 0.18; }
+  90%  { opacity: 0.12; }
+  100% { transform: translateY(-120px) rotate(360deg) scale(1.2); opacity:0; }
 }
 
-@keyframes slideDown{
-from{transform:translateY(-30px);opacity:0}
-to{transform:translateY(0);opacity:1}
+/* ── Main Container ── */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px 14px 40px;
+  position: relative;
+  z-index: 1;
 }
 
-.card{
-background:#fff;border-radius:14px;
-padding:16px;margin-top:16px;
-box-shadow:0 4px 12px rgba(0,0,0,0.08);
-animation:fadeUp 0.8s ease;
+/* ── Hero Header ── */
+.hero {
+  background: linear-gradient(135deg, #ff6b9d, #a855f7, #60a5fa);
+  border-radius: 28px;
+  padding: 28px 20px 22px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  animation: heroIn 0.9s cubic-bezier(.17,.67,.41,1.3) both;
+  box-shadow: 0 16px 48px rgba(168,85,247,0.35);
+}
+@keyframes heroIn {
+  from { transform: translateY(-40px) scale(0.92); opacity:0; }
+  to   { transform: translateY(0) scale(1); opacity:1; }
+}
+.hero::before {
+  content:'';
+  position:absolute;
+  inset:-30px;
+  background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.18) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-emoji {
+  font-size: 60px;
+  display: block;
+  animation: babyBounce 2.4s ease-in-out infinite;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.18));
+}
+@keyframes babyBounce {
+  0%,100% { transform: translateY(0) rotate(-3deg); }
+  50%      { transform: translateY(-10px) rotate(3deg); }
+}
+.hero h1 {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin: 6px 0 2px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+.hero h2 {
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0.92;
+}
+.hero-dob {
+  display: inline-block;
+  background: rgba(255,255,255,0.22);
+  border-radius: 20px;
+  padding: 4px 16px;
+  margin-top: 8px;
+  font-size: 13px;
+  backdrop-filter: blur(6px);
 }
 
-@keyframes fadeUp{
-from{transform:translateY(20px);opacity:0}
-to{transform:translateY(0);opacity:1}
+/* ── Age Badge ── */
+.age-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #fff0f9, #f5f0ff);
+  border-radius: 20px;
+  padding: 14px 18px;
+  margin-top: 14px;
+  border: 2px solid rgba(168,85,247,0.12);
+  box-shadow: 0 4px 20px rgba(168,85,247,0.1);
+  animation: cardIn 0.7s ease both;
+  animation-delay: 0.15s;
+}
+.age-number {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6b9d, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.age-label { font-size: 13px; color: #888; }
+.age-main  { font-size: 16px; font-weight: 700; color: #5b21b6; }
+
+/* ── Phase Banner ── */
+.phase-banner {
+  background: linear-gradient(135deg, #fde68a, #fb923c);
+  border-radius: 16px;
+  padding: 10px 18px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 6px 20px rgba(251,146,60,0.28);
+  animation: cardIn 0.7s ease both;
+  animation-delay: 0.25s;
+}
+.phase-banner .phase-icon { font-size: 24px; animation: spin 3s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+/* ── Progress Ring ── */
+.progress-wrap {
+  background: #fff;
+  border-radius: 20px;
+  padding: 16px 18px;
+  margin-top: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+  animation: cardIn 0.7s ease both;
+  animation-delay: 0.3s;
+}
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 8px;
+}
+.progress-label span:last-child { font-weight: 700; color: #a855f7; }
+.progress-track {
+  height: 14px;
+  background: #f3e8ff;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b9d, #a855f7, #60a5fa);
+  border-radius: 10px;
+  transition: width 1.8s cubic-bezier(.22,.68,0,1.2);
+  width: 0%;
+  position: relative;
+}
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px; top: 50%;
+  transform: translateY(-50%);
+  width: 20px; height: 20px;
+  background: #fff;
+  border: 3px solid #a855f7;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(168,85,247,0.4);
+}
+.milestones-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.milestone-dot {
+  text-align: center;
+  font-size: 11px;
+  color: #bbb;
+}
+.milestone-dot.done { color: #a855f7; font-weight: 700; }
+.milestone-dot span { display: block; font-size: 15px; }
+
+/* ── Cards Grid ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+.cards-grid .card-full { grid-column: 1 / -1; }
+
+/* ── Card Base ── */
+.card {
+  border-radius: 20px;
+  padding: 16px 15px;
+  position: relative;
+  overflow: hidden;
+  animation: cardIn 0.7s ease both;
+  cursor: default;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.14) !important;
+}
+@keyframes cardIn {
+  from { transform: translateY(24px) scale(0.96); opacity:0; }
+  to   { transform: translateY(0) scale(1); opacity:1; }
+}
+.card::before {
+  content:'';
+  position:absolute;
+  top:-20px; right:-20px;
+  width:80px; height:80px;
+  border-radius:50%;
+  background: rgba(255,255,255,0.15);
+  pointer-events:none;
+}
+.card-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.card-title .ci {
+  font-size: 20px;
+  animation: wiggle 2.5s ease-in-out infinite;
+}
+@keyframes wiggle {
+  0%,90%,100% { transform: rotate(0); }
+  92%          { transform: rotate(-12deg); }
+  96%          { transform: rotate(10deg); }
+}
+.card-body { color: rgba(255,255,255,0.95); font-size: 13px; line-height: 1.65; }
+.card-body strong { color: #fff; font-weight: 700; }
+.tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.22);
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-size: 11.5px;
+  margin: 2px 2px 0 0;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
-.progress{
-height:18px;background:#eee;border-radius:10px;
-overflow:hidden;margin-top:10px;
+/* ── Color themes per card ── */
+.c-pink   { background: linear-gradient(135deg,#ff6b9d,#f472b6); box-shadow: 0 6px 24px rgba(255,107,157,0.3); }
+.c-purple { background: linear-gradient(135deg,#a855f7,#8b5cf6); box-shadow: 0 6px 24px rgba(168,85,247,0.3); }
+.c-blue   { background: linear-gradient(135deg,#3b82f6,#60a5fa); box-shadow: 0 6px 24px rgba(96,165,250,0.3); }
+.c-mint   { background: linear-gradient(135deg,#10b981,#34d399); box-shadow: 0 6px 24px rgba(52,211,153,0.3); }
+.c-yellow { background: linear-gradient(135deg,#f59e0b,#fbbf24); box-shadow: 0 6px 24px rgba(251,191,36,0.3); }
+.c-orange { background: linear-gradient(135deg,#f97316,#fb923c); box-shadow: 0 6px 24px rgba(249,115,22,0.3); }
+.c-red    { background: linear-gradient(135deg,#ef4444,#f87171); box-shadow: 0 6px 24px rgba(239,68,68,0.3); }
+.c-teal   { background: linear-gradient(135deg,#0d9488,#2dd4bf); box-shadow: 0 6px 24px rgba(13,148,136,0.3); }
+.c-indigo { background: linear-gradient(135deg,#6366f1,#818cf8); box-shadow: 0 6px 24px rgba(99,102,241,0.3); }
+.c-rose   { background: linear-gradient(135deg,#e11d48,#fb7185); box-shadow: 0 6px 24px rgba(225,29,72,0.3); }
+
+/* ── Divider within card ── */
+.cdivider {
+  border:none;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  margin: 8px 0;
 }
 
-.bar{
-height:100%;
-background:linear-gradient(90deg,#ff6ec4,#7873f5);
-color:#fff;text-align:center;font-size:12px;
-width:0%;
-transition:width 1.5s ease;
+/* ── Clock strip ── */
+.clock-strip {
+  text-align: center;
+  padding: 8px;
+  color: #c084fc;
+  font-size: 13px;
+  font-family: 'Baloo 2', monospace;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+#live-clock { font-size: 22px; font-weight: 800; color: #7c3aed; }
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  margin-top: 28px;
+  color: #c4b5fd;
+  font-size: 12px;
+}
+.footer .heart { animation: heartbeat 1.2s ease infinite; display:inline-block; }
+@keyframes heartbeat {
+  0%,100%{ transform:scale(1); }
+  50%    { transform:scale(1.3); }
 }
 
-h3{color:#7b1b5a;margin-bottom:6px;}
+/* ── Stagger delays ── */
+.d1{animation-delay:.1s} .d2{animation-delay:.2s} .d3{animation-delay:.3s}
+.d4{animation-delay:.4s} .d5{animation-delay:.5s} .d6{animation-delay:.6s}
+.d7{animation-delay:.7s} .d8{animation-delay:.8s} .d9{animation-delay:.9s}
+.d10{animation-delay:1s}
 
-.icon{
-font-size:28px;
-animation:pulse 2s infinite;
+/* ── Sparkle ── */
+.sparkle-row { display:flex; justify-content:center; gap:14px; margin-top:10px; }
+.sparkle {
+  font-size: 18px;
+  animation: sparkleAnim 1.8s ease-in-out infinite;
+}
+.sparkle:nth-child(2){ animation-delay:.3s; }
+.sparkle:nth-child(3){ animation-delay:.6s; }
+.sparkle:nth-child(4){ animation-delay:.9s; }
+.sparkle:nth-child(5){ animation-delay:1.2s; }
+@keyframes sparkleAnim {
+  0%,100% { transform:scale(1) rotate(0deg); opacity:.7; }
+  50%      { transform:scale(1.4) rotate(20deg); opacity:1; }
 }
 
-@keyframes pulse{
-0%{transform:scale(1)}
-50%{transform:scale(1.1)}
-100%{transform:scale(1)}
-}
-
+/* ── Checklist ── */
+.checklist { list-style:none; padding:0; margin:4px 0 0; }
+.checklist li { padding:2px 0; display:flex; gap:6px; align-items:flex-start; }
+.checklist li::before { content:'✓'; opacity:.7; flex-shrink:0; }
 </style>
 </head>
-
 <body>
+
+<!-- Floating particles -->
+<div class="particles" id="particles"></div>
 
 <div class="container">
 
-<div class="hero">
-<h1>👨‍👩‍👧 The Bhasker Family</h1>
-<h2>👶 राधिका भास्कर</h2>
-<p>जन्म: 05 अप्रैल 2026</p>
-</div>
+  <!-- Hero -->
+  <div class="hero">
+    <span class="hero-emoji">👶</span>
+    <h1>राधिका भास्कर</h1>
+    <h2>The Bhasker Family 👨‍👩‍👧</h2>
+    <div class="hero-dob">🎂 जन्म: 05 अप्रैल 2026</div>
+    <div class="sparkle-row">
+      <span class="sparkle">✨</span><span class="sparkle">🌸</span>
+      <span class="sparkle">⭐</span><span class="sparkle">🌸</span><span class="sparkle">✨</span>
+    </div>
+  </div>
 
-<div class="card" id="age"></div>
-<div class="card" id="baby"></div>
-<div class="card" id="mother"></div>
-<div class="card" id="vaccine"></div>
-<div class="card" id="sleep"></div>
-<div class="card" id="brain"></div>
-<div class="card" id="hygiene"></div>
-<div class="card" id="warning"></div>
-<div class="card" id="routine"></div>
+  <!-- Live Clock -->
+  <div class="clock-strip">
+    <div id="live-clock">00:00:00</div>
+    <div id="live-date">--</div>
+  </div>
+
+  <!-- Age Badge -->
+  <div class="age-badge d1">
+    <div>
+      <div class="age-number" id="age-days">0</div>
+      <div class="age-label">कुल दिन</div>
+    </div>
+    <div style="flex:1">
+      <div class="age-main" id="age-text">--</div>
+      <div class="age-label" style="margin-top:3px" id="phase-text">--</div>
+    </div>
+    <div style="font-size:36px" id="age-emoji">🍼</div>
+  </div>
+
+  <!-- Phase Banner -->
+  <div class="phase-banner d2">
+    <span class="phase-icon" id="phase-icon">🌱</span>
+    <span id="phase-name">अभी लोड हो रहा है...</span>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-wrap d3">
+    <div class="progress-label">
+      <span>📈 2 साल तक की यात्रा</span>
+      <span id="prog-pct">0%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="prog-fill"></div>
+    </div>
+    <div class="milestones-row">
+      <div class="milestone-dot" id="m0"><span>🌱</span>जन्म</div>
+      <div class="milestone-dot" id="m3"><span>😊</span>3 माह</div>
+      <div class="milestone-dot" id="m6"><span>🍎</span>6 माह</div>
+      <div class="milestone-dot" id="m12"><span>🚶</span>1 साल</div>
+      <div class="milestone-dot" id="m24"><span>🎉</span>2 साल</div>
+    </div>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="cards-grid">
+
+    <!-- Baby Development -->
+    <div class="card c-pink card-full d4" id="card-baby"></div>
+
+    <!-- Food -->
+    <div class="card c-orange d5" id="card-food"></div>
+
+    <!-- Sleep -->
+    <div class="card c-indigo d5" id="card-sleep"></div>
+
+    <!-- Mother Care -->
+    <div class="card c-mint card-full d6" id="card-mother"></div>
+
+    <!-- Vaccine -->
+    <div class="card c-blue d7" id="card-vaccine"></div>
+
+    <!-- Massage -->
+    <div class="card c-yellow d7" id="card-massage"></div>
+
+    <!-- Brain Dev -->
+    <div class="card c-purple card-full d8" id="card-brain"></div>
+
+    <!-- Activities -->
+    <div class="card c-teal d8" id="card-activity"></div>
+
+    <!-- Hygiene -->
+    <div class="card c-mint d9" id="card-hygiene"></div>
+
+    <!-- Warning -->
+    <div class="card c-red card-full d9" id="card-warning"></div>
+
+    <!-- Routine -->
+    <div class="card c-rose card-full d10" id="card-routine"></div>
+
+  </div>
+
+  <div class="footer">
+    बनाया गया <span class="heart">❤️</span> से — राधिका के लिए
+  </div>
 
 </div>
 
 <script>
+// ── Particles ──
+(function(){
+  const c = document.getElementById('particles');
+  const colors = ['#ff6b9d','#a855f7','#60a5fa','#34d399','#fbbf24','#fb923c'];
+  const emojis = ['⭐','🌸','✨','💫','🎀','🌟','💗','🍼'];
+  for(let i=0;i<22;i++){
+    const el = document.createElement('div');
+    const useEmoji = Math.random()>0.5;
+    if(useEmoji){
+      el.style.cssText = `position:absolute;font-size:${14+Math.random()*18}px;
+        left:${Math.random()*100}%;bottom:-40px;
+        animation:floatUp ${6+Math.random()*10}s linear infinite;
+        animation-delay:${Math.random()*10}s;opacity:0;`;
+      el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    } else {
+      const size = 8 + Math.random()*20;
+      el.className='particle';
+      el.style.cssText=`width:${size}px;height:${size}px;
+        background:${colors[Math.floor(Math.random()*colors.length)]};
+        left:${Math.random()*100}%;bottom:-40px;
+        animation-duration:${7+Math.random()*12}s;
+        animation-delay:${Math.random()*12}s;`;
+    }
+    c.appendChild(el);
+  }
+})();
 
-const birthDate = new Date("2026-04-05");
+// ── Live Clock ──
+function updateClock(){
+  const now = new Date();
+  document.getElementById('live-clock').textContent =
+    now.toLocaleTimeString('hi-IN',{hour12:false});
+  const days=['रविवार','सोमवार','मंगलवार','बुधवार','गुरुवार','शुक्रवार','शनिवार'];
+  const months=['जनवरी','फरवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त','सितंबर','अक्टूबर','नवंबर','दिसंबर'];
+  document.getElementById('live-date').textContent =
+    `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]} ${now.getFullYear()}`;
+}
+setInterval(updateClock,1000);
+updateClock();
+
+// ── Main Data ──
+const BIRTH = new Date("2026-04-05");
+
+function getPhaseData(d){
+  // d = total days since birth
+
+  if(d < 7) return {
+    phase:'🌅 नवजात – पहला सप्ताह',
+    icon:'🌅', emoji:'👼',
+    baby:{
+      title:'नवजात शिशु – पहले 7 दिन',
+      points:[
+        'सोना, दूध पीना और रोना – यही राधिका की दुनिया है',
+        'आँखें अभी धुंधली हैं – 20-30 cm दूर की चीज़ें देखती है',
+        'Moro reflex (चौंकना), sucking reflex (चूसना) सक्रिय है',
+        'नाभि का ध्यान रखें – सूखी और साफ रखें',
+        'पीला रंग (jaundice) दिखे तो डॉक्टर से मिलें',
+      ]
+    },
+    food:{
+      title:'पहला आहार',
+      lines:[
+        '🤱 हर 2-3 घंटे स्तनपान (24 घंटे में 8-12 बार)',
+        '🥛 पहला दूध (colostrum) बहुत ज़रूरी है',
+        '💧 पानी, शहद, घुट्टी – बिल्कुल नहीं',
+        '⚠️ Formula केवल डॉक्टर की सलाह पर',
+      ]
+    },
+    sleep:'16-18 घंटे, हर 2-3 घंटे जागना सामान्य है',
+    motherFood:'दाल, चावल, घी, हल्दी वाला दूध, मेथी के लड्डू',
+    motherCare:'आराम सबसे ज़रूरी, टाँके का ध्यान रखें, कोई भारी काम नहीं',
+    vaccine:'जन्म के समय: BCG, OPV-0, Hep-B पहली खुराक',
+    massage:'अभी मालिश न करें – त्वचा बहुत नाज़ुक है। गर्म तेल से हल्का स्पर्श काफी है',
+    brain:'आँखों में आँखें डालकर बात करें, धीरे गाना गाएँ, अपनी आवाज़ पहचाने',
+    activity:'गोद में लेना, Skin-to-skin contact, हल्के से गाना गाएँ',
+    hygiene:'रोज़ गुनगुने पानी से पोंछें, नाभि सूखी रखें, डायपर हर 2-3 घंटे बदलें',
+    warning:'🚨 तेज़ बुखार | पीला रंग बढ़ना | दूध न पीना | साँस लेने में तकलीफ → तुरंत डॉक्टर',
+    routine:'दूध → नींद → साफ डायपर → प्यार → दोहराएँ ♻️',
+    ageEmoji:'👼'
+  };
+
+  if(d < 30) return {
+    phase:'🌿 पहला महीना',
+    icon:'🌿', emoji:'👶',
+    baby:{
+      title:'1 महीने से कम – नई दुनिया में',
+      points:[
+        'माँ-बाप की आवाज़ पहचानने लगी है',
+        'रोना – भूख, थकान, असुविधा का इशारा',
+        'पेट के बल लिटाना (Tummy time) 2-3 मिनट शुरू करें',
+        'Startle reflex अभी भी सक्रिय',
+        'नींद-जागने का कोई तय समय नहीं – धीरे-धीरे बनेगा',
+      ]
+    },
+    food:{
+      title:'सिर्फ माँ का दूध',
+      lines:[
+        '🤱 हर 2-3 घंटे पर दूध (दिन-रात)',
+        '🍼 एक बार में 30-60 ml (Formula)',
+        '💧 पानी या कोई और चीज़ नहीं',
+        '✅ पीली पॉटी = दूध सही पच रहा है',
+      ]
+    },
+    sleep:'16-17 घंटे, रात में 2-3 बार जागना सामान्य',
+    motherFood:'हरी सब्ज़ियाँ, दूध, अंडे, बादाम, अजवाइन का पानी',
+    motherCare:'6 हफ्ते तक भारी काम नहीं, घाव साफ रखें, भरपूर पानी पीएँ',
+    vaccine:'6 सप्ताह पर: DTwP, IPV, Hib, Hep-B, Rotavirus (अगली बार)',
+    massage:'नारियल या सरसों तेल से हल्की मालिश, 10-15 मिनट',
+    brain:'बात करें, चेहरा दिखाएँ, काले-सफेद पैटर्न दिखाएँ',
+    activity:'झुनझुना हिलाएँ, धीरे गाएँ, गोद में लेकर चलें',
+    hygiene:'रोज़ नहलाएँ (गुनगुना पानी), डायपर रैश पर zinc cream लगाएँ',
+    warning:'🚨 40°F से ऊपर बुखार | 6+ घंटे दूध न पीना | बहुत ज़्यादा उल्टी | आँखों में पीलापन',
+    routine:'🌞 सुबह: मालिश → नहाना | दिन: दूध + झपकी | 🌙 रात: शांत माहौल में दूध → नींद',
+    ageEmoji:'👶'
+  };
+
+  if(d < 90) return {
+    phase:'🌼 1-3 माह – मुस्कान का जादू',
+    icon:'😊', emoji:'😊',
+    baby:{
+      title:'1 से 3 महीने – सामाजिक विकास शुरू',
+      points:[
+        '🌟 पहली Social Smile आ गई – घर में खुशी!',
+        'गर्दन थोड़ी-थोड़ी पकड़ने लगी है',
+        'आवाज़ें निकालना शुरू (cooing, gurgling)',
+        'रंगीन चीज़ों को आँखों से फॉलो करना',
+        'हाथ मुँह की तरफ ले जाती है',
+        'Tummy time 5-10 मिनट रोज़ करें',
+      ]
+    },
+    food:{
+      title:'सिर्फ माँ का दूध / Formula',
+      lines:[
+        '🤱 हर 3-4 घंटे पर दूध',
+        '🍼 एक बार में 90-120 ml (Formula)',
+        '⚠️ 3 माह से पहले कोई solid food नहीं',
+        '💧 पानी अभी भी नहीं',
+      ]
+    },
+    sleep:'15-16 घंटे, रात में 4-5 घंटे लगातार सो सकती है',
+    motherFood:'ओट्स, पालक, गाजर, मेथी, खजूर, दूध से बनी चीज़ें',
+    motherCare:'Mastitis (दूध जमना) पर गर्म सिकाई, 30 मिनट की नींद का टुकड़ा लें, तनाव कम',
+    vaccine:'6 सप्ताह: DTwP/IPV/Hib/Hep-B/Rotavirus\n10 सप्ताह: दूसरी खुराक\n14 सप्ताह: तीसरी खुराक + PCV',
+    massage:'नारियल तेल से रोज़ 15-20 मिनट मालिश, पाँव से ऊपर की तरफ',
+    brain:'बात करें, गाना सुनाएँ, उसकी आवाज़ें नकल करें, रंगीन खिलौने दिखाएँ',
+    activity:'रंगीन mobile लटकाएँ, झुनझुना, Tummy time, Mirror देखना',
+    hygiene:'रोज़ नहाना, डायपर हर 3-4 घंटे बदलें, नाखून काटें (सोते समय)',
+    warning:'🚨 2 माह में मुस्कान न आए | आवाज़ों पर रिएक्शन नहीं | गर्दन बिल्कुल न उठाए | लगातार रोना',
+    routine:'🌞 सुबह: मालिश+धूप | दिन: खेल+दूध+झपकी (3 झपकी) | 🌙 रात: शांत वातावरण',
+    ageEmoji:'😊'
+  };
+
+  if(d < 180) return {
+    phase:'🌺 3-6 माह – खेल की शुरुआत',
+    icon:'🎯', emoji:'🎯',
+    baby:{
+      title:'3-6 महीने – Explorer बन रही है!',
+      points:[
+        '🔄 करवट लेना शुरू हो गई',
+        'चीज़ें पकड़ने और मुँह में डालने की कोशिश',
+        'खिलखिलाकर हँसना – दिल जीत लेती है!',
+        'माँ-बाप को पहचानने लगी, अजनबियों से थोड़ा डरना',
+        'पेट के बल सिर उठाना बेहतर हो गया',
+        '5-6 माह में बिना सहारे बैठने की शुरुआत',
+      ]
+    },
+    food:{
+      title:'6 माह के बाद Solid शुरू',
+      lines:[
+        '🤱 दूध जारी (main source)',
+        '🍌 6 माह पर: केला mash, rice water, दाल का पानी',
+        '🥣 खिचड़ी (पतली), दही, उबली सब्ज़ी',
+        '⚠️ नमक-चीनी बिल्कुल नहीं, शहद नहीं',
+        '🕐 एक नया खाना = 3 दिन इंतज़ार (allergy check)',
+      ]
+    },
+    sleep:'14-15 घंटे, रात में 6-8 घंटे लगातार',
+    motherFood:'दूध बढ़ाने के लिए: सौंफ, जीरा, मेथी का पानी, हरी पत्तेदार सब्ज़ियाँ, प्रोटीन',
+    motherCare:'माँ का अपना खाना-पीना ज़रूरी, थोड़ी exercise शुरू करें, पार्टनर से मदद लें',
+    vaccine:'6 माह: Flu vaccine (influenza)\n6 माह: Hep-B तीसरी खुराक',
+    massage:'बादाम/नारियल तेल, पैर से ऊपर की तरफ, हल्के गोल घुमाव, खेल के साथ',
+    brain:'नाम से बुलाएँ, peek-a-boo खेलें, किताबें दिखाएँ, संगीत चलाएँ',
+    activity:'Teether खिलौने, soft blocks, पानी के साथ खेल, आईना दिखाना, गाने पर नाचना',
+    hygiene:'दाँत निकलना शुरू → मसूड़े साफ करें, Teether साफ रखें, नहाते वक्त खेल',
+    warning:'🚨 6 माह तक न बैठना | चीज़ें न पकड़ना | किसी आवाज़ पर रिएक्शन नहीं | भोजन से एलर्जी के लक्षण',
+    routine:'🌞 सुबह: दूध → मालिश → नहाना | दोपहर: Solid खाना + खेल + झपकी | 🌙 रात: दूध → कहानी → नींद',
+    ageEmoji:'🎯'
+  };
+
+  if(d < 270) return {
+    phase:'🌻 6-9 माह – नई खोज',
+    icon:'🌟', emoji:'🌟',
+    baby:{
+      title:'6-9 महीने – दुनिया खोज रही है!',
+      points:[
+        '🪑 बिना सहारे बैठना सीख गई',
+        'रेंगने की शुरुआत (crawling)',
+        'MA-MA, BA-BA जैसी आवाज़ें',
+        'Pincer grasp – उँगलियों से छोटी चीज़ें उठाना',
+        'Object permanence – छुपी चीज़ ढूँढती है',
+        'अजनबियों से डर (stranger anxiety) – बिल्कुल सामान्य',
+      ]
+    },
+    food:{
+      title:'Solid Food जोर पकड़ रहा है',
+      lines:[
+        '🍽️ दिन में 2-3 बार solid food',
+        '🥣 खिचड़ी, दलिया, मसला केला, दही',
+        '🥕 उबली गाजर, शकरकंद, मटर',
+        '🍗 अंडे की ज़र्दी, chicken (मसला हुआ)',
+        '🤱 दूध अभी भी ज़रूरी (कम से कम 500 ml)',
+      ]
+    },
+    sleep:'13-14 घंटे, 2 झपकी, रात में 9-10 घंटे',
+    motherFood:'हड्डियों के लिए: दूध, पनीर, तिल। थकान कम: आयरन (पालक, चुकंदर, गुड़)',
+    motherCare:'PPD (postpartum depression) के लक्षण देखें, खुद के लिए समय निकालें',
+    vaccine:'9 माह: MR/MMR पहली खुराक, Meningococcal vaccine',
+    massage:'खेल के साथ मालिश, पैरों की cycling exercise, पेट की मालिश (पाचन के लिए)',
+    brain:'नाम बुलाएँ और प्रतिक्रिया देखें, shapes बताएँ, हिंदी-English दोनों बोलें',
+    activity:'Pull-to-stand practice, Stacking rings, Books with pictures, संगीत पर थपथपाना',
+    hygiene:'दाँत ब्रश करना शुरू (soft brush, कोई paste नहीं), बाल धोना, कान साफ',
+    warning:'🚨 रेंगने में बहुत देरी | बोलने की कोशिश न करना | खाना न खाना | बुखार के साथ रैश',
+    routine:'⏰ 7am: दूध | 9am: नाश्ता + खेल | 12pm: खाना + झपकी | 3pm: Snack | 7pm: रात का खाना | 8pm: दूध + नींद',
+    ageEmoji:'🌟'
+  };
+
+  if(d < 365) return {
+    phase:'🎈 9-12 माह – पहला कदम!',
+    icon:'🚶', emoji:'🚶',
+    baby:{
+      title:'9-12 महीने – 1 साल की तरफ!',
+      points:[
+        '🚶 दीवार पकड़कर खड़े होना और चलना',
+        'पहला शब्द! "माँ", "पापा", "नहीं"',
+        'हाथ हिलाकर Bye-Bye करना',
+        'चम्मच पकड़ने की कोशिश',
+        'सब कुछ ज़मीन पर फेंकना – खेल है इनका!',
+        'किताब के पन्ने पलटना, shapes में रुचि',
+      ]
+    },
+    food:{
+      title:'पारिवारिक खाने की तरफ',
+      lines:[
+        '🍽️ दिन में 3 बार खाना + 2 snack',
+        '🥘 घर का हल्का खाना (कम नमक-मसाला)',
+        '🥛 Cow milk शुरू कर सकते हैं (1 साल के बाद)',
+        '🍎 फल के छोटे-छोटे टुकड़े (choking से बचाव)',
+        '🥜 मूँगफली butter (डॉक्टर की सलाह से)',
+      ]
+    },
+    sleep:'12-14 घंटे, 1-2 झपकी, रात 10-11 घंटे',
+    motherFood:'Calcium और Vitamin D: दूध, पनीर, धूप। Energy: ड्राई फ्रूट्स, केला',
+    motherCare:'1 साल की पार्टी की तैयारी! माँ भी अपना checkup करवाएँ',
+    vaccine:'12 माह: Varicella, Hep-A, MMR दूसरी खुराक, PCV booster',
+    massage:'अब मालिश के साथ exercise – legs kick, arms stretch, back roll',
+    brain:'नाम, रंग, जानवरों की आवाज़ें सिखाएँ, simple puzzle, sorting toys',
+    activity:'Push toys, Ball rolling, Water play, डांस करना, Drawing (non-toxic crayons)',
+    hygiene:'रोज़ ब्रश (rice grain paste), बाल हर 2 दिन, नाखून साप्ताहिक, जूते साफ',
+    warning:'🚨 1 साल तक कोई शब्द नहीं | खड़े न होना | 6 माह से रेंगना नहीं | अजीब चाल',
+    routine:'⏰ 7am: दूध+नाश्ता | 10am: खेल | 12pm: खाना+झपकी | 3pm: Snack+बाहर | 7pm: खाना | 8:30pm: नींद',
+    ageEmoji:'🚶'
+  };
+
+  // 1 year+
+  if(d < 548) return {
+    phase:'🎉 1-1.5 साल – नन्हा बच्चा!',
+    icon:'🎉', emoji:'🏃',
+    baby:{
+      title:'1 से डेढ़ साल – आज़ाद खिलाड़ी!',
+      points:[
+        '🏃 चलना, दौड़ना, सीढ़ियाँ चढ़ना शुरू',
+        '💬 5-20 शब्द बोलना (1 साल पर)',
+        'ब्लॉक्स जोड़ना, Ball kick करना',
+        'नकल करना – देखकर सीखती है',
+        'Temper tantrum (ज़िद) शुरू – patience रखें!',
+        '10 अंगुलियों से scribble करना',
+      ]
+    },
+    food:{
+      title:'घर का खाना – सब साथ!',
+      lines:[
+        '🍽️ 3 बार मुख्य खाना + 2 healthy snack',
+        '🥛 दूध 400-500 ml (गाय/buffalo)',
+        '🌾 दाल, चावल, रोटी, सब्ज़ी',
+        '🍎 मौसमी फल, दही, पनीर',
+        '⚠️ Junk food, cold drinks से दूर रखें',
+      ]
+    },
+    sleep:'11-14 घंटे, 1 झपकी दोपहर में',
+    motherFood:'माँ अगर दूध पिला रही हैं: calcium, protein, omega-3 ज़रूरी',
+    motherCare:'खुद के लिए वक्त निकालें, postpartum recovery check, thyroid check',
+    vaccine:'15 माह: DTwP booster, IPV booster\n18 माह: MMR booster, Varicella booster',
+    massage:'Weekly massage, muscles stretch, joint flexibility exercises',
+    brain:'किताब पढ़ना, रंग-आकार सिखाना, गिनती 1-5, अनुशासन (सरल rules)',
+    activity:'Outdoor play, Sand play, Finger painting, Building blocks, Pretend play',
+    hygiene:'खाने से पहले हाथ धोना सिखाएँ, रोज़ ब्रश, बाल धोना',
+    warning:'🚨 डेढ़ साल तक 5-6 शब्द नहीं | नाम पर respond नहीं | चलने में समस्या | Eye contact कम',
+    routine:'⏰ 7:30am: उठना+ब्रश | 8am: नाश्ता | 11am: Snack | 12:30pm: खाना+झपकी | 4pm: बाहर खेल | 7pm: खाना | 9pm: नींद',
+    ageEmoji:'🏃'
+  };
+
+  return {
+    phase:'🌈 2 साल – बड़ी हो गई!',
+    icon:'🌈', emoji:'🌈',
+    baby:{
+      title:'2 साल – दुनिया की राजकुमारी!',
+      points:[
+        'दौड़ना, कूदना, सीढ़ियाँ उतरना',
+        '50+ शब्द, 2-3 शब्दों के वाक्य',
+        'Parallel play (साथ में खेलना)',
+        'Potty training शुरू करें',
+        'भावनाएँ समझने लगी: खुशी, गुस्सा, उदासी',
+        'Imaginative play – गुड़िया को खाना खिलाना',
+      ]
+    },
+    food:{
+      title:'आत्मनिर्भर खाना',
+      lines:[
+        '🍽️ खुद चम्मच-काँटे से खाने की कोशिश',
+        '🌈 विविध रंगीन खाना: हर रंग की सब्ज़ी',
+        '🥛 दूध 2 बार, दही, पनीर',
+        '🍎 फल snack में, nuts छोटे-छोटे',
+        '💧 दिन में 4-5 गिलास पानी',
+      ]
+    },
+    sleep:'11-14 घंटे, झपकी शायद बंद हो जाए',
+    motherFood:'Normal balanced diet, जंक food कम, fruits-veggies ज़्यादा',
+    motherCare:'Regular health checkup, खुद की fitness, stress management',
+    vaccine:'2 साल पर: Typhoid booster, Hepatitis-A booster',
+    massage:'Optional – बच्चे को खेल में रुचि ज़्यादा, fun massage games',
+    brain:'Storytelling, गिनती-अक्षर, shapes-colors, puzzle, music & dance',
+    activity:'Outdoor games, Paint, Clay, Simple role play, Group play',
+    hygiene:'खुद हाथ धोना, ब्रश करना, toilet training',
+    warning:'🚨 2 साल पर वाक्य नहीं | अकेले खेलना पसंद | Eye contact नहीं | बहुत ज़्यादा Tantrums',
+    routine:'⏰ 7am: उठना | 8am: नाश्ता | 10am: खेल/school | 1pm: खाना | 3pm: Snack | 6pm: बाहर | 8pm: खाना | 9:30pm: नींद',
+    ageEmoji:'🌈'
+  };
+}
 
 function update(){
+  const now   = new Date();
+  const total = Math.floor((now - BIRTH) / 86400000);
+  const years = Math.floor(total / 365);
+  const months= Math.floor((total % 365) / 30);
+  const days  = total % 30;
+  const pct   = Math.min(100, Math.floor((total / 730) * 100));
 
-const now = new Date();
+  const p = getPhaseData(total);
 
-let totalDays = Math.floor((now - birthDate)/(1000*60*60*24));
+  // Age badge
+  document.getElementById('age-days').textContent = total;
+  document.getElementById('age-text').textContent =
+    `${years > 0 ? years + ' साल ' : ''}${months > 0 ? months + ' महीने ' : ''}${days} दिन`;
+  document.getElementById('phase-text').textContent = p.phase;
+  document.getElementById('age-emoji').textContent  = p.ageEmoji;
 
-let years = Math.floor(totalDays/365);
-let months = Math.floor((totalDays%365)/30);
-let days = totalDays % 30;
+  // Phase banner
+  document.getElementById('phase-icon').textContent = p.icon;
+  document.getElementById('phase-name').textContent = p.phase;
 
-let progress = Math.min(100,Math.floor((totalDays/730)*100));
+  // Progress
+  document.getElementById('prog-pct').textContent = pct + '%';
+  setTimeout(() => {
+    document.getElementById('prog-fill').style.width = pct + '%';
+  }, 400);
 
-// 👶 Baby
-let babyText="",babyFood="";
+  // Milestone dots
+  [[0,'m0'],[90,'m3'],[180,'m6'],[365,'m12'],[730,'m24']].forEach(([d,id]) => {
+    if(total >= d) document.getElementById(id)?.classList.add('done');
+  });
 
-if(totalDays<30){
-babyText="नवजात – सोना, दूध पीना, रोना";
-babyFood="हर 2-3 घंटे स्तनपान";
+  // ── Cards ──
+  set('card-baby', '👶', 'बेबी का विकास', p.baby.title,
+    `<ul class="checklist">${p.baby.points.map(x=>`<li>${x}</li>`).join('')}</ul>`);
+
+  set('card-food', '🍎', 'आहार', p.food.title,
+    p.food.lines.map(x=>`<div class="tag" style="display:block;margin:3px 0">${x}</div>`).join(''));
+
+  set('card-sleep', '💤', 'नींद', 'नींद की ज़रूरत',
+    `<div style="font-size:28px;text-align:center;margin:6px 0">😴</div>
+     <div>${p.sleep}</div>`);
+
+  set('card-mother', '🤱', 'माँ की देखभाल', 'माँ का खाना-पीना',
+    `<div class="tag">🍲 ${p.motherFood}</div>
+     <hr class="cdivider">
+     <strong>💡 देखभाल:</strong><div style="margin-top:4px">${p.motherCare}</div>`);
+
+  set('card-vaccine', '💉', 'टीकाकरण', 'इस समय के टीके',
+    `<div style="white-space:pre-line;line-height:1.8">${p.vaccine}</div>`);
+
+  set('card-massage', '🌿', 'मालिश', 'आज की मालिश',
+    `<div>${p.massage}</div>`);
+
+  set('card-brain', '🧠', 'मस्तिष्क विकास', 'दिमाग बढ़ाएँ',
+    `<div>${p.brain}</div>
+     <hr class="cdivider">
+     <strong>🎮 गतिविधियाँ:</strong>
+     <div style="margin-top:4px">${p.activity}</div>`);
+
+  set('card-activity', '🎮', 'खेल-कूद', 'आज क्या खेलें?',
+    `<div>${p.activity}</div>`);
+
+  set('card-hygiene', '🧼', 'सफाई', 'स्वच्छता',
+    `<div>${p.hygiene}</div>`);
+
+  set('card-warning', '⚠️', 'सावधानी', 'ये लक्षण दिखें तो डॉक्टर को दिखाएँ',
+    `<div style="font-size:13.5px;line-height:1.8">${p.warning}</div>`);
+
+  set('card-routine', '🔔', 'दिनचर्या', 'आज का रूटीन',
+    `<div style="line-height:1.9">${p.routine}</div>`);
 }
-else if(totalDays<180){
-babyText="मुस्कुराना, गर्दन पकड़ना";
-babyFood="केवल माँ का दूध";
-}
-else if(totalDays<365){
-babyText="बैठना, रेंगना";
-babyFood="खिचड़ी, केला, दाल";
-}
-else{
-babyText="चलना, बोलना शुरू";
-babyFood="घर का खाना";
-}
 
-// 🤱 Mother
-let motherFood="दूध, दाल, फल, मेवे";
-let motherCare="आराम, पानी, तनाव कम";
-
-// 💉 Vaccine
-let vaccine="जन्म: BCG, OPV, Hep B";
-if(totalDays>42) vaccine="6,10,14 सप्ताह टीके";
-if(totalDays>180) vaccine="6 माह Flu";
-if(totalDays>270) vaccine="9 माह Measles";
-
-// 💤 Sleep
-let sleep="16-18 घंटे";
-if(totalDays>90) sleep="14-16 घंटे";
-if(totalDays>180) sleep="12-14 घंटे";
-
-// 🧠 Brain
-let brain="बात करें, गाने सुनाएं, eye contact";
-
-// 🧼 Hygiene
-let hygiene="हाथ साफ, कपड़े साफ, नहलाना";
-
-// ⚠️ Warning
-let warning="बुखार, दूध न पीना → डॉक्टर";
-
-// 🔔 Routine
-let routine="दूध + नींद + प्यार";
-
-document.getElementById("age").innerHTML=`
-<h3 class="icon">🍼 उम्र</h3>
-<p><b>${years} साल ${months} महीने ${days} दिन</b></p>
-<p>📅 कुल दिन: ${totalDays}</p>
-<div class="progress"><div class="bar" id="progressBar">${progress}%</div></div>
-`;
-
-document.getElementById("baby").innerHTML=`
-<h3 class="icon">👶 बेबी</h3>
-<p>${babyText}</p>
-<p>🍎 ${babyFood}</p>
-`;
-
-document.getElementById("mother").innerHTML=`
-<h3 class="icon">🤱 माँ</h3>
-<p>🍲 ${motherFood}</p>
-<p>💡 ${motherCare}</p>
-`;
-
-document.getElementById("vaccine").innerHTML=`
-<h3 class="icon">💉 टीकाकरण</h3><p>${vaccine}</p>
-`;
-
-document.getElementById("sleep").innerHTML=`
-<h3 class="icon">💤 नींद</h3><p>${sleep}</p>
-`;
-
-document.getElementById("brain").innerHTML=`
-<h3 class="icon">🧠 विकास</h3><p>${brain}</p>
-`;
-
-document.getElementById("hygiene").innerHTML=`
-<h3 class="icon">🧼 सफाई</h3><p>${hygiene}</p>
-`;
-
-document.getElementById("warning").innerHTML=`
-<h3 class="icon">⚠️ सावधानी</h3><p>${warning}</p>
-`;
-
-document.getElementById("routine").innerHTML=`
-<h3 class="icon">🔔 दिनचर्या</h3><p>${routine}</p>
-`;
-
-// 🔥 Animate progress bar
-setTimeout(()=>{
-document.getElementById("progressBar").style.width = progress + "%";
-},200);
-
+function set(id, icon, title, subtitle, body){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.innerHTML = `
+    <div class="card-title">
+      <span class="ci">${icon}</span> ${title}
+    </div>
+    <div class="card-body">
+      <strong>${subtitle}</strong><hr class="cdivider">
+      ${body}
+    </div>`;
 }
 
 update();
-setInterval(update,60000);
-
+setInterval(update, 60000);
 </script>
-
 </body>
 </html>
