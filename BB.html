@@ -3,157 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Bhasker Family – अभिषेक & खुशबू बेबी – गर्भावस्था ट्रैकर</title>
+  <title>राधिका भास्कर – बेबी ग्रोथ ट्रैकर</title>
+
   <style>
     body{
       font-family:'Noto Sans Devanagari',sans-serif;
-      background-image:radial-gradient(circle at 10% 10%, rgba(255,240,245,0.6) 0%, transparent 25%), 
-                        radial-gradient(circle at 90% 90%, rgba(230,245,255,0.6) 0%, transparent 25%), 
-                        linear-gradient(180deg,#fffefd,#f6fbff);
+      background:linear-gradient(180deg,#fffefd,#f6fbff);
       margin:0;padding:0;line-height:1.6;color:#333;
     }
     .container{max-width:650px;margin:auto;padding:16px;}
-    .baby-hero{background:linear-gradient(135deg,#ffe6f0,#e6f0ff);padding:18px;border-radius:20px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-    .baby-hero h1{margin:0;font-size:1.6rem;color:#7b1b5a;}
-    .baby-hero p{margin:6px 0 0;font-size:0.95rem;color:#555;}
-    .card{background:#fff;border-radius:14px;padding:16px;margin-top:18px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
-    .progress{height:18px;border-radius:10px;background:#f3f4f6;overflow:hidden;margin:12px 0;}
-    .progress-bar{height:100%;background:linear-gradient(90deg,#f472b6,#60a5fa);text-align:center;color:#fff;font-size:0.8rem;font-weight:bold;}
-    .stage{font-weight:bold;color:#2563eb;}
-    ul{padding-left:18px}
-    .baby-img{margin-top:16px;text-align:center;}
-    .baby-img img{max-width:200px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.15);}
+    .baby-hero{
+      background:linear-gradient(135deg,#ffe6f0,#e6f0ff);
+      padding:18px;border-radius:20px;text-align:center;
+    }
+    .card{
+      background:#fff;border-radius:14px;padding:16px;margin-top:18px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+    }
+    .progress{
+      height:18px;border-radius:10px;background:#f3f4f6;
+      overflow:hidden;margin:12px 0;
+    }
+    .progress-bar{
+      height:100%;
+      background:linear-gradient(90deg,#f472b6,#60a5fa);
+      text-align:center;color:#fff;font-size:0.8rem;
+    }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="baby-hero">
-      <h1>👨‍👩‍👧 The Bhasker Family</h1>
-      <h2>👶 अभिषेक & खुशबू बेबी – गर्भावस्था ट्रैकर </h2>
-      <p>आपके नन्हे मेहमान के आने की यात्रा</p>
-    </div>
 
-    <div class="card" id="tracker"></div>
+<div class="container">
 
-    <div class="card" id="babyInfo"></div>
-
-    <div class="card">
-      <h3>गर्भावस्था तिमाही (Trimester)</h3>
-      <ul>
-        <li><strong>पहली तिमाही (0–12 सप्ताह):</strong> भ्रूण का दिल बनता है, हाथ-पाँव का आकार आने लगता है।</li>
-        <li><strong>दूसरी तिमाही (13–27 सप्ताह):</strong> बच्चा माँ की आवाज़ सुनना शुरू करता है, चेहरे पर भाव दिखते हैं।</li>
-        <li><strong>तीसरी तिमाही (28–40 सप्ताह):</strong> बच्चा वजन और ताकत बढ़ाता है, जन्म के लिए तैयार होता है।</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>🍎 आहार और देखभाल</h3>
-      <ul>
-        <li><strong>पहली तिमाही:</strong> हरी सब्ज़ियाँ, फल, सूखे मेवे और फोलिक एसिड ज़रूरी। थकान कम करने के लिए आराम करें।</li>
-        <li><strong>दूसरी तिमाही:</strong> कैल्शियम और प्रोटीन से भरपूर भोजन लें – दूध, दही, दालें, अंडे। हल्की कसरत करें।</li>
-        <li><strong>तीसरी तिमाही:</strong> आयरन और विटामिन-C ज़रूरी। टहलना और सकारात्मक रहना बहुत लाभकारी है।</li>
-      </ul>
-    </div>
+  <div class="baby-hero">
+    <h1>👨‍👩‍👧 The Bhasker Family</h1>
+    <h2>👶 राधिका भास्कर</h2>
+    <p>जन्म तिथि: 05 अप्रैल 2026</p>
   </div>
 
+  <div class="card" id="age"></div>
+  <div class="card" id="growth"></div>
+  <div class="card" id="food"></div>
+
+</div>
+
 <script>
-  // 🔹 LMP Date (from medical report)
-  const lmpDate = new Date("2025-07-01T00:00:00");
 
-  // 🔹 Pregnancy start is LMP
-  const pregnancyStart = lmpDate;
+const birthDate = new Date("2026-04-05");
 
-  // 🔹 Due Date = LMP + 40 weeks (280 days)
-  const dueDate = new Date(lmpDate);
-  dueDate.setDate(dueDate.getDate() + 280);
+function updateBaby(){
 
-  function updateTracker(){
-    const now = new Date();
-    const diffMs = now - pregnancyStart;
-    const totalMs = dueDate - pregnancyStart;
+  const now = new Date();
 
-    const weeksPassed = Math.max(0, Math.floor(diffMs/(1000*60*60*24*7)));
-    const weeksLeft = Math.max(0, 40 - weeksPassed);
-    const percent = Math.min(100, Math.floor((diffMs/totalMs)*100));
+  let months = now.getMonth() - birthDate.getMonth() + 
+               (12 * (now.getFullYear() - birthDate.getFullYear()));
 
-    // 🔹 बेबी की उम्र (महीना + दिन)
-    let months = now.getMonth() - pregnancyStart.getMonth() + 
-                 (12 * (now.getFullYear() - pregnancyStart.getFullYear()));
-    let days = now.getDate() - pregnancyStart.getDate();
+  let days = now.getDate() - birthDate.getDate();
 
-    if (days < 0) {
-      months -= 1;
-      const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
-      days += prevMonth;
-    }
-
-    let stage = "";
-    let babyLook = "";
-    let babyImg = "Img_BB/month1.png";
-
-    if(weeksPassed <= 4){
-      stage = "शुरुआती अवस्था";
-      babyLook = "भ्रूण एक छोटे बीज जैसा है, आकार कुछ मिलीमीटर।";
-      babyImg = "Img_BB/month1.png";
-    } else if(weeksPassed <= 8){
-      stage = "6–8 सप्ताह (पहली तिमाही)";
-      babyLook = "दिल की धड़कन शुरू हो चुकी है, हाथ-पाँव की कली निकल रही है।";
-      babyImg = "Img_BB/month2.png";
-    } else if(weeksPassed <= 12){
-      stage = "पहली तिमाही (9–12 सप्ताह)";
-      babyLook = "चेहरा बन रहा है, आँखें और कान का आकार दिखने लगता है।";
-      babyImg = "Img_BB/month3.png";
-    } else if(weeksPassed <= 16){
-      stage = "दूसरी तिमाही की शुरुआत (13–16 सप्ताह)";
-      babyLook = "बच्चा अब हिलना-डुलना शुरू करता है।";
-      babyImg = "Img_BB/month4.png";
-    } else if(weeksPassed <= 20){
-      stage = "17–20 सप्ताह";
-      babyLook = "माँ को हल्की किक महसूस हो सकती है।";
-      babyImg = "Img_BB/month5.png";
-    } else if(weeksPassed <= 24){
-      stage = "21–24 सप्ताह";
-      babyLook = "बच्चा आवाज़ पर प्रतिक्रिया करता है।";
-      babyImg = "Img_BB/month6.png";
-    } else if(weeksPassed <= 28){
-      stage = "25–28 सप्ताह";
-      babyLook = "चेहरा और बाल स्पष्ट हैं।";
-      babyImg = "Img_BB/month7.png";
-    } else if(weeksPassed <= 32){
-      stage = "तीसरी तिमाही (29–32 सप्ताह)";
-      babyLook = "बच्चा तेजी से वजन बढ़ा रहा है।";
-      babyImg = "Img_BB/month8.png";
-    } else {
-      stage = "जन्म की तैयारी (33–40 सप्ताह)";
-      babyLook = "बच्चा पूरी तरह विकसित है।";
-      babyImg = "Img_BB/month9.png";
-    }
-
-    document.getElementById("tracker").innerHTML = `
-      <h3>🩺 LMP तारीख: ${lmpDate.toLocaleDateString('hi-IN')}</h3>
-      <h3>📅 अनुमानित ड्यू डेट: ${dueDate.toLocaleDateString('hi-IN')}</h3>
-      <p><strong>${weeksPassed}</strong> सप्ताह पूरे हो चुके हैं,
-      <strong>${weeksLeft}</strong> सप्ताह बाकी हैं।</p>
-      <div class="progress">
-        <div class="progress-bar" style="width:${percent}%">${percent}%</div>
-      </div>
-    `;
-
-    document.getElementById("babyInfo").innerHTML = `
-      <h3>👣 बेबी का विकास</h3>
-      <p class="stage">वर्तमान अवस्था: ${stage}</p>
-      <p>बेबी का रूप: ${babyLook}</p>
-      <p>🍼 बेबी की उम्र: <strong>${months} महीने ${days} दिन</strong></p>
-      <div class="baby-img">
-        <img src="${babyImg}" alt="Baby Growth">
-      </div>
-    `;
+  if (days < 0) {
+    months -= 1;
+    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+    days += prevMonth;
   }
 
-  updateTracker();
-  setInterval(updateTracker, 60000);
+  let percent = Math.min(100, Math.floor((months/12)*100));
+
+  // 👶 Growth + Food Logic
+  let growth = "";
+  let food = "";
+
+  if(months < 1){
+    growth = "बच्चा ज्यादातर सोता है, रोकर अपनी जरूरत बताता है।";
+    food = "केवल माँ का दूध (Breastfeeding) – हर 2-3 घंटे में।";
+  }
+  else if(months < 3){
+    growth = "मुस्कुराना शुरू करता है, आवाज पहचानने लगता है।";
+    food = "सिर्फ माँ का दूध (कोई पानी/खाना नहीं)।";
+  }
+  else if(months < 6){
+    growth = "गर्दन संभालना शुरू करता है, हाथ-पैर चलाता है।";
+    food = "केवल स्तनपान (Exclusive Breastfeeding)।";
+  }
+  else if(months < 8){
+    growth = "बैठने की कोशिश करता है।";
+    food = "दाल पानी, चावल का पानी, मैश्ड केला, खिचड़ी।";
+  }
+  else if(months < 10){
+    growth = "रेंगना (crawling) शुरू करता है।";
+    food = "सूजी, दलिया, उबली सब्जी मैश करके।";
+  }
+  else if(months < 12){
+    growth = "खड़ा होने की कोशिश करता है।";
+    food = "नरम रोटी, दाल, चावल, फल, सब्जियाँ।";
+  }
+  else{
+    growth = "चलना शुरू कर सकता है, बोलने की कोशिश करता है।";
+    food = "घर का सामान्य खाना (कम मसाले वाला)।";
+  }
+
+  document.getElementById("age").innerHTML = `
+    <h3>🍼 बेबी की उम्र</h3>
+    <p><strong>${months} महीने ${days} दिन</strong></p>
+
+    <div class="progress">
+      <div class="progress-bar" style="width:${percent}%">
+        ${percent}%
+      </div>
+    </div>
+  `;
+
+  document.getElementById("growth").innerHTML = `
+    <h3>👣 विकास (Growth)</h3>
+    <p>${growth}</p>
+  `;
+
+  document.getElementById("food").innerHTML = `
+    <h3>🍎 इस समय क्या खिलाएं</h3>
+    <p>${food}</p>
+  `;
+}
+
+updateBaby();
+setInterval(updateBaby,60000);
+
 </script>
 
 </body>
 </html>
-
