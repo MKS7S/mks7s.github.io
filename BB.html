@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>राधिका भास्कर – Complete Care Dashboard</title>
+<title>राधिका भास्कर – Complete Baby & Mother Care</title>
 
 <style>
 
 body{
 font-family:'Noto Sans Devanagari',sans-serif;
-background:linear-gradient(180deg,#fffefd,#eef6ff);
+background:linear-gradient(180deg,#fff,#eef6ff);
 margin:0;padding:0;color:#333;
 }
 
@@ -30,9 +30,12 @@ box-shadow:0 3px 10px rgba(0,0,0,0.08);
 .progress{height:18px;background:#eee;border-radius:10px;overflow:hidden;}
 .bar{height:100%;background:linear-gradient(90deg,#ff6ec4,#7873f5);color:#fff;text-align:center;font-size:12px;}
 
-img{width:100%;max-width:220px;border-radius:12px;margin-top:10px;}
+textarea{
+width:100%;height:80px;border-radius:10px;padding:10px;
+border:1px solid #ccc;
+}
 
-h3{margin-bottom:8px;color:#7b1b5a;}
+h3{color:#7b1b5a;margin-bottom:6px;}
 
 </style>
 </head>
@@ -52,7 +55,15 @@ h3{margin-bottom:8px;color:#7b1b5a;}
 <div class="card" id="mother"></div>
 <div class="card" id="vaccine"></div>
 <div class="card" id="sleep"></div>
+<div class="card" id="brain"></div>
+<div class="card" id="hygiene"></div>
+<div class="card" id="warning"></div>
 <div class="card" id="routine"></div>
+
+<div class="card">
+<h3>📝 नोट्स (आप लिख सकते हैं)</h3>
+<textarea placeholder="यहाँ अपनी नोट्स लिखें..."></textarea>
+</div>
 
 </div>
 
@@ -64,129 +75,102 @@ function update(){
 
 const now = new Date();
 
-// 🎯 Exact Age
 let totalDays = Math.floor((now - birthDate)/(1000*60*60*24));
 
-let months = now.getMonth() - birthDate.getMonth() + 
-(12*(now.getFullYear()-birthDate.getFullYear()));
+let years = Math.floor(totalDays/365);
+let months = Math.floor((totalDays%365)/30);
+let days = totalDays % 30;
 
-let days = now.getDate() - birthDate.getDate();
+let progress = Math.min(100,Math.floor((totalDays/730)*100));
 
-if(days<0){
-months--;
-let prevMonth = new Date(now.getFullYear(),now.getMonth(),0).getDate();
-days += prevMonth;
-}
+// 👶 Baby
+let babyText="",babyFood="";
 
-let percent = Math.min(100,Math.floor((months/24)*100));
-
-// 👶 BABY LOGIC
-let babyText="",babyFood="",babyImg="";
-
-if(months<1){
-babyText="बच्चा ज्यादातर सोता है, skin-to-skin जरूरी है।";
-babyFood="हर 2-3 घंटे स्तनपान।";
-babyImg="https://cdn.pixabay.com/photo/2016/03/27/19/32/baby-1283462_640.jpg";
+if(totalDays<30){
+babyText="👶 नवजात – सोना, दूध पीना और रोना";
+babyFood="🍼 हर 2-3 घंटे स्तनपान";
 }
-else if(months<3){
-babyText="मुस्कुराना और आवाज पहचानना शुरू करता है।";
-babyFood="केवल माँ का दूध।";
-babyImg="https://cdn.pixabay.com/photo/2016/11/29/03/53/baby-1868759_640.jpg";
+else if(totalDays<180){
+babyText="😊 मुस्कुराना, गर्दन पकड़ना";
+babyFood="🍼 केवल माँ का दूध";
 }
-else if(months<6){
-babyText="गर्दन पकड़ना और खेलना शुरू।";
-babyFood="Exclusive breastfeeding।";
-babyImg="https://cdn.pixabay.com/photo/2015/03/26/09/54/baby-690040_640.jpg";
-}
-else if(months<9){
-babyText="बैठना और रेंगना।";
-babyFood="खिचड़ी, केला, दाल पानी।";
-babyImg="https://cdn.pixabay.com/photo/2017/02/20/18/03/baby-2083499_640.jpg";
-}
-else if(months<12){
-babyText="खड़ा होना और चलने की कोशिश।";
-babyFood="नरम घर का खाना।";
-babyImg="https://cdn.pixabay.com/photo/2017/01/31/21/23/baby-2027647_640.jpg";
+else if(totalDays<365){
+babyText="🚼 बैठना, रेंगना, खड़ा होना";
+babyFood="🍌 केला, खिचड़ी, दाल, सूजी";
 }
 else{
-babyText="चलना, बोलना सीखता है।";
-babyFood="Balanced diet।";
-babyImg="https://cdn.pixabay.com/photo/2017/05/15/00/45/baby-2318064_640.jpg";
+babyText="🚶 चलना, बोलना शुरू";
+babyFood="🍛 घर का खाना (कम मसाले)";
 }
 
-// 🤱 MOTHER LOGIC
-let motherFood="",motherCare="",motherImg="";
+// 🤱 Mother
+let motherFood="दूध, दाल, फल, सब्जी, मेवे";
+let motherCare="आराम, पानी ज्यादा, तनाव कम";
 
-if(months<1){
-motherFood="घी, पंजीरी, दूध, मेवे, हल्दी दूध।";
-motherCare="पूरी तरह आराम + टांके का ध्यान।";
-}
-else if(months<3){
-motherFood="प्रोटीन + कैल्शियम (दूध, दाल, अंडे)।";
-motherCare="पानी ज्यादा + नींद जरूरी।";
-}
-else if(months<6){
-motherFood="फल, सब्जी, दही, पनीर।";
-motherCare="हल्की एक्सरसाइज।";
-}
-else{
-motherFood="Balanced diet + hydration।";
-motherCare="मेंटल हेल्थ + खुद का समय।";
-}
-
-motherImg="https://cdn.pixabay.com/photo/2017/08/06/00/39/mother-2589678_640.jpg";
-
-// 💉 Vaccination
-let vaccine="BCG, OPV, Hepatitis B (जन्म के समय)";
-if(months>=1) vaccine="6,10,14 हफ्ते: DPT, Polio, Hep B";
-if(months>=6) vaccine="6 महीने: Flu vaccine";
-if(months>=9) vaccine="9 महीने: Measles";
+// 💉 Vaccine
+let vaccine="BCG, OPV, Hep B (जन्म)";
+if(totalDays>42) vaccine="6,10,14 सप्ताह टीके";
+if(totalDays>180) vaccine="6 माह Flu";
+if(totalDays>270) vaccine="9 माह Measles";
 
 // 💤 Sleep
-let sleep="16-18 घंटे नींद";
-if(months>3) sleep="14-16 घंटे";
-if(months>6) sleep="12-14 घंटे";
+let sleep="16-18 घंटे";
+if(totalDays>90) sleep="14-16 घंटे";
+if(totalDays>180) sleep="12-14 घंटे";
+
+// 🧠 Brain
+let brain="बच्चे से बात करें, गाने सुनाएं, eye contact करें";
+
+// 🧼 Hygiene
+let hygiene="हाथ साफ रखें, कपड़े साफ, नहलाना जरूरी";
+
+// ⚠️ Warning
+let warning="बुखार, दूध न पीना, सुस्ती → डॉक्टर दिखाएँ";
 
 // 🔔 Routine
-let routine="हर 2-3 घंटे दूध, साफ-सफाई, नींद";
-if(months>6) routine="खाना + खेल + नींद balance करें";
-
-// UI
+let routine="दूध, नींद, सफाई, प्यार";
 
 document.getElementById("age").innerHTML=`
 <h3>🍼 उम्र</h3>
-<p><strong>${months} महीने ${days} दिन</strong></p>
-<p>📅 कुल दिन: ${totalDays} दिन</p>
-<div class="progress"><div class="bar" style="width:${percent}%">${percent}%</div></div>
+<p><b>${years} साल ${months} महीने ${days} दिन</b></p>
+<p>📅 कुल दिन: ${totalDays}</p>
+<div class="progress"><div class="bar" style="width:${progress}%">${progress}%</div></div>
 `;
 
 document.getElementById("baby").innerHTML=`
-<h3>👶 बेबी केयर</h3>
+<h3>👶 बेबी</h3>
 <p>${babyText}</p>
-<p><b>🍎 खाना:</b> ${babyFood}</p>
-<img src="${babyImg}">
+<p>${babyFood}</p>
 `;
 
 document.getElementById("mother").innerHTML=`
-<h3>🤱 माँ की देखभाल</h3>
-<p><b>🍲 डाइट:</b> ${motherFood}</p>
-<p><b>💡 टिप्स:</b> ${motherCare}</p>
-<img src="${motherImg}">
+<h3>🤱 माँ</h3>
+<p>🍲 ${motherFood}</p>
+<p>💡 ${motherCare}</p>
 `;
 
 document.getElementById("vaccine").innerHTML=`
-<h3>💉 टीकाकरण</h3>
-<p>${vaccine}</p>
+<h3>💉 टीकाकरण</h3><p>${vaccine}</p>
 `;
 
 document.getElementById("sleep").innerHTML=`
-<h3>💤 नींद</h3>
-<p>${sleep}</p>
+<h3>💤 नींद</h3><p>${sleep}</p>
+`;
+
+document.getElementById("brain").innerHTML=`
+<h3>🧠 दिमाग विकास</h3><p>${brain}</p>
+`;
+
+document.getElementById("hygiene").innerHTML=`
+<h3>🧼 सफाई</h3><p>${hygiene}</p>
+`;
+
+document.getElementById("warning").innerHTML=`
+<h3>⚠️ सावधानी</h3><p>${warning}</p>
 `;
 
 document.getElementById("routine").innerHTML=`
-<h3>🔔 डेली रूटीन</h3>
-<p>${routine}</p>
+<h3>🔔 दिनचर्या</h3><p>${routine}</p>
 `;
 
 }
