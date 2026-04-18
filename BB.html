@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>राधिका भास्कर – बेबी ग्रोथ ट्रैकर</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body{
-      font-family:'Noto Sans Devanagari',sans-serif;
-      background:linear-gradient(180deg,#fffefd,#f6fbff);
-      margin:0;padding:0;line-height:1.6;color:#333;
-    }
-    .container{max-width:650px;margin:auto;padding:16px;}
-    .baby-hero{
-      background:linear-gradient(135deg,#ffe6f0,#e6f0ff);
-      padding:18px;border-radius:20px;text-align:center;
-    }
-    .card{
-      background:#fff;border-radius:14px;padding:16px;margin-top:18px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.08);
-    }
-    .progress{
-      height:18px;border-radius:10px;background:#f3f4f6;
-      overflow:hidden;margin:12px 0;
-    }
-    .progress-bar{
-      height:100%;
-      background:linear-gradient(90deg,#f472b6,#60a5fa);
-      text-align:center;color:#fff;font-size:0.8rem;
-    }
-  </style>
+<title>राधिका भास्कर – Complete Care Dashboard</title>
+
+<style>
+
+body{
+font-family:'Noto Sans Devanagari',sans-serif;
+background:linear-gradient(180deg,#fffefd,#eef6ff);
+margin:0;padding:0;color:#333;
+}
+
+.container{max-width:720px;margin:auto;padding:15px;}
+
+.hero{
+background:linear-gradient(135deg,#ffd6e7,#d6e6ff);
+padding:20px;border-radius:20px;text-align:center;
+}
+
+.card{
+background:#fff;border-radius:14px;
+padding:16px;margin-top:16px;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.progress{height:18px;background:#eee;border-radius:10px;overflow:hidden;}
+.bar{height:100%;background:linear-gradient(90deg,#ff6ec4,#7873f5);color:#fff;text-align:center;font-size:12px;}
+
+img{width:100%;max-width:220px;border-radius:12px;margin-top:10px;}
+
+h3{margin-bottom:8px;color:#7b1b5a;}
+
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-  <div class="baby-hero">
-    <h1>👨‍👩‍👧 The Bhasker Family</h1>
-    <h2>👶 राधिका भास्कर</h2>
-    <p>जन्म तिथि: 05 अप्रैल 2026</p>
-  </div>
+<div class="hero">
+<h1>👨‍👩‍👧 The Bhasker Family</h1>
+<h2>👶 राधिका भास्कर</h2>
+<p>जन्म: 05 अप्रैल 2026</p>
+</div>
 
-  <div class="card" id="age"></div>
-  <div class="card" id="growth"></div>
-  <div class="card" id="food"></div>
+<div class="card" id="age"></div>
+<div class="card" id="baby"></div>
+<div class="card" id="mother"></div>
+<div class="card" id="vaccine"></div>
+<div class="card" id="sleep"></div>
+<div class="card" id="routine"></div>
 
 </div>
 
@@ -52,80 +60,139 @@
 
 const birthDate = new Date("2026-04-05");
 
-function updateBaby(){
+function update(){
 
-  const now = new Date();
+const now = new Date();
 
-  let months = now.getMonth() - birthDate.getMonth() + 
-               (12 * (now.getFullYear() - birthDate.getFullYear()));
+// 🎯 Exact Age
+let totalDays = Math.floor((now - birthDate)/(1000*60*60*24));
 
-  let days = now.getDate() - birthDate.getDate();
+let months = now.getMonth() - birthDate.getMonth() + 
+(12*(now.getFullYear()-birthDate.getFullYear()));
 
-  if (days < 0) {
-    months -= 1;
-    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
-    days += prevMonth;
-  }
+let days = now.getDate() - birthDate.getDate();
 
-  let percent = Math.min(100, Math.floor((months/12)*100));
-
-  // 👶 Growth + Food Logic
-  let growth = "";
-  let food = "";
-
-  if(months < 1){
-    growth = "बच्चा ज्यादातर सोता है, रोकर अपनी जरूरत बताता है।";
-    food = "केवल माँ का दूध (Breastfeeding) – हर 2-3 घंटे में।";
-  }
-  else if(months < 3){
-    growth = "मुस्कुराना शुरू करता है, आवाज पहचानने लगता है।";
-    food = "सिर्फ माँ का दूध (कोई पानी/खाना नहीं)।";
-  }
-  else if(months < 6){
-    growth = "गर्दन संभालना शुरू करता है, हाथ-पैर चलाता है।";
-    food = "केवल स्तनपान (Exclusive Breastfeeding)।";
-  }
-  else if(months < 8){
-    growth = "बैठने की कोशिश करता है।";
-    food = "दाल पानी, चावल का पानी, मैश्ड केला, खिचड़ी।";
-  }
-  else if(months < 10){
-    growth = "रेंगना (crawling) शुरू करता है।";
-    food = "सूजी, दलिया, उबली सब्जी मैश करके।";
-  }
-  else if(months < 12){
-    growth = "खड़ा होने की कोशिश करता है।";
-    food = "नरम रोटी, दाल, चावल, फल, सब्जियाँ।";
-  }
-  else{
-    growth = "चलना शुरू कर सकता है, बोलने की कोशिश करता है।";
-    food = "घर का सामान्य खाना (कम मसाले वाला)।";
-  }
-
-  document.getElementById("age").innerHTML = `
-    <h3>🍼 बेबी की उम्र</h3>
-    <p><strong>${months} महीने ${days} दिन</strong></p>
-
-    <div class="progress">
-      <div class="progress-bar" style="width:${percent}%">
-        ${percent}%
-      </div>
-    </div>
-  `;
-
-  document.getElementById("growth").innerHTML = `
-    <h3>👣 विकास (Growth)</h3>
-    <p>${growth}</p>
-  `;
-
-  document.getElementById("food").innerHTML = `
-    <h3>🍎 इस समय क्या खिलाएं</h3>
-    <p>${food}</p>
-  `;
+if(days<0){
+months--;
+let prevMonth = new Date(now.getFullYear(),now.getMonth(),0).getDate();
+days += prevMonth;
 }
 
-updateBaby();
-setInterval(updateBaby,60000);
+let percent = Math.min(100,Math.floor((months/24)*100));
+
+// 👶 BABY LOGIC
+let babyText="",babyFood="",babyImg="";
+
+if(months<1){
+babyText="बच्चा ज्यादातर सोता है, skin-to-skin जरूरी है।";
+babyFood="हर 2-3 घंटे स्तनपान।";
+babyImg="https://cdn.pixabay.com/photo/2016/03/27/19/32/baby-1283462_640.jpg";
+}
+else if(months<3){
+babyText="मुस्कुराना और आवाज पहचानना शुरू करता है।";
+babyFood="केवल माँ का दूध।";
+babyImg="https://cdn.pixabay.com/photo/2016/11/29/03/53/baby-1868759_640.jpg";
+}
+else if(months<6){
+babyText="गर्दन पकड़ना और खेलना शुरू।";
+babyFood="Exclusive breastfeeding।";
+babyImg="https://cdn.pixabay.com/photo/2015/03/26/09/54/baby-690040_640.jpg";
+}
+else if(months<9){
+babyText="बैठना और रेंगना।";
+babyFood="खिचड़ी, केला, दाल पानी।";
+babyImg="https://cdn.pixabay.com/photo/2017/02/20/18/03/baby-2083499_640.jpg";
+}
+else if(months<12){
+babyText="खड़ा होना और चलने की कोशिश।";
+babyFood="नरम घर का खाना।";
+babyImg="https://cdn.pixabay.com/photo/2017/01/31/21/23/baby-2027647_640.jpg";
+}
+else{
+babyText="चलना, बोलना सीखता है।";
+babyFood="Balanced diet।";
+babyImg="https://cdn.pixabay.com/photo/2017/05/15/00/45/baby-2318064_640.jpg";
+}
+
+// 🤱 MOTHER LOGIC
+let motherFood="",motherCare="",motherImg="";
+
+if(months<1){
+motherFood="घी, पंजीरी, दूध, मेवे, हल्दी दूध।";
+motherCare="पूरी तरह आराम + टांके का ध्यान।";
+}
+else if(months<3){
+motherFood="प्रोटीन + कैल्शियम (दूध, दाल, अंडे)।";
+motherCare="पानी ज्यादा + नींद जरूरी।";
+}
+else if(months<6){
+motherFood="फल, सब्जी, दही, पनीर।";
+motherCare="हल्की एक्सरसाइज।";
+}
+else{
+motherFood="Balanced diet + hydration।";
+motherCare="मेंटल हेल्थ + खुद का समय।";
+}
+
+motherImg="https://cdn.pixabay.com/photo/2017/08/06/00/39/mother-2589678_640.jpg";
+
+// 💉 Vaccination
+let vaccine="BCG, OPV, Hepatitis B (जन्म के समय)";
+if(months>=1) vaccine="6,10,14 हफ्ते: DPT, Polio, Hep B";
+if(months>=6) vaccine="6 महीने: Flu vaccine";
+if(months>=9) vaccine="9 महीने: Measles";
+
+// 💤 Sleep
+let sleep="16-18 घंटे नींद";
+if(months>3) sleep="14-16 घंटे";
+if(months>6) sleep="12-14 घंटे";
+
+// 🔔 Routine
+let routine="हर 2-3 घंटे दूध, साफ-सफाई, नींद";
+if(months>6) routine="खाना + खेल + नींद balance करें";
+
+// UI
+
+document.getElementById("age").innerHTML=`
+<h3>🍼 उम्र</h3>
+<p><strong>${months} महीने ${days} दिन</strong></p>
+<p>📅 कुल दिन: ${totalDays} दिन</p>
+<div class="progress"><div class="bar" style="width:${percent}%">${percent}%</div></div>
+`;
+
+document.getElementById("baby").innerHTML=`
+<h3>👶 बेबी केयर</h3>
+<p>${babyText}</p>
+<p><b>🍎 खाना:</b> ${babyFood}</p>
+<img src="${babyImg}">
+`;
+
+document.getElementById("mother").innerHTML=`
+<h3>🤱 माँ की देखभाल</h3>
+<p><b>🍲 डाइट:</b> ${motherFood}</p>
+<p><b>💡 टिप्स:</b> ${motherCare}</p>
+<img src="${motherImg}">
+`;
+
+document.getElementById("vaccine").innerHTML=`
+<h3>💉 टीकाकरण</h3>
+<p>${vaccine}</p>
+`;
+
+document.getElementById("sleep").innerHTML=`
+<h3>💤 नींद</h3>
+<p>${sleep}</p>
+`;
+
+document.getElementById("routine").innerHTML=`
+<h3>🔔 डेली रूटीन</h3>
+<p>${routine}</p>
+`;
+
+}
+
+update();
+setInterval(update,60000);
 
 </script>
 
