@@ -295,6 +295,49 @@ body {
 .c-teal   { background: linear-gradient(135deg,#0d9488,#2dd4bf); box-shadow: 0 6px 24px rgba(13,148,136,0.3); }
 .c-indigo { background: linear-gradient(135deg,#6366f1,#818cf8); box-shadow: 0 6px 24px rgba(99,102,241,0.3); }
 .c-rose   { background: linear-gradient(135deg,#e11d48,#fb7185); box-shadow: 0 6px 24px rgba(225,29,72,0.3); }
+.c-brain  { background: linear-gradient(135deg,#7c3aed,#2563eb,#0891b2); box-shadow: 0 6px 28px rgba(124,58,237,0.4); }
+.c-emotion{ background: linear-gradient(135deg,#db2777,#9333ea,#7c3aed); box-shadow: 0 6px 24px rgba(219,39,119,0.35); }
+
+/* ── Brain card special glow ── */
+.card.c-brain {
+  border: 2px solid rgba(255,255,255,0.2);
+  animation: cardIn 0.7s ease both, brainPulse 4s ease-in-out infinite;
+}
+@keyframes brainPulse {
+  0%,100% { box-shadow: 0 6px 28px rgba(124,58,237,0.4); }
+  50%      { box-shadow: 0 8px 40px rgba(37,99,235,0.6), 0 0 20px rgba(124,58,237,0.3); }
+}
+
+/* ── IQ tip box ── */
+.iq-tip {
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 7px 10px;
+  margin: 4px 0;
+  font-size: 12.5px;
+  border-left: 3px solid rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
+}
+.iq-science {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin: 8px 0 4px;
+  font-size: 12px;
+  font-style: italic;
+  border: 1px solid rgba(255,255,255,0.35);
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+.iq-avoid {
+  background: rgba(255,100,100,0.2);
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-top: 6px;
+  font-size: 12px;
+  border-left: 3px solid rgba(255,160,160,0.7);
+}
 
 /* ── Divider within card ── */
 .cdivider {
@@ -332,7 +375,7 @@ body {
 .d1{animation-delay:.1s} .d2{animation-delay:.2s} .d3{animation-delay:.3s}
 .d4{animation-delay:.4s} .d5{animation-delay:.5s} .d6{animation-delay:.6s}
 .d7{animation-delay:.7s} .d8{animation-delay:.8s} .d9{animation-delay:.9s}
-.d10{animation-delay:1s}
+.d10{animation-delay:1s} .d11{animation-delay:1.1s} .d12{animation-delay:1.2s}
 
 /* ── Sparkle ── */
 .sparkle-row { display:flex; justify-content:center; gap:14px; margin-top:10px; }
@@ -438,7 +481,13 @@ body {
     <!-- Massage -->
     <div class="card c-yellow d7" id="card-massage"></div>
 
-    <!-- Brain Dev -->
+    <!-- 🧠 IQ & Brain Development (NEW) -->
+    <div class="card c-brain card-full d8" id="card-iq"></div>
+
+    <!-- Emotional Development (NEW) -->
+    <div class="card c-emotion card-full d9" id="card-emotional"></div>
+
+    <!-- Brain Dev (old card, now focused on activities) -->
     <div class="card c-purple card-full d8" id="card-brain"></div>
 
     <!-- Activities -->
@@ -540,7 +589,29 @@ function getPhaseData(d){
     hygiene:'रोज़ गुनगुने पानी से पोंछें, नाभि सूखी रखें, डायपर हर 2-3 घंटे बदलें',
     warning:'🚨 तेज़ बुखार | पीला रंग बढ़ना | दूध न पीना | साँस लेने में तकलीफ → तुरंत डॉक्टर',
     routine:'दूध → नींद → साफ डायपर → प्यार → दोहराएँ ♻️',
-    ageEmoji:'👼'
+    ageEmoji:'👼',
+    iq:{
+      title:'नवजात मस्तिष्क – पहले 7 दिन',
+      science:'🔬 विज्ञान कहता है: जन्म के समय brain में 100 अरब neurons होते हैं – हर second 700-1000 नए neural connections बनते हैं!',
+      tips:[
+        '👁️ 20-30 cm दूरी पर काले-सफेद patterns दिखाएँ (checkerboard, stripes) – visual cortex को activate करते हैं',
+        '🗣️ धीमी, मधुर आवाज़ में बात करें – language circuits जन्म से ही build होने शुरू',
+        '🤝 Skin-to-skin (Kangaroo Care) दिन में 1-2 घंटे – cortisol कम, oxytocin बढ़ता है जो brain growth में मदद करता है',
+        '🎵 शास्त्रीय संगीत / भजन 15-20 मिनट – Mozart Effect: auditory neural pathways मज़बूत होती हैं',
+        '👃 माँ की खुशबू brain को comfort देती है – हमेशा पास रखें',
+        '💡 हर रोना सुनें और respond करें – "responsive parenting" = higher IQ (Harvard Research)',
+      ],
+      avoid:'📵 TV, phone screen, तेज़ शोर, एकदम तेज़ रोशनी से दूर रखें'
+    },
+    emotional:{
+      title:'भावनात्मक विकास – नवजात',
+      tips:[
+        '🤗 गोद में लेना = सुरक्षा की भावना → secure attachment = emotional IQ की नींव',
+        '😭 रोने पर तुरंत respond करें – बच्चे को "खराब" नहीं बनाते, बल्कि trust बनाते हैं',
+        '🎶 माँ की आवाज़ सुनकर शांत होती है – 9 महीने से पहचानती है यह आवाज़',
+        '👀 Face-to-face contact – empathy का पहला पाठ',
+      ]
+    }
   };
 
   if(d < 30) return {
@@ -575,7 +646,30 @@ function getPhaseData(d){
     hygiene:'रोज़ नहलाएँ (गुनगुना पानी), डायपर रैश पर zinc cream लगाएँ',
     warning:'🚨 40°F से ऊपर बुखार | 6+ घंटे दूध न पीना | बहुत ज़्यादा उल्टी | आँखों में पीलापन',
     routine:'🌞 सुबह: मालिश → नहाना | दिन: दूध + झपकी | 🌙 रात: शांत माहौल में दूध → नींद',
-    ageEmoji:'👶'
+    ageEmoji:'👶',
+    iq:{
+      title:'Brain Boost – पहला महीना',
+      science:'🔬 शोध बताता है: जो बच्चे ज़्यादा face-to-face interaction पाते हैं उनका prefrontal cortex (decision-making वाला हिस्सा) तेज़ी से develop होता है!',
+      tips:[
+        '🖤🤍 काले-सफेद spiral, checkerboard patterns दिखाएँ – सबसे तेज़ visual stimulation इस उम्र में',
+        '👶 आपका चेहरा सबसे अच्छा "खिलौना" है – expressions बदल-बदलकर दिखाएँ (मुस्कान, आश्चर्य)',
+        '🗣️ हर काम करते हुए बोलें: "अभी नहाएंगे", "दूध लो" – vocabulary circuits शुरू',
+        '🎵 रात को सुलाते समय एक ही lullaby गाएँ – pattern recognition brain को train करता है',
+        '🔔 पास से हल्के से घंटी बजाएँ – sound localization skill develop होती है',
+        '☀️ सुबह 15-20 मिनट indirect sunlight – Vitamin D + serotonin = happy brain',
+      ],
+      avoid:'📵 इस उम्र में screen time बिल्कुल नहीं – WHO guideline: 0-18 months = NO screen'
+    },
+    emotional:{
+      title:'भावनात्मक विकास – पहला महीना',
+      tips:[
+        '🤱 Breastfeeding = physical + emotional bonding दोनों – oxytocin "love hormone" release',
+        '🎤 रोने की अलग-अलग आवाज़ें समझना सीखें (भूख/दर्द/थकान) – आप expert बन रहे हैं!',
+        '👨‍👩‍👧 Papa का भी skin-to-skin contact ज़रूरी – father bonding = better social skills later',
+        '🌙 रात को उठाकर feed करना थकाने वाला है – पर यह trust बना रहा है',
+        '💪 माँ: खुद की mental health का ध्यान रखें – happy mom = happy baby brain',
+      ]
+    }
   };
 
   if(d < 90) return {
@@ -611,7 +705,31 @@ function getPhaseData(d){
     hygiene:'रोज़ नहाना, डायपर हर 3-4 घंटे बदलें, नाखून काटें (सोते समय)',
     warning:'🚨 2 माह में मुस्कान न आए | आवाज़ों पर रिएक्शन नहीं | गर्दन बिल्कुल न उठाए | लगातार रोना',
     routine:'🌞 सुबह: मालिश+धूप | दिन: खेल+दूध+झपकी (3 झपकी) | 🌙 रात: शांत वातावरण',
-    ageEmoji:'😊'
+    ageEmoji:'😊',
+    iq:{
+      title:'IQ Boost – 1 से 3 महीने',
+      science:'🔬 "Serve and Return" interactions (बच्चा आवाज़ करे → आप जवाब दें) IQ का सबसे बड़ा predictor है – Harvard Center on the Developing Child',
+      tips:[
+        '🔄 Visual Tracking Exercise: लाल गेंद धीरे-धीरे बाएँ-दाएँ घुमाएँ – eye-brain coordination बनती है',
+        '💬 Cooing conversation: राधिका "आह" करे तो आप भी "आह" करें – turn-taking language की नींव है',
+        '🟥🟨🟦 Primary colors के खिलौने दिखाएँ – color processing centers activate होते हैं',
+        '🎼 Nursery rhymes रोज़ सुनाएँ – rhythm + language = mathematical brain connection',
+        '🤸 Tummy time रोज़ 5-10 मिनट – neck muscles + brain-body neural pathways एक साथ develop',
+        '🪞 शीशे में चेहरा दिखाएँ – self-recognition की शुरुआत, social brain active',
+        '📖 सरल picture books दिखाएँ और बोलें – reading से 5 साल तक 10 लाख ज़्यादा शब्द सुनते हैं!',
+      ],
+      avoid:'⚠️ Negative emotions (चीखना, झगड़ा) से दूर रखें – stress hormones brain development रोकते हैं'
+    },
+    emotional:{
+      title:'भावनात्मक विकास – 1-3 माह',
+      tips:[
+        '😄 पहली smile देखें? खुब मुस्कुराएँ वापस – social smile = emotional IQ की शुरुआत!',
+        '🎭 अपने expressions बदल-बदलकर दिखाएँ – mirror neurons active होते हैं',
+        '🤲 जब रोए तो गोद में लें – cortisol (stress hormone) कम होता है, brain को damage से बचाता है',
+        '🎵 गाना सुनाते समय आँखों में देखें – emotional bonding + language दोनों एक साथ',
+        '🌿 शांत माहौल = calm brain: घर में तनाव कम रखें',
+      ]
+    }
   };
 
   if(d < 180) return {
@@ -648,7 +766,31 @@ function getPhaseData(d){
     hygiene:'दाँत निकलना शुरू → मसूड़े साफ करें, Teether साफ रखें, नहाते वक्त खेल',
     warning:'🚨 6 माह तक न बैठना | चीज़ें न पकड़ना | किसी आवाज़ पर रिएक्शन नहीं | भोजन से एलर्जी के लक्षण',
     routine:'🌞 सुबह: दूध → मालिश → नहाना | दोपहर: Solid खाना + खेल + झपकी | 🌙 रात: दूध → कहानी → नींद',
-    ageEmoji:'🎯'
+    ageEmoji:'🎯',
+    iq:{
+      title:'IQ Boost – 3 से 6 महीने',
+      science:'🔬 इस उम्र में brain का size 2 गुना होता है! Cause-and-Effect समझना शुरू – यही logical thinking की नींव है',
+      tips:[
+        '🎰 Cause-Effect खिलौने: बटन दबाने पर आवाज़/रोशनी → "मेरी action = result" – logical thinking',
+        '🪞 Mirror time: रोज़ 5-10 मिनट शीशे के सामने – self-awareness, social brain develop',
+        '📚 रोज़ एक picture book: एक ही किताब बार-बार = vocabulary 3x तेज़ बढ़ती है',
+        '🎵 Music + Movement एक साथ: गाने पर हाथ-पैर हिलाएँ – multiple brain areas activate',
+        '🌈 अलग-अलग textures छुआएँ (soft cloth, crinkle paper, rough ball) – sensory IQ बनाएँ',
+        '🗣️ HINDI + ENGLISH दोनों बोलें: Bilingual बच्चों का executive function 25% बेहतर होता है',
+        '🤸 Reach and grab खिलौने: hand-eye coordination = fine motor IQ',
+      ],
+      avoid:'📺 Cartoon/YouTube इस उम्र में भी नहीं – passive screen = zero brain development'
+    },
+    emotional:{
+      title:'भावनात्मक विकास – 3-6 माह',
+      tips:[
+        '😂 खिलखिलाहट को celebrate करें – laughter = positive neural pathways',
+        '🙈 Peek-a-boo: anticipation + surprise = emotional regulation की practice',
+        '😤 Stranger anxiety शुरू हो सकती है – बिल्कुल normal, forcefully किसी के पास न दें',
+        '🤗 अलग-अलग लोगों से मिलवाएँ (safe environment में) – social confidence बनती है',
+        '🎭 Happy/Sad expressions दिखाएँ – emotional recognition शुरू होती है',
+      ]
+    }
   };
 
   if(d < 270) return {
@@ -685,7 +827,31 @@ function getPhaseData(d){
     hygiene:'दाँत ब्रश करना शुरू (soft brush, कोई paste नहीं), बाल धोना, कान साफ',
     warning:'🚨 रेंगने में बहुत देरी | बोलने की कोशिश न करना | खाना न खाना | बुखार के साथ रैश',
     routine:'⏰ 7am: दूध | 9am: नाश्ता + खेल | 12pm: खाना + झपकी | 3pm: Snack | 7pm: रात का खाना | 8pm: दूध + नींद',
-    ageEmoji:'🌟'
+    ageEmoji:'🌟',
+    iq:{
+      title:'IQ Boost – 6 से 9 महीने',
+      science:'🔬 Object Permanence (छुपी चीज़ ढूँढना) = IQ का milestone! Piaget के अनुसार यह cognitive development का सबसे बड़ा sign है इस उम्र में',
+      tips:[
+        '🙈 Object Permanence Games: खिलौना कपड़े के नीचे छुपाएँ, ढूँढने दें – logical thinking boom!',
+        '🏗️ Stacking rings/cups: दें खुद उठाने और रखने के लिए – spatial IQ, problem-solving',
+        '🌍 हर चीज़ का नाम बोलें (500+ words by age 1 target): "यह गाजर है – orange color"',
+        '🎹 Musical instruments: drum, rattle, xylophone – rhythm + coordination + auditory IQ',
+        '🐄🐕 जानवरों की आवाज़ें सिखाएँ: "कुत्ता – bow wow" – categorization skills',
+        '📦 Nesting cups: छोटा-बड़ा concept → size discrimination = early math brain',
+        '🍽️ खाना खुद छूने दें (Finger Foods): sensory + motor + independence = IQ drivers',
+      ],
+      avoid:'⚠️ Baby Walker से बचें – WHO और research दोनों कहते हैं यह brain-motor development slow करता है'
+    },
+    emotional:{
+      title:'भावनात्मक विकास – 6-9 माह',
+      tips:[
+        '😰 Separation Anxiety normal है – हर बार जाते समय "bye" कहें, वापस ज़रूर आएँ (trust build होता है)',
+        '🤝 Social referencing शुरू: अजनबी को देखकर माँ का reaction देखती है – आप calm रहें',
+        '😤 Frustration handle करना सीख रही है – तुरंत न दें जो चाहे, थोड़ी try करने दें',
+        '🌟 हर achievement पर "शाबाश!" – positive reinforcement = confidence + motivation',
+        '🎭 Emotions को नाम दें: "राधिका खुश है!", "आह, दर्द हुआ" – emotional vocabulary',
+      ]
+    }
   };
 
   if(d < 365) return {
@@ -722,10 +888,33 @@ function getPhaseData(d){
     hygiene:'रोज़ ब्रश (rice grain paste), बाल हर 2 दिन, नाखून साप्ताहिक, जूते साफ',
     warning:'🚨 1 साल तक कोई शब्द नहीं | खड़े न होना | 6 माह से रेंगना नहीं | अजीब चाल',
     routine:'⏰ 7am: दूध+नाश्ता | 10am: खेल | 12pm: खाना+झपकी | 3pm: Snack+बाहर | 7pm: खाना | 8:30pm: नींद',
-    ageEmoji:'🚶'
+    ageEmoji:'🚶',
+    iq:{
+      title:'IQ Boost – 9 से 12 महीने',
+      science:'🔬 पहला शब्द बोलना = Broca\'s area (language brain) activate! अब बच्चा "mental maps" बनाता है – यही intelligence का आधार है',
+      tips:[
+        '🧩 Shape sorters: गोल-चौकोर-तिकोना holes में shapes डालना – spatial IQ + problem solving',
+        '📣 हर चीज़ point करके बोलें: "यह ball है – ROUND – लाल रंग" – multi-concept learning',
+        '🎵 Action songs (Twinkle Twinkle, मछली जल की रानी) – action + language = motor + language IQ',
+        '🏗️ Building blocks stack करना: 2-3 ब्लॉक – fine motor + cause-effect + patience',
+        '📖 रोज़ रात 1 कहानी की किताब: same book 3-4 बार पढ़ें, पन्ने पलटने दें',
+        '🌳 Outdoor time रोज़: grass, sand, पत्ते छूना = sensory integration = brain mapping',
+        '🥄 खुद खाने की कोशिश करने दें (mess होगा!) – independence + fine motor = IQ builder',
+      ],
+      avoid:'🚫 Screen time अभी भी max 0-5 min family video call only – solo screen = language delay risk'
+    },
+    emotional:{
+      title:'भावनात्मक विकास – 9-12 माह',
+      tips:[
+        '👋 Bye-bye, clapping सिखाएँ – social rituals = belonging की भावना',
+        '😤 "No" का मतलब सिखाना शुरू – limits समझना emotional regulation का हिस्सा है',
+        '🤝 दूसरे बच्चों से खिलवाएँ – parallel play शुरू, social skills की foundation',
+        '😊 प्यार से बात करें, तेज़ आवाज़ से डराएँ नहीं – fear से brain learn नहीं करता, love से करता है',
+        '🎉 1 साल आने वाला है – celebrate करें! बच्चे emotions feel करते हैं',
+      ]
+    }
   };
 
-  // 1 year+
   if(d < 548) return {
     phase:'🎉 1-1.5 साल – नन्हा बच्चा!',
     icon:'🎉', emoji:'🏃',
@@ -760,7 +949,33 @@ function getPhaseData(d){
     hygiene:'खाने से पहले हाथ धोना सिखाएँ, रोज़ ब्रश, बाल धोना',
     warning:'🚨 डेढ़ साल तक 5-6 शब्द नहीं | नाम पर respond नहीं | चलने में समस्या | Eye contact कम',
     routine:'⏰ 7:30am: उठना+ब्रश | 8am: नाश्ता | 11am: Snack | 12:30pm: खाना+झपकी | 4pm: बाहर खेल | 7pm: खाना | 9pm: नींद',
-    ageEmoji:'🏃'
+    ageEmoji:'🏃',
+    iq:{
+      title:'IQ Boost – 1 से डेढ़ साल',
+      science:'🔬 इस उम्र में "Symbolic Thinking" शुरू – बच्चा समझता है कि शब्द चीज़ों को represent करते हैं। यही intelligence की असली शुरुआत है! (Piaget Stage 2)',
+      tips:[
+        '🎭 Pretend Play शुरू करें: खाना खिलाना, फोन पर बात करना – symbolic thinking = highest IQ predictor',
+        '🔢 गिनती objects के साथ: "एक सेब, दो सेब" – abstract numbers को concrete से जोड़ना = math brain',
+        '🎨 Finger painting, chalk, crayons: creativity + fine motor + self-expression एक साथ',
+        '📚 रोज़ 20 मिनट reading: बच्चे को पन्ने पलटने दें, "यह क्या है?" पूछें',
+        '🏗️ Duplo/big blocks: build करें, गिराएँ, फिर बनाएँ – persistence + spatial IQ',
+        '🌳 Nature walk रोज़: पत्ते, कीड़े, पानी देखें – curiosity = lifelong learning driver',
+        '🎵 Rhymes + Actions (हाथी राजा, चंदा मामा): memory + language + motor एक साथ',
+        '🧩 Simple 2-3 piece puzzles: problem solving + patience + hand-eye coordination',
+      ],
+      avoid:'📱 Screen time maximum 1 घंटा/दिन (AAP guideline) – हमेशा साथ बैठकर देखें, अकेला नहीं'
+    },
+    emotional:{
+      title:'भावनात्मक विकास – 1 से डेढ़ साल',
+      tips:[
+        '😡 Temper Tantrum = normal brain development! Ignore mat करें, calm रहें, hug दें',
+        '🎯 Choices दें (छोटे): "लाल shirt पहनोगी या नीली?" – autonomy = self-esteem',
+        '🤗 दिन में कम से कम 8 hugs – "8 hugs a day keeps the stress away" – Dr. Virginia Satir',
+        '😢 Emotions validate करें: "हाँ, रोना आया, यह खिलौना चाहिए था" – empathy सिखाना',
+        '👨 Papa की involvement बढ़ाएँ – father-child bonding = better emotional resilience',
+        '🌙 Bedtime routine fix करें: story + song + hug = security + better sleep = better brain',
+      ]
+    }
   };
 
   return {
@@ -797,7 +1012,35 @@ function getPhaseData(d){
     hygiene:'खुद हाथ धोना, ब्रश करना, toilet training',
     warning:'🚨 2 साल पर वाक्य नहीं | अकेले खेलना पसंद | Eye contact नहीं | बहुत ज़्यादा Tantrums',
     routine:'⏰ 7am: उठना | 8am: नाश्ता | 10am: खेल/school | 1pm: खाना | 3pm: Snack | 6pm: बाहर | 8pm: खाना | 9:30pm: नींद',
-    ageEmoji:'🌈'
+    ageEmoji:'🌈',
+    iq:{
+      title:'IQ Boost – 2 साल',
+      science:'🔬 2 साल में brain adult size का 80% हो जाता है! "Critical period" – अभी सीखा हुआ lifetime के लिए deep-rooted होता है। Language explosion शुरू!',
+      tips:[
+        '❓ "Why?" "How?" "What if?" सवाल पूछें – critical thinking activate होती है',
+        '🎨 Art: Drawing, clay, collage – creativity = divergent thinking = higher IQ',
+        '📖 Storytelling: आप शुरू करें, बच्चे से जोड़ने दें – narrative intelligence',
+        '🔢 Counting रोज़: सीढ़ियाँ गिनें, fruits गिनें – mathematical reasoning',
+        '🎼 Music lessons start करें: piano/tabla/harmonium – बच्चे musician = highest IQ scores',
+        '🧩 Age-appropriate puzzles (4-6 pieces): spatial reasoning + patience',
+        '🌍 Outdoor "Science": पानी किधर जाता है? पत्ता क्यों गिरा? – natural curiosity = scientist brain',
+        '🏃 Daily 60 min physical activity: exercise = BDNF protein = brain cells बढ़ती हैं!',
+        '🤝 Playdates: social problem-solving = emotional + social IQ',
+        '📵 Screen time strictly 1 hour max, हमेशा साथ बैठकर',
+      ],
+      avoid:'⚠️ Pressure न डालें "जल्दी सीखो" – stress cortisol hippocampus (memory center) को shrink करता है!'
+    },
+    emotional:{
+      title:'भावनात्मक विकास – 2 साल',
+      tips:[
+        '😭 Emotions को words में सिखाएँ: "तुम्हें गुस्सा आया क्योंकि..." – emotional vocabulary = EQ',
+        '🤝 Sharing सिखाएँ: force नहीं करें, model करें – social skills naturally आती हैं',
+        '🌟 "Growth Mindset" दें: "तुमने try किया – यह important है" (not just "तुम smart हो")',
+        '📱 Parental phone use कम करें – बच्चा देख रहा है, learn कर रहा है',
+        '🌙 Bedtime story routine: सबसे ज़रूरी brain+emotional investment',
+        '🎉 Effort celebrate करें, not just results – resilience + grit develop होती है',
+      ]
+    }
   };
 }
 
@@ -855,13 +1098,30 @@ function update(){
   set('card-massage', '🌿', 'मालिश', 'आज की मालिश',
     `<div>${p.massage}</div>`);
 
-  set('card-brain', '🧠', 'मस्तिष्क विकास', 'दिमाग बढ़ाएँ',
+  // ── NEW: IQ Card ──
+  const iqTipsHTML = p.iq.tips.map(t =>
+    `<div class="iq-tip">${t}</div>`
+  ).join('');
+  set('card-iq', '🧠', 'IQ & Brain Development', p.iq.title,
+    `<div class="iq-science">🔬 <span>${p.iq.science.replace('🔬 ','')}</span></div>
+     <strong style="font-size:13px">💡 आज क्या करें:</strong>
+     <div style="margin-top:5px">${iqTipsHTML}</div>
+     <div class="iq-avoid">${p.iq.avoid}</div>`);
+
+  // ── NEW: Emotional Development Card ──
+  const emoTipsHTML = p.emotional.tips.map(t =>
+    `<div class="iq-tip">${t}</div>`
+  ).join('');
+  set('card-emotional', '💗', 'भावनात्मक विकास (EQ)', p.emotional.title,
+    `<div style="margin-top:4px">${emoTipsHTML}</div>`);
+
+  set('card-brain', '🎮', 'खेल-गतिविधियाँ', 'दिमाग बढ़ाएँ',
     `<div>${p.brain}</div>
      <hr class="cdivider">
      <strong>🎮 गतिविधियाँ:</strong>
      <div style="margin-top:4px">${p.activity}</div>`);
 
-  set('card-activity', '🎮', 'खेल-कूद', 'आज क्या खेलें?',
+  set('card-activity', '🎯', 'आज क्या खेलें?', 'Activities',
     `<div>${p.activity}</div>`);
 
   set('card-hygiene', '🧼', 'सफाई', 'स्वच्छता',
