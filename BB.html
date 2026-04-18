@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>राधिका भास्कर – Complete Baby & Mother Care</title>
+<title>राधिका भास्कर – Smart Care Dashboard</title>
 
 <style>
 
@@ -12,6 +12,11 @@ body{
 font-family:'Noto Sans Devanagari',sans-serif;
 background:linear-gradient(180deg,#fff,#eef6ff);
 margin:0;padding:0;color:#333;
+animation:fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn{
+from{opacity:0} to{opacity:1}
 }
 
 .container{max-width:720px;margin:auto;padding:15px;}
@@ -19,23 +24,51 @@ margin:0;padding:0;color:#333;
 .hero{
 background:linear-gradient(135deg,#ffd6e7,#d6e6ff);
 padding:20px;border-radius:20px;text-align:center;
+animation:slideDown 0.8s ease;
+}
+
+@keyframes slideDown{
+from{transform:translateY(-30px);opacity:0}
+to{transform:translateY(0);opacity:1}
 }
 
 .card{
 background:#fff;border-radius:14px;
 padding:16px;margin-top:16px;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+animation:fadeUp 0.8s ease;
 }
 
-.progress{height:18px;background:#eee;border-radius:10px;overflow:hidden;}
-.bar{height:100%;background:linear-gradient(90deg,#ff6ec4,#7873f5);color:#fff;text-align:center;font-size:12px;}
+@keyframes fadeUp{
+from{transform:translateY(20px);opacity:0}
+to{transform:translateY(0);opacity:1}
+}
 
-textarea{
-width:100%;height:80px;border-radius:10px;padding:10px;
-border:1px solid #ccc;
+.progress{
+height:18px;background:#eee;border-radius:10px;
+overflow:hidden;margin-top:10px;
+}
+
+.bar{
+height:100%;
+background:linear-gradient(90deg,#ff6ec4,#7873f5);
+color:#fff;text-align:center;font-size:12px;
+width:0%;
+transition:width 1.5s ease;
 }
 
 h3{color:#7b1b5a;margin-bottom:6px;}
+
+.icon{
+font-size:28px;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
 
 </style>
 </head>
@@ -60,11 +93,6 @@ h3{color:#7b1b5a;margin-bottom:6px;}
 <div class="card" id="warning"></div>
 <div class="card" id="routine"></div>
 
-<div class="card">
-<h3>📝 नोट्स (आप लिख सकते हैं)</h3>
-<textarea placeholder="यहाँ अपनी नोट्स लिखें..."></textarea>
-</div>
-
 </div>
 
 <script>
@@ -87,28 +115,28 @@ let progress = Math.min(100,Math.floor((totalDays/730)*100));
 let babyText="",babyFood="";
 
 if(totalDays<30){
-babyText="👶 नवजात – सोना, दूध पीना और रोना";
-babyFood="🍼 हर 2-3 घंटे स्तनपान";
+babyText="नवजात – सोना, दूध पीना, रोना";
+babyFood="हर 2-3 घंटे स्तनपान";
 }
 else if(totalDays<180){
-babyText="😊 मुस्कुराना, गर्दन पकड़ना";
-babyFood="🍼 केवल माँ का दूध";
+babyText="मुस्कुराना, गर्दन पकड़ना";
+babyFood="केवल माँ का दूध";
 }
 else if(totalDays<365){
-babyText="🚼 बैठना, रेंगना, खड़ा होना";
-babyFood="🍌 केला, खिचड़ी, दाल, सूजी";
+babyText="बैठना, रेंगना";
+babyFood="खिचड़ी, केला, दाल";
 }
 else{
-babyText="🚶 चलना, बोलना शुरू";
-babyFood="🍛 घर का खाना (कम मसाले)";
+babyText="चलना, बोलना शुरू";
+babyFood="घर का खाना";
 }
 
 // 🤱 Mother
-let motherFood="दूध, दाल, फल, सब्जी, मेवे";
-let motherCare="आराम, पानी ज्यादा, तनाव कम";
+let motherFood="दूध, दाल, फल, मेवे";
+let motherCare="आराम, पानी, तनाव कम";
 
 // 💉 Vaccine
-let vaccine="BCG, OPV, Hep B (जन्म)";
+let vaccine="जन्म: BCG, OPV, Hep B";
 if(totalDays>42) vaccine="6,10,14 सप्ताह टीके";
 if(totalDays>180) vaccine="6 माह Flu";
 if(totalDays>270) vaccine="9 माह Measles";
@@ -119,59 +147,64 @@ if(totalDays>90) sleep="14-16 घंटे";
 if(totalDays>180) sleep="12-14 घंटे";
 
 // 🧠 Brain
-let brain="बच्चे से बात करें, गाने सुनाएं, eye contact करें";
+let brain="बात करें, गाने सुनाएं, eye contact";
 
 // 🧼 Hygiene
-let hygiene="हाथ साफ रखें, कपड़े साफ, नहलाना जरूरी";
+let hygiene="हाथ साफ, कपड़े साफ, नहलाना";
 
 // ⚠️ Warning
-let warning="बुखार, दूध न पीना, सुस्ती → डॉक्टर दिखाएँ";
+let warning="बुखार, दूध न पीना → डॉक्टर";
 
 // 🔔 Routine
-let routine="दूध, नींद, सफाई, प्यार";
+let routine="दूध + नींद + प्यार";
 
 document.getElementById("age").innerHTML=`
-<h3>🍼 उम्र</h3>
+<h3 class="icon">🍼 उम्र</h3>
 <p><b>${years} साल ${months} महीने ${days} दिन</b></p>
 <p>📅 कुल दिन: ${totalDays}</p>
-<div class="progress"><div class="bar" style="width:${progress}%">${progress}%</div></div>
+<div class="progress"><div class="bar" id="progressBar">${progress}%</div></div>
 `;
 
 document.getElementById("baby").innerHTML=`
-<h3>👶 बेबी</h3>
+<h3 class="icon">👶 बेबी</h3>
 <p>${babyText}</p>
-<p>${babyFood}</p>
+<p>🍎 ${babyFood}</p>
 `;
 
 document.getElementById("mother").innerHTML=`
-<h3>🤱 माँ</h3>
+<h3 class="icon">🤱 माँ</h3>
 <p>🍲 ${motherFood}</p>
 <p>💡 ${motherCare}</p>
 `;
 
 document.getElementById("vaccine").innerHTML=`
-<h3>💉 टीकाकरण</h3><p>${vaccine}</p>
+<h3 class="icon">💉 टीकाकरण</h3><p>${vaccine}</p>
 `;
 
 document.getElementById("sleep").innerHTML=`
-<h3>💤 नींद</h3><p>${sleep}</p>
+<h3 class="icon">💤 नींद</h3><p>${sleep}</p>
 `;
 
 document.getElementById("brain").innerHTML=`
-<h3>🧠 दिमाग विकास</h3><p>${brain}</p>
+<h3 class="icon">🧠 विकास</h3><p>${brain}</p>
 `;
 
 document.getElementById("hygiene").innerHTML=`
-<h3>🧼 सफाई</h3><p>${hygiene}</p>
+<h3 class="icon">🧼 सफाई</h3><p>${hygiene}</p>
 `;
 
 document.getElementById("warning").innerHTML=`
-<h3>⚠️ सावधानी</h3><p>${warning}</p>
+<h3 class="icon">⚠️ सावधानी</h3><p>${warning}</p>
 `;
 
 document.getElementById("routine").innerHTML=`
-<h3>🔔 दिनचर्या</h3><p>${routine}</p>
+<h3 class="icon">🔔 दिनचर्या</h3><p>${routine}</p>
 `;
+
+// 🔥 Animate progress bar
+setTimeout(()=>{
+document.getElementById("progressBar").style.width = progress + "%";
+},200);
 
 }
 
